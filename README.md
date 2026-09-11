@@ -1,5 +1,7 @@
 # 阅见 · Django 本地版
 
+仓库地址：https://github.com/Cindyguokunkun/reading-garden-django
+
 标准 Django Templates 项目。Django 同时负责页面、登录、业务逻辑和 SQLite 数据库；页面交互不依赖 React。
 
 ## 初次安装

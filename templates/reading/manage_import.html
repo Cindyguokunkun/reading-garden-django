@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow"><h1>{% trans "Excel 批量导入学生" %}</h1><p>{% trans "仅管理者可用。按模板列顺序填写，导入为“全有或全无”：任何一行有错，整次导入都不会生效，并按行号提示错误。" %}</p>
+<p><a class="button" href="?template=1">{% trans "下载导入模板" %}</a></p>
+<table><tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr></table>
+<ul><li>{% trans "年级：1-12 的数字" %}</li><li>{% trans "教师用户名：必须已存在且为老师账号；班级不存在时自动创建" %}</li><li>{% trans "邮箱：全局唯一，提供邮箱必须同时提供初始密码（家长用学生邮箱+密码登录）" %}</li><li>{% trans "同班同名的学生会被更新而不是重复创建" %}</li></ul>
+{% if imported %}<div class="notice">{% blocktrans with n=imported %}成功导入 {{ n }} 名学生。{% endblocktrans %}</div>{% endif %}
+{% if errors %}<div class="notice error"><b>{% trans "导入失败，未写入任何数据：" %}</b><ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>{% endif %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}<label>{% trans "选择 .xlsx 文件" %}<input type="file" name="file" accept=".xlsx" required></label><button>{% trans "开始导入" %}</button></form></section>{% endblock %}

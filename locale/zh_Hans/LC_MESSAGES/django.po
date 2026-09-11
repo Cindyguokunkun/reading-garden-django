@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_Hans\n"
+
+msgid "Teacher"
+msgstr "老师"
+
+msgid "Manager"
+msgstr "管理者"
+
+msgid "Grade %(g)s"
+msgstr "%(g)s 年级"
+
+msgid "Graded readers"
+msgstr "分级读物"
+
+msgid "Bridge books"
+msgstr "桥梁书"
+
+msgid "Early chapter books"
+msgstr "初章书"
+
+msgid "Middle chapter books"
+msgstr "中章书"
+
+msgid "Upper chapter books"
+msgstr "高章书"
+
+msgid "Saved"
+msgstr "已保存"
+
+msgid "Reading records"
+msgstr "阅读记录"
+
+msgid "Student"
+msgstr "学生"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Series"
+msgstr "系列"
+
+msgid "Title"
+msgstr "书名"
+
+msgid "Words"
+msgstr "单词数"
+
+msgid "Minutes"
+msgstr "时长（分钟）"
+
+msgid "Quiz score"
+msgstr "测评分数"
+
+msgid "Standalone"
+msgstr "单本"
+
+msgid "Book added"
+msgstr "已添加书籍"
+
+msgid "Book updated"
+msgstr "已更新书籍"
+
+msgid "This book has already been passed."
+msgstr "这本书已经过关了。"
+
+msgid "All 3 quiz attempts for this book have been used."
+msgstr "这本书的 3 次答题机会已用完。"
+
+msgid "Email or password is incorrect"
+msgstr "邮箱或密码不正确"

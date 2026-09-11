@@ -1,0 +1,478 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "阅见 · 英文阅读成长"
+msgstr "Reading Garden · English reading growth"
+
+msgid "阅见"
+msgstr "Reading Garden"
+
+msgid "工作台"
+msgstr "Dashboard"
+
+msgid "首页"
+msgstr "Home"
+
+msgid "排行榜"
+msgstr "Rankings"
+
+msgid "图书馆"
+msgstr "Library"
+
+msgid "数据导入"
+msgstr "Data import"
+
+msgid "退出"
+msgstr "Log out"
+
+msgid "每一个故事，都是一步成长"
+msgstr "Every story is a step of growth"
+
+msgid "欢迎来到阅见"
+msgstr "Welcome to Reading Garden"
+
+msgid "请选择你的身份"
+msgstr "Choose who you are"
+
+msgid "我是学生"
+msgstr "I am a student"
+
+msgid "选择班级和名字，开始阅读闯关"
+msgstr "Pick your class and name to start reading"
+
+msgid "我是家长"
+msgstr "I am a parent"
+
+msgid "使用孩子的邮箱和密码登录"
+msgstr "Sign in with your child's email and password"
+
+msgid "老师 / 管理者"
+msgstr "Teacher / Manager"
+
+msgid "使用账号密码登录"
+msgstr "Sign in with username and password"
+
+msgid "老师 / 管理者登录"
+msgstr "Teacher / Manager login"
+
+msgid "登录后管理班级与全校阅读数据。"
+msgstr "Manage class and school-wide reading data after signing in."
+
+msgid "登录"
+msgstr "Log in"
+
+msgid "返回身份选择"
+msgstr "Back to role selection"
+
+msgid "选择你的班级"
+msgstr "Choose your class"
+
+msgid "%(g)s 年级"
+msgstr "Grade %(g)s"
+
+msgid "还没有班级。"
+msgstr "No classes yet."
+
+msgid "你叫什么名字？点一下自己的名字开始阅读。"
+msgstr "What is your name? Tap your name to start reading."
+
+msgid "这个班还没有学生。"
+msgstr "This class has no students yet."
+
+msgid "换个班级"
+msgstr "Choose another class"
+
+msgid "家长登录"
+msgstr "Parent login"
+
+msgid "使用孩子的邮箱和密码登录，查看孩子的阅读情况。"
+msgstr "Sign in with your child's email and password to view their reading."
+
+msgid "孩子邮箱"
+msgstr "Child's email"
+
+msgid "密码"
+msgstr "Password"
+
+msgid "欢迎回来"
+msgstr "Welcome back"
+
+msgid "开始阅读测验"
+msgstr "Start Reading Quiz"
+
+msgid "退出 / 切换学生"
+msgstr "Log out / switch student"
+
+msgid "累计阅读词数"
+msgstr "Total words read"
+
+msgid "读完全书"
+msgstr "Books finished"
+
+msgid "阅读分钟"
+msgstr "Minutes read"
+
+msgid "班级阅读目标"
+msgstr "Class reading goal"
+
+msgid "全班目标 %(words)s 词 · 已读 %(done)s 词（%(pct)s%%）"
+msgstr "Class goal %(words)s words · %(done)s read (%(pct)s%%)"
+
+msgid "目标 %(words)s 词 · 已完成 %(done)s 词（%(pct)s%%）"
+msgstr "Goal %(words)s words · %(done)s completed (%(pct)s%%)"
+
+msgid "截止 %(d)s"
+msgstr "due %(d)s"
+
+msgid "我的阅读记录"
+msgstr "My reading records"
+
+msgid "日期"
+msgstr "Date"
+
+msgid "书名"
+msgstr "Title"
+
+msgid "词数"
+msgstr "Words"
+
+msgid "时长"
+msgstr "Minutes"
+
+msgid "测验得分"
+msgstr "Quiz score"
+
+msgid "还没有阅读记录，快去读第一本书吧！"
+msgstr "No reading records yet — go read your first book!"
+
+msgid "家长视图"
+msgstr "Parent view"
+
+msgid "%(n)s 的阅读成长"
+msgstr "%(n)s's reading growth"
+
+msgid "阅读记录"
+msgstr "Reading records"
+
+msgid "孩子还没有阅读记录。"
+msgstr "Your child has no reading records yet."
+
+msgid "至"
+msgstr "to"
+
+msgid "阅读排行榜"
+msgstr "Reading Rankings"
+
+msgid "班级榜"
+msgstr "Class"
+
+msgid "年级榜"
+msgstr "Grade"
+
+msgid "全校榜"
+msgstr "School"
+
+msgid "周榜"
+msgstr "Weekly"
+
+msgid "月榜"
+msgstr "Monthly"
+
+msgid "学期榜"
+msgstr "Term"
+
+msgid "累计总榜"
+msgstr "All time"
+
+msgid "查看"
+msgstr "View"
+
+msgid "阅读词数榜"
+msgstr "By words"
+
+msgid "名次"
+msgstr "Rank"
+
+msgid "学生"
+msgstr "Student"
+
+msgid "班级"
+msgstr "Class"
+
+msgid "阅读时长榜"
+msgstr "By minutes"
+
+msgid "分钟"
+msgstr "Minutes"
+
+msgid "读完本数榜"
+msgstr "By books"
+
+msgid "本数"
+msgstr "Books"
+
+msgid "本周期暂无数据"
+msgstr "No data for this period"
+
+msgid "按难度分类 · 标注兰斯值"
+msgstr "Sorted by difficulty · Lexile labeled"
+
+msgid "共 %(n)s 本书"
+msgstr "%(n)s books"
+
+msgid "+ 添加书"
+msgstr "+ Add book"
+
+msgid "搜索书名…"
+msgstr "Search titles…"
+
+msgid "搜索"
+msgstr "Search"
+
+msgid "全部"
+msgstr "All"
+
+msgid "系列"
+msgstr "Series"
+
+msgid "分类"
+msgstr "Category"
+
+msgid "兰斯值"
+msgstr "Lexile"
+
+msgid "测验"
+msgstr "Quiz"
+
+msgid "编辑"
+msgstr "Edit"
+
+msgid "没有匹配的书"
+msgstr "No matching books"
+
+msgid "最多显示 500 本，请用搜索或分类缩小范围。"
+msgstr "Up to 500 books are shown; use search or categories to narrow down."
+
+msgid "编辑书籍"
+msgstr "Edit book"
+
+msgid "添加书籍"
+msgstr "Add book"
+
+msgid "书名 *"
+msgstr "Title *"
+
+msgid "留空视为单本"
+msgstr "Leave blank for a standalone book"
+
+msgid "难度分类"
+msgstr "Difficulty category"
+
+msgid "未分类"
+msgstr "Uncategorized"
+
+msgid "如 550L / BR200L"
+msgstr "e.g. 550L / BR200L"
+
+msgid "级别说明"
+msgstr "Level note"
+
+msgid "保存"
+msgstr "Save"
+
+msgid "返回图书馆"
+msgstr "Back to library"
+
+msgid "Excel 批量导入学生"
+msgstr "Bulk import students from Excel"
+
+msgid "仅管理者可用。按模板列顺序填写，导入为“全有或全无”：任何一行有错，整次导入都不会生效，并按行号提示错误。"
+msgstr "Managers only. Fill in the template column order. Import is all-or-nothing: if any row has an error, nothing is imported and errors are listed by row number."
+
+msgid "下载导入模板"
+msgstr "Download template"
+
+msgid "年级：1-12 的数字"
+msgstr "Grade: a number from 1 to 12"
+
+msgid "教师用户名：必须已存在且为老师账号；班级不存在时自动创建"
+msgstr "Teacher username: must exist with the teacher role; the class is created if missing"
+
+msgid "邮箱：全局唯一，提供邮箱必须同时提供初始密码（家长用学生邮箱+密码登录）"
+msgstr "Email: globally unique; an initial password is required with it (parents log in with the student's email and password)"
+
+msgid "同班同名的学生会被更新而不是重复创建"
+msgstr "Students with the same class and name are updated instead of duplicated"
+
+msgid "成功导入 %(n)s 名学生。"
+msgstr "Imported %(n)s students successfully."
+
+msgid "导入失败，未写入任何数据："
+msgstr "Import failed; no data was written:"
+
+msgid "选择 .xlsx 文件"
+msgstr "Choose an .xlsx file"
+
+msgid "开始导入"
+msgstr "Start import"
+
+msgid "先读完书，再答题。60%% 过关，每本书最多 3 次答题机会，过关即累计词数。"
+msgstr "Read the book first, then take the quiz. Pass at 60%; up to 3 attempts per book; words count once you pass."
+
+msgid "请先创建班级和学生。"
+msgstr "Please create a class and students first."
+
+msgid "第 %(n)s/%(max)s 次答题机会"
+msgstr "attempt %(n)s of %(max)s"
+
+msgid "阅读词数已累计。"
+msgstr "The words have been added."
+
+msgid "还有 %(n)s 次重考机会。"
+msgstr "%(n)s retakes left."
+
+msgid "3 次机会已用完，这本书不能再测了，请告诉老师。"
+msgstr "All 3 attempts are used up for this book. Please tell your teacher."
+
+msgid "建立第一个班级"
+msgstr "Create your first class"
+
+msgid "阅读概览"
+msgstr "Overview"
+
+msgid "学生与目标"
+msgstr "Students & goal"
+
+msgid "新班级名称"
+msgstr "New class name"
+
+msgid "新建班级"
+msgstr "Create class"
+
+msgid "完成阅读"
+msgstr "Readings completed"
+
+msgid "班级学生"
+msgstr "Students in class"
+
+msgid "学生姓名"
+msgstr "Student name"
+
+msgid "添加学生"
+msgstr "Add student"
+
+msgid "还没有学生。"
+msgstr "No students yet."
+
+msgid "还没有设置目标。"
+msgstr "No goal set yet."
+
+msgid "目标词数"
+msgstr "Goal in words"
+
+msgid "保存目标"
+msgstr "Save goal"
+
+msgid "登记阅读过关"
+msgstr "Record a passed reading"
+
+msgid "词"
+msgstr "words"
+
+msgid "阅读时长（可空）"
+msgstr "Minutes (optional)"
+
+msgid "保存记录"
+msgstr "Save record"
+
+msgid "导出 Excel"
+msgstr "Export Excel"
+
+msgid "暂无记录"
+msgstr "No records yet"
+
+msgid "班级排行榜"
+msgstr "Class rankings"
+
+msgid "查看年级 / 全校排行榜"
+msgstr "See grade / school rankings"
+
+msgid "全校图书馆已上线：按难度分类浏览、搜索书名、标注兰斯值，并可添加新书。"
+msgstr "The school-wide library is here: browse by difficulty, search titles, see Lexile levels, and add new books."
+
+msgid "进入图书馆"
+msgstr "Open library"
+
+msgid "请选择要导入的 Excel 文件"
+msgstr "Please choose an Excel file to import"
+
+msgid "无法读取 Excel 文件，请使用模板格式（.xlsx）"
+msgstr "Could not read the Excel file; please use the template format (.xlsx)"
+
+msgid "年级必须在 1-12 之间"
+msgstr "Grade must be between 1 and 12"
+
+msgid "年级必须是数字（1-12）"
+msgstr "Grade must be a number (1-12)"
+
+msgid "缺少班级名称"
+msgstr "Missing class name"
+
+msgid "教师用户名 %s 不存在"
+msgstr "Teacher username %s does not exist"
+
+msgid "(空)"
+msgstr "(empty)"
+
+msgid "%s 不是老师账号"
+msgstr "%s is not a teacher account"
+
+msgid "缺少学生姓名"
+msgstr "Missing student name"
+
+msgid "邮箱格式不正确"
+msgstr "Invalid email format"
+
+msgid "提供了邮箱就必须提供初始密码"
+msgstr "An initial password is required when an email is given"
+
+msgid "邮箱 %s 已被占用"
+msgstr "Email %s is already taken"
+
+msgid "第 %s 行："
+msgstr "Row %s: "
+
+msgid "阅读日期"
+msgstr "Reading date"
+
+msgid "开始答题"
+msgstr "Begin quiz"
+
+msgid "过关分数 60%%"
+msgstr "Pass score: 60%"
+
+msgid "提交答卷"
+msgstr "Submit quiz"
+
+msgid "通过"
+msgstr "PASSED"
+
+msgid "再试一次"
+msgstr "TRY AGAIN"
+
+msgid "答对 %(c)s / %(t)s 题"
+msgstr "%(c)s of %(t)s correct"
+
+msgid "请再读一遍这本书，然后重新答题。"
+msgstr "Read the book again before a new quiz."
+
+msgid "返回"
+msgstr "Back"
+
+msgid "无法访问"
+msgstr "Not allowed"
+
+msgid "当前身份没有打开这个页面的权限。"
+msgstr "Your current role can't open this page."

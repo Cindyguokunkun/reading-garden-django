@@ -1,3 +1,22 @@
 from django.contrib import admin
-from .models import Book, Classroom, Goal, QuizAttempt, ReadingRecord, Student
-admin.site.register([Book, Classroom, Student, ReadingRecord, Goal, QuizAttempt])
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+from .models import Book, ClassGoal, Classroom, Profile, QuizAttempt, ReadingRecord, Student
+
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+
+class ProfileUserAdmin(UserAdmin):
+    inlines = [ProfileInline]
+
+admin.site.unregister(User)
+admin.site.register(User, ProfileUserAdmin)
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ['title','series','category','lexile','words']
+    list_filter = ['category','series']
+    search_fields = ['title','series']
+
+admin.site.register([Classroom, Student, ReadingRecord, ClassGoal, QuizAttempt])

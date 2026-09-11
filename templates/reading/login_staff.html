@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="login card narrow"><h1>{% trans "老师 / 管理者登录" %}</h1><p>{% trans "登录后管理班级与全校阅读数据。" %}</p><form method="post">{% csrf_token %}{{ form.as_p }}<button>{% trans "登录" %}</button></form><p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>{% endblock %}

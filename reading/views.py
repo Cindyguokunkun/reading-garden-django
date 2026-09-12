@@ -75,7 +75,10 @@ def quiz_take(request,attempt_id):
         if attempt.passed and not ReadingRecord.objects.filter(student=attempt.student,book=attempt.book,passed=True).exists():
             meta=request.session.get(f'quiz_meta_{attempt.pk}',{}); minutes=meta.get('minutes')
             ReadingRecord.objects.create(student=attempt.student,book=attempt.book,read_date=meta.get('date') or date.today(),words=attempt.book.words or 0,minutes=int(minutes) if minutes else None,quiz_score=score,passed=True)
-        return render(request,'reading/quiz_result.html',{'attempt':attempt,'correct':correct,'total':len(questions)})
+        review=[]
+        for index,(answer,question) in enumerate(zip(answers,questions),start=1):
+            review.append({'number':index,'prompt':question['prompt'],'selected':question['options'][answer] if 0 <= answer < len(question['options']) else 'No answer','correct':question['options'][question['answer']],'is_correct':answer==question['answer']})
+        return render(request,'reading/quiz_result.html',{'attempt':attempt,'correct':correct,'total':len(questions),'review':review})
     return render(request,'reading/quiz_take.html',{'attempt':attempt,'questions':questions})
 
 @login_required

@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+from .envfile import load_env
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'local-reading-garden-change-me'
 DEBUG = True
@@ -23,3 +25,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
+load_env(BASE_DIR/'.env')
+ARF_PROXY = os.environ.get('ARF_PROXY', 'http://127.0.0.1:7897')
+ARF_TIMEOUT = int(os.environ.get('ARF_TIMEOUT', '15'))
+ARF_THROTTLE = float(os.environ.get('ARF_THROTTLE', '1.0'))
+QUIZGEN_BASE_URL = os.environ.get('QUIZGEN_BASE_URL', '')
+QUIZGEN_API_KEY = os.environ.get('QUIZGEN_API_KEY', '')
+QUIZGEN_MODEL = os.environ.get('QUIZGEN_MODEL', '')
+QUIZGEN_PROXY = os.environ.get('QUIZGEN_PROXY', '')
+QUIZGEN_TIMEOUT = int(os.environ.get('QUIZGEN_TIMEOUT', '120'))
+QUIZGEN_QUESTIONS = int(os.environ.get('QUIZGEN_QUESTIONS', '10'))
+QUIZGEN_MIN_QUESTIONS = int(os.environ.get('QUIZGEN_MIN_QUESTIONS', '5'))
+QUIZGEN_MATERIAL_CHARS = int(os.environ.get('QUIZGEN_MATERIAL_CHARS', '8000'))
+QUIZGEN_JSON_MODE = os.environ.get('QUIZGEN_JSON_MODE', '1') == '1'
+QUIZGEN_ENABLED = bool(QUIZGEN_BASE_URL and QUIZGEN_API_KEY and QUIZGEN_MODEL)
+ATOS_BANDS = [(1.5, 'graded'), (2.5, 'bridge'), (3.5, 'early_chapter'), (5.0, 'middle_chapter')]

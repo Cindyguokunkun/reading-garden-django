@@ -55,6 +55,8 @@ class Book(models.Model):
     kind = models.CharField(max_length=20, default='book')
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, blank=True, db_index=True)
     lexile = models.CharField(max_length=12, blank=True)
+    atos = models.DecimalField(max_digits=4, decimal_places=1, null=True, blank=True)
+    synopsis = models.TextField(blank=True)
     words = models.PositiveIntegerField(null=True, blank=True)
     source = models.URLField(max_length=500, blank=True)
     quiz_data = models.JSONField(default=list, blank=True)

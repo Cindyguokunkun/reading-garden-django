@@ -476,3 +476,72 @@ msgstr "Not allowed"
 
 msgid "当前身份没有打开这个页面的权限。"
 msgstr "Your current role can't open this page."
+
+msgid "难度"
+msgstr "Level"
+
+msgid "内容简介"
+msgstr "Synopsis"
+
+msgid "由 AR BookFinder 自动填写，也可手改"
+msgstr "Filled in from AR BookFinder; you can also type it yourself"
+
+msgid "自动查询 AR BookFinder"
+msgstr "Look up on AR BookFinder"
+
+msgid "AI 生成测验题（约 40-80 秒，请勿离开或重复点击）"
+msgstr "Generate questions with AI (about 40-80 seconds; please do not leave or click twice)"
+
+msgid "在 .env 配置出题服务后，可用 AI 生成测验题"
+msgstr "AI question generation becomes available once the service is configured in .env"
+
+msgid "编辑现有测验题"
+msgstr "Edit the existing questions"
+
+msgid "查询结果（选中后自动填入 ATOS、词数与简介）："
+msgstr "Results (choosing one fills in ATOS, word count and synopsis):"
+
+msgid "作者"
+msgstr "Author"
+
+msgid "AR 分"
+msgstr "AR points"
+
+msgid "选定并填入"
+msgstr "Choose and fill in"
+
+msgid "词数不一致，请选择保留哪一个："
+msgstr "The word counts differ. Choose which one to keep:"
+
+msgid "保留现有 %(n)s"
+msgstr "Keep the current %(n)s"
+
+msgid "使用 AR BookFinder 的 %(n)s"
+msgstr "Use the AR BookFinder count %(n)s"
+
+msgid "出题素材"
+msgstr "Source material"
+
+msgid "留空则使用上面的内容简介；素材越完整，题目越准确。正文不会保存到数据库。"
+msgstr "Leave this empty to use the synopsis above. The fuller the material, the better the questions. The text itself is never stored."
+
+msgid "粘贴英文正文或简介"
+msgstr "Paste the English text or the synopsis"
+
+msgid "或上传 .txt 文件"
+msgstr "Or upload a .txt file"
+
+msgid "测验题"
+msgstr "Quiz questions"
+
+msgid "保存前请逐题检查；勾选“删除此题”可在保存时移除该题。"
+msgstr "Check every question before saving. Tick the delete box to drop a question when you save."
+
+msgid "第 %(n)s 题"
+msgstr "Question %(n)s"
+
+msgid "删除此题"
+msgstr "Delete this question"
+
+msgid "测验题没有保存，请修正后重试："
+msgstr "The questions were not saved. Please fix them and try again:"

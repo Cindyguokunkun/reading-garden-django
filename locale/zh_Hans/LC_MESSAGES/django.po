@@ -71,3 +71,99 @@ msgstr "这本书的 3 次答题机会已用完。"
 
 msgid "Email or password is incorrect"
 msgstr "邮箱或密码不正确"
+
+msgid "Type the book title first, then look it up."
+msgstr "请先填写书名，再进行查询。"
+
+msgid "Found %(count)s matches. Choose the right one to fill in the difficulty."
+msgstr "找到 %(count)s 条结果，选择正确的一本即可自动填入难度。"
+
+msgid "AR BookFinder has no match for that title. Fill in the fields by hand, or search the English title."
+msgstr "AR BookFinder 没有匹配到这个书名。请手工填写，或用英文书名再查一次。"
+
+msgid "AR BookFinder did not return usable data. You can still fill in every field by hand."
+msgstr "AR BookFinder 没有返回可用数据。你仍然可以手工填写每一项。"
+
+msgid "The AR BookFinder details are filled in. Check them, then save."
+msgstr "已填入 AR BookFinder 的信息，请检查后保存。"
+
+msgid "AR BookFinder reports a different word count. Choose the one to keep."
+msgstr "AR BookFinder 给出的词数与现有值不同，请选择保留哪一个。"
+
+msgid "That tool is not available."
+msgstr "没有这个操作。"
+
+msgid "Save the book first, then edit its questions."
+msgstr "请先保存这本书，再编辑它的测验题。"
+
+msgid "The request did not reach the service. Check the network, or the proxy in .env."
+msgstr "请求没有送达服务，请检查网络或 .env 中的代理设置。"
+
+msgid "AI question generation is not set up yet. Add the keys to .env to use it."
+msgstr "AI 出题功能还没有配置。请在 .env 中填入服务地址、密钥与模型名。"
+
+msgid "Paste the book text or its synopsis first: AI questions need source material."
+msgstr "请先粘贴书籍正文或内容简介：AI 出题需要素材。"
+
+msgid "Upload a plain .txt file, or paste the text into the box."
+msgstr "请上传纯文本 .txt 文件，或把文字粘贴到文本框里。"
+
+msgid "That file is larger than 2 MB. Please upload a shorter text."
+msgstr "文件超过 2 MB，请上传更短的文本。"
+
+msgid "Questions are still being generated in another tab. Wait for that one to finish."
+msgstr "另一个页面正在生成题目，请等它完成后再试。"
+
+msgid "Here are %(count)s draft questions. Edit them, then save."
+msgstr "已生成 %(count)s 道题目草稿，请逐题检查修改后保存。"
+
+msgid "Generating the questions took too long. Try again, or ask for fewer questions in .env."
+msgstr "出题超时了。请重试，或在 .env 中减少题目数量。"
+
+msgid "The AI service refused the API key in .env."
+msgstr "AI 服务拒绝了 .env 中的密钥。"
+
+msgid "The AI service is busy and rate limited this request. Try again later."
+msgstr "AI 服务繁忙并限制了本次请求，请稍后再试。"
+
+msgid "The AI service URL in .env does not exist. Check QUIZGEN_BASE_URL."
+msgstr ".env 中的 AI 服务地址不存在，请检查 QUIZGEN_BASE_URL。"
+
+msgid "The AI service could not answer this request."
+msgstr "AI 服务没能完成这次请求。"
+
+msgid "The AI service sent back an unreadable reply."
+msgstr "AI 服务返回的内容无法解析。"
+
+msgid "The AI service sent back no questions."
+msgstr "AI 服务没有返回题目。"
+
+msgid "The AI reply was not a list of questions."
+msgstr "AI 返回的内容不是题目列表。"
+
+msgid "Only %(count)s usable questions came back, at least %(minimum)s are needed."
+msgstr "只得到 %(count)s 道可用题目，至少需要 %(minimum)s 道。"
+
+msgid "Question %(number)s: not a question object."
+msgstr "第 %(number)s 题：格式不正确。"
+
+msgid "Question %(number)s: the question text is empty."
+msgstr "第 %(number)s 题：题干不能为空。"
+
+msgid "Question %(number)s: the question text is too long."
+msgstr "第 %(number)s 题：题干太长。"
+
+msgid "Question %(number)s: needs between 2 and 6 options."
+msgstr "第 %(number)s 题：需要 2 到 6 个选项。"
+
+msgid "Question %(number)s: every option must be short text."
+msgstr "第 %(number)s 题：每个选项都必须是简短的文字。"
+
+msgid "Question %(number)s: two options are the same."
+msgstr "第 %(number)s 题：有两个选项重复了。"
+
+msgid "Question %(number)s: the correct answer is not one of the options."
+msgstr "第 %(number)s 题：正确答案必须是其中一个选项。"
+
+msgid "Reloading this page discards unsaved changes, including any generated questions. Open the book form again."
+msgstr "重新加载这个页面会丢掉未保存的修改（包括刚生成的题目），请重新打开书籍表单。"

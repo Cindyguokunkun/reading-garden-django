@@ -15,7 +15,7 @@ admin.site.register(User, ProfileUserAdmin)
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['title','series','category','lexile','words']
+    list_display = ['title','series','category','lexile','atos','words']
     list_filter = ['category','series']
     search_fields = ['title','series']
 

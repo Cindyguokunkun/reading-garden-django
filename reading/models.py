@@ -91,3 +91,11 @@ class QuizAttempt(models.Model):
     started_at = models.DateTimeField()
     completed_at = models.DateTimeField(auto_now_add=True)
     class Meta: ordering = ['-completed_at']
+
+class ShelfItem(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='shelf')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        unique_together = [('student', 'book')]
+        ordering = ['-created_at']

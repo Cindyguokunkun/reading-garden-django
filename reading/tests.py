@@ -37,7 +37,7 @@ from io import BytesIO
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.utils import timezone
 from openpyxl import Workbook
-from .models import ClassGoal, Profile, QuizAttempt
+from .models import ClassGoal, Profile, QuizAttempt, ShelfItem
 
 def make_book(source_id, words=100, quiz=True, **kwargs):
     defaults = dict(title='Test Book', series='Tests')
@@ -1245,3 +1245,68 @@ class QuizReviewTests(TestCase):
         attempt = QuizAttempt.objects.create(student=self.amy, book=self.book, score=0, passed=False,
             submitted=False, answers=[], questions=[], started_at=timezone.now())
         self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 404)
+
+class ShelfTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('shelf', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.amy = Student.objects.create(classroom=self.room, name='Amy', email='amy@example.com')
+        self.amy.set_password('amypw'); self.amy.save()
+        self.book = make_book('shelf-book', title='Shelf Book')
+        self.other = make_book('shelf-other', title='Other Book', quiz=False)
+
+    def _student(self):
+        self.client.post(reverse('student_pick', args=[self.room.pk]), {'student': self.amy.pk})
+
+    def test_adding_from_the_library_returns_and_flips_the_button(self):
+        self._student()
+        self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': 'library'}), reverse('library'))
+        page = self.client.get(reverse('library'))
+        self.assertContains(page, '移出书架')
+        self.assertContains(page, '加入书架')
+        self.assertEqual(ShelfItem.objects.count(), 1)
+
+    def test_adding_twice_keeps_a_single_row(self):
+        self._student()
+        for _ in range(2):
+            self.client.post(reverse('shelf_change'), {'book': self.book.pk})
+        self.assertEqual(ShelfItem.objects.count(), 1)
+
+    def test_the_shelf_shows_passed_scores_and_want_to_read(self):
+        self._student()
+        self.client.post(reverse('shelf_change'), {'book': self.book.pk})
+        self.client.post(reverse('shelf_change'), {'book': self.other.pk})
+        take_quiz(self.client, self.room, self.amy, self.book, correct=True)
+        page = self.client.get(reverse('shelf'))
+        self.assertContains(page, '已测 100%')
+        self.assertContains(page, '想读')
+        self.assertContains(page, '共 2 本书')
+
+    def test_a_parent_sees_the_same_shelf(self):
+        self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
+        self.client.post(reverse('shelf_change'), {'book': self.book.pk})
+        page = self.client.get(reverse('shelf'))
+        self.assertContains(page, '孩子书架')
+        self.assertContains(page, 'Shelf Book')
+
+    def test_staff_cannot_open_the_shelf(self):
+        self.client.login(username='shelf', password='pw')
+        self.assertEqual(self.client.get(reverse('shelf')).status_code, 403)
+
+    def test_an_unknown_next_falls_back_to_the_shelf(self):
+        self._student()
+        for where in ('http://evil.example.com', 'ranks', ''):
+            self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': where}), reverse('shelf'))
+
+    def test_removing_drops_the_row(self):
+        self._student()
+        self.client.post(reverse('shelf_change'), {'book': self.book.pk})
+        self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'remove': '1', 'next': 'library'}), reverse('library'))
+        self.assertEqual(ShelfItem.objects.count(), 0)
+        self.assertContains(self.client.get(reverse('library')), '加入书架')
+
+    def test_the_detail_page_button_returns_to_the_detail_page(self):
+        self._student()
+        self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': 'book_detail'}),
+            reverse('book_detail', args=[self.book.pk]))
+        self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), '移出书架')

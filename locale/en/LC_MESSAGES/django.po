@@ -602,3 +602,30 @@ msgstr "Correct answer"
 
 msgid "这次作答早于本次更新，无法回看逐题内容。"
 msgstr "This attempt predates the update, so its questions can no longer be replayed."
+
+msgid "我的书架"
+msgstr "My shelf"
+
+msgid "孩子书架"
+msgstr "My child's shelf"
+
+msgid "想读的与读过的"
+msgstr "Wanted and read"
+
+msgid "去图书馆找书"
+msgstr "Find books in the library"
+
+msgid "书架还是空的，去图书馆把想读的书加进来吧。"
+msgstr "The shelf is empty. Add books you want to read from the library."
+
+msgid "加入书架"
+msgstr "Add to shelf"
+
+msgid "移出书架"
+msgstr "Remove from shelf"
+
+msgid "已测"
+msgstr "Passed at"
+
+msgid "想读"
+msgstr "Want to read"

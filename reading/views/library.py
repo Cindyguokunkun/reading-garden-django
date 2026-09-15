@@ -9,9 +9,10 @@ from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from ..models import CATEGORY_CHOICES, Book
-from ..personas import MANAGER, PARENT, STUDENT, TEACHER, persona_required
+from ..personas import MANAGER, PARENT, STUDENT, TEACHER, get_persona, persona_required
 from ..services import arbookfinder, covers, quizgen
 from ..services.http import HttpError
+from .auth import shelf_state
 
 MAX_QUESTIONS = 12
 IN_FLIGHT_KEY = 'quizgen_in_flight'
@@ -26,8 +27,11 @@ def library(request):
     if q: books = books.filter(title__icontains=q)
     counts = {r['category']: r['n'] for r in Book.objects.values('category').annotate(n=Count('id'))}
     chips = [{'value': value, 'label': str(label), 'count': counts.get(value, 0)} for value, label in CATEGORY_CHOICES]
+    books = list(books.order_by('series', 'title')[:500])
+    persona = get_persona(request)
+    if persona.student: shelf_state(persona.student, books)
     return render(request, 'reading/library.html', {
-        'books': books.order_by('series', 'title')[:500], 'categories': CATEGORY_CHOICES, 'chips': chips,
+        'books': books, 'categories': CATEGORY_CHOICES, 'chips': chips,
         'category': category, 'q': q, 'total': Book.objects.count(),
     })
 
@@ -35,6 +39,8 @@ def library(request):
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
     siblings = Book.objects.none() if _blank(book, 'series') else Book.objects.filter(series=book.series).exclude(pk=book.pk).order_by('title')[:12]
+    persona = get_persona(request)
+    if persona.student: shelf_state(persona.student, [book])
     return render(request, 'reading/book_detail.html', {'book': book, 'siblings': siblings})
 
 def _atos(raw):

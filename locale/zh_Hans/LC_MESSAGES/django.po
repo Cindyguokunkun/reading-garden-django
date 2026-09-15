@@ -75,8 +75,11 @@ msgstr "邮箱或密码不正确"
 msgid "Type the book title first, then look it up."
 msgstr "请先填写书名，再进行查询。"
 
-msgid "Found %(count)s matches. Choose the right one to fill in the difficulty."
-msgstr "找到 %(count)s 条结果，选择正确的一本即可自动填入难度。"
+msgid "Found %(count)s editions. Pick the right one to fill in the author, level and word count."
+msgstr "找到 %(count)s 个版本，选择正确的那个即可自动填入作者、难度与词数。"
+
+msgid "AR BookFinder reports a different author. Choose the one to keep."
+msgstr "查询到的作者与已填的不同，请选择保留哪一个。"
 
 msgid "AR BookFinder has no match for that title. Fill in the fields by hand, or search the English title."
 msgstr "AR BookFinder 没有匹配到这个书名。请手工填写，或用英文书名再查一次。"

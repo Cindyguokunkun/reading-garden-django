@@ -252,7 +252,8 @@ class I18nTests(TestCase):
 
     def test_book_form_tools_translate(self):
         response = self.client.get(reverse('book_add'), headers={'accept-language': 'en'})
-        self.assertContains(response, 'Look up on AR BookFinder')
+        self.assertContains(response, 'Look up the book')
+        self.assertContains(response, 'Find covers only')
         self.assertContains(response, 'Synopsis')
         make_book('i18n-card')
         self.assertContains(self.client.get(reverse('library'), headers={'accept-language': 'en'}), 'Level')
@@ -643,30 +644,54 @@ class BookToolTests(TestCase):
         self.student = Student.objects.create(classroom=self.room, name='Amy')
         self.client.login(username='lib', password='pw')
 
-    def test_lookup_lists_candidates(self):
-        with mock.patch.object(arbookfinder, 'search_candidates', return_value=[ARF_CANDIDATE]) as search:
+    def test_lookup_lists_candidates_with_their_covers(self):
+        with mock.patch.object(arbookfinder, 'search_candidates', return_value=[ARF_CANDIDATE]) as search, \
+             mock.patch.object(covers, 'search_covers', return_value=[COVER_CANDIDATE]):
             response = self.client.post(reverse('book_tool'), book_form(action='lookup'))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['candidates'], [ARF_CANDIDATE])
+        self.assertEqual(response.context['cover_candidates'], [COVER_CANDIDATE])
+        candidate = response.context['candidates'][0]
+        self.assertEqual(candidate['title'], ARF_CANDIDATE['title'])
+        self.assertEqual(candidate['author'], 'Roland, Timothy')
+        self.assertEqual(candidate['quiz_no'], '164360')
+        self.assertEqual(candidate['cover'], COVER_URL)
         self.assertContains(response, 'c0_url')
+        self.assertContains(response, 'c0_cover')
         search.assert_called_once_with('Monkey Me and the Golden Monkey')
 
     def test_lookup_failure_keeps_the_form_usable(self):
-        with mock.patch.object(arbookfinder, 'search_candidates', side_effect=arbookfinder.ArfError('unexpected search page')):
+        with mock.patch.object(arbookfinder, 'search_candidates', side_effect=arbookfinder.ArfError('unexpected search page')), \
+             mock.patch.object(covers, 'search_covers', return_value=[COVER_CANDIDATE]):
             response = self.client.post(reverse('book_tool'), book_form(action='lookup', series='Monkey Me'), headers={'accept-language': 'en'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['book'].title, 'Monkey Me and the Golden Monkey')
         self.assertEqual(response.context['book'].series, 'Monkey Me')
         self.assertEqual(response.context['candidates'], [])
+        self.assertEqual(response.context['cover_candidates'], [COVER_CANDIDATE])
         self.assertContains(response, 'AR BookFinder')
 
     def test_lookup_without_a_title_never_calls_the_service(self):
-        with mock.patch.object(arbookfinder, 'search_candidates') as search:
+        with mock.patch.object(arbookfinder, 'search_candidates') as search, \
+             mock.patch.object(covers, 'search_covers') as cover_search:
             response = self.client.post(reverse('book_tool'), book_form(action='lookup', title='   '))
         self.assertEqual(response.status_code, 200)
         search.assert_not_called()
+        cover_search.assert_not_called()
         self.assertEqual(len(notices(response)), 1)
         self.assertEqual(notices(response)[0].level_tag, 'error')
+
+    def test_same_title_editions_are_all_listed_and_none_is_applied_first(self):
+        editions = [dict(ARF_CANDIDATE, quiz_no='164360', author='Roland, Timothy'),
+            dict(ARF_CANDIDATE, quiz_no='999999', author='Someone Else', atos=Decimal('4.8'), points=Decimal('3.0'))]
+        with mock.patch.object(arbookfinder, 'search_candidates', return_value=editions), \
+             mock.patch.object(covers, 'search_covers', side_effect=covers.CoverError('no cover found')):
+            response = self.client.post(reverse('book_tool'), book_form(action='lookup'))
+        self.assertEqual([c['quiz_no'] for c in response.context['candidates']], ['164360', '999999'])
+        self.assertEqual([c['author'] for c in response.context['candidates']], ['Roland, Timothy', 'Someone Else'])
+        self.assertContains(response, 'pick:0')
+        self.assertContains(response, 'pick:1')
+        self.assertEqual(response.context['book'].author, '')
+        self.assertIsNone(response.context['book'].atos)
 
     def test_pick_fills_a_new_book_without_saving(self):
         with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA) as detail:
@@ -901,7 +926,7 @@ GOOGLE_PAYLOAD = {'items': [
 ]}
 
 COVER_URL = 'https://covers.openlibrary.org/b/id/12345678-M.jpg'
-COVER_CANDIDATE = {'title': 'Monkey Me and the Golden Monkey', 'author': 'Roland, Timothy', 'year': 2011, 'provider': 'Open Library', 'cover': COVER_URL}
+COVER_CANDIDATE = {'title': 'Monkey Me and the Golden Monkey', 'author': 'Roland, Timothy & An Illustrator', 'year': 2011, 'provider': 'Open Library', 'cover': COVER_URL}
 
 def reply(payload):
     return (200, json.dumps(payload), 'https://example.test/search')
@@ -921,6 +946,14 @@ class CoversParseTests(TestCase):
     def test_google_rows_without_a_thumbnail_are_dropped(self):
         self.assertEqual(covers.parse_google({'items': [{'volumeInfo': {'title': 'No image'}}]}), [])
         self.assertEqual(covers.parse_google({}), [])
+
+    def test_every_author_is_kept_in_order(self):
+        rows = covers.parse_openlibrary({'docs': [{'title': 'Monkey Me', 'cover_i': 9, 'first_publish_year': 2011,
+            'author_name': ['Roland, Timothy', 'Smith, Jane', 'Doe, Ann']}]})
+        self.assertEqual(rows[0]['author'], 'Roland, Timothy & Smith, Jane & Doe, Ann')
+        rows = covers.parse_google({'items': [{'volumeInfo': {'title': 'Monkey Me', 'authors': ['Timothy Roland', 'Jane Smith'],
+            'imageLinks': {'thumbnail': 'https://books.google.com/x'}}}]})
+        self.assertEqual(rows[0]['author'], 'Timothy Roland & Jane Smith')
 
     @override_settings(COVERS_THROTTLE=0)
     def test_openlibrary_is_asked_first_and_only_once(self):
@@ -1022,19 +1055,54 @@ class BookCoverToolTests(TestCase):
         form = self.client.get(reverse('book_edit', args=[book.pk]))
         self.assertContains(form, 'name="author"')
         self.assertContains(form, 'coverprev')
-        self.assertContains(form, '自动查找封面')
+        self.assertContains(form, '只查找封面')
 
-    def test_the_ar_pick_fills_the_author_only_when_it_is_blank(self):
+    def test_the_ar_pick_fills_a_blank_author(self):
         with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
             response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url']))
         self.assertEqual(response.context['book'].author, 'Roland, Timothy')
+        self.assertEqual(response.context['author_choice'], '')
+
+    def test_the_ar_pick_keeps_every_author_in_order(self):
+        detail = dict(ARF_DETAIL_DATA, author='Roland, Timothy & Smith, Jane & Doe, Ann')
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=detail):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url']))
+        self.assertEqual(response.context['book'].author, 'Roland, Timothy & Smith, Jane & Doe, Ann')
+
+    def test_a_lookup_that_finds_no_author_never_blocks_the_save(self):
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=dict(ARF_DETAIL_DATA, author=None)):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url']))
+        self.assertEqual(response.context['book'].author, '')
+        self.assertEqual(response.context['book'].atos, Decimal('2.4'))
+        self.assertRedirects(self.client.post(reverse('book_add'), book_form(author='', atos='2.4', words='4499')), reverse('library'))
+        self.assertEqual(Book.objects.get().author, '')
+
+    def test_a_typed_author_is_never_overwritten_silently(self):
         book = make_book('has-author', quiz=False)
         book.author = 'Someone Else'; book.save()
         with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
             response = self.client.post(reverse('book_tool'), book_form(action='pick:0', pk=book.pk, author='Someone Else', c0_url=ARF_CANDIDATE['url']))
         self.assertEqual(response.context['book'].author, 'Someone Else')
+        self.assertEqual(response.context['author_choice'], 'db')
+        self.assertEqual(response.context['author_found'], 'Roland, Timothy')
+        self.assertContains(response, 'name="author_found"')
         book.refresh_from_db()
         self.assertEqual(book.author, 'Someone Else')
+        for choice, expected in (('found', 'Roland, Timothy'), ('db', 'Someone Else')):
+            self.client.post(reverse('book_edit', args=[book.pk]),
+                book_form(pk=book.pk, author='Someone Else', author_choice=choice, author_found='Roland, Timothy'))
+            self.assertEqual(Book.objects.get(pk=book.pk).author, expected)
+
+    def test_the_pick_fills_the_matched_cover_only_when_it_is_blank(self):
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url'], c0_cover=COVER_URL))
+        self.assertEqual(response.context['book'].cover, COVER_URL)
+        self.assertEqual(Book.objects.count(), 0)
+
+    def test_a_foreign_cover_on_the_pick_is_refused(self):
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url'], c0_cover='https://evil.example.com/x.jpg'))
+        self.assertEqual(response.context['book'].cover, '')
 
 def fill(book, **fields):
     """make_book only forwards four columns, so the rest are set here."""
@@ -1410,3 +1478,21 @@ class ReviewPermissionTests(TestCase):
         attempts = response.context['attempts']
         self.assertEqual({attempt.pk for attempt in attempts}, {failed.pk, passed.pk})
         self.assertEqual(next(a.remaining for a in attempts if a.pk == failed.pk), 2)
+
+class AuthorDisplayTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('disp', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.amy = Student.objects.create(classroom=self.room, name='Amy')
+        self.book = fill(make_book('display-book'), author='Roland, Timothy')
+        self.client.login(username='disp', password='pw')
+
+    def test_the_library_card_and_the_detail_page_name_the_author(self):
+        self.assertContains(self.client.get(reverse('library')), 'Roland, Timothy')
+        self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), 'Roland, Timothy')
+
+    def test_the_quiz_picker_and_the_result_page_name_the_author(self):
+        self.assertContains(self.client.get(reverse('quiz_start')), 'Test Book · Roland, Timothy')
+        response, attempt_id, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=True)
+        self.assertContains(response, 'Roland, Timothy')
+        self.assertContains(self.client.get(reverse('quiz_review', args=[attempt_id])), 'Test Book')

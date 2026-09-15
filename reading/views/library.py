@@ -66,6 +66,9 @@ def _apply_form(book, post):
     if post.get('words_choice') == 'arf':
         arf_words = (post.get('words_arf') or '').strip()
         if arf_words.isdigit(): book.words = int(arf_words)
+    if post.get('author_choice') == 'found':
+        found = (post.get('author_found') or '').strip()
+        if found: book.author = found[:200]
     return book
 
 def _book_from_post(request):
@@ -88,7 +91,8 @@ def _editor_rows(questions):
 
 def _form_context(book, **extra):
     context = {'book': book, 'categories': CATEGORY_CHOICES, 'quizgen_enabled': settings.QUIZGEN_ENABLED,
-        'candidates': [], 'cover_candidates': [], 'questions': None, 'errors': [], 'words_choice': '', 'words_arf': '', 'material': ''}
+        'candidates': [], 'cover_candidates': [], 'questions': None, 'errors': [], 'words_choice': '', 'words_arf': '',
+        'author_choice': '', 'author_found': '', 'material': ''}
     context.update(extra)
     if context['questions']: context['questions'] = _editor_rows(context['questions'])
     return context
@@ -133,6 +137,22 @@ def book_edit(request, pk):
         return _save_book(request, _apply_form(book, request.POST), _('Book updated'))
     return _render_form(request, book)
 
+def _slug(title):
+    return re.sub(r'[^a-z0-9]', '', (title or '').lower())
+
+def _attach_covers(candidates, cover_rows):
+    by_title = {}
+    for row in cover_rows:
+        by_title.setdefault(_slug(row['title']), row['cover'])
+    return [dict(candidate, cover=by_title.get(_slug(candidate['title']), '')) for candidate in candidates]
+
+def _cover_rows(request, title):
+    try:
+        return {'cover_candidates': covers.search_covers(title)}
+    except covers.CoverError:
+        messages.info(request, _('Neither cover service returned a cover for that title. Paste a cover image address by hand, or search the English title.'))
+        return {'cover_candidates': []}
+
 def _pick(request, book, argument):
     index = int(argument) if argument.isdigit() else -1
     url = (request.POST.get(f'c{index}_url') or '').strip()
@@ -145,11 +165,23 @@ def _pick(request, book, argument):
         elif detail['words'] != book.words:
             conflict = {'words_choice': 'db', 'words_arf': detail['words']}
             messages.info(request, _('AR BookFinder reports a different word count. Choose the one to keep.'))
+    if detail['author']:
+        if _blank(book, 'author'):
+            book.author = detail['author']
+        elif detail['author'] != book.author:
+            conflict.update({'author_choice': 'db', 'author_found': detail['author']})
+            messages.info(request, _('AR BookFinder reports a different author. Choose the one to keep.'))
     if detail['atos'] is not None: book.atos = detail['atos']
     if detail['synopsis']: book.synopsis = detail['synopsis']
-    for field, value in (('author', detail['author']), ('category', arbookfinder.atos_category(detail['atos'])), ('series', detail['series']),
+    for field, value in (('category', arbookfinder.atos_category(detail['atos'])), ('series', detail['series']),
                          ('level', detail['interest_level']), ('source', detail['url'])):
         if value and _blank(book, field): setattr(book, field, value)
+    cover = (request.POST.get(f'c{index}_cover') or '').strip()
+    if cover and _blank(book, 'cover'):
+        try:
+            book.cover = covers.assert_cover_url(cover)
+        except covers.CoverError:
+            pass
     messages.success(request, _('The AR BookFinder details are filled in. Check them, then save.'))
     return conflict
 
@@ -194,10 +226,11 @@ def book_tool(request):
             if not book.title:
                 messages.error(request, _('Type the book title first, then look it up.'))
             else:
+                extra.update(_cover_rows(request, book.title))
                 candidates = arbookfinder.search_candidates(book.title)
                 if candidates:
-                    extra['candidates'] = candidates
-                    messages.success(request, _('Found %(count)s matches. Choose the right one to fill in the difficulty.') % {'count': len(candidates)})
+                    extra['candidates'] = _attach_covers(candidates, extra['cover_candidates'])
+                    messages.success(request, _('Found %(count)s editions. Pick the right one to fill in the author, level and word count.') % {'count': len(candidates)})
                 else:
                     messages.error(request, _('AR BookFinder has no match for that title. Fill in the fields by hand, or search the English title.'))
         elif action == 'pick':

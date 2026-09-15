@@ -483,8 +483,8 @@ msgstr "Synopsis"
 msgid "由 AR BookFinder 自动填写，也可手改"
 msgstr "Filled in from AR BookFinder; you can also type it yourself"
 
-msgid "自动查询 AR BookFinder"
-msgstr "Look up on AR BookFinder"
+msgid "自动查询书籍信息"
+msgstr "Look up the book"
 
 msgid "AI 生成测验题（约 40-80 秒，请勿离开或重复点击）"
 msgstr "Generate questions with AI (about 40-80 seconds; please do not leave or click twice)"
@@ -495,11 +495,29 @@ msgstr "AI question generation becomes available once the service is configured 
 msgid "编辑现有测验题"
 msgstr "Edit the existing questions"
 
-msgid "查询结果（选中后自动填入 ATOS、词数与简介）："
-msgstr "Results (choosing one fills in ATOS, word count and synopsis):"
+msgid "查询结果（选中后自动填入作者、ATOS、词数与简介）："
+msgstr "Results (choosing one fills in the author, ATOS, word count and synopsis):"
+
+msgid "封面"
+msgstr "Cover"
+
+msgid "AR 编号"
+msgstr "AR quiz no."
 
 msgid "作者"
 msgstr "Author"
+
+msgid "可手填，也会由“自动查询书籍信息”填入"
+msgstr "Type it yourself, or let “Look up the book” fill it in"
+
+msgid "作者不一致，请选择保留哪一个："
+msgstr "The author differs. Choose the one to keep:"
+
+msgid "保留现有「%(name)s」"
+msgstr "Keep “%(name)s”"
+
+msgid "使用查询到的「%(name)s」"
+msgstr "Use “%(name)s” from the lookup"
 
 msgid "AR 分"
 msgstr "AR points"
@@ -546,11 +564,11 @@ msgstr "The questions were not saved. Please fix them and try again:"
 msgid "封面图片网址"
 msgstr "Cover image URL"
 
-msgid "点下面的“自动查找封面”，或直接粘贴图片网址"
-msgstr "Use “Find covers” below, or paste an image URL"
+msgid "点“自动查询书籍信息”或“只查找封面”，也可直接粘贴图片网址"
+msgstr "Use “Look up the book” or “Find covers only”, or paste an image URL"
 
-msgid "自动查找封面"
-msgstr "Find covers"
+msgid "只查找封面"
+msgstr "Find covers only"
 
 msgid "封面候选（选中后自动填入封面网址）："
 msgstr "Cover matches (choosing one fills in the cover URL):"

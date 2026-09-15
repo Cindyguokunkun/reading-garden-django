@@ -21,16 +21,16 @@ def _throttle():
     if gap > 0: time.sleep(gap)
     _last_call = time.monotonic()
 
-def _first(names):
+def _authors(names):
     names = [str(name).strip() for name in (names or []) if str(name).strip()]
-    return names[0] if names else ''
+    return ' & '.join(names)
 
 def parse_openlibrary(payload):
     rows = []
     for doc in payload.get('docs') or []:
         title = str(doc.get('title') or '').strip()
         if not title or not doc.get('cover_i'): continue
-        rows.append({'title': title, 'author': _first(doc.get('author_name')), 'year': doc.get('first_publish_year'),
+        rows.append({'title': title, 'author': _authors(doc.get('author_name')), 'year': doc.get('first_publish_year'),
             'provider': 'Open Library', 'cover': OPENLIBRARY_COVER % doc['cover_i']})
     return rows[:MAX_CANDIDATES]
 
@@ -43,7 +43,7 @@ def parse_google(payload):
         if not title or not cover: continue
         if cover.startswith('http://'): cover = 'https://' + cover[len('http://'):]
         published = str(info.get('publishedDate') or '')
-        rows.append({'title': title, 'author': _first(info.get('authors')), 'year': int(published[:4]) if published[:4].isdigit() else None,
+        rows.append({'title': title, 'author': _authors(info.get('authors')), 'year': int(published[:4]) if published[:4].isdigit() else None,
             'provider': 'Google Books', 'cover': cover})
     return rows[:MAX_CANDIDATES]
 

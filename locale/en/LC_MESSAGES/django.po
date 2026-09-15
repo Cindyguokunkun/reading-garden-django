@@ -545,3 +545,24 @@ msgstr "Delete this question"
 
 msgid "测验题没有保存，请修正后重试："
 msgstr "The questions were not saved. Please fix them and try again:"
+
+msgid "封面图片网址"
+msgstr "Cover image URL"
+
+msgid "点下面的“自动查找封面”，或直接粘贴图片网址"
+msgstr "Use “Find covers” below, or paste an image URL"
+
+msgid "自动查找封面"
+msgstr "Find covers"
+
+msgid "封面候选（选中后自动填入封面网址）："
+msgstr "Cover matches (choosing one fills in the cover URL):"
+
+msgid "首版年份"
+msgstr "First published"
+
+msgid "来源"
+msgstr "Source"
+
+msgid "选定此封面"
+msgstr "Use this cover"

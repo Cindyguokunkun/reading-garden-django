@@ -50,6 +50,7 @@ class Student(models.Model):
 class Book(models.Model):
     source_id = models.CharField(max_length=120, unique=True)
     title = models.CharField(max_length=300)
+    author = models.CharField(max_length=200, blank=True)
     series = models.CharField(max_length=200, db_index=True)
     level = models.CharField(max_length=200, blank=True)
     kind = models.CharField(max_length=20, default='book')
@@ -59,6 +60,7 @@ class Book(models.Model):
     synopsis = models.TextField(blank=True)
     words = models.PositiveIntegerField(null=True, blank=True)
     source = models.URLField(max_length=500, blank=True)
+    cover = models.URLField(max_length=500, blank=True)
     quiz_data = models.JSONField(default=list, blank=True)
     def __str__(self): return self.title
 

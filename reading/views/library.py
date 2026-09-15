@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from ..models import CATEGORY_CHOICES, Book
 from ..personas import MANAGER, PARENT, STUDENT, TEACHER, persona_required
-from ..services import arbookfinder, quizgen
+from ..services import arbookfinder, covers, quizgen
 from ..services.http import HttpError
 
 MAX_QUESTIONS = 12
@@ -41,11 +41,13 @@ def _atos(raw):
 
 def _apply_form(book, post):
     book.title = (post.get('title') or '').strip()
+    book.author = (post.get('author') or '').strip()
     book.series = (post.get('series') or '').strip() or _('Standalone')
     book.level = (post.get('level') or '').strip()
     book.category = post.get('category') or ''
     book.lexile = (post.get('lexile') or '').strip()
     book.synopsis = (post.get('synopsis') or '').strip()
+    book.cover = (post.get('cover') or '').strip()
     words = (post.get('words') or '').strip()
     book.words = int(words) if words.isdigit() else None
     book.atos = _atos(post.get('atos'))
@@ -74,7 +76,7 @@ def _editor_rows(questions):
 
 def _form_context(book, **extra):
     context = {'book': book, 'categories': CATEGORY_CHOICES, 'quizgen_enabled': settings.QUIZGEN_ENABLED,
-        'candidates': [], 'questions': None, 'errors': [], 'words_choice': '', 'words_arf': '', 'material': ''}
+        'candidates': [], 'cover_candidates': [], 'questions': None, 'errors': [], 'words_choice': '', 'words_arf': '', 'material': ''}
     context.update(extra)
     if context['questions']: context['questions'] = _editor_rows(context['questions'])
     return context
@@ -133,11 +135,20 @@ def _pick(request, book, argument):
             messages.info(request, _('AR BookFinder reports a different word count. Choose the one to keep.'))
     if detail['atos'] is not None: book.atos = detail['atos']
     if detail['synopsis']: book.synopsis = detail['synopsis']
-    for field, value in (('category', arbookfinder.atos_category(detail['atos'])), ('series', detail['series']),
+    for field, value in (('author', detail['author']), ('category', arbookfinder.atos_category(detail['atos'])), ('series', detail['series']),
                          ('level', detail['interest_level']), ('source', detail['url'])):
         if value and _blank(book, field): setattr(book, field, value)
     messages.success(request, _('The AR BookFinder details are filled in. Check them, then save.'))
     return conflict
+
+def _cover_pick(request, book, argument):
+    index = int(argument) if argument.isdigit() else -1
+    try:
+        book.cover = covers.assert_cover_url(request.POST.get(f'v{index}_cover'))
+    except covers.CoverError:
+        messages.error(request, _('That cover address is not from Open Library or Google Books. Use one of the two services, or paste their thumbnail address.'))
+        return
+    messages.success(request, _('The cover is filled in. Check it, then save.'))
 
 def _generate(request, book):
     started = request.session.get(IN_FLIGHT_KEY)
@@ -179,6 +190,14 @@ def book_tool(request):
                     messages.error(request, _('AR BookFinder has no match for that title. Fill in the fields by hand, or search the English title.'))
         elif action == 'pick':
             extra.update(_pick(request, book, argument))
+        elif action == 'cover':
+            if not book.title:
+                messages.error(request, _('Type the book title first, then look it up.'))
+            else:
+                extra['cover_candidates'] = covers.search_covers(book.title)
+                messages.success(request, _('Found %(count)s covers. Choose the right one.') % {'count': len(extra['cover_candidates'])})
+        elif action == 'coverpick':
+            _cover_pick(request, book, argument)
         elif action == 'quizgen':
             extra.update(_generate(request, book))
         elif action == 'editquiz':
@@ -190,6 +209,8 @@ def book_tool(request):
             messages.error(request, _('That tool is not available.'))
     except arbookfinder.ArfError:
         messages.error(request, _('AR BookFinder did not return usable data. You can still fill in every field by hand.'))
+    except covers.CoverError:
+        messages.error(request, _('Neither cover service returned a cover for that title. Paste a cover image address by hand, or search the English title.'))
     except HttpError:
         messages.error(request, _('The request did not reach the service. Check the network, or the proxy in .env.'))
     except quizgen.QuizGenError as error:

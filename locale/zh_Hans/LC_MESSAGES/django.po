@@ -167,3 +167,15 @@ msgstr "第 %(number)s 题：正确答案必须是其中一个选项。"
 
 msgid "Reloading this page discards unsaved changes, including any generated questions. Open the book form again."
 msgstr "重新加载这个页面会丢掉未保存的修改（包括刚生成的题目），请重新打开书籍表单。"
+
+msgid "Found %(count)s covers. Choose the right one."
+msgstr "找到 %(count)s 个封面，请选择正确的那一个。"
+
+msgid "Neither cover service returned a cover for that title. Paste a cover image address by hand, or search the English title."
+msgstr "两个封面服务都没有找到这本书的封面。可以手动粘贴图片网址，或改用英文书名再查一次。"
+
+msgid "That cover address is not from Open Library or Google Books. Use one of the two services, or paste their thumbnail address."
+msgstr "这个封面网址不是来自 Open Library 或 Google Books。请使用这两个服务，或粘贴它们的缩略图网址。"
+
+msgid "The cover is filled in. Check it, then save."
+msgstr "封面已填好，请确认后保存。"

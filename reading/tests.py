@@ -618,7 +618,7 @@ ARF_DETAIL_DATA = dict(ARF_CANDIDATE, synopsis='A monkey takes over the class fo
     interest_level='Lower Grades (LG K-3)', series='Monkey Me', topics=None)
 
 def book_form(**extra):
-    data = {'title': 'Monkey Me and the Golden Monkey', 'series': '', 'category': '', 'lexile': '', 'words': '', 'level': '', 'synopsis': '', 'atos': '', 'material': ''}
+    data = {'title': 'Monkey Me and the Golden Monkey', 'author': '', 'cover': '', 'series': '', 'category': '', 'lexile': '', 'words': '', 'level': '', 'synopsis': '', 'atos': '', 'material': ''}
     data.update(extra)
     return data
 
@@ -884,3 +884,153 @@ class BookQuizSaveTests(TestCase):
         self.assertEqual(len(response.context['errors']), 1)
         book.refresh_from_db()
         self.assertEqual(len(book.quiz_data[0]['options']), 1)
+
+from reading.services import covers
+
+OL_PAYLOAD = {'docs': [
+    {'title': 'Monkey Me and the Golden Monkey', 'author_name': ['Roland, Timothy', 'An Illustrator'], 'first_publish_year': 2011, 'cover_i': 12345678},
+    {'title': 'No Cover Here', 'author_name': [], 'first_publish_year': 1999},
+    {'title': '   ', 'cover_i': 7},
+]}
+
+GOOGLE_PAYLOAD = {'items': [
+    {'volumeInfo': {'title': 'Monkey Me and the Golden Monkey', 'authors': ['Timothy Roland'], 'publishedDate': '2011-03-01',
+        'imageLinks': {'thumbnail': 'http://books.google.com/books/content?id=monkey&zoom=1'}}},
+    {'volumeInfo': {'title': 'No Thumbnail', 'authors': []}},
+]}
+
+COVER_URL = 'https://covers.openlibrary.org/b/id/12345678-M.jpg'
+COVER_CANDIDATE = {'title': 'Monkey Me and the Golden Monkey', 'author': 'Roland, Timothy', 'year': 2011, 'provider': 'Open Library', 'cover': COVER_URL}
+
+def reply(payload):
+    return (200, json.dumps(payload), 'https://example.test/search')
+
+class CoversParseTests(TestCase):
+    def test_openlibrary_keeps_only_rows_with_a_cover(self):
+        self.assertEqual(covers.parse_openlibrary(OL_PAYLOAD), [COVER_CANDIDATE])
+        self.assertEqual(covers.parse_openlibrary({}), [])
+
+    def test_openlibrary_rows_are_capped(self):
+        self.assertEqual(len(covers.parse_openlibrary({'docs': [{'title': 'Monkey Me', 'cover_i': 1}] * 20})), covers.MAX_CANDIDATES)
+
+    def test_google_thumbnails_are_upgraded_to_https(self):
+        self.assertEqual(covers.parse_google(GOOGLE_PAYLOAD), [{'title': 'Monkey Me and the Golden Monkey', 'author': 'Timothy Roland', 'year': 2011,
+            'provider': 'Google Books', 'cover': 'https://books.google.com/books/content?id=monkey&zoom=1'}])
+
+    def test_google_rows_without_a_thumbnail_are_dropped(self):
+        self.assertEqual(covers.parse_google({'items': [{'volumeInfo': {'title': 'No image'}}]}), [])
+        self.assertEqual(covers.parse_google({}), [])
+
+    @override_settings(COVERS_THROTTLE=0)
+    def test_openlibrary_is_asked_first_and_only_once(self):
+        with mock.patch.object(covers.http, 'fetch', return_value=reply(OL_PAYLOAD)) as fetch:
+            self.assertEqual(covers.search_covers('Monkey Me and the Golden Monkey'), [COVER_CANDIDATE])
+        fetch.assert_called_once()
+        url = fetch.call_args.args[1]
+        self.assertTrue(url.startswith(covers.OPENLIBRARY_URL))
+        self.assertIn('cover_i', url)
+        self.assertIn('limit=8', url)
+
+    @override_settings(COVERS_THROTTLE=0)
+    def test_a_refusing_service_falls_through_to_google(self):
+        with mock.patch.object(covers.http, 'fetch', side_effect=[service_http.HttpError('HTTP 403', status=403), reply(GOOGLE_PAYLOAD)]) as fetch:
+            rows = covers.search_covers('Monkey Me')
+        self.assertEqual([row['provider'] for row in rows], ['Google Books'])
+        self.assertEqual(fetch.call_count, 2)
+        self.assertTrue(fetch.call_args.args[1].startswith(covers.GOOGLE_URL))
+        self.assertIn('intitle%3AMonkey', fetch.call_args.args[1])
+
+    @override_settings(COVERS_THROTTLE=0)
+    def test_no_usable_answer_from_either_service_is_a_cover_error(self):
+        cases = [[service_http.HttpError('HTTP 403', status=403), service_http.HttpError('HTTP 500', status=500)],
+            [(200, 'not json', ''), (200, '{"items": []}', '')],
+            [service_http.HttpTimeout('timeout'), reply({'docs': []})]]
+        for side_effect in cases:
+            with mock.patch.object(covers.http, 'fetch', side_effect=side_effect):
+                self.assertRaises(covers.CoverError, covers.search_covers, 'Monkey Me')
+
+    @override_settings(COVERS_THROTTLE=0)
+    def test_an_empty_title_never_reaches_the_network(self):
+        with mock.patch.object(covers.http, 'fetch') as fetch:
+            for title in ('', '   ', None):
+                self.assertRaises(covers.CoverError, covers.search_covers, title)
+        fetch.assert_not_called()
+
+    def test_only_the_two_cover_services_pass_the_guard(self):
+        for url in (COVER_URL, 'https://books.google.com/books/content?id=x', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:x'):
+            self.assertEqual(covers.assert_cover_url(url), url)
+        for url in ('', None, '   ', 'http://covers.openlibrary.org/b/id/1-M.jpg', 'https://evil.example.com/x.jpg',
+                    'https://covers.openlibrary.org.evil.example.com/x.jpg', 'javascript:alert(1)', '/static/x.jpg'):
+            self.assertRaises(covers.CoverError, covers.assert_cover_url, url)
+
+class BookCoverToolTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('cov', password='pw')
+        Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.client.login(username='cov', password='pw')
+
+    def test_cover_lookup_lists_candidates_for_the_picker(self):
+        with mock.patch.object(covers, 'search_covers', return_value=[COVER_CANDIDATE]) as search:
+            response = self.client.post(reverse('book_tool'), book_form(action='cover'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['cover_candidates'], [COVER_CANDIDATE])
+        self.assertContains(response, 'v0_cover')
+        self.assertContains(response, 'coverpick:0')
+        search.assert_called_once_with('Monkey Me and the Golden Monkey')
+
+    def test_cover_lookup_without_a_title_never_calls_the_service(self):
+        with mock.patch.object(covers, 'search_covers') as search:
+            response = self.client.post(reverse('book_tool'), book_form(action='cover', title='   '))
+        search.assert_not_called()
+        self.assertEqual(response.context['cover_candidates'], [])
+        self.assertEqual(notices(response)[0].level_tag, 'error')
+
+    def test_a_failed_cover_lookup_keeps_the_form_usable(self):
+        with mock.patch.object(covers, 'search_covers', side_effect=covers.CoverError('no cover found')):
+            response = self.client.post(reverse('book_tool'), book_form(action='cover', series='Monkey Me'), headers={'accept-language': 'en'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['book'].title, 'Monkey Me and the Golden Monkey')
+        self.assertEqual(response.context['book'].series, 'Monkey Me')
+        self.assertEqual(response.context['cover_candidates'], [])
+        self.assertEqual(notices(response)[0].level_tag, 'error')
+        self.assertContains(response, 'Neither cover service')
+
+    def test_choosing_a_cover_fills_the_field_without_saving(self):
+        response = self.client.post(reverse('book_tool'), book_form(action='coverpick:0', v0_cover=COVER_URL))
+        self.assertEqual(response.context['book'].cover, COVER_URL)
+        self.assertEqual(Book.objects.count(), 0)
+        self.assertEqual(notices(response)[0].level_tag, 'success')
+        self.assertContains(response, 'coverprev')
+
+    def test_a_foreign_cover_address_is_refused_and_the_saved_one_survives(self):
+        book = make_book('cover-guard', quiz=False)
+        book.cover = COVER_URL; book.save()
+        response = self.client.post(reverse('book_tool'), book_form(action='coverpick:0', pk=book.pk, cover=COVER_URL, v0_cover='https://evil.example.com/x.jpg'), headers={'accept-language': 'en'})
+        self.assertEqual(response.context['book'].cover, COVER_URL)
+        self.assertEqual(notices(response)[0].level_tag, 'error')
+        self.assertContains(response, 'not from Open Library')
+        book.refresh_from_db()
+        self.assertEqual(book.cover, COVER_URL)
+
+    def test_author_and_cover_are_saved_and_shown(self):
+        self.assertRedirects(self.client.post(reverse('book_add'), book_form(author='Roland, Timothy', cover=COVER_URL)), reverse('library'))
+        book = Book.objects.get()
+        self.assertEqual(book.author, 'Roland, Timothy')
+        self.assertEqual(book.cover, COVER_URL)
+        self.assertContains(self.client.get(reverse('library')), 'Roland, Timothy')
+        form = self.client.get(reverse('book_edit', args=[book.pk]))
+        self.assertContains(form, 'name="author"')
+        self.assertContains(form, 'coverprev')
+        self.assertContains(form, '自动查找封面')
+
+    def test_the_ar_pick_fills_the_author_only_when_it_is_blank(self):
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', c0_url=ARF_CANDIDATE['url']))
+        self.assertEqual(response.context['book'].author, 'Roland, Timothy')
+        book = make_book('has-author', quiz=False)
+        book.author = 'Someone Else'; book.save()
+        with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
+            response = self.client.post(reverse('book_tool'), book_form(action='pick:0', pk=book.pk, author='Someone Else', c0_url=ARF_CANDIDATE['url']))
+        self.assertEqual(response.context['book'].author, 'Someone Else')
+        book.refresh_from_db()
+        self.assertEqual(book.author, 'Someone Else')

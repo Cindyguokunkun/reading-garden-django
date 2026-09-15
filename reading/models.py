@@ -87,6 +87,7 @@ class QuizAttempt(models.Model):
     passed = models.BooleanField()
     submitted = models.BooleanField(default=False)
     answers = models.JSONField(default=list)
+    questions = models.JSONField(default=list, blank=True)
     started_at = models.DateTimeField()
     completed_at = models.DateTimeField(auto_now_add=True)
     class Meta: ordering = ['-completed_at']

@@ -1163,3 +1163,85 @@ class LibraryCardTests(TestCase):
         response = self.client.get(reverse('library') + '?q=zzz')
         self.assertNotContains(response, 'bookgrid')
         self.assertContains(response, '没有匹配的书')
+
+class QuizReviewTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('rev', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.amy = Student.objects.create(classroom=self.room, name='Amy', email='amy@example.com')
+        self.amy.set_password('amypw'); self.amy.save()
+        self.bob = Student.objects.create(classroom=self.room, name='Bob')
+        self.book = make_book('review-book')
+        self.client.login(username='rev', password='pw')
+
+    def _submit(self, student, correct):
+        self.client.login(username='rev', password='pw')
+        _, attempt_id, questions = take_quiz(self.client, self.room, student, self.book, correct)
+        return QuizAttempt.objects.get(pk=attempt_id), questions
+
+    def _student(self, student):
+        self.client.logout()
+        self.client.post(reverse('student_pick', args=[self.room.pk]), {'student': student.pk})
+
+    def test_the_snapshot_matches_the_questions_that_were_asked(self):
+        attempt, questions = self._submit(self.amy, correct=True)
+        self.assertTrue(attempt.passed)
+        self.assertEqual(attempt.questions, questions)
+        self.assertEqual(attempt.answers, [question['answer'] for question in questions])
+        self.assertGreater(attempt.completed_at, attempt.started_at)
+
+    def test_the_result_page_offers_a_review_and_a_retake_in_turn(self):
+        response, _, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=False)
+        self.assertContains(response, '重新测评')
+        self.assertContains(response, '查看答案')
+        self.assertContains(response, reverse('quiz_review', args=[QuizAttempt.objects.get(student=self.amy).pk]))
+        self.assertNotContains(response, 'PASSED')
+        response, _, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=True)
+        self.assertContains(response, '查看答案')
+        self.assertNotContains(response, '重新测评')
+        self.assertContains(response, 'PASSED')
+
+    def test_a_student_can_review_a_passed_attempt(self):
+        attempt, _ = self._submit(self.amy, correct=True)
+        self._student(self.amy)
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '正确答案')
+        self.assertContains(response, '你的选择')
+        self.assertContains(response, 'right')
+
+    def test_a_student_cannot_review_a_failed_attempt(self):
+        attempt, _ = self._submit(self.amy, correct=False)
+        self._student(self.amy)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 403)
+
+    def test_a_student_cannot_review_a_classmates_attempt(self):
+        attempt, _ = self._submit(self.amy, correct=True)
+        self._student(self.bob)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 403)
+
+    def test_the_class_teacher_can_review_a_failed_attempt(self):
+        attempt, _ = self._submit(self.amy, correct=False)
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'wrong')
+
+    def test_a_parent_cannot_open_the_review(self):
+        attempt, _ = self._submit(self.amy, correct=True)
+        self.client.logout()
+        self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 403)
+
+    def test_an_attempt_from_before_the_snapshot_says_so(self):
+        attempt = QuizAttempt.objects.create(student=self.amy, book=self.book, score=100, passed=True,
+            submitted=True, answers=[0] * 10, questions=[], started_at=timezone.now())
+        self._student(self.amy)
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '这次作答早于本次更新，无法回看逐题内容。')
+        self.assertNotContains(response, '<fieldset')
+
+    def test_an_unsubmitted_attempt_is_not_found(self):
+        attempt = QuizAttempt.objects.create(student=self.amy, book=self.book, score=0, passed=False,
+            submitted=False, answers=[], questions=[], started_at=timezone.now())
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 404)

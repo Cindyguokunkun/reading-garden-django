@@ -7,6 +7,7 @@ urlpatterns = [
     path('action/', views.action, name='action'),
     path('quiz/', views.quiz_start, name='quiz_start'),
     path('quiz/<int:attempt_id>/', views.quiz_take, name='quiz_take'),
+    path('quiz/<int:attempt_id>/review/', views.quiz_review, name='quiz_review'),
     path('export.xlsx', views.export_excel, name='export_excel'),
     path('ranks/', ranks.ranks, name='ranks'),
     path('library/', library.library, name='library'),

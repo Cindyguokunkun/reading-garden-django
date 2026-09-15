@@ -68,7 +68,7 @@ def quiz_take(request, attempt_id):
     questions = request.session.get(f'quiz_{attempt.pk}', [])
     if request.method == 'POST':
         answers = [int(request.POST.get(f'q{i}', -1)) for i in range(len(questions))]; correct = sum(a == q['answer'] for a, q in zip(answers, questions)); score = round(correct * 100 / len(questions)) if questions else 0
-        attempt.score = score; attempt.passed = score >= 60; attempt.answers = answers; attempt.submitted = True; attempt.save()
+        attempt.score = score; attempt.passed = score >= 60; attempt.answers = answers; attempt.questions = questions; attempt.submitted = True; attempt.completed_at = timezone.now(); attempt.save()
         if attempt.passed and not ReadingRecord.objects.filter(student=attempt.student, book=attempt.book, passed=True).exists():
             meta = request.session.get(f'quiz_meta_{attempt.pk}', {}); minutes = meta.get('minutes')
             ReadingRecord.objects.create(student=attempt.student, book=attempt.book, read_date=meta.get('date') or date.today(), words=attempt.book.words or 0, minutes=int(minutes) if minutes else None, quiz_score=score, passed=True)
@@ -76,3 +76,18 @@ def quiz_take(request, attempt_id):
         return render(request, 'reading/quiz_result.html', {'attempt': attempt, 'correct': correct, 'total': len(questions), 'remaining': max(remaining, 0)})
     attempt_number = QuizAttempt.objects.filter(student=attempt.student, book=attempt.book, passed=False, submitted=True).count() + 1
     return render(request, 'reading/quiz_take.html', {'attempt': attempt, 'questions': questions, 'attempt_number': attempt_number, 'max_attempts': MAX_SUBMITTED_ATTEMPTS})
+
+@persona_required(TEACHER, MANAGER, STUDENT)
+def quiz_review(request, attempt_id):
+    persona = get_persona(request)
+    attempt = get_object_or_404(QuizAttempt, pk=attempt_id, submitted=True)
+    if not _can_access_attempt(persona, attempt):
+        return HttpResponseForbidden()
+    if persona.kind == STUDENT and not attempt.passed:
+        return HttpResponseForbidden()
+    rows = []
+    for question, answer in zip(attempt.questions, attempt.answers):
+        options = [{'text': text, 'chosen': index == answer, 'answer': index == question['answer']}
+            for index, text in enumerate(question['options'])]
+        rows.append({'prompt': question['prompt'], 'options': options, 'correct': answer == question['answer']})
+    return render(request, 'reading/quiz_review.html', {'attempt': attempt, 'rows': rows})

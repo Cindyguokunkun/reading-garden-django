@@ -575,3 +575,30 @@ msgstr "More in this series"
 
 msgid "返回图书馆"
 msgstr "Back to the library"
+
+msgid "图书级别"
+msgstr "Book level"
+
+msgid "正确率"
+msgstr "Accuracy"
+
+msgid "开始时间"
+msgstr "Started"
+
+msgid "完成时间"
+msgstr "Finished"
+
+msgid "查看答案"
+msgstr "Review the answers"
+
+msgid "重新测评"
+msgstr "Take the quiz again"
+
+msgid "你的选择"
+msgstr "Your pick"
+
+msgid "正确答案"
+msgstr "Correct answer"
+
+msgid "这次作答早于本次更新，无法回看逐题内容。"
+msgstr "This attempt predates the update, so its questions can no longer be replayed."

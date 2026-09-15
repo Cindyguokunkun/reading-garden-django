@@ -47,9 +47,11 @@ def quiz_start(request):
         request.session[f'quiz_{attempt.pk}'] = _build_questions(book, retake=failed > 0)
         request.session[f'quiz_meta_{attempt.pk}'] = {'date': request.POST.get('date') or date.today().isoformat(), 'minutes': request.POST.get('minutes') or None}
         return redirect('quiz_take', attempt_id=attempt.pk)
+    chosen = request.GET.get('book') or ''
+    chosen = int(chosen) if chosen.isdigit() else None
     if persona.kind == STUDENT:
-        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books()})
-    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': Classroom.objects.filter(owner=request.user), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books()})
+        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books(), 'chosen': chosen})
+    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': Classroom.objects.filter(owner=request.user), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books(), 'chosen': chosen})
 
 def _can_access_attempt(persona, attempt):
     if persona.kind == STUDENT: return attempt.student_id == persona.student.pk

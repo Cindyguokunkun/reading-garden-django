@@ -31,6 +31,12 @@ def library(request):
         'category': category, 'q': q, 'total': Book.objects.count(),
     })
 
+@persona_required(TEACHER, MANAGER, STUDENT, PARENT)
+def book_detail(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    siblings = Book.objects.none() if _blank(book, 'series') else Book.objects.filter(series=book.series).exclude(pk=book.pk).order_by('title')[:12]
+    return render(request, 'reading/book_detail.html', {'book': book, 'siblings': siblings})
+
 def _atos(raw):
     raw = (raw or '').strip()
     if not raw: return None

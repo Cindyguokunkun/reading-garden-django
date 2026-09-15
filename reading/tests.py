@@ -254,6 +254,7 @@ class I18nTests(TestCase):
         response = self.client.get(reverse('book_add'), headers={'accept-language': 'en'})
         self.assertContains(response, 'Look up on AR BookFinder')
         self.assertContains(response, 'Synopsis')
+        make_book('i18n-card')
         self.assertContains(self.client.get(reverse('library'), headers={'accept-language': 'en'}), 'Level')
 
 import os
@@ -1034,3 +1035,131 @@ class BookCoverToolTests(TestCase):
         self.assertEqual(response.context['book'].author, 'Someone Else')
         book.refresh_from_db()
         self.assertEqual(book.author, 'Someone Else')
+
+def fill(book, **fields):
+    """make_book only forwards four columns, so the rest are set here."""
+    for name, value in fields.items(): setattr(book, name, value)
+    book.save()
+    return book
+
+class BookDetailTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('detail', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.student = Student.objects.create(classroom=self.room, name='Amy', email='amy@example.com')
+        self.student.set_password('amypw'); self.student.save()
+        self.book = fill(make_book('detail-main', title='Monkey Me and the Golden Monkey', series='Monkey Me', words=1200),
+            author='Roland, Timothy', cover=COVER_URL, category='early_chapter', atos=Decimal('3.3'), synopsis='A monkey class builds a treehouse.')
+        self.sibling = make_book('detail-sibling', title='Monkey Me and the Shark', series='Monkey Me', quiz=False)
+        self.solo = make_book('detail-solo', title='Solo Book', series='', quiz=False)
+        self.standalone = make_book('detail-standalone', title='Labelled Solo', series=str(translation.gettext('Standalone')), quiz=False)
+        self.client.login(username='detail', password='pw')
+
+    def _persona(self, kind):
+        self.client.logout()
+        if kind == 'student':
+            self.client.post(reverse('student_pick', args=[self.room.pk]), {'student': self.student.pk})
+        else:
+            self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
+
+    def test_the_detail_page_shows_the_cover_author_and_series_mates(self):
+        response = self.client.get(reverse('book_detail', args=[self.book.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Monkey Me and the Golden Monkey')
+        self.assertContains(response, 'Roland, Timothy')
+        self.assertContains(response, COVER_URL)
+        self.assertContains(response, 'A monkey class builds a treehouse.')
+        self.assertEqual(list(response.context['siblings']), [self.sibling])
+        self.assertContains(response, '同系列')
+        self.assertContains(response, reverse('book_detail', args=[self.sibling.pk]))
+
+    def test_a_book_on_its_own_has_no_series_section(self):
+        for book in (self.solo, self.standalone):
+            response = self.client.get(reverse('book_detail', args=[book.pk]))
+            self.assertEqual(list(response.context['siblings']), [])
+            self.assertNotContains(response, '同系列')
+
+    def test_staff_see_the_edit_button_and_the_quiz_link(self):
+        response = self.client.get(reverse('book_detail', args=[self.book.pk]))
+        self.assertContains(response, reverse('book_edit', args=[self.book.pk]))
+        self.assertContains(response, '开始测评')
+        self.assertContains(response, f'{reverse("quiz_start")}?book={self.book.pk}')
+
+    def test_a_student_sees_the_quiz_link_but_no_edit_button(self):
+        self._persona('student')
+        response = self.client.get(reverse('book_detail', args=[self.book.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '开始测评')
+        self.assertNotContains(response, reverse('book_edit', args=[self.book.pk]))
+
+    def test_a_parent_may_read_the_page_but_not_start_a_quiz(self):
+        self._persona('parent')
+        response = self.client.get(reverse('book_detail', args=[self.book.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Roland, Timothy')
+        self.assertNotContains(response, '开始测评')
+
+    def test_anonymous_visitors_are_sent_to_the_login_page(self):
+        self.client.logout()
+        self.assertRedirects(self.client.get(reverse('book_detail', args=[self.book.pk])), f'/login/?next=/library/{self.book.pk}/')
+
+    def test_a_book_without_questions_offers_no_quiz(self):
+        response = self.client.get(reverse('book_detail', args=[self.sibling.pk]))
+        self.assertContains(response, '暂无测验')
+        self.assertNotContains(response, '开始测评')
+
+    def test_a_book_without_a_cover_falls_back_to_a_placeholder(self):
+        response = self.client.get(reverse('book_detail', args=[self.solo.pk]))
+        self.assertNotContains(response, '<img class="bookcover"')
+        self.assertContains(response, 'placeholder')
+
+    def test_an_unknown_book_is_not_found(self):
+        self.assertEqual(self.client.get(reverse('book_detail', args=[999999])).status_code, 404)
+
+    def test_the_quiz_link_preselects_the_book(self):
+        response = self.client.get(reverse('quiz_start') + f'?book={self.book.pk}')
+        self.assertEqual(response.context['chosen'], self.book.pk)
+        self.assertContains(response, f'value="{self.book.pk}" selected')
+        self.assertEqual(self.client.get(reverse('quiz_start') + '?book=abc').context['chosen'], None)
+        self.assertNotContains(self.client.get(reverse('quiz_start') + '?book=abc'), f'value="{self.book.pk}" selected')
+
+class LibraryCardTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('cards', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.student = Student.objects.create(classroom=self.room, name='Amy')
+        self.book = fill(make_book('card-main', title='Monkey Me and the Golden Monkey', series='Monkey Me', words=1200),
+            author='Roland, Timothy', cover=COVER_URL, category='early_chapter', atos=Decimal('3.3'))
+        self.solo = make_book('card-solo', title='Solo Book', series='', quiz=False)
+        self.client.login(username='cards', password='pw')
+
+    def test_the_list_is_a_grid_of_cards_linking_to_the_detail_page(self):
+        response = self.client.get(reverse('library'))
+        self.assertContains(response, 'bookgrid')
+        self.assertNotContains(response, '<table')
+        self.assertContains(response, reverse('book_detail', args=[self.book.pk]))
+        self.assertContains(response, 'Roland, Timothy')
+        self.assertContains(response, COVER_URL)
+        self.assertContains(response, 'placeholder')
+        self.assertContains(response, reverse('book_edit', args=[self.book.pk]))
+
+    def test_the_english_cards_keep_the_level_label(self):
+        self.assertContains(self.client.get(reverse('library'), headers={'accept-language': 'en'}), 'Level')
+
+    def test_a_student_sees_cards_without_the_edit_link(self):
+        self.client.logout()
+        self.client.post(reverse('student_pick', args=[self.room.pk]), {'student': self.student.pk})
+        response = self.client.get(reverse('library'))
+        self.assertContains(response, 'bookgrid')
+        self.assertNotContains(response, reverse('book_edit', args=[self.book.pk]))
+
+    def test_search_and_category_still_narrow_the_cards(self):
+        self.assertContains(self.client.get(reverse('library') + '?q=Monkey'), 'Monkey Me and the Golden Monkey')
+        self.assertNotContains(self.client.get(reverse('library') + '?q=Monkey'), 'Solo Book')
+        self.assertContains(self.client.get(reverse('library') + '?category=early_chapter'), 'Monkey Me and the Golden Monkey')
+        self.assertNotContains(self.client.get(reverse('library') + '?category=early_chapter'), 'Solo Book')
+
+    def test_a_search_without_a_match_says_so(self):
+        response = self.client.get(reverse('library') + '?q=zzz')
+        self.assertNotContains(response, 'bookgrid')
+        self.assertContains(response, '没有匹配的书')

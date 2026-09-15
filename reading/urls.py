@@ -12,6 +12,7 @@ urlpatterns = [
     path('library/', library.library, name='library'),
     path('library/add/', library.book_add, name='book_add'),
     path('library/tool/', library.book_tool, name='book_tool'),
+    path('library/<int:pk>/', library.book_detail, name='book_detail'),
     path('library/<int:pk>/edit/', library.book_edit, name='book_edit'),
     path('manage/import/', manage.manage_import, name='manage_import'),
     path('login/', auth.login_hub, name='login'),

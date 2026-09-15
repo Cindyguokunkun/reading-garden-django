@@ -237,9 +237,6 @@ msgstr "All"
 msgid "系列"
 msgstr "Series"
 
-msgid "分类"
-msgstr "Category"
-
 msgid "兰斯值"
 msgstr "Lexile"
 
@@ -566,3 +563,15 @@ msgstr "Source"
 
 msgid "选定此封面"
 msgstr "Use this cover"
+
+msgid "开始测评"
+msgstr "Start the quiz"
+
+msgid "暂无测验"
+msgstr "No quiz yet"
+
+msgid "同系列"
+msgstr "More in this series"
+
+msgid "返回图书馆"
+msgstr "Back to the library"

@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, Student
-from ..personas import MANAGER, STUDENT, TEACHER, current_classroom, get_persona, persona_required
+from ..personas import MANAGER, PARENT, STUDENT, TEACHER, current_classroom, get_persona, persona_required
 
 MAX_SUBMITTED_ATTEMPTS = 3
 
@@ -14,6 +14,10 @@ def _attempt_stats(student, book):
     passed = QuizAttempt.objects.filter(student=student, book=book, passed=True, submitted=True).exists()
     failed = QuizAttempt.objects.filter(student=student, book=book, passed=False, submitted=True).count()
     return passed, failed
+
+def _remaining(student, book):
+    failed = QuizAttempt.objects.filter(student=student, book=book, passed=False, submitted=True).count()
+    return max(MAX_SUBMITTED_ATTEMPTS - failed, 0)
 
 def _quizable_books():
     return Book.objects.exclude(quiz_data=[]).order_by('series', 'title')
@@ -54,7 +58,7 @@ def quiz_start(request):
     return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': Classroom.objects.filter(owner=request.user), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books(), 'chosen': chosen})
 
 def _can_access_attempt(persona, attempt):
-    if persona.kind == STUDENT: return attempt.student_id == persona.student.pk
+    if persona.kind in (STUDENT, PARENT): return attempt.student_id == persona.student.pk
     if persona.kind == MANAGER: return True
     if persona.kind == TEACHER: return attempt.student.classroom.owner_id == persona.user.pk
     return False
@@ -72,12 +76,11 @@ def quiz_take(request, attempt_id):
         if attempt.passed and not ReadingRecord.objects.filter(student=attempt.student, book=attempt.book, passed=True).exists():
             meta = request.session.get(f'quiz_meta_{attempt.pk}', {}); minutes = meta.get('minutes')
             ReadingRecord.objects.create(student=attempt.student, book=attempt.book, read_date=meta.get('date') or date.today(), words=attempt.book.words or 0, minutes=int(minutes) if minutes else None, quiz_score=score, passed=True)
-        remaining = MAX_SUBMITTED_ATTEMPTS - QuizAttempt.objects.filter(student=attempt.student, book=attempt.book, passed=False, submitted=True).count()
-        return render(request, 'reading/quiz_result.html', {'attempt': attempt, 'correct': correct, 'total': len(questions), 'remaining': max(remaining, 0)})
+        return render(request, 'reading/quiz_result.html', {'attempt': attempt, 'correct': correct, 'total': len(questions), 'remaining': _remaining(attempt.student, attempt.book)})
     attempt_number = QuizAttempt.objects.filter(student=attempt.student, book=attempt.book, passed=False, submitted=True).count() + 1
     return render(request, 'reading/quiz_take.html', {'attempt': attempt, 'questions': questions, 'attempt_number': attempt_number, 'max_attempts': MAX_SUBMITTED_ATTEMPTS})
 
-@persona_required(TEACHER, MANAGER, STUDENT)
+@persona_required(TEACHER, MANAGER, STUDENT, PARENT)
 def quiz_review(request, attempt_id):
     persona = get_persona(request)
     attempt = get_object_or_404(QuizAttempt, pk=attempt_id, submitted=True)
@@ -85,9 +88,14 @@ def quiz_review(request, attempt_id):
         return HttpResponseForbidden()
     if persona.kind == STUDENT and not attempt.passed:
         return HttpResponseForbidden()
+    show_questions = attempt.passed or persona.is_staff
     rows = []
-    for question, answer in zip(attempt.questions, attempt.answers):
-        options = [{'text': text, 'chosen': index == answer, 'answer': index == question['answer']}
-            for index, text in enumerate(question['options'])]
-        rows.append({'prompt': question['prompt'], 'options': options, 'correct': answer == question['answer']})
-    return render(request, 'reading/quiz_review.html', {'attempt': attempt, 'rows': rows})
+    if show_questions:
+        for question, answer in zip(attempt.questions, attempt.answers):
+            options = [{'text': text, 'chosen': index == answer, 'answer': index == question['answer']}
+                for index, text in enumerate(question['options'])]
+            rows.append({'prompt': question['prompt'], 'options': options, 'correct': answer == question['answer']})
+    context = {'attempt': attempt, 'rows': rows, 'show_questions': show_questions}
+    if not show_questions:
+        context['remaining'] = _remaining(attempt.student, attempt.book)
+    return render(request, 'reading/quiz_review.html', context)

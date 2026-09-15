@@ -1226,19 +1226,13 @@ class QuizReviewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'wrong')
 
-    def test_a_parent_cannot_open_the_review(self):
-        attempt, _ = self._submit(self.amy, correct=True)
-        self.client.logout()
-        self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
-        self.assertEqual(self.client.get(reverse('quiz_review', args=[attempt.pk])).status_code, 403)
-
     def test_an_attempt_from_before_the_snapshot_says_so(self):
         attempt = QuizAttempt.objects.create(student=self.amy, book=self.book, score=100, passed=True,
             submitted=True, answers=[0] * 10, questions=[], started_at=timezone.now())
         self._student(self.amy)
         response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '这次作答早于本次更新，无法回看逐题内容。')
+        self.assertContains(response, '该历史答卷无法逐题回看')
         self.assertNotContains(response, '<fieldset')
 
     def test_an_unsubmitted_attempt_is_not_found(self):
@@ -1310,3 +1304,109 @@ class ShelfTests(TestCase):
         self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': 'book_detail'}),
             reverse('book_detail', args=[self.book.pk]))
         self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), '移出书架')
+
+class ReviewPermissionTests(TestCase):
+    """Who may open /quiz/<id>/review/, and how much of it they get to see."""
+
+    HIDDEN = '未通过的答卷不显示逐题答案'
+
+    def setUp(self):
+        self.teacher = User.objects.create_user('own', password='pw')
+        self.stranger = User.objects.create_user('other', password='pw')
+        self.boss = User.objects.create_user('boss', password='pw')
+        Profile.objects.create(user=self.boss, role='manager')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3)
+        self.far = Classroom.objects.create(owner=self.stranger, name='Y5C1', grade=5)
+        self.amy = self._kid(self.room, 'Amy', 'amy@example.com', 'amypw')
+        self.bob = self._kid(self.room, 'Bob', 'bob@example.com', 'bobpw')
+        self.cid = self._kid(self.far, 'Cid', 'cid@example.com', 'cidpw')
+        self.book = make_book('perm-book')
+
+    def _kid(self, classroom, name, email, password):
+        student = Student.objects.create(classroom=classroom, name=name, email=email)
+        student.set_password(password); student.save()
+        return student
+
+    def _attempt(self, student, correct):
+        self.client.login(username=student.classroom.owner.username, password='pw')
+        _, attempt_id, _ = take_quiz(self.client, student.classroom, student, self.book, correct)
+        self.client.logout()
+        return QuizAttempt.objects.get(pk=attempt_id)
+
+    def _parent_of(self, student, password):
+        self.client.post(reverse('parent_login'), {'email': student.email, 'password': password})
+
+    def _as_student(self, student):
+        self.client.post(reverse('student_pick', args=[student.classroom_id]), {'student': student.pk})
+
+    def test_a_parent_can_review_her_own_childs_passed_attempt(self):
+        attempt = self._attempt(self.amy, correct=True)
+        self._parent_of(self.amy, 'amypw')
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '正确答案')
+        self.assertContains(response, 'right')
+        self.assertNotContains(response, self.HIDDEN)
+
+    def test_a_parent_sees_the_score_of_a_failed_attempt_but_not_its_answers(self):
+        attempt = self._attempt(self.amy, correct=False)
+        self._parent_of(self.amy, 'amypw')
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.HIDDEN)
+        self.assertContains(response, '提交时间')
+        self.assertContains(response, '剩余次数')
+        self.assertContains(response, f'{attempt.score}%')
+        self.assertEqual(response.context['remaining'], 2)
+        self.assertNotContains(response, '<fieldset')
+        self.assertNotContains(response, '正确答案')
+
+    def test_a_parent_cannot_reach_another_childs_attempt_by_editing_the_url(self):
+        classmate = self._attempt(self.bob, correct=True)
+        other_class = self._attempt(self.cid, correct=True)
+        mine = self._attempt(self.amy, correct=True)
+        self._parent_of(self.amy, 'amypw')
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[classmate.pk])).status_code, 403)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[other_class.pk])).status_code, 403)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[mine.pk])).status_code, 200)
+
+    def test_an_anonymous_visitor_is_sent_to_the_login_page(self):
+        attempt = self._attempt(self.amy, correct=True)
+        response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(reverse('login'), response.url)
+
+    def test_a_student_cannot_review_a_classmates_attempt_or_his_own_failed_one(self):
+        classmate = self._attempt(self.amy, correct=True)
+        own_failed = self._attempt(self.bob, correct=False)
+        self._as_student(self.bob)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[classmate.pk])).status_code, 403)
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[own_failed.pk])).status_code, 403)
+
+    def test_a_teacher_is_limited_to_his_own_class(self):
+        inside = self._attempt(self.amy, correct=False)
+        outside = self._attempt(self.cid, correct=False)
+        self.client.login(username='own', password='pw')
+        self.assertContains(self.client.get(reverse('quiz_review', args=[inside.pk])), 'wrong')
+        self.assertEqual(self.client.get(reverse('quiz_review', args=[outside.pk])).status_code, 403)
+
+    def test_a_manager_can_review_any_attempt_including_failed_ones(self):
+        outside = self._attempt(self.cid, correct=False)
+        self.client.login(username='boss', password='pw')
+        response = self.client.get(reverse('quiz_review', args=[outside.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'wrong')
+        self.assertNotContains(response, self.HIDDEN)
+
+    def test_the_parent_home_lists_every_attempt_with_retries_left(self):
+        failed = self._attempt(self.amy, correct=False)
+        passed = self._attempt(self.amy, correct=True)
+        self._parent_of(self.amy, 'amypw')
+        response = self.client.get(reverse('parent_home'))
+        self.assertContains(response, '测评记录')
+        self.assertContains(response, '未通过')
+        self.assertContains(response, reverse('quiz_review', args=[passed.pk]))
+        self.assertContains(response, reverse('quiz_review', args=[failed.pk]))
+        attempts = response.context['attempts']
+        self.assertEqual({attempt.pk for attempt in attempts}, {failed.pk, passed.pk})
+        self.assertEqual(next(a.remaining for a in attempts if a.pk == failed.pk), 2)

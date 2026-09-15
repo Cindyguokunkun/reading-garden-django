@@ -600,8 +600,8 @@ msgstr "Your pick"
 msgid "正确答案"
 msgstr "Correct answer"
 
-msgid "这次作答早于本次更新，无法回看逐题内容。"
-msgstr "This attempt predates the update, so its questions can no longer be replayed."
+msgid "该历史答卷无法逐题回看"
+msgstr "This attempt is from before answer snapshots existed, so it cannot be reviewed question by question."
 
 msgid "我的书架"
 msgstr "My shelf"
@@ -629,3 +629,27 @@ msgstr "Passed at"
 
 msgid "想读"
 msgstr "Want to read"
+
+msgid "测评结果"
+msgstr "Quiz result"
+
+msgid "未通过的答卷不显示逐题答案，只能看到分数与时间。"
+msgstr "A quiz that was not passed shows only its score and time, not the answers."
+
+msgid "提交时间"
+msgstr "Submitted"
+
+msgid "剩余次数"
+msgstr "Retries left"
+
+msgid "测评记录"
+msgstr "Quiz attempts"
+
+msgid "状态"
+msgstr "Status"
+
+msgid "未通过"
+msgstr "Not passed"
+
+msgid "孩子还没有测评记录。"
+msgstr "No quiz attempts yet."

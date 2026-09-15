@@ -1,7 +1,7 @@
 from datetime import date
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.views import LoginView
-from django.db.models import Max
+from django.db.models import Count, Max
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as _
@@ -9,6 +9,7 @@ from django.views.decorators.http import require_POST
 from ..models import Book, Classroom, QuizAttempt, ShelfItem, Student
 from ..personas import PARENT, STUDENT, clear_persona, get_persona, persona_required, set_student_persona
 from ..stats import rank_rows
+from .quiz import MAX_SUBMITTED_ATTEMPTS
 
 staff_login = LoginView.as_view(template_name='reading/login_staff.html', redirect_authenticated_user=True)
 
@@ -54,13 +55,23 @@ def _home_context(student):
     return {'student': student, 'classroom': student.classroom, 'records': records.select_related('book')[:50],
             'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent}
 
+def _attempt_rows(student):
+    rows = list(QuizAttempt.objects.filter(student=student, submitted=True)
+        .select_related('book').order_by('-completed_at')[:30])
+    failed = {row['book_id']: row['n'] for row in QuizAttempt.objects
+        .filter(student=student, submitted=True, passed=False).values('book_id').annotate(n=Count('id'))}
+    for attempt in rows:
+        attempt.remaining = max(MAX_SUBMITTED_ATTEMPTS - failed.get(attempt.book_id, 0), 0)
+    return rows
+
 @persona_required(STUDENT)
 def student_home(request):
     return render(request, 'reading/student_home.html', _home_context(get_persona(request).student))
 
 @persona_required(PARENT)
 def parent_home(request):
-    return render(request, 'reading/parent_home.html', _home_context(get_persona(request).student))
+    student = get_persona(request).student
+    return render(request, 'reading/parent_home.html', {**_home_context(student), 'attempts': _attempt_rows(student)})
 
 @require_POST
 def logout(request):

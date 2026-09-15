@@ -21,11 +21,13 @@ def login_hub(request):
     return render(request, 'registration/login.html')
 
 def student_login(request):
+    if request.user.is_authenticated: return redirect('dashboard')
     if get_persona(request).kind == STUDENT: return redirect('student_home')
     classrooms = Classroom.objects.all().order_by('grade', 'name')
     return render(request, 'reading/student_login.html', {'classrooms': classrooms})
 
 def student_pick(request, classroom_id):
+    if request.user.is_authenticated: return redirect('dashboard')
     classroom = get_object_or_404(Classroom, pk=classroom_id)
     if request.method == 'POST':
         student = get_object_or_404(Student, pk=request.POST.get('student'), classroom=classroom)
@@ -34,6 +36,7 @@ def student_pick(request, classroom_id):
     return render(request, 'reading/student_pick.html', {'classroom': classroom, 'students': classroom.students.all().order_by('name')})
 
 def parent_login(request):
+    if request.user.is_authenticated: return redirect('dashboard')
     if get_persona(request).kind == PARENT: return redirect('parent_home')
     error = None
     if request.method == 'POST':
@@ -75,8 +78,8 @@ def parent_home(request):
 
 @require_POST
 def logout(request):
-    if get_persona(request).kind in (STUDENT, PARENT): clear_persona(request)
-    else: auth_logout(request)
+    if request.user.is_authenticated: auth_logout(request)
+    else: clear_persona(request)
     return redirect('login')
 
 def shelf_state(student, books):

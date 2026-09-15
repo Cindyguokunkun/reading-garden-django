@@ -1,7 +1,6 @@
 from datetime import date
 from io import BytesIO
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -9,10 +8,10 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from openpyxl import Workbook
 from ..models import grade_choices, Book, ClassGoal, Classroom, ReadingRecord, Student
-from ..personas import accessible_classrooms, current_classroom
+from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, persona_required
 from ..stats import period, rank_rows, sort_rows
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 def dashboard(request):
     classroom = current_classroom(request)
     mode = request.GET.get('mode', 'week')
@@ -31,7 +30,7 @@ def dashboard(request):
     goal_percent = min(100, round(total_words * 100 / goal.words)) if goal and goal.words else 0
     return render(request, 'reading/dashboard.html', {'classes': accessible_classrooms(request), 'classroom': classroom, 'students': students, 'records': records[:100], 'series': series, 'word_rankings': word_rankings, 'time_rankings': time_rankings, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'total_words': total_words, 'total_minutes': records.aggregate(v=Sum('minutes'))['v'] or 0, 'goal': goal, 'goal_percent': goal_percent, 'grade_choices': grade_choices()})
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 @require_POST
 def action(request):
     kind = request.POST.get('action'); classroom = current_classroom(request)
@@ -48,7 +47,7 @@ def action(request):
     messages.success(request, _('Saved'))
     return redirect(f'/?class={classroom.pk}' if classroom else '/')
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 def export_excel(request):
     classroom = current_classroom(request); wb = Workbook(); ws = wb.active; ws.title = _('Reading records'); ws.append([_('Student'), _('Date'), _('Series'), _('Title'), _('Words'), _('Minutes'), _('Quiz score')])
     for r in ReadingRecord.objects.filter(student__classroom=classroom).select_related('student', 'book'): ws.append([r.student.name, r.read_date, r.book.series, r.book.title, r.words, r.minutes, r.quiz_score])

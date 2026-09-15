@@ -1496,3 +1496,99 @@ class AuthorDisplayTests(TestCase):
         response, attempt_id, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=True)
         self.assertContains(response, 'Roland, Timothy')
         self.assertContains(self.client.get(reverse('quiz_review', args=[attempt_id])), 'Test Book')
+
+class PermissionTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('p_t', password='pw')
+        self.rival = User.objects.create_user('p_r', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='P1', grade=3)
+        self.other = Classroom.objects.create(owner=self.rival, name='P2', grade=3)
+        self.student = Student.objects.create(classroom=self.room, name='Amy', email='amy@example.com')
+        self.student.set_password('amypw'); self.student.save()
+        self.outsider = Student.objects.create(classroom=self.other, name='Bob', email='bob@example.com')
+        self.outsider.set_password('bobpw'); self.outsider.save()
+        book = make_book('perm-book')
+        for pupil, words in ((self.student, 100), (self.outsider, 900)):
+            ReadingRecord.objects.create(student=pupil, book=book, read_date=date.today(), words=words, minutes=10, passed=True)
+
+    def names(self, response):
+        return [row['name'] for row in response.context['word_rankings']]
+
+    def pupil_session(self, pupil=None):
+        self.client.logout()
+        pupil = pupil or self.student
+        self.client.post(reverse('student_pick', args=[pupil.classroom.pk]), {'student': pupil.pk})
+        self.assertEqual(self.client.session.get('persona_kind'), 'student')
+
+    def parent_session(self, pupil):
+        self.client.logout()
+        session = self.client.session
+        session['persona_kind'] = 'parent'; session['persona_student_id'] = pupil.pk; session.save()
+
+    def hybrid_session(self, pupil):
+        self.client.login(username='p_t', password='pw')
+        session = self.client.session
+        session['persona_kind'] = 'student'; session['persona_student_id'] = pupil.pk; session.save()
+
+    def test_staff_views_refuse_a_pupil_persona(self):
+        self.pupil_session()
+        self.assertEqual(self.client.get(reverse('dashboard')).status_code, 403)
+        self.assertEqual(self.client.get(reverse('export_excel')).status_code, 403)
+        self.assertEqual(self.client.post(reverse('action'), {'action': 'class_add', 'name': 'Hack'}).status_code, 403)
+        self.assertFalse(Classroom.objects.filter(name='Hack').exists())
+
+    def test_staff_views_send_visitors_to_the_login_page(self):
+        for url in (reverse('dashboard'), reverse('export_excel'), reverse('action')):
+            self.assertRedirects(self.client.get(url), f'/login/?next={url}')
+
+    def test_a_pupil_only_sees_the_class_board(self):
+        self.pupil_session()
+        for query in ('?tier=school', '?tier=grade&grade=3', '?tier=school&mode=all'):
+            response = self.client.get(reverse('ranks') + query)
+            self.assertEqual(response.context['tier'], 'class', query)
+            self.assertEqual(self.names(response), ['Amy'])
+            self.assertNotContains(response, 'name="tier"')
+
+    def test_a_parent_only_sees_the_class_board(self):
+        self.parent_session(self.outsider)
+        response = self.client.get(reverse('ranks') + '?tier=school')
+        self.assertEqual(response.context['tier'], 'class')
+        self.assertEqual(self.names(response), ['Bob'])
+
+    def test_a_teacher_still_gets_the_school_board(self):
+        self.client.login(username='p_t', password='pw')
+        self.assertEqual(self.names(self.client.get(reverse('ranks') + '?tier=school')), ['Bob', 'Amy'])
+
+    def test_a_signed_in_teacher_cannot_take_a_pupil_identity(self):
+        self.client.login(username='p_t', password='pw')
+        self.assertRedirects(self.client.get(reverse('student_login')), reverse('dashboard'))
+        self.assertRedirects(self.client.get(reverse('student_pick', args=[self.other.pk])), reverse('dashboard'))
+        self.assertRedirects(self.client.post(reverse('student_pick', args=[self.other.pk]), {'student': self.outsider.pk}), reverse('dashboard'))
+        self.assertRedirects(self.client.post(reverse('parent_login'), {'email': 'bob@example.com', 'password': 'bobpw'}), reverse('dashboard'))
+        self.assertNotIn('persona_kind', self.client.session)
+
+    def test_leftover_pupil_keys_never_demote_a_signed_in_teacher(self):
+        self.hybrid_session(self.outsider)
+        response = self.client.get(reverse('dashboard'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['classroom'].pk, self.room.pk)
+        self.assertNotContains(response, 'Bob')
+        self.assertNotIn('persona_kind', self.client.session)
+        self.assertEqual(self.names(self.client.get(reverse('ranks') + '?tier=school')), ['Bob', 'Amy'])
+
+    def test_staff_login_drops_a_leftover_pupil_persona(self):
+        self.pupil_session()
+        self.assertRedirects(self.client.post(reverse('staff_login'), {'username': 'p_t', 'password': 'pw'}), reverse('dashboard'))
+        self.assertNotIn('persona_kind', self.client.session)
+
+    def test_logout_clears_both_identities(self):
+        self.hybrid_session(self.student)
+        self.client.post(reverse('logout'))
+        self.assertNotIn('persona_kind', self.client.session)
+        self.assertRedirects(self.client.get(reverse('dashboard')), '/login/?next=/')
+
+    def test_pupil_logout_ends_the_pupil_session(self):
+        self.pupil_session()
+        self.assertEqual(self.client.get(reverse('student_home')).status_code, 200)
+        self.client.post(reverse('logout'))
+        self.assertRedirects(self.client.get(reverse('student_home')), '/login/?next=/student/')

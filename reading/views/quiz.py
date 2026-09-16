@@ -176,6 +176,20 @@ def quiz_take(request, attempt_id):
     if not _can_access_attempt(persona, attempt):
         return HttpResponseForbidden()
     questions = request.session.get(f'quiz_{attempt.pk}', [])
+    # A completed attempt is immutable. Refreshing the result page or sending
+    # another POST must never change its score, answers, or reading record.
+    if attempt.submitted:
+        questions = attempt.questions or questions
+        correct = sum(
+            answer == question['answer']
+            for answer, question in zip(attempt.answers, questions)
+        )
+        return render(request, 'reading/quiz_result.html', {
+            'attempt': attempt,
+            'correct': correct,
+            'total': len(questions),
+            'remaining': _remaining(attempt.student, attempt.book),
+        })
     if request.method == 'POST':
         answers = [int(request.POST.get(f'q{i}', -1)) for i in range(len(questions))]; correct = sum(a == q['answer'] for a, q in zip(answers, questions)); score = round(correct * 100 / len(questions)) if questions else 0
         attempt.score = score; attempt.passed = score >= 60; attempt.answers = answers; attempt.questions = questions; attempt.submitted = True; attempt.completed_at = timezone.now(); attempt.save()

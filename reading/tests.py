@@ -122,6 +122,28 @@ class QuizRetakeTests(TestCase):
         self.assertEqual(QuizAttempt.objects.count(), 1)
         self.assertEqual(ReadingRecord.objects.count(), 1)
 
+    def test_submitted_attempt_cannot_be_rescored(self):
+        _, attempt_id, questions = take_quiz(
+            self.client, self.room, self.student, self.book, correct=True
+        )
+        attempt = QuizAttempt.objects.get(pk=attempt_id)
+        completed_at = attempt.completed_at
+        wrong_answers = {
+            f'q{i}': str((question['answer'] + 1) % len(question['options']))
+            for i, question in enumerate(questions)
+        }
+
+        response = self.client.post(
+            reverse('quiz_take', args=[attempt_id]), wrong_answers
+        )
+
+        attempt.refresh_from_db()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(attempt.score, 100)
+        self.assertTrue(attempt.passed)
+        self.assertEqual(attempt.completed_at, completed_at)
+        self.assertEqual(ReadingRecord.objects.count(), 1)
+
     def test_retake_keeps_options_but_may_move_them(self):
         _, _, first = take_quiz(self.client, self.room, self.student, self.book, correct=False)
         _, _, second = take_quiz(self.client, self.room, self.student, self.book, correct=False)

@@ -37,12 +37,13 @@ from io import BytesIO
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.utils import timezone
 from openpyxl import Workbook
-from .models import ClassGoal, Profile, QuizAttempt, ShelfItem
+from .models import ClassGoal, Organization, Profile, QuizAttempt, ShelfItem
 
 def make_book(source_id, words=100, quiz=True, **kwargs):
     defaults = dict(title='Test Book', series='Tests')
     defaults.update(kwargs)
     return Book.objects.create(source_id=source_id, words=words, title=defaults['title'], series=defaults['series'],
+        organization=Organization.objects.first(),
         quiz_data=[{'prompt': f'Question {i+1}?', 'options': ['Right', 'A', 'B', 'C'], 'answer': 0} for i in range(10)] if quiz else [])
 
 def take_quiz(client, classroom, student, book, correct):
@@ -192,6 +193,7 @@ class ImportTests(TestCase):
         self.boss = User.objects.create_user('boss', password='pw')
         Profile.objects.create(user=self.boss, role='manager')
         self.teacher = User.objects.create_user('imp_t', password='pw')
+        Profile.objects.create(user=self.teacher, role='teacher')
 
     def upload(self, rows):
         wb = Workbook(); ws = wb.active

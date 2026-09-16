@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from ..models import (
-    AccountAudit, ParentStudentLink, Profile, Student, TeacherInvite,
+    AccountAudit, Membership, Organization, ParentStudentLink, Profile, Student, TeacherInvite,
     ROLE_MANAGER, ROLE_PARENT, ROLE_TEACHER,
 )
 from ..personas import MANAGER, TEACHER, accessible_classrooms, get_persona, persona_required
@@ -67,6 +67,10 @@ def teacher_register(request):
                     user = User.objects.create_user(username=username, email=email, password=password,
                                                     first_name=full_name, is_active=False)
                     Profile.objects.create(user=user, role=ROLE_TEACHER, approved=False)
+                    Membership.objects.create(
+                        user=user, organization=invite.organization,
+                        role=ROLE_TEACHER, active=False,
+                    )
                     invite.uses += 1
                     invite.save(update_fields=['uses'])
             if not errors:
@@ -112,6 +116,7 @@ def parent_register(request):
 
 @persona_required(MANAGER)
 def account_approvals(request):
+    organization = get_persona(request).organization
     if request.method == 'POST':
         action = request.POST.get('action')
         if action == 'invite':
@@ -119,29 +124,42 @@ def account_approvals(request):
             TeacherInvite.objects.create(
                 code=code, label=(request.POST.get('label') or '').strip(),
                 max_uses=max(1, int(request.POST.get('max_uses') or 20)), created_by=request.user,
+                organization=organization,
             )
-            AccountAudit.objects.create(actor=request.user, action='create_teacher_invite', detail=code)
+            AccountAudit.objects.create(actor=request.user, organization=organization,
+                                        action='create_teacher_invite', detail=code)
             messages.success(request, f'教师邀请码已创建：{code}')
         elif action == 'approve':
-            profile = get_object_or_404(Profile, pk=request.POST.get('profile'), role=ROLE_TEACHER)
+            membership = get_object_or_404(
+                Membership.objects.select_related('user'), pk=request.POST.get('profile'),
+                organization=organization, role=ROLE_TEACHER, active=False,
+            )
+            profile = membership.user.profile
             profile.approved = True
             profile.save(update_fields=['approved'])
             profile.user.is_active = True
             profile.user.save(update_fields=['is_active'])
-            AccountAudit.objects.create(actor=request.user, target=profile.user, action='approve_teacher')
+            membership.active = True
+            membership.save(update_fields=['active'])
+            AccountAudit.objects.create(actor=request.user, target=profile.user,
+                                        organization=organization, action='approve_teacher')
             messages.success(request, f'已批准教师 {profile.user.get_full_name() or profile.user.username}')
         elif action == 'reject':
-            profile = get_object_or_404(Profile, pk=request.POST.get('profile'), role=ROLE_TEACHER, approved=False)
-            target = profile.user
-            AccountAudit.objects.create(actor=request.user, target=target, action='reject_teacher')
+            membership = get_object_or_404(
+                Membership.objects.select_related('user'), pk=request.POST.get('profile'),
+                organization=organization, role=ROLE_TEACHER, active=False,
+            )
+            target = membership.user
+            AccountAudit.objects.create(actor=request.user, target=target,
+                                        organization=organization, action='reject_teacher')
             target.delete()
             messages.success(request, '申请已删除。')
         elif action in ('promote', 'demote', 'toggle_active'):
-            profile = get_object_or_404(
-                Profile.objects.select_related('user'), pk=request.POST.get('profile'),
-                role__in=(ROLE_TEACHER, ROLE_MANAGER), approved=True,
+            membership = get_object_or_404(
+                Membership.objects.select_related('user'), pk=request.POST.get('profile'),
+                organization=organization, role__in=(ROLE_TEACHER, ROLE_MANAGER), active=True,
             )
-            target = profile.user
+            target = membership.user
             if not request.user.check_password(request.POST.get('current_password') or ''):
                 messages.error(request, '当前管理者密码不正确，操作未执行。')
                 return redirect('account_approvals')
@@ -149,25 +167,25 @@ def account_approvals(request):
                 messages.error(request, '不能停用自己或取消自己的管理者权限。')
                 return redirect('account_approvals')
             if action == 'promote':
-                profile.role = ROLE_MANAGER
-                profile.save(update_fields=['role'])
+                membership.role = ROLE_MANAGER
+                membership.save(update_fields=['role'])
                 label = 'promote_manager'
                 messages.success(request, f'{target.get_full_name() or target.username} 已成为管理者。')
             elif action == 'demote':
-                active_managers = Profile.objects.filter(
-                    role=ROLE_MANAGER, approved=True, user__is_active=True
+                active_managers = Membership.objects.filter(
+                    organization=organization, role=ROLE_MANAGER, active=True, user__is_active=True
                 ).count()
                 if active_managers <= 1:
                     messages.error(request, '系统必须至少保留一名可用管理者。')
                     return redirect('account_approvals')
-                profile.role = ROLE_TEACHER
-                profile.save(update_fields=['role'])
+                membership.role = ROLE_TEACHER
+                membership.save(update_fields=['role'])
                 label = 'demote_manager'
                 messages.success(request, f'{target.get_full_name() or target.username} 已改为教师。')
             else:
-                if profile.role == ROLE_MANAGER and target.is_active:
-                    active_managers = Profile.objects.filter(
-                        role=ROLE_MANAGER, approved=True, user__is_active=True
+                if membership.role == ROLE_MANAGER and target.is_active:
+                    active_managers = Membership.objects.filter(
+                        organization=organization, role=ROLE_MANAGER, active=True, user__is_active=True
                     ).count()
                     if active_managers <= 1:
                         messages.error(request, '不能停用最后一名可用管理者。')
@@ -176,14 +194,17 @@ def account_approvals(request):
                 target.save(update_fields=['is_active'])
                 label = 'activate_account' if target.is_active else 'deactivate_account'
                 messages.success(request, '账号已恢复。' if target.is_active else '账号已停用。')
-            AccountAudit.objects.create(actor=request.user, target=target, action=label)
+            AccountAudit.objects.create(actor=request.user, target=target,
+                                        organization=organization, action=label)
         return redirect('account_approvals')
-    pending = Profile.objects.filter(role=ROLE_TEACHER, approved=False).select_related('user')
-    staff = Profile.objects.filter(
-        role__in=(ROLE_TEACHER, ROLE_MANAGER), approved=True
+    pending = Membership.objects.filter(
+        organization=organization, role=ROLE_TEACHER, active=False
+    ).select_related('user')
+    staff = Membership.objects.filter(
+        organization=organization, role__in=(ROLE_TEACHER, ROLE_MANAGER), active=True
     ).select_related('user').order_by('role', 'user__username')
-    invites = TeacherInvite.objects.order_by('-created_at')[:30]
-    audits = AccountAudit.objects.select_related('actor', 'target')[:30]
+    invites = TeacherInvite.objects.filter(organization=organization).order_by('-created_at')[:30]
+    audits = AccountAudit.objects.filter(organization=organization).select_related('actor', 'target')[:30]
     return render(request, 'reading/account_approvals.html', {
         'pending': pending, 'staff': staff, 'invites': invites, 'audits': audits,
     })
@@ -234,3 +255,37 @@ def parent_switch(request):
     link = get_object_or_404(ParentStudentLink, parent=request.user, student_id=request.POST.get('student'))
     request.session['parent_student_id'] = link.student_id
     return redirect('parent_home')
+
+
+@persona_required(TEACHER, MANAGER)
+@require_POST
+def organization_switch(request):
+    membership = get_object_or_404(
+        Membership, user=request.user, organization_id=request.POST.get('organization'),
+        active=True, organization__active=True,
+    )
+    request.session['organization_id'] = membership.organization_id
+    if hasattr(request, 'persona'):
+        del request.persona
+    return redirect('dashboard')
+
+
+@persona_required(MANAGER)
+def organization_manage(request):
+    persona = get_persona(request)
+    if not persona.is_platform_admin:
+        return render(request, 'reading/forbidden.html', status=403)
+    if request.method == 'POST':
+        name = (request.POST.get('name') or '').strip()
+        slug = (request.POST.get('slug') or '').strip().lower()
+        if name and slug and not Organization.objects.filter(slug=slug).exists():
+            organization = Organization.objects.create(name=name, slug=slug)
+            Membership.objects.create(
+                user=request.user, organization=organization, role=ROLE_MANAGER, active=True
+            )
+            messages.success(request, f'学校已创建：{name}')
+            return redirect('organization_manage')
+        messages.error(request, '请填写学校名称和唯一英文标识。')
+    return render(request, 'reading/organization_manage.html', {
+        'all_organizations': Organization.objects.order_by('name'),
+    })

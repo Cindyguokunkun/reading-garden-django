@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import (AccountAudit, Classroom, ParentStudentLink, Profile, Student,
+from .models import (AccountAudit, Classroom, Membership, ParentStudentLink, Profile, Student,
                      TeacherInvite, ROLE_MANAGER, ROLE_PARENT, ROLE_TEACHER)
 
 
@@ -30,7 +30,7 @@ class RegistrationTests(TestCase):
 
         self.client.login(username='manager', password='manager-pass')
         self.client.post(reverse('account_approvals'), {
-            'action': 'approve', 'profile': teacher.profile.pk,
+            'action': 'approve', 'profile': teacher.memberships.get().pk,
         })
         teacher.refresh_from_db()
         self.assertTrue(teacher.is_active)
@@ -82,14 +82,15 @@ class RegistrationTests(TestCase):
         profile = Profile.objects.create(user=teacher, role=ROLE_TEACHER, approved=True)
         self.client.login(username='manager', password='manager-pass')
         self.client.post(reverse('account_approvals'), {
-            'action': 'promote', 'profile': profile.pk, 'current_password': 'manager-pass',
+            'action': 'promote', 'profile': teacher.memberships.get().pk, 'current_password': 'manager-pass',
         })
-        profile.refresh_from_db()
-        self.assertEqual(profile.role, ROLE_MANAGER)
+        membership = teacher.memberships.get()
+        membership.refresh_from_db()
+        self.assertEqual(membership.role, ROLE_MANAGER)
         self.assertTrue(AccountAudit.objects.filter(target=teacher, action='promote_manager').exists())
 
         self.client.post(reverse('account_approvals'), {
-            'action': 'toggle_active', 'profile': profile.pk, 'current_password': 'manager-pass',
+            'action': 'toggle_active', 'profile': teacher.memberships.get().pk, 'current_password': 'manager-pass',
         })
         teacher.refresh_from_db()
         self.assertFalse(teacher.is_active)
@@ -99,19 +100,21 @@ class RegistrationTests(TestCase):
         profile = Profile.objects.create(user=teacher, role=ROLE_TEACHER, approved=True)
         self.client.login(username='manager', password='manager-pass')
         self.client.post(reverse('account_approvals'), {
-            'action': 'promote', 'profile': profile.pk, 'current_password': 'wrong',
+            'action': 'promote', 'profile': teacher.memberships.get().pk, 'current_password': 'wrong',
         })
-        profile.refresh_from_db()
-        self.assertEqual(profile.role, ROLE_TEACHER)
+        membership = teacher.memberships.get()
+        membership.refresh_from_db()
+        self.assertEqual(membership.role, ROLE_TEACHER)
 
     def test_manager_cannot_demote_or_disable_self(self):
         self.client.login(username='manager', password='manager-pass')
         for action in ('demote', 'toggle_active'):
             self.client.post(reverse('account_approvals'), {
-                'action': action, 'profile': self.manager.profile.pk,
+                'action': action, 'profile': self.manager.memberships.get().pk,
                 'current_password': 'manager-pass',
             })
         self.manager.refresh_from_db()
-        self.manager.profile.refresh_from_db()
+        membership = self.manager.memberships.get()
+        membership.refresh_from_db()
         self.assertTrue(self.manager.is_active)
-        self.assertEqual(self.manager.profile.role, ROLE_MANAGER)
+        self.assertEqual(membership.role, ROLE_MANAGER)

@@ -14,12 +14,13 @@
 import random
 from datetime import date
 from django.contrib import messages
+from django.db.models import Q
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, Student
-from ..personas import MANAGER, PARENT, STUDENT, TEACHER, current_classroom, get_persona, persona_required
+from ..personas import MANAGER, PARENT, STUDENT, TEACHER, accessible_classrooms, current_classroom, get_persona, persona_required
 
 # 每本书允许的「已提交但未通过」的最大作答次数。
 MAX_SUBMITTED_ATTEMPTS = 3
@@ -55,14 +56,16 @@ def _remaining(student, book):
     return max(MAX_SUBMITTED_ATTEMPTS - failed, 0)
 
 
-def _quizable_books():
+def _quizable_books(organization):
     """返回全部「有题目、可测验」的书籍。
 
     Returns:
         QuerySet[Book]: 排除 ``quiz_data`` 为空列表的书籍，
         按系列、书名排序。
     """
-    return Book.objects.exclude(quiz_data=[]).order_by('series', 'title')
+    return Book.objects.filter(
+        Q(organization__isnull=True) | Q(organization=organization)
+    ).exclude(quiz_data=[]).order_by('series', 'title')
 
 
 def _build_questions(book, retake):
@@ -113,7 +116,7 @@ def quiz_start(request):
             student = persona.student
         else:
             student = get_object_or_404(Student, pk=request.POST['student'], classroom=classroom)
-        book = get_object_or_404(Book, pk=request.POST['book'])
+        book = get_object_or_404(_quizable_books(persona.organization), pk=request.POST['book'])
         passed, failed = _attempt_stats(student, book)
         back = 'student_home' if persona.kind == STUDENT else 'quiz_start'
         if passed:
@@ -129,8 +132,8 @@ def quiz_start(request):
     chosen = request.GET.get('book') or ''
     chosen = int(chosen) if chosen.isdigit() else None
     if persona.kind == STUDENT:
-        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books(), 'chosen': chosen})
-    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': Classroom.objects.filter(owner=request.user), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books(), 'chosen': chosen})
+        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
+    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': accessible_classrooms(request), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
 
 
 def _can_access_attempt(persona, attempt):
@@ -146,8 +149,11 @@ def _can_access_attempt(persona, attempt):
         其余情况返回 ``False``。
     """
     if persona.kind in (STUDENT, PARENT): return attempt.student_id == persona.student.pk
-    if persona.kind == MANAGER: return True
-    if persona.kind == TEACHER: return attempt.student.classroom.owner_id == persona.user.pk
+    if persona.kind == MANAGER:
+        return attempt.student.classroom.organization_id == persona.organization.pk
+    if persona.kind == TEACHER:
+        return (attempt.student.classroom.organization_id == persona.organization.pk
+                and attempt.student.classroom.owner_id == persona.user.pk)
     return False
 
 

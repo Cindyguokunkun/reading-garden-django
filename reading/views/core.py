@@ -19,7 +19,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from openpyxl import Workbook
 from ..models import grade_choices, Book, ClassGoal, Classroom, ReadingRecord, Student
-from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, persona_required
+from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, get_persona, persona_required
 from ..stats import period, rank_rows, sort_rows
 from .registration import _unique_code
 
@@ -87,7 +87,8 @@ def action(request):
     """
     kind = request.POST.get('action'); classroom = current_classroom(request)
     if kind == 'class_add':
-        Classroom.objects.create(owner=request.user, name=request.POST['name'].strip(), grade=int(request.POST.get('grade') or 1))
+        Classroom.objects.create(owner=request.user, organization=get_persona(request).organization,
+                                 name=request.POST['name'].strip(), grade=int(request.POST.get('grade') or 1))
     elif kind == 'student_add' and classroom:
         student = Student.objects.create(classroom=classroom, name=request.POST['name'].strip())
         student.login_id = f'S{student.pk:05d}'

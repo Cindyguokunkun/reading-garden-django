@@ -44,11 +44,11 @@ def ranks(request):
     start, end = period(mode, anchor)
     home = current_classroom(request)
     if tier == 'school':
-        classrooms = Classroom.objects.all(); grade = None
+        classrooms = Classroom.objects.filter(organization=persona.organization); grade = None
     elif tier == 'grade':
         try: grade = int(request.GET.get('grade'))
         except (TypeError, ValueError): grade = home.grade if home else None
-        classrooms = Classroom.objects.filter(grade=grade) if grade else Classroom.objects.none()
+        classrooms = Classroom.objects.filter(organization=persona.organization, grade=grade) if grade else Classroom.objects.none()
     else:
         tier = 'class'
         pk = request.GET.get('class')
@@ -58,7 +58,7 @@ def ranks(request):
     rows = rank_rows(classrooms, start, end)
     for row in rows:
         row['me'] = bool(persona.student and row['student_id'] == persona.student.pk)
-    grades = sorted(Classroom.objects.values_list('grade', flat=True).distinct())
+    grades = sorted(Classroom.objects.filter(organization=persona.organization).values_list('grade', flat=True).distinct())
     return render(request, 'reading/ranks.html', {
         'tier': tier, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'grade': grade, 'grades': grades,
         'classes': accessible_classrooms(request), 'classroom': home,

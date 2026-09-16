@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="hero"><div><p>{% trans "平台管理" %}</p><h1>{% trans "学校与机构" %}</h1></div></section>
+<section class="card"><h2>{% trans "新增学校或机构" %}</h2><form method="post" class="inline">{% csrf_token %}<input name="name" placeholder="{% trans '学校或机构名称' %}" required><input name="slug" pattern="[a-z0-9-]+" placeholder="beijing-school" required><button>{% trans "创建" %}</button></form></section>
+<section class="card"><h2>{% trans "现有学校与机构" %}</h2><table><tr><th>{% trans "名称" %}</th><th>{% trans "标识" %}</th><th>{% trans "班级数" %}</th><th>{% trans "状态" %}</th></tr>{% for o in all_organizations %}<tr><td>{{ o.name }}</td><td>{{ o.slug }}</td><td>{{ o.classrooms.count }}</td><td>{% if o.active %}{% trans "正常" %}{% else %}{% trans "停用" %}{% endif %}</td></tr>{% endfor %}</table></section>{% endblock %}

@@ -18,7 +18,7 @@ from decimal import Decimal, InvalidOperation
 from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib import messages
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from ..models import CATEGORY_CHOICES, Book
@@ -37,6 +37,11 @@ IN_FLIGHT_KEY = 'quizgen_in_flight'
 FORM_PATHS = re.compile(r'^/library/(?:add/|\d+/edit/)$')
 
 
+def _visible_books(request):
+    organization = get_persona(request).organization
+    return Book.objects.filter(Q(organization__isnull=True) | Q(organization=organization))
+
+
 @persona_required(TEACHER, MANAGER, STUDENT, PARENT)
 def library(request):
     """书库列表视图，支持按分类筛选与书名模糊搜索。
@@ -50,19 +55,19 @@ def library(request):
         （最多 500 本）、分类选项与带计数的分类筛选 chips、当前筛选条件
         及馆藏总数。学生/家长身份会额外标注每本书的书架收藏状态。
     """
-    books = Book.objects.all()
+    books = _visible_books(request)
     category = request.GET.get('category', '')
     q = request.GET.get('q', '').strip()
     if category: books = books.filter(category=category)
     if q: books = books.filter(title__icontains=q)
-    counts = {r['category']: r['n'] for r in Book.objects.values('category').annotate(n=Count('id'))}
+    counts = {r['category']: r['n'] for r in books.values('category').annotate(n=Count('id'))}
     chips = [{'value': value, 'label': str(label), 'count': counts.get(value, 0)} for value, label in CATEGORY_CHOICES]
     books = list(books.order_by('series', 'title')[:500])
     persona = get_persona(request)
     if persona.student: shelf_state(persona.student, books)
     return render(request, 'reading/library.html', {
         'books': books, 'categories': CATEGORY_CHOICES, 'chips': chips,
-        'category': category, 'q': q, 'total': Book.objects.count(),
+        'category': category, 'q': q, 'total': _visible_books(request).count(),
     })
 
 
@@ -82,8 +87,8 @@ def book_detail(request, pk):
     Raises:
         Http404: 指定书籍不存在。
     """
-    book = get_object_or_404(Book, pk=pk)
-    siblings = Book.objects.none() if _blank(book, 'series') else Book.objects.filter(series=book.series).exclude(pk=book.pk).order_by('title')[:12]
+    book = get_object_or_404(_visible_books(request), pk=pk)
+    siblings = Book.objects.none() if _blank(book, 'series') else _visible_books(request).filter(series=book.series).exclude(pk=book.pk).order_by('title')[:12]
     persona = get_persona(request)
     if persona.student: shelf_state(persona.student, [book])
     return render(request, 'reading/book_detail.html', {'book': book, 'siblings': siblings})
@@ -157,7 +162,14 @@ def _book_from_post(request):
         Http404: 指定 ``pk`` 的书籍不存在。
     """
     pk = (request.POST.get('pk') or '').strip()
-    book = get_object_or_404(Book, pk=int(pk)) if pk.isdigit() else Book(source_id=f'manual-{uuid.uuid4().hex[:12]}')
+    if pk.isdigit():
+        persona = get_persona(request)
+        editable = Book.objects.filter(organization=persona.organization)
+        if persona.is_platform_admin:
+            editable = _visible_books(request)
+        book = get_object_or_404(editable, pk=int(pk))
+    else:
+        book = Book(source_id=f'manual-{uuid.uuid4().hex[:12]}', organization=get_persona(request).organization)
     return _apply_form(book, request.POST)
 
 
@@ -292,7 +304,7 @@ def book_add(request):
         HttpResponse: 渲染空表单，或保存后重定向到 ``library``
         （校验失败则回显表单）的响应。
     """
-    book = Book(source_id=f'manual-{uuid.uuid4().hex[:12]}')
+    book = Book(source_id=f'manual-{uuid.uuid4().hex[:12]}', organization=get_persona(request).organization)
     if request.method == 'POST':
         return _save_book(request, _apply_form(book, request.POST), _('Book added'))
     return _render_form(request, book)
@@ -313,7 +325,11 @@ def book_edit(request, pk):
     Raises:
         Http404: 指定书籍不存在。
     """
-    book = get_object_or_404(Book, pk=pk)
+    persona = get_persona(request)
+    editable = Book.objects.filter(organization=persona.organization)
+    if persona.is_platform_admin:
+        editable = _visible_books(request)
+    book = get_object_or_404(editable, pk=pk)
     if request.method == 'POST':
         return _save_book(request, _apply_form(book, request.POST), _('Book updated'))
     return _render_form(request, book)

@@ -55,6 +55,29 @@ CATEGORY_CHOICES = [
 ]
 
 
+class Organization(models.Model):
+    name = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=80, unique=True)
+    active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Membership(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='memberships')
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='memberships')
+    role = models.CharField(max_length=10, choices=[
+        (ROLE_TEACHER, _('Teacher')), (ROLE_MANAGER, _('Manager')),
+    ], default=ROLE_TEACHER)
+    active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [('user', 'organization')]
+
+
 class Profile(models.Model):
     """员工账号的扩展信息，与 Django 内置 User 一对一关联。
 
@@ -79,6 +102,16 @@ class Profile(models.Model):
         """
         return f'{self.user.username}:{self.role}'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.approved and self.role in (ROLE_TEACHER, ROLE_MANAGER):
+            organization = Organization.objects.first()
+            if organization:
+                Membership.objects.get_or_create(
+                    user=self.user, organization=organization,
+                    defaults={'role': self.role, 'active': self.user.is_active},
+                )
+
 
 class Classroom(models.Model):
     """班级模型，归属于某位员工用户。
@@ -92,6 +125,7 @@ class Classroom(models.Model):
     """
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='classrooms', null=True)
     name = models.CharField(max_length=100)
     grade = models.PositiveSmallIntegerField(choices=grade_choices, default=1, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -113,6 +147,12 @@ class Classroom(models.Model):
             str: 班级名称。
         """
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.organization_id:
+            membership = Membership.objects.filter(user=self.owner, active=True).first()
+            self.organization = membership.organization if membership else Organization.objects.first()
+        super().save(*args, **kwargs)
 
 
 class Student(models.Model):
@@ -199,6 +239,7 @@ class TeacherInvite(models.Model):
     code = models.CharField(max_length=24, unique=True)
     label = models.CharField(max_length=100, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='teacher_invites')
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='teacher_invites', null=True)
     active = models.BooleanField(default=True)
     max_uses = models.PositiveIntegerField(default=20)
     uses = models.PositiveIntegerField(default=0)
@@ -207,6 +248,12 @@ class TeacherInvite(models.Model):
     @property
     def available(self):
         return self.active and self.uses < self.max_uses
+
+    def save(self, *args, **kwargs):
+        if not self.organization_id:
+            membership = Membership.objects.filter(user=self.created_by, active=True).first()
+            self.organization = membership.organization if membership else Organization.objects.first()
+        super().save(*args, **kwargs)
 
 
 class ParentStudentLink(models.Model):
@@ -221,6 +268,7 @@ class ParentStudentLink(models.Model):
 class AccountAudit(models.Model):
     actor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='account_actions')
     target = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='account_changes')
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='account_audits', null=True)
     action = models.CharField(max_length=40)
     detail = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -253,6 +301,7 @@ class Book(models.Model):
         quiz_data (models.JSONField): 测验题目数据，默认为空列表。
     """
 
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='books', null=True, blank=True)
     source_id = models.CharField(max_length=120, unique=True)
     title = models.CharField(max_length=300)
     author = models.CharField(max_length=200, blank=True)

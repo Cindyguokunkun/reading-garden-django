@@ -12,8 +12,8 @@ from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import render
 from openpyxl import Workbook, load_workbook
-from ..models import Classroom, Student
-from ..personas import get_role, manager_required
+from ..models import Classroom, Membership, Student
+from ..personas import get_persona, manager_required
 
 # 导入模板与解析共用的列顺序表头（中英对照）。
 HEADERS = ['年级 Grade', '班级名称 Class', '教师用户名 Teacher username', '学生姓名 Student name',
@@ -73,6 +73,7 @@ def manage_import(request):
         的响应（携带 ``errors`` 错误列表、``imported`` 成功条数与
         ``headers`` 表头）。
     """
+    organization = get_persona(request).organization
     if request.GET.get('template') == '1':
         return _xlsx_response([HEADERS, [3, 'Y3C3', 'teacher', '王小明', 'Xiaoming Wang', 'xm@example.com', 'read1234', '王妈妈', '']], 'import-template.xlsx')
     errors = []; imported = 0
@@ -100,7 +101,9 @@ def manage_import(request):
                 if not class_name: row_errors.append(_('缺少班级名称'))
                 teacher = User.objects.filter(username=teacher_s).first() if teacher_s else None
                 if not teacher: row_errors.append(_('教师用户名 %s 不存在') % (teacher_s or _('(空)')))
-                elif teacher.is_superuser or get_role(teacher) != 'teacher': row_errors.append(_('%s 不是老师账号') % teacher_s)
+                elif not Membership.objects.filter(user=teacher, organization=organization,
+                                                   role='teacher', active=True).exists():
+                    row_errors.append(_('%s 不是本校老师账号') % teacher_s)
                 if not name: row_errors.append(_('缺少学生姓名'))
                 if email:
                     email = email.lower()
@@ -117,7 +120,9 @@ def manage_import(request):
             if not errors and prepared:
                 with transaction.atomic():
                     for p in prepared:
-                        classroom, _created = Classroom.objects.get_or_create(owner=p['teacher'], name=p['class_name'], defaults={'grade': p['grade']})
+                        classroom, _created = Classroom.objects.get_or_create(
+                            owner=p['teacher'], organization=organization, name=p['class_name'],
+                            defaults={'grade': p['grade']})
                         if classroom.grade != p['grade']:
                             classroom.grade = p['grade']; classroom.save()
                         student, _created = Student.objects.get_or_create(classroom=classroom, name=p['name'])

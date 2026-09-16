@@ -34,4 +34,6 @@ urlpatterns = [
     path('accounts/', registration.student_accounts, name='student_accounts'),
     path('accounts/student/<int:student_id>/', registration.student_account_action, name='student_account_action'),
     path('manage/accounts/', registration.account_approvals, name='account_approvals'),
+    path('organizations/', registration.organization_manage, name='organization_manage'),
+    path('organizations/switch/', registration.organization_switch, name='organization_switch'),
 ]

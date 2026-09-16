@@ -218,6 +218,17 @@ class ParentStudentLink(models.Model):
         unique_together = [('parent', 'student')]
 
 
+class AccountAudit(models.Model):
+    actor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='account_actions')
+    target = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='account_changes')
+    action = models.CharField(max_length=40)
+    detail = models.CharField(max_length=255, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+
 class Book(models.Model):
     """书籍模型，是阅读与测验的核心内容载体。
 

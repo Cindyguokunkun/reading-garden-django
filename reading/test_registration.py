@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import (Classroom, ParentStudentLink, Profile, Student,
+from .models import (AccountAudit, Classroom, ParentStudentLink, Profile, Student,
                      TeacherInvite, ROLE_MANAGER, ROLE_PARENT, ROLE_TEACHER)
 
 
@@ -77,3 +77,41 @@ class RegistrationTests(TestCase):
         self.assertTrue(child.password_hash)
         self.assertEqual(self.client.post(reverse('student_account_action', args=[outsider.pk]), {'action': 'password'}).status_code, 404)
 
+    def test_manager_can_promote_and_suspend_a_teacher_with_password(self):
+        teacher = User.objects.create_user('teacher', password='teacher-pass')
+        profile = Profile.objects.create(user=teacher, role=ROLE_TEACHER, approved=True)
+        self.client.login(username='manager', password='manager-pass')
+        self.client.post(reverse('account_approvals'), {
+            'action': 'promote', 'profile': profile.pk, 'current_password': 'manager-pass',
+        })
+        profile.refresh_from_db()
+        self.assertEqual(profile.role, ROLE_MANAGER)
+        self.assertTrue(AccountAudit.objects.filter(target=teacher, action='promote_manager').exists())
+
+        self.client.post(reverse('account_approvals'), {
+            'action': 'toggle_active', 'profile': profile.pk, 'current_password': 'manager-pass',
+        })
+        teacher.refresh_from_db()
+        self.assertFalse(teacher.is_active)
+
+    def test_wrong_manager_password_changes_nothing(self):
+        teacher = User.objects.create_user('teacher', password='teacher-pass')
+        profile = Profile.objects.create(user=teacher, role=ROLE_TEACHER, approved=True)
+        self.client.login(username='manager', password='manager-pass')
+        self.client.post(reverse('account_approvals'), {
+            'action': 'promote', 'profile': profile.pk, 'current_password': 'wrong',
+        })
+        profile.refresh_from_db()
+        self.assertEqual(profile.role, ROLE_TEACHER)
+
+    def test_manager_cannot_demote_or_disable_self(self):
+        self.client.login(username='manager', password='manager-pass')
+        for action in ('demote', 'toggle_active'):
+            self.client.post(reverse('account_approvals'), {
+                'action': action, 'profile': self.manager.profile.pk,
+                'current_password': 'manager-pass',
+            })
+        self.manager.refresh_from_db()
+        self.manager.profile.refresh_from_db()
+        self.assertTrue(self.manager.is_active)
+        self.assertEqual(self.manager.profile.role, ROLE_MANAGER)

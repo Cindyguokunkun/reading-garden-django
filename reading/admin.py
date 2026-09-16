@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from .models import (Book, ClassGoal, Classroom, ParentStudentLink, Profile,
+from .models import (AccountAudit, Book, ClassGoal, Classroom, ParentStudentLink, Profile,
                      QuizAttempt, ReadingRecord, Student, TeacherInvite)
 
 class ProfileInline(admin.StackedInline):
@@ -22,3 +22,4 @@ class BookAdmin(admin.ModelAdmin):
 
 admin.site.register([Classroom, Student, ReadingRecord, ClassGoal, QuizAttempt,
                      TeacherInvite, ParentStudentLink])
+admin.site.register(AccountAudit)

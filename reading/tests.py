@@ -37,6 +37,17 @@ class ReadingGardenTests(TestCase):
         self.assertContains(response,'Correct answer:')
         self.assertEqual(ReadingRecord.objects.count(),0)
 
+    def test_submitted_quiz_cannot_be_rescored(self):
+        response=self.client.post(reverse('quiz_start'),{'class':self.room.pk,'student':self.student.pk,'book':self.book.pk})
+        attempt_id=int(response.url.strip('/').split('/')[-1])
+        questions=self.client.session[f'quiz_{attempt_id}']
+        correct_answers={f'q{i}':str(q['answer']) for i,q in enumerate(questions)}
+        self.client.post(reverse('quiz_take',args=[attempt_id]),correct_answers)
+        wrong_answers={f'q{i}':str((q['answer']+1)%4) for i,q in enumerate(questions)}
+        response=self.client.post(reverse('quiz_take',args=[attempt_id]),wrong_answers)
+        self.assertContains(response,'100%')
+        self.assertEqual(ReadingRecord.objects.count(),1)
+
     def test_excel_export(self):
         response=self.client.get(reverse('export_excel')+f'?class={self.room.pk}')
         self.assertEqual(response.status_code,200)

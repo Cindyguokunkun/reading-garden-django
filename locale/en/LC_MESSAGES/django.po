@@ -800,3 +800,9 @@ msgstr "Finally choose a book"
 
 msgid "阅读日期（可不填，默认今天）"
 msgstr "Reading date (optional; defaults to today)"
+
+msgid "学生登录"
+msgstr "Student login"
+
+msgid "过关分数 60%"
+msgstr "Pass score: 60%"

@@ -86,7 +86,8 @@ def persona_processor(request):
     organizations = (Organization.objects.filter(
         memberships__user=request.user, memberships__active=True, active=True
     ).distinct() if request.user.is_authenticated and persona.is_staff else Organization.objects.none())
-    return {'persona': persona, 'organizations': organizations}
+    return {'persona': persona, 'organizations': organizations,
+            'student_english': getattr(request, 'student_english', False)}
 
 def current_classroom(request):
     persona = get_persona(request)

@@ -76,12 +76,21 @@ class PersonaTests(TestCase):
         response = self.client.post(reverse('student_login'), {'login_id': 'Amy', 'password': 'amypw'})
         self.assertRedirects(response, reverse('student_home'))
 
+    def test_student_pages_are_always_english_and_cannot_switch_language(self):
+        self.client.post(reverse('student_login'), {'login_id': 'Amy', 'password': 'amypw'})
+        self.client.post(reverse('set_language'), {'language': 'zh-hans', 'next': reverse('student_home')})
+        response = self.client.get(reverse('student_home'))
+        self.assertContains(response, 'My reading goal')
+        self.assertContains(response, 'translate="no"')
+        self.assertContains(response, 'notranslate')
+        self.assertNotContains(response, 'class="langswitch"')
+
     def test_duplicate_student_names_must_use_student_id(self):
         other_room = Classroom.objects.create(owner=self.teacher, name='Y4C1', grade=4)
         other = Student.objects.create(classroom=other_room, name='Amy', login_id='S99999')
         other.set_password('amypw'); other.save()
         response = self.client.post(reverse('student_login'), {'login_id': 'Amy', 'password': 'amypw'})
-        self.assertContains(response, '有多名学生使用这个姓名')
+        self.assertContains(response, 'More than one student has this name')
 
     def test_parent_login_and_rejects_bad_password(self):
         response = self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
@@ -1627,4 +1636,5 @@ class PermissionTests(TestCase):
         self.assertEqual(self.client.get(reverse('student_home')).status_code, 200)
         self.client.post(reverse('logout'))
         self.assertRedirects(self.client.get(reverse('student_home')), '/login/?next=/student/')
+
 

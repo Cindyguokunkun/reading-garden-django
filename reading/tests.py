@@ -1730,4 +1730,55 @@ class PermissionTests(TestCase):
         self.client.post(reverse('logout'))
         self.assertRedirects(self.client.get(reverse('student_home')), '/login/?next=/student/')
 
+from django.core.management import call_command
+
+class GenerateQuizzesCommandTests(TestCase):
+    def reply(self, questions):
+        return (200, json.dumps({'choices': [{'message': {'content': json.dumps(questions)}}]}), 'https://ai.example.com/v1/chat/completions')
+
+    @override_settings(**QUIZGEN_SETTINGS)
+    def test_generates_from_synopsis_and_saves_quiz_data(self):
+        book = Book.objects.create(source_id='gq-1', title='Real Story', series='S', words=100, synopsis='A monkey builds a treehouse.')
+        with mock.patch.object(service_http, 'fetch', return_value=self.reply(golden(6))) as fetch:
+            call_command('generate_quizzes', '--source-id', 'gq-1', '--no-json')
+        self.assertTrue(fetch.called)
+        book.refresh_from_db()
+        self.assertEqual(len(book.quiz_data), 6)
+
+    @override_settings(**QUIZGEN_SETTINGS)
+    def test_book_without_material_is_skipped_not_fabricated(self):
+        Book.objects.create(source_id='gq-2', title='No Material', series='S', words=100)
+        with mock.patch.object(service_http, 'fetch') as fetch:
+            call_command('generate_quizzes', '--source-id', 'gq-2', '--no-json')
+        fetch.assert_not_called()
+        self.assertEqual(Book.objects.get(source_id='gq-2').quiz_data, [])
+
+    @override_settings(**QUIZGEN_SETTINGS)
+    def test_material_file_is_sent_to_the_service(self):
+        book = Book.objects.create(source_id='gq-3', title='File Story', series='S', words=100)
+        with TemporaryDirectory() as tmp:
+            Path(tmp, 'gq-3.txt').write_text('The full story text about a treehouse.', encoding='utf-8')
+            with mock.patch.object(service_http, 'fetch', return_value=self.reply(golden(5))) as fetch:
+                call_command('generate_quizzes', '--source-id', 'gq-3', '--material-dir', tmp, '--no-json')
+            sent = fetch.call_args.kwargs['data'].decode()
+        self.assertIn('treehouse', sent)
+        book.refresh_from_db()
+        self.assertEqual(len(book.quiz_data), 5)
+
+    @override_settings(**QUIZGEN_SETTINGS)
+    def test_dry_run_neither_calls_nor_saves(self):
+        Book.objects.create(source_id='gq-4', title='Dry Story', series='S', words=100, synopsis='Some synopsis text.')
+        with mock.patch.object(service_http, 'fetch') as fetch:
+            call_command('generate_quizzes', '--source-id', 'gq-4', '--dry-run', '--no-json')
+        fetch.assert_not_called()
+        self.assertEqual(Book.objects.get(source_id='gq-4').quiz_data, [])
+
+    @override_settings(QUIZGEN_ENABLED=False)
+    def test_disabled_config_aborts_without_a_request(self):
+        Book.objects.create(source_id='gq-5', title='Off', series='S', words=100, synopsis='text here')
+        with mock.patch.object(service_http, 'fetch') as fetch:
+            call_command('generate_quizzes', '--source-id', 'gq-5', '--no-json')
+        fetch.assert_not_called()
+        self.assertEqual(Book.objects.get(source_id='gq-5').quiz_data, [])
+
 

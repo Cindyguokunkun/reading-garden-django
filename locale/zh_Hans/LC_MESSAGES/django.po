@@ -182,3 +182,9 @@ msgstr "这个封面网址不是来自 Open Library 或 Google Books。请使用
 
 msgid "The cover is filled in. Check it, then save."
 msgstr "封面已填好，请确认后保存。"
+
+msgid "More than one student has this name. Please use the Student ID."
+msgstr "有多名学生使用这个姓名，请改用学生号登录。"
+
+msgid "Student name, Student ID, or password is incorrect"
+msgstr "学生姓名、学生号或密码不正确。"

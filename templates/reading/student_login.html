@@ -1,9 +1,9 @@
 {% extends 'base.html' %}{% load i18n %}{% block content %}
 <section class="card narrow"><h1>{% trans "学生登录" %}</h1>
-<p>{% trans "学生号和初始密码由老师发放。" %}</p>
+<p>{% trans "可以使用姓名或学生号登录；初始密码由老师发放。" %}</p>
 {% if error %}<div class="notice error">{{ error }}</div>{% endif %}
 <form method="post">{% csrf_token %}
-<label>{% trans "学生号" %}<input name="login_id" autocomplete="username" required></label>
+<label>{% trans "学生姓名或学生号" %}<input name="login_id" autocomplete="username" required></label>
 <label>{% trans "密码" %}<input type="password" name="password" autocomplete="current-password" required></label>
 <button>{% trans "登录" %}</button></form>
 <p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>

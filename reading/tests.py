@@ -72,6 +72,17 @@ class PersonaTests(TestCase):
         self.assertRedirects(response, reverse('student_home'))
         self.assertContains(self.client.get(reverse('student_home')), 'Amy')
 
+    def test_student_can_log_in_with_name_and_password(self):
+        response = self.client.post(reverse('student_login'), {'login_id': 'Amy', 'password': 'amypw'})
+        self.assertRedirects(response, reverse('student_home'))
+
+    def test_duplicate_student_names_must_use_student_id(self):
+        other_room = Classroom.objects.create(owner=self.teacher, name='Y4C1', grade=4)
+        other = Student.objects.create(classroom=other_room, name='Amy', login_id='S99999')
+        other.set_password('amypw'); other.save()
+        response = self.client.post(reverse('student_login'), {'login_id': 'Amy', 'password': 'amypw'})
+        self.assertContains(response, '有多名学生使用这个姓名')
+
     def test_parent_login_and_rejects_bad_password(self):
         response = self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
         self.assertRedirects(response, reverse('parent_home'))
@@ -1616,3 +1627,4 @@ class PermissionTests(TestCase):
         self.assertEqual(self.client.get(reverse('student_home')).status_code, 200)
         self.client.post(reverse('logout'))
         self.assertRedirects(self.client.get(reverse('student_home')), '/login/?next=/student/')
+

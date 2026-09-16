@@ -749,3 +749,9 @@ msgstr "Then choose a book"
 
 msgid "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
 msgstr "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
+
+msgid "学生姓名或学生号"
+msgstr "Student name or Student ID"
+
+msgid "可以使用姓名或学生号登录；初始密码由老师发放。"
+msgstr "Sign in with your name or Student ID. Your teacher provides the initial password."

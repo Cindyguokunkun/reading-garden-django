@@ -15,7 +15,7 @@ from datetime import date
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
-from django.db.models import Count, Max
+from django.db.models import Count, Max, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as _
@@ -65,13 +65,21 @@ def student_login(request):
     if get_persona(request).kind == STUDENT: return redirect('student_home')
     error = None
     if request.method == 'POST':
-        login_id = (request.POST.get('login_id') or '').strip().upper()
+        account = (request.POST.get('login_id') or '').strip()
         password = request.POST.get('password') or ''
-        student = Student.objects.filter(login_id__iexact=login_id, active=True).first()
+        student = Student.objects.filter(login_id__iexact=account, active=True).first()
+        if not student:
+            matches = list(Student.objects.filter(active=True).filter(
+                Q(name__iexact=account) | Q(name_en__iexact=account)
+            )[:2])
+            if len(matches) > 1:
+                error = _('More than one student has this name. Please use the Student ID.')
+                return render(request, 'reading/student_login.html', {'error': error})
+            student = matches[0] if matches else None
         if student and student.check_password(password):
             set_student_persona(request, student, STUDENT)
             return redirect('student_home')
-        error = _('Student ID or password is incorrect')
+        error = _('Student name, Student ID, or password is incorrect')
     classrooms = Classroom.objects.all().order_by('grade', 'name')
     return render(request, 'reading/student_login.html', {'classrooms': classrooms, 'error': error})
 

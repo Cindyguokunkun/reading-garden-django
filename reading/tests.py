@@ -52,3 +52,28 @@ class ReadingGardenTests(TestCase):
         response=self.client.get(reverse('export_excel')+f'?class={self.room.pk}')
         self.assertEqual(response.status_code,200)
         self.assertIn('spreadsheetml',response['Content-Type'])
+
+    def test_teacher_can_create_student_login(self):
+        response=self.client.post(reverse('action'),{'action':'student_account_create','class':self.room.pk,'student':self.student.pk,'username':'amy01','password':'reader123'})
+        self.assertEqual(response.status_code,302)
+        self.student.refresh_from_db()
+        self.assertEqual(self.student.user.username,'amy01')
+        self.client.logout()
+        self.assertTrue(self.client.login(username='amy01',password='reader123'))
+        response=self.client.get(reverse('dashboard'))
+        self.assertContains(response,'Amy的阅读花园')
+
+    def test_student_cannot_use_teacher_actions_or_export(self):
+        student_user=User.objects.create_user('amy01',password='reader123')
+        self.student.user=student_user; self.student.save(update_fields=['user'])
+        self.client.logout(); self.client.login(username='amy01',password='reader123')
+        self.assertEqual(self.client.post(reverse('action'),{'action':'class_add','name':'Bad'}).status_code,403)
+        self.assertEqual(self.client.get(reverse('export_excel')).status_code,403)
+
+    def test_student_can_start_own_quiz(self):
+        student_user=User.objects.create_user('amy01',password='reader123')
+        self.student.user=student_user; self.student.save(update_fields=['user'])
+        self.client.logout(); self.client.login(username='amy01',password='reader123')
+        response=self.client.post(reverse('quiz_start'),{'book':self.book.pk})
+        self.assertEqual(response.status_code,302)
+        self.assertEqual(self.student.quizattempt_set.count(),1)

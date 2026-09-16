@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block content %}
+<section class="hero"><div><p>{{ student.classroom.name }}</p><h1>{{ student.name }}的阅读花园</h1></div><a class="button" href="{% url 'quiz_start' %}">Start Reading Quiz</a></section>
+<section class="stats"><article><b>{{ total_words }}</b><span>累计阅读词数</span></article><article><b>{{ records|length }}</b><span>完成阅读</span></article><article><b>{{ total_minutes }}</b><span>阅读分钟</span></article><article><b>{{ attempts|length }}</b><span>测试次数</span></article></section>
+<section class="card"><h2>我的阅读记录</h2><table><tr><th>日期</th><th>书名</th><th>词数</th><th>时长</th><th>分数</th></tr>{% for r in records %}<tr><td>{{r.read_date}}</td><td>{{r.book.title}}</td><td>{{r.words}}</td><td>{{r.minutes|default:'—'}}</td><td>{{r.quiz_score|default:'—'}}</td></tr>{% empty %}<tr><td colspan="5">还没有过关记录。</td></tr>{% endfor %}</table></section>
+<section class="card"><h2>最近测试</h2><table><tr><th>书名</th><th>分数</th><th>结果</th><th>时间</th></tr>{% for a in attempts %}<tr><td>{{a.book.title}}</td><td>{{a.score}}%</td><td>{% if a.passed %}Passed{% else %}Try Again{% endif %}</td><td>{{a.completed_at}}</td></tr>{% empty %}<tr><td colspan="4">还没有测试。</td></tr>{% endfor %}</table></section>
+{% endblock %}

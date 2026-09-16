@@ -1,1 +1,1 @@
-{% extends 'base.html' %}{% block content %}<section class="login card"><h1>老师登录</h1><p>登录后管理班级阅读记录。</p><form method="post">{% csrf_token %}{{ form.as_p }}<button>登录</button></form></section>{% endblock %}
+{% extends 'base.html' %}{% block content %}<section class="login card narrow"><h1>登录阅见</h1><p>教师和学生使用各自的账号登录。</p><form method="post">{% csrf_token %}{{ form.as_p }}<button>登录</button></form><p><small>学生账号由班级教师统一创建。</small></p></section>{% endblock %}

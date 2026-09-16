@@ -10,6 +10,7 @@ class Classroom(models.Model):
 
 class Student(models.Model):
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE, related_name='students')
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='student_profile')
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta: unique_together = [('classroom','name')]

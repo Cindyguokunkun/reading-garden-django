@@ -213,8 +213,9 @@ def account_approvals(request):
 @persona_required(TEACHER, MANAGER)
 def student_accounts(request):
     classes = accessible_classrooms(request)
-    students = Student.objects.filter(classroom__in=classes).select_related('classroom').order_by('classroom__name', 'name')
-    return render(request, 'reading/student_accounts.html', {'students': students})
+    students = Student.objects.filter(classroom__in=classes, active=True).select_related('classroom').order_by('classroom__name', 'name')
+    archived = Student.objects.filter(classroom__in=classes, active=False).select_related('classroom').order_by('classroom__name', 'name')
+    return render(request, 'reading/student_accounts.html', {'students': students, 'archived': archived})
 
 
 @persona_required(TEACHER, MANAGER)
@@ -230,6 +231,21 @@ def student_account_action(request, student_id):
         pin = ''.join(secrets.choice(string.digits) for _ in range(6))
         student.set_password(pin)
         messages.success(request, f'{student.name} 的新初始密码：{pin}（请现在记下）')
+    elif action == 'edit':
+        name = (request.POST.get('name') or '').strip()
+        duplicate = Student.objects.filter(classroom=student.classroom, name=name).exclude(pk=student.pk).exists()
+        if duplicate:
+            messages.error(request, '同一班级已经有这个姓名，请添加英文名或其他标识。')
+        elif name:
+            student.name = name
+            student.name_en = (request.POST.get('name_en') or '').strip()
+            messages.success(request, '学生姓名已更新。')
+    elif action == 'archive':
+        student.active = False
+        messages.success(request, f'{student.name} 已停用，历史阅读记录仍然保留。')
+    elif action == 'restore':
+        student.active = True
+        messages.success(request, f'{student.name} 已恢复。')
     student.save()
     return redirect('student_accounts')
 

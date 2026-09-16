@@ -69,7 +69,7 @@ def get_persona(request):
             else:
                 persona = Persona(ANONYMOUS)
     elif kind in (STUDENT, PARENT):
-        student = Student.objects.filter(pk=request.session.get('persona_student_id')).select_related('classroom', 'classroom__owner').first()
+        student = Student.objects.filter(pk=request.session.get('persona_student_id'), active=True).select_related('classroom', 'classroom__owner').first()
         if student:
             persona = Persona(kind, student.name_en or student.name, student=student,
                               organization=student.classroom.organization)

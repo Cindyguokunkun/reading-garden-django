@@ -65,7 +65,7 @@ def _quizable_books(organization):
     """
     return Book.objects.filter(
         Q(organization__isnull=True) | Q(organization=organization)
-    ).exclude(quiz_data=[]).order_by('series', 'title')
+    ).exclude(quiz_data=[]).order_by('series', 'series_order', 'title')
 
 
 def _build_questions(book, retake):
@@ -133,7 +133,7 @@ def quiz_start(request):
     chosen = int(chosen) if chosen.isdigit() else None
     if persona.kind == STUDENT:
         return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
-    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': accessible_classrooms(request), 'students': classroom.students.all() if classroom else [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
+    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': accessible_classrooms(request), 'students': classroom.students.filter(active=True) if classroom else [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
 
 
 def _can_access_attempt(persona, attempt):

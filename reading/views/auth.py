@@ -67,7 +67,7 @@ def student_login(request):
     if request.method == 'POST':
         login_id = (request.POST.get('login_id') or '').strip().upper()
         password = request.POST.get('password') or ''
-        student = Student.objects.filter(login_id__iexact=login_id).first()
+        student = Student.objects.filter(login_id__iexact=login_id, active=True).first()
         if student and student.check_password(password):
             set_student_persona(request, student, STUDENT)
             return redirect('student_home')
@@ -98,7 +98,7 @@ def student_pick(request, classroom_id):
         student = get_object_or_404(Student, pk=request.POST.get('student'), classroom=classroom)
         set_student_persona(request, student, STUDENT)
         return redirect('student_home')
-    return render(request, 'reading/student_pick.html', {'classroom': classroom, 'students': classroom.students.all().order_by('name')})
+    return render(request, 'reading/student_pick.html', {'classroom': classroom, 'students': classroom.students.filter(active=True).order_by('name')})
 
 
 def parent_login(request):

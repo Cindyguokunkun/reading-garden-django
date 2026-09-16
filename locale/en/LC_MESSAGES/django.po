@@ -671,3 +671,81 @@ msgstr "Not passed"
 
 msgid "孩子还没有测评记录。"
 msgstr "No quiz attempts yet."
+
+msgid "学生账号"
+msgstr "Student accounts"
+
+msgid "账号审批"
+msgstr "Account approvals"
+
+msgid "学校管理"
+msgstr "School management"
+
+msgid "按系列选择"
+msgstr "Browse by series"
+
+msgid "先打开一个系列，再选择具体书目。"
+msgstr "Open a series first, then choose a book."
+
+msgid "返回系列书库"
+msgstr "Back to series"
+
+msgid "没有匹配的系列"
+msgstr "No matching series"
+
+msgid "搜索书名或系列…"
+msgstr "Search books or series…"
+
+msgid "本"
+msgstr "books"
+
+msgid "姓名"
+msgstr "Name"
+
+msgid "学生号"
+msgstr "Student ID"
+
+msgid "家长绑定码"
+msgstr "Parent link code"
+
+msgid "账号操作"
+msgstr "Account actions"
+
+msgid "英文名"
+msgstr "English name"
+
+msgid "英文名（可空）"
+msgstr "English name (optional)"
+
+msgid "保存姓名"
+msgstr "Save name"
+
+msgid "重置密码"
+msgstr "Reset password"
+
+msgid "更换绑定码"
+msgstr "Change link code"
+
+msgid "停用"
+msgstr "Deactivate"
+
+msgid "恢复账号"
+msgstr "Restore account"
+
+msgid "已停用学生"
+msgstr "Deactivated students"
+
+msgid "确定停用这个学生账号吗？历史记录会保留。"
+msgstr "Deactivate this student account? Reading history will be kept."
+
+msgid "学生使用学生号和密码登录。新增学生时系统会自动生成初始密码；以后也可以在这里重置。停用学生不会删除历史阅读记录。"
+msgstr "Students sign in with a student ID and password. An initial password is created automatically, and teachers can reset it here. Deactivation keeps reading history."
+
+msgid "先选择系列"
+msgstr "Choose a series first"
+
+msgid "再选择书名"
+msgstr "Then choose a book"
+
+msgid "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
+msgstr "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."

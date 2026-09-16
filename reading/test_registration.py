@@ -77,6 +77,22 @@ class RegistrationTests(TestCase):
         self.assertTrue(child.password_hash)
         self.assertEqual(self.client.post(reverse('student_account_action', args=[outsider.pk]), {'action': 'password'}).status_code, 404)
 
+    def test_teacher_can_rename_archive_and_restore_a_student(self):
+        teacher = User.objects.create_user('teacher2', password='teacher-pass')
+        Profile.objects.create(user=teacher, role=ROLE_TEACHER)
+        child = Student.objects.create(classroom=Classroom.objects.create(owner=teacher, name='Class 2'), name='Amy')
+        self.client.login(username='teacher2', password='teacher-pass')
+        url = reverse('student_account_action', args=[child.pk])
+
+        self.client.post(url, {'action': 'edit', 'name': 'Amy Wang', 'name_en': 'Amy'})
+        child.refresh_from_db()
+        self.assertEqual((child.name, child.name_en), ('Amy Wang', 'Amy'))
+        self.client.post(url, {'action': 'archive'})
+        child.refresh_from_db(); self.assertFalse(child.active)
+        self.assertContains(self.client.get(reverse('student_accounts')), '已停用学生')
+        self.client.post(url, {'action': 'restore'})
+        child.refresh_from_db(); self.assertTrue(child.active)
+
     def test_manager_can_promote_and_suspend_a_teacher_with_password(self):
         teacher = User.objects.create_user('teacher', password='teacher-pass')
         profile = Profile.objects.create(user=teacher, role=ROLE_TEACHER, approved=True)

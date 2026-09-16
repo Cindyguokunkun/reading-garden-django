@@ -10,6 +10,8 @@
 
 from datetime import date
 from io import BytesIO
+import secrets
+import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
@@ -48,13 +50,13 @@ def dashboard(request):
     try: anchor = date.fromisoformat(request.GET.get('date', ''))
     except ValueError: anchor = date.today()
     start, end = period(mode, anchor)
-    students = classroom.students.all() if classroom else Student.objects.none()
+    students = classroom.students.filter(active=True) if classroom else Student.objects.none()
     records = ReadingRecord.objects.filter(student__classroom=classroom, passed=True).select_related('student', 'book') if classroom else ReadingRecord.objects.none()
     rows = rank_rows(Classroom.objects.filter(pk=classroom.pk) if classroom else Classroom.objects.none(), start, end)
     word_rankings = sort_rows(rows, 'words')
     time_rankings = sort_rows(rows, 'minutes')
     series = {}
-    for book in Book.objects.all().order_by('series', 'title'): series.setdefault(book.series, []).append(book)
+    for book in Book.objects.all().order_by('series', 'series_order', 'title'): series.setdefault(book.series, []).append(book)
     total_words = records.aggregate(v=Sum('words'))['v'] or 0
     goal = getattr(classroom, 'goal', None) if classroom else None
     goal_percent = min(100, round(total_words * 100 / goal.words)) if goal and goal.words else 0
@@ -93,8 +95,12 @@ def action(request):
         student = Student.objects.create(classroom=classroom, name=request.POST['name'].strip())
         student.login_id = f'S{student.pk:05d}'
         student.bind_code = _unique_code(Student, 'bind_code')
-        student.save(update_fields=['login_id', 'bind_code'])
-        messages.success(request, _('Student account created. Set the initial password on the account page.'))
+        pin = ''.join(secrets.choice(string.digits) for _ in range(6))
+        student.set_password(pin)
+        student.save(update_fields=['login_id', 'bind_code', 'password_hash'])
+        messages.success(request, _('%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now.') % {
+            'name': student.name, 'login': student.login_id, 'pin': pin,
+        })
     elif kind == 'goal_set' and classroom:
         words = int(request.POST.get('words') or 0); deadline = request.POST.get('deadline') or None
         if words > 0: ClassGoal.objects.update_or_create(classroom=classroom, defaults={'words': words, 'deadline': deadline})

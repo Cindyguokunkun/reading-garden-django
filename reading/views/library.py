@@ -57,17 +57,26 @@ def library(request):
     """
     books = _visible_books(request)
     category = request.GET.get('category', '')
+    selected_series = request.GET.get('series', '').strip()
+    standalone = selected_series == '__standalone__'
     q = request.GET.get('q', '').strip()
+    all_visible = books
+    counts = {r['category']: r['n'] for r in all_visible.values('category').annotate(n=Count('id'))}
     if category: books = books.filter(category=category)
-    if q: books = books.filter(title__icontains=q)
-    counts = {r['category']: r['n'] for r in books.values('category').annotate(n=Count('id'))}
+    series_groups = list(books.values('series', 'category').annotate(count=Count('id')).order_by('series'))
+    if standalone: books = books.filter(series='')
+    elif selected_series: books = books.filter(series=selected_series)
+    if q: books = books.filter(Q(title__icontains=q) | Q(series__icontains=q))
     chips = [{'value': value, 'label': str(label), 'count': counts.get(value, 0)} for value, label in CATEGORY_CHOICES]
-    books = list(books.order_by('series', 'title')[:500])
+    show_books = bool(selected_series or q or books.count() <= 12)
+    books = list(books.order_by('series', 'series_order', 'title')[:500]) if show_books else []
     persona = get_persona(request)
     if persona.student: shelf_state(persona.student, books)
     return render(request, 'reading/library.html', {
         'books': books, 'categories': CATEGORY_CHOICES, 'chips': chips,
         'category': category, 'q': q, 'total': _visible_books(request).count(),
+        'series_groups': series_groups, 'selected_series': selected_series,
+        'show_books': show_books,
     })
 
 
@@ -88,7 +97,7 @@ def book_detail(request, pk):
         Http404: 指定书籍不存在。
     """
     book = get_object_or_404(_visible_books(request), pk=pk)
-    siblings = Book.objects.none() if _blank(book, 'series') else _visible_books(request).filter(series=book.series).exclude(pk=book.pk).order_by('title')[:12]
+    siblings = Book.objects.none() if _blank(book, 'series') else _visible_books(request).filter(series=book.series).exclude(pk=book.pk).order_by('series_order', 'title')[:12]
     persona = get_persona(request)
     if persona.student: shelf_state(persona.student, [book])
     return render(request, 'reading/book_detail.html', {'book': book, 'siblings': siblings})

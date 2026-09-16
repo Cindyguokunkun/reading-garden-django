@@ -23,7 +23,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, ShelfItem, Student, StudentGoal
 from ..personas import PARENT, STUDENT, clear_persona, get_persona, persona_required, set_student_persona
-from ..stats import rank_rows
+from ..stats import period, rank_rows, sort_rows
 from .quiz import MAX_SUBMITTED_ATTEMPTS
 
 # 员工登录视图：复用 Django 的 LoginView，指定专用模板，
@@ -167,10 +167,20 @@ def _home_context(student):
     goal_percent = min(100, round(class_words * 100 / goal.words)) if goal and goal.words else 0
     personal_goal = getattr(student, 'personal_goal', None)
     personal_percent = min(100, round(total['words'] * 100 / personal_goal.words)) if personal_goal and personal_goal.words else 0
+    week_start, week_end = period('week')
+    week_rows = sort_rows(rank_rows(Classroom.objects.filter(pk=student.classroom_id), week_start, week_end), 'words')
+    for position, row in enumerate(week_rows, 1):
+        row['position'] = position
+        row['me'] = row['student_id'] == student.pk
+    week_visible = week_rows[:10]
+    mine = next((row for row in week_rows if row['me']), None)
+    if mine and mine not in week_visible:
+        week_visible.append(mine)
     return {'student': student, 'classroom': student.classroom, 'records': records.select_related('book')[:50],
             'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent,
             'personal_goal': personal_goal, 'personal_percent': personal_percent,
-            'personal_goal_choices': (10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000)}
+            'personal_goal_choices': (10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000),
+            'week_rankings': week_visible, 'week_start': week_start, 'week_end': week_end}
 
 
 def _attempt_rows(student):

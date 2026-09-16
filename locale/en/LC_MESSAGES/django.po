@@ -806,3 +806,15 @@ msgstr "Student login"
 
 msgid "过关分数 60%"
 msgstr "Pass score: 60%"
+
+msgid "本周班级阅读字数榜"
+msgstr "This week's class word leaderboard"
+
+msgid "查看完整排行榜"
+msgstr "View full leaderboard"
+
+msgid "我"
+msgstr "Me"
+
+msgid "本周还没有阅读记录"
+msgstr "No reading records this week"

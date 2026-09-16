@@ -818,3 +818,27 @@ msgstr "Me"
 
 msgid "本周还没有阅读记录"
 msgstr "No reading records this week"
+
+msgid "百万星光榜"
+msgstr "Million Readers Club"
+
+msgid "全校累计阅读达 100 万词的读者"
+msgstr "Readers who reached 1,000,000 words school-wide"
+
+msgid "累计词数"
+msgstr "Total words"
+
+msgid "阅读等级"
+msgstr "Reading level"
+
+msgid "我的阅读等级"
+msgstr "My reading level"
+
+msgid "还没有等级，继续加油！"
+msgstr "No level yet — keep reading!"
+
+msgid "已达最高等级！"
+msgstr "You've reached the top level!"
+
+msgid "距 %(next)s 还差 %(remain)s 词"
+msgstr "%(remain)s words to go until %(next)s"

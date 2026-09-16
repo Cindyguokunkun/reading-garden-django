@@ -23,7 +23,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, ShelfItem, Student, StudentGoal
 from ..personas import PARENT, STUDENT, clear_persona, get_persona, persona_required, set_student_persona
-from ..stats import period, rank_rows, sort_rows
+from ..stats import period, rank_rows, reading_level, sort_rows
 from .quiz import MAX_SUBMITTED_ATTEMPTS
 
 # 员工登录视图：复用 Django 的 LoginView，指定专用模板，
@@ -179,6 +179,7 @@ def _home_context(student):
     return {'student': student, 'classroom': student.classroom, 'records': records.select_related('book')[:50],
             'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent,
             'personal_goal': personal_goal, 'personal_percent': personal_percent,
+            'level': reading_level(total['words']),
             'personal_goal_choices': (10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000),
             'week_rankings': week_visible, 'week_start': week_start, 'week_end': week_end}
 

@@ -194,3 +194,21 @@ msgstr "个人阅读目标已保存。"
 
 msgid "Uncategorized"
 msgstr "未分类"
+
+msgid "Bronze Reader"
+msgstr "青铜读者"
+
+msgid "Silver Reader"
+msgstr "白银读者"
+
+msgid "Gold Reader"
+msgstr "黄金读者"
+
+msgid "Platinum Reader"
+msgstr "铂金读者"
+
+msgid "Diamond Reader"
+msgstr "钻石读者"
+
+msgid "Legendary Reader"
+msgstr "传奇读者"

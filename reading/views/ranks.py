@@ -9,7 +9,7 @@ from datetime import date
 from django.shortcuts import render
 from ..models import Classroom
 from ..personas import TEACHER, MANAGER, STUDENT, PARENT, accessible_classrooms, current_classroom, get_persona, persona_required
-from ..stats import period, rank_rows, sort_rows
+from ..stats import MILLION_CLUB_WORDS, period, rank_rows, reading_level, sort_rows
 
 
 @persona_required(TEACHER, MANAGER, STUDENT, PARENT)
@@ -58,10 +58,20 @@ def ranks(request):
     rows = rank_rows(classrooms, start, end)
     for row in rows:
         row['me'] = bool(persona.student and row['student_id'] == persona.student.pk)
+    # 百万星光榜：不受维度与周期选择影响，始终按全校、全时段累计词数统计，
+    # 达到 MILLION_CLUB_WORDS（Platinum Reader）即上榜，附当前等级称号。
+    club_start, club_end = period('all')
+    club_rows = rank_rows(Classroom.objects.filter(organization=persona.organization), club_start, club_end)
+    million_club = []
+    for row in sort_rows(club_rows, 'words'):
+        if row['words'] >= MILLION_CLUB_WORDS:
+            row['level'] = reading_level(row['words'])
+            row['me'] = bool(persona.student and row['student_id'] == persona.student.pk)
+            million_club.append(row)
     grades = sorted(Classroom.objects.filter(organization=persona.organization).values_list('grade', flat=True).distinct())
     return render(request, 'reading/ranks.html', {
         'tier': tier, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'grade': grade, 'grades': grades,
         'classes': accessible_classrooms(request), 'classroom': home,
         'word_rankings': sort_rows(rows, 'words'), 'time_rankings': sort_rows(rows, 'minutes'), 'book_rankings': sort_rows(rows, 'books'),
-        'show_classroom': tier != 'class',
+        'show_classroom': tier != 'class', 'million_club': million_club,
     })

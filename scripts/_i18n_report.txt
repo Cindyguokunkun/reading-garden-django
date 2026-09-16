@@ -1,0 +1,111 @@
+﻿414 messages used by templates and Python code
+
+missing from locale/en (83):
+  '%s 涓嶆槸鏈牎鑰佸笀璐﹀彿'  <- ['python']
+  '浣犱互骞冲彴绠＄悊鑰呰韩浠芥坊鍔狅紝淇濆瓨鍚庡皢杩涘叆鍏叡涔﹀簱锛屾墍鏈夊鏍″潎鍙娇鐢ㄣ€?  <- ['book_form.html']
+  '浣犵殑瀹堕暱璐﹀彿杩樻病鏈夌粦瀹氬瀛愩€?  <- ['parent_home.html']
+  '浣犵殑绠＄悊鑰呭瘑鐮?  <- ['account_approvals.html']
+  '浣跨敤瀛︾敓鍙峰拰瀵嗙爜鐧诲綍'  <- ['login.html']
+  '浣跨敤瀹堕暱鑷繁鐨勭敤鎴峰悕鎴栭偖绠辩櫥褰曘€?  <- ['parent_login.html']
+  '浣跨敤瀹堕暱璐﹀彿鏌ョ湅瀛╁瓙鐨勯槄璇绘垚闀?  <- ['login.html']
+  '浣跨敤鎯呭喌'  <- ['account_approvals.html']
+  '淇濆瓨鍚庡皢杩涘叆褰撳墠瀛︽牎鐨勭鏈変功搴撱€?  <- ['book_form.html']
+  '鍐嶆杈撳叆瀵嗙爜'  <- ['parent_register.html', 'teacher_register.html']
+  '鍒囨崲'  <- ['parent_home.html']
+  '鍒囨崲瀛╁瓙'  <- ['parent_home.html']
+  '鍒涘缓'  <- ['organization_manage.html']
+  '鍒涘缓鏁欏笀閭€璇风爜'  <- ['account_approvals.html']
+  '鍒涘缓閭€璇风爜'  <- ['account_approvals.html']
+  '鍒犻櫎'  <- ['account_approvals.html']
+  '鍙娇鐢ㄥ瀛愮粦瀹氱爜杩炴帴涓€涓垨澶氫釜瀛╁瓙'  <- ['register_hub.html']
+  '鍙敤'  <- ['account_approvals.html']
+  '鍚嶇О'  <- ['organization_manage.html']
+  '濮撳悕 / 鐢ㄦ埛鍚?  <- ['account_approvals.html']
+  '瀛︽牎涓庢満鏋?  <- ['organization_manage.html']
+  '瀛︽牎鎴栨満鏋勫悕绉?  <- ['organization_manage.html']
+  '瀛︽牎閭€璇风爜'  <- ['teacher_register.html']
+  '瀛╁瓙缁戝畾鐮?  <- ['parent_bind.html']
+  '瀛╁瓙缁戝畾鐮侊紙鍙€夛級'  <- ['parent_register.html']
+  '瀹屾垚缁戝畾'  <- ['parent_bind.html']
+  '瀹堕暱濮撳悕'  <- ['parent_register.html']
+  '瀹堕暱娉ㄥ唽'  <- ['parent_register.html', 'register_hub.html']
+  '瀵嗙爜锛堣嚦灏?8 浣嶏級'  <- ['parent_register.html', 'teacher_register.html']
+  '宸插仠鐢?  <- ['account_approvals.html']
+  '宸插仠鐢ㄦ垨鐢ㄥ畬'  <- ['account_approvals.html']
+  '宸茶鏈暟'  <- ['parent_home.html']
+  '骞冲彴绠＄悊'  <- ['organization_manage.html']
+  '褰撳墠璐﹀彿'  <- ['account_approvals.html']
+  '寰呭鏍告暀甯?  <- ['account_approvals.html']
+  '鎭㈠'  <- ['account_approvals.html']
+  '鎵瑰噯'  <- ['account_approvals.html']
+  '鎻愪氦娉ㄥ唽鐢宠'  <- ['teacher_register.html']
+  '鎻愬崌銆侀檷绾с€佸仠鐢ㄦ垨鎭㈠璐﹀彿鏃讹紝闇€瑕佽緭鍏ヤ綘鑷繁鐨勭鐞嗚€呭瘑鐮併€?  <- ['account_approvals.html']
+  '鎻愬崌涓虹鐞嗚€?  <- ['account_approvals.html']
+  '鎿嶄綔'  <- ['account_approvals.html', 'student_accounts.html']
+  '鎿嶄綔鑰?  <- ['account_approvals.html']
+  '鏁欏笀涓庣鐞嗚€?  <- ['account_approvals.html']
+  '鏁欏笀濮撳悕'  <- ['teacher_register.html']
+  '鏁欏笀娉ㄥ唽'  <- ['register_hub.html', 'teacher_register.html']
+  '鏁欏笀閭€璇风爜'  <- ['account_approvals.html']
+  '鏂板瀛︽牎鎴栨満鏋?  <- ['organization_manage.html']
+  '鏃堕棿'  <- ['account_approvals.html']
+  '鏆傛棤寰呭鏍哥敵璇?  <- ['account_approvals.html']
+  '鏆傛棤鎿嶄綔璁板綍'  <- ['account_approvals.html']
+  '鏈€杩戣处鍙锋搷浣?  <- ['account_approvals.html']
+  '鏍囪瘑'  <- ['organization_manage.html']
+  '姝ｅ父'  <- ['account_approvals.html', 'organization_manage.html']
+  '娉ㄥ唽鍚庨渶瑕佺鐞嗚€呭鏍革紝瀹℃牳閫氳繃鍚庢墠鑳界櫥褰曘€?  <- ['teacher_register.html']
+  '娉ㄥ唽骞剁櫥褰?  <- ['parent_register.html']
+  '娉ㄥ唽璐﹀彿'  <- ['login.html']
+  '娉ㄥ唽闃呰璐﹀彿'  <- ['register_hub.html']
+  '鐜版湁瀛︽牎涓庢満鏋?  <- ['organization_manage.html']
+  '鐝骇鏁?  <- ['organization_manage.html']
+  '鐢ㄦ埛鍚?  <- ['account_approvals.html', 'parent_register.html', 'teacher_register.html']
+  '鐢ㄦ埛鍚嶆垨閭'  <- ['parent_login.html']
+  '鐢ㄩ€?  <- ['account_approvals.html']
+  '鐢ㄩ€旓紝濡傦細灏忓鑻辫缁?  <- ['account_approvals.html']
+  '鐢辫€佸笀缁熶竴鍒涘缓骞跺彂鏀惧鐢熷彿鍜屽垵濮嬪瘑鐮?  <- ['register_hub.html']
+  '鐢宠宸叉彁浜?  <- ['register_done.html']
+  '鐩爣璐﹀彿'  <- ['account_approvals.html']
+  '绠＄悊鑰?  <- ['account_approvals.html']
+  '绠＄悊鑰呭鏍搁€氳繃鍚庯紝浣犲氨鍙互浣跨敤鏁欏笀璐﹀彿鐧诲綍銆?  <- ['register_done.html']
+  '缁戝畾鍏朵粬瀛╁瓙'  <- ['parent_home.html']
+  '缁戝畾瀛╁瓙'  <- ['parent_bind.html', 'parent_home.html']
+  '缁戝畾鐮佸彲绋嶅悗鍐嶅～锛屼篃鍙互娉ㄥ唽鍚庣户缁坊鍔犲瀛愩€?  <- ['parent_register.html']
+  '瑙掕壊'  <- ['account_approvals.html']
+  '璇疯緭鍏ヨ€佸笀鎻愪緵鐨勫瀛愮粦瀹氱爜銆?  <- ['parent_bind.html']
+  '璇烽€夋嫨娉ㄥ唽韬唤'  <- ['register_hub.html']
+  '璐﹀彿瀹℃壒涓庢暀甯堥個璇风爜'  <- ['account_approvals.html']
+  '杩斿洖鐧诲綍'  <- ['register_done.html', 'register_hub.html']
+  '杩樻病鏈夊鐢?  <- ['student_accounts.html']
+  '杩樻病鏈夎处鍙凤紵娉ㄥ唽瀹堕暱璐﹀彿'  <- ['parent_login.html']
+  '杩樻病鏈夐個璇风爜'  <- ['account_approvals.html']
+  '閭€璇风爜'  <- ['account_approvals.html']
+  '閭'  <- ['account_approvals.html', 'parent_register.html', 'teacher_register.html']
+  '闄嶄负鏁欏笀'  <- ['account_approvals.html']
+  '闇€瑕佸鏍￠個璇风爜锛屾彁浜ゅ悗绛夊緟绠＄悊鑰呭鏍?  <- ['register_hub.html']
+
+never looked up in locale/en (17):
+  '%s 涓嶆槸鑰佸笀璐﹀彿'
+  '+ 娣诲姞涔?
+  '涔︽灦杩樻槸绌虹殑锛屽幓鍥句功棣嗘妸鎯宠鐨勪功鍔犺繘鏉ュ惂銆?
+  '浣跨敤瀛╁瓙鐨勯偖绠卞拰瀵嗙爜鐧诲綍'
+  '浣跨敤瀛╁瓙鐨勯偖绠卞拰瀵嗙爜鐧诲綍锛屾煡鐪嬪瀛愮殑闃呰鎯呭喌銆?
+  '鍏堣瀹屼功锛屽啀绛旈銆?0%% 杩囧叧锛屾瘡鏈功鏈€澶?3 娆＄瓟棰樻満浼氾紝杩囧叧鍗崇疮璁¤瘝鏁般€?
+  '瀛╁瓙杩樻病鏈夐槄璇昏褰曘€?
+  '瀛╁瓙閭'
+  '鎯宠'
+  '鎸夐毦搴﹀垎绫?路 鏍囨敞鍏版柉鍊?
+  '鎼滅储涔﹀悕鈥?
+  '鏈€澶氭樉绀?500 鏈紝璇风敤鎼滅储鎴栧垎绫荤缉灏忚寖鍥淬€?
+  '杩囧叧鍒嗘暟 60%'
+  '杩樻病鏈夌彮绾с€?
+  '閫夋嫨浣犵殑鐝骇'
+  '閫夋嫨鐝骇鍜屽悕瀛楋紝寮€濮嬮槄璇婚棷鍏?
+  '闃呰鏃ユ湡'
+
+missing from locale/zh_Hans (2):
+  '%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now.'  <- ['python']
+  'Parent'  <- ['python']
+
+102 problem(s)

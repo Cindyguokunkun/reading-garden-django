@@ -169,7 +169,11 @@ def _book_from_post(request):
             editable = _visible_books(request)
         book = get_object_or_404(editable, pk=int(pk))
     else:
-        book = Book(source_id=f'manual-{uuid.uuid4().hex[:12]}', organization=get_persona(request).organization)
+        persona = get_persona(request)
+        book = Book(
+            source_id=f'manual-{uuid.uuid4().hex[:12]}',
+            organization=None if persona.is_platform_admin else persona.organization,
+        )
     return _apply_form(book, request.POST)
 
 
@@ -304,7 +308,11 @@ def book_add(request):
         HttpResponse: 渲染空表单，或保存后重定向到 ``library``
         （校验失败则回显表单）的响应。
     """
-    book = Book(source_id=f'manual-{uuid.uuid4().hex[:12]}', organization=get_persona(request).organization)
+    persona = get_persona(request)
+    book = Book(
+        source_id=f'manual-{uuid.uuid4().hex[:12]}',
+        organization=None if persona.is_platform_admin else persona.organization,
+    )
     if request.method == 'POST':
         return _save_book(request, _apply_form(book, request.POST), _('Book added'))
     return _render_form(request, book)

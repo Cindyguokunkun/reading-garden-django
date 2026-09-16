@@ -64,3 +64,15 @@ class OrganizationIsolationTests(TestCase):
         self.login_a()
         response = self.client.post(reverse('organization_switch'), {'organization': self.b.pk})
         self.assertEqual(response.status_code, 404)
+
+    def test_platform_admin_adds_public_books_but_school_staff_add_private_books(self):
+        platform = User.objects.create_superuser('platform', password='platform-pass')
+        Profile.objects.create(user=platform, role=ROLE_MANAGER)
+        self.client.login(username='platform', password='platform-pass')
+        self.client.post(reverse('book_add'), {'title': 'Shared New Book', 'series': 'Shared'})
+        self.assertIsNone(Book.objects.get(title='Shared New Book').organization_id)
+
+        self.client.logout()
+        self.login_a()
+        self.client.post(reverse('book_add'), {'title': 'A Private New Book', 'series': 'Private'})
+        self.assertEqual(Book.objects.get(title='A Private New Book').organization_id, self.a.pk)

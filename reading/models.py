@@ -379,6 +379,14 @@ class ClassGoal(models.Model):
     deadline = models.DateField(null=True, blank=True)
 
 
+class StudentGoal(models.Model):
+    """A student's personal cumulative word target."""
+
+    student = models.OneToOneField(Student, on_delete=models.CASCADE, related_name='personal_goal')
+    words = models.PositiveIntegerField()
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class QuizAttempt(models.Model):
     """测验作答记录，保存学生对某本书的一次测验过程与结果。
 

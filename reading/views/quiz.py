@@ -19,7 +19,7 @@ from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import gettext as _
-from ..models import Book, Classroom, QuizAttempt, ReadingRecord, Student
+from ..models import CATEGORY_CHOICES, Book, Classroom, QuizAttempt, ReadingRecord, Student
 from ..personas import MANAGER, PARENT, STUDENT, TEACHER, accessible_classrooms, current_classroom, get_persona, persona_required
 
 # 每本书允许的「已提交但未通过」的最大作答次数。
@@ -65,7 +65,27 @@ def _quizable_books(organization):
     """
     return Book.objects.filter(
         Q(organization__isnull=True) | Q(organization=organization)
-    ).exclude(quiz_data=[]).order_by('series', 'series_order', 'title')
+    ).exclude(quiz_data=[]).order_by('category', 'series', 'series_order', 'title')
+
+
+def _quiz_catalog(organization):
+    """Build category -> series -> books groups for the three-step picker."""
+    labels = dict(CATEGORY_CHOICES)
+    grouped = {}
+    for book in _quizable_books(organization):
+        category = book.category or 'uncategorized'
+        grouped.setdefault(category, {}).setdefault(book.series or str(_('Standalone')), []).append(book)
+    catalog = []
+    order = [value for value, _label in CATEGORY_CHOICES] + ['uncategorized']
+    for category in order:
+        if category not in grouped:
+            continue
+        catalog.append({
+            'value': category,
+            'label': str(labels.get(category, _('Uncategorized'))),
+            'series': [{'name': name, 'books': books} for name, books in grouped[category].items()],
+        })
+    return catalog
 
 
 def _build_questions(book, retake):
@@ -132,8 +152,8 @@ def quiz_start(request):
     chosen = request.GET.get('book') or ''
     chosen = int(chosen) if chosen.isdigit() else None
     if persona.kind == STUDENT:
-        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
-    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': accessible_classrooms(request), 'students': classroom.students.filter(active=True) if classroom else [], 'books': _quizable_books(persona.organization), 'chosen': chosen})
+        return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'students': [], 'catalog': _quiz_catalog(persona.organization), 'chosen': chosen})
+    return render(request, 'reading/quiz_start.html', {'classroom': classroom, 'classes': accessible_classrooms(request), 'students': classroom.students.filter(active=True) if classroom else [], 'catalog': _quiz_catalog(persona.organization), 'chosen': chosen})
 
 
 def _can_access_attempt(persona, attempt):

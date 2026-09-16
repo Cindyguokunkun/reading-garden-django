@@ -13,6 +13,7 @@
 
 from datetime import date
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.db.models import Count, Max, Q
@@ -20,7 +21,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
-from ..models import Book, Classroom, QuizAttempt, ShelfItem, Student
+from ..models import Book, Classroom, QuizAttempt, ReadingRecord, ShelfItem, Student, StudentGoal
 from ..personas import PARENT, STUDENT, clear_persona, get_persona, persona_required, set_student_persona
 from ..stats import rank_rows
 from .quiz import MAX_SUBMITTED_ATTEMPTS
@@ -164,8 +165,12 @@ def _home_context(student):
     goal = getattr(student.classroom, 'goal', None)
     class_words = sum(r['words'] for r in totals)
     goal_percent = min(100, round(class_words * 100 / goal.words)) if goal and goal.words else 0
+    personal_goal = getattr(student, 'personal_goal', None)
+    personal_percent = min(100, round(total['words'] * 100 / personal_goal.words)) if personal_goal and personal_goal.words else 0
     return {'student': student, 'classroom': student.classroom, 'records': records.select_related('book')[:50],
-            'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent}
+            'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent,
+            'personal_goal': personal_goal, 'personal_percent': personal_percent,
+            'personal_goal_choices': (10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000)}
 
 
 def _attempt_rows(student):
@@ -199,6 +204,16 @@ def student_home(request):
         HttpResponse: 渲染 ``reading/student_home.html`` 的响应。
     """
     return render(request, 'reading/student_home.html', _home_context(get_persona(request).student))
+
+
+@persona_required(STUDENT)
+@require_POST
+def student_goal(request):
+    words = int(request.POST.get('words') or 0)
+    if words > 0:
+        StudentGoal.objects.update_or_create(student=get_persona(request).student, defaults={'words': words})
+        messages.success(request, _('Personal reading goal saved.'))
+    return redirect('student_home')
 
 
 @persona_required(PARENT)
@@ -279,9 +294,14 @@ def shelf(request):
         携带收藏项列表（最多 200 条）、数量与学生信息。
     """
     student = get_persona(request).student
-    items = list(student.shelf.select_related('book')[:200])
-    shelf_state(student, [item.book for item in items])
-    return render(request, 'reading/shelf.html', {'items': items, 'count': len(items), 'student': student})
+    completed = list(Book.objects.filter(readingrecord__student=student, readingrecord__passed=True).distinct()
+                     .order_by('series', 'series_order', 'title')[:500])
+    completed_ids = {book.pk for book in completed}
+    items = list(student.shelf.select_related('book').exclude(book_id__in=completed_ids)[:200])
+    shelf_state(student, completed + [item.book for item in items])
+    return render(request, 'reading/shelf.html', {
+        'items': items, 'completed': completed, 'count': len(items) + len(completed), 'student': student,
+    })
 
 
 @persona_required(STUDENT, PARENT)

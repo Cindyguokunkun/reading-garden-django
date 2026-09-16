@@ -25,6 +25,7 @@ urlpatterns = [
     path('student/login/', auth.student_login, name='student_login'),
     path('student/login/<int:classroom_id>/', auth.student_pick, name='student_pick'),
     path('student/', auth.student_home, name='student_home'),
+    path('student/goal/', auth.student_goal, name='student_goal'),
     path('shelf/', auth.shelf, name='shelf'),
     path('shelf/change/', auth.shelf_change, name='shelf_change'),
     path('parent/login/', auth.parent_login, name='parent_login'),

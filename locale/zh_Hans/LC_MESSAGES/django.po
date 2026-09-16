@@ -188,3 +188,9 @@ msgstr "有多名学生使用这个姓名，请改用学生号登录。"
 
 msgid "Student name, Student ID, or password is incorrect"
 msgstr "学生姓名、学生号或密码不正确。"
+
+msgid "Personal reading goal saved."
+msgstr "个人阅读目标已保存。"
+
+msgid "Uncategorized"
+msgstr "未分类"

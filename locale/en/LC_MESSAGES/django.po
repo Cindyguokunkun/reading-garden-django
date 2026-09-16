@@ -755,3 +755,48 @@ msgstr "Student name or Student ID"
 
 msgid "可以使用姓名或学生号登录；初始密码由老师发放。"
 msgstr "Sign in with your name or Student ID. Your teacher provides the initial password."
+
+msgid "我的阅读目标"
+msgstr "My reading goal"
+
+msgid "目标词数"
+msgstr "Word target"
+
+msgid "保存目标"
+msgstr "Save goal"
+
+msgid "个人目标 %(words)s 词 · 已读 %(done)s 词（%(pct)s%%）"
+msgstr "Personal goal: %(words)s words · %(done)s read (%(pct)s%%)"
+
+msgid "已经完成的书"
+msgstr "Completed books"
+
+msgid "已完成"
+msgstr "Completed"
+
+msgid "还没有完成的书，通过阅读测试后会自动出现在这里。"
+msgstr "No completed books yet. Books appear here automatically after you pass their quiz."
+
+msgid "想读书单"
+msgstr "Want-to-read list"
+
+msgid "还没有添加想读的书。"
+msgstr "No books have been added to the want-to-read list."
+
+msgid "先读完书，再答题。达到 60 分即可过关，每本书最多有 3 次答题机会。"
+msgstr "Finish the book before taking the quiz. Pass at 60%. Each book allows up to 3 attempts."
+
+msgid "图书类别"
+msgstr "Book category"
+
+msgid "先选择图书类别"
+msgstr "Choose a category first"
+
+msgid "再选择系列"
+msgstr "Then choose a series"
+
+msgid "最后选择书名"
+msgstr "Finally choose a book"
+
+msgid "阅读日期（可不填，默认今天）"
+msgstr "Reading date (optional; defaults to today)"

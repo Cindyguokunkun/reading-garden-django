@@ -33,20 +33,11 @@ msgstr "Every story is a step of growth"
 msgid "欢迎来到阅见"
 msgstr "Welcome to Reading Garden"
 
-msgid "请选择你的身份"
-msgstr "Choose who you are"
-
 msgid "我是学生"
 msgstr "I am a student"
 
-msgid "选择班级和名字，开始阅读闯关"
-msgstr "Pick your class and name to start reading"
-
 msgid "我是家长"
 msgstr "I am a parent"
-
-msgid "使用孩子的邮箱和密码登录"
-msgstr "Sign in with your child's email and password"
 
 msgid "老师 / 管理者"
 msgstr "Teacher / Manager"
@@ -66,14 +57,8 @@ msgstr "Log in"
 msgid "返回身份选择"
 msgstr "Back to role selection"
 
-msgid "选择你的班级"
-msgstr "Choose your class"
-
 msgid "%(g)s 年级"
 msgstr "Grade %(g)s"
-
-msgid "还没有班级。"
-msgstr "No classes yet."
 
 msgid "你叫什么名字？点一下自己的名字开始阅读。"
 msgstr "What is your name? Tap your name to start reading."
@@ -86,12 +71,6 @@ msgstr "Choose another class"
 
 msgid "家长登录"
 msgstr "Parent login"
-
-msgid "使用孩子的邮箱和密码登录，查看孩子的阅读情况。"
-msgstr "Sign in with your child's email and password to view their reading."
-
-msgid "孩子邮箱"
-msgstr "Child's email"
 
 msgid "密码"
 msgstr "Password"
@@ -156,9 +135,6 @@ msgstr "%(n)s's reading growth"
 msgid "阅读记录"
 msgstr "Reading records"
 
-msgid "孩子还没有阅读记录。"
-msgstr "Your child has no reading records yet."
-
 msgid "至"
 msgstr "to"
 
@@ -216,17 +192,8 @@ msgstr "Books"
 msgid "本周期暂无数据"
 msgstr "No data for this period"
 
-msgid "按难度分类 · 标注兰斯值"
-msgstr "Sorted by difficulty · Lexile labeled"
-
 msgid "共 %(n)s 本书"
 msgstr "%(n)s books"
-
-msgid "+ 添加书"
-msgstr "+ Add book"
-
-msgid "搜索书名…"
-msgstr "Search titles…"
 
 msgid "搜索"
 msgstr "Search"
@@ -248,9 +215,6 @@ msgstr "Edit"
 
 msgid "没有匹配的书"
 msgstr "No matching books"
-
-msgid "最多显示 500 本，请用搜索或分类缩小范围。"
-msgstr "Up to 500 books are shown; use search or categories to narrow down."
 
 msgid "编辑书籍"
 msgstr "Edit book"
@@ -294,15 +258,6 @@ msgstr "Download template"
 msgid "年级：1-12 的数字"
 msgstr "Grade: a number from 1 to 12"
 
-msgid "教师用户名：必须已存在且为老师账号；班级不存在时自动创建"
-msgstr "Teacher username: must exist with the teacher role; the class is created if missing"
-
-msgid "邮箱：全局唯一，提供邮箱必须同时提供初始密码（家长用学生邮箱+密码登录）"
-msgstr "Email: globally unique; an initial password is required with it (parents log in with the student's email and password)"
-
-msgid "同班同名的学生会被更新而不是重复创建"
-msgstr "Students with the same class and name are updated instead of duplicated"
-
 msgid "成功导入 %(n)s 名学生。"
 msgstr "Imported %(n)s students successfully."
 
@@ -314,9 +269,6 @@ msgstr "Choose an .xlsx file"
 
 msgid "开始导入"
 msgstr "Start import"
-
-msgid "先读完书，再答题。60%% 过关，每本书最多 3 次答题机会，过关即累计词数。"
-msgstr "Read the book first, then take the quiz. Pass at 60%; up to 3 attempts per book; words count once you pass."
 
 msgid "请先创建班级和学生。"
 msgstr "Please create a class and students first."
@@ -423,26 +375,11 @@ msgstr "Teacher username %s does not exist"
 msgid "(空)"
 msgstr "(empty)"
 
-msgid "%s 不是老师账号"
-msgstr "%s is not a teacher account"
-
 msgid "缺少学生姓名"
 msgstr "Missing student name"
 
-msgid "邮箱格式不正确"
-msgstr "Invalid email format"
-
-msgid "提供了邮箱就必须提供初始密码"
-msgstr "An initial password is required when an email is given"
-
-msgid "邮箱 %s 已被占用"
-msgstr "Email %s is already taken"
-
 msgid "第 %s 行："
 msgstr "Row %s: "
-
-msgid "阅读日期"
-msgstr "Reading date"
 
 msgid "开始答题"
 msgstr "Begin quiz"
@@ -633,9 +570,6 @@ msgstr "Wanted and read"
 msgid "去图书馆找书"
 msgstr "Find books in the library"
 
-msgid "书架还是空的，去图书馆把想读的书加进来吧。"
-msgstr "The shelf is empty. Add books you want to read from the library."
-
 msgid "加入书架"
 msgstr "Add to shelf"
 
@@ -644,9 +578,6 @@ msgstr "Remove from shelf"
 
 msgid "已测"
 msgstr "Passed at"
-
-msgid "想读"
-msgstr "Want to read"
 
 msgid "测评结果"
 msgstr "Quiz result"
@@ -804,9 +735,6 @@ msgstr "Reading date (optional; defaults to today)"
 msgid "学生登录"
 msgstr "Student login"
 
-msgid "过关分数 60%"
-msgstr "Pass score: 60%"
-
 msgid "本周班级阅读字数榜"
 msgstr "This week's class word leaderboard"
 
@@ -842,3 +770,330 @@ msgstr "You've reached the top level!"
 
 msgid "距 %(next)s 还差 %(remain)s 词"
 msgstr "%(remain)s words to go until %(next)s"
+
+msgid "%s 不是本校老师账号"
+msgstr "%s is not a teacher account at this school"
+
+msgid "你以平台管理者身份添加，保存后将进入公共书库，所有学校均可使用。"
+msgstr "Added as a platform admin, this book goes into the public library that every school can use once saved."
+
+msgid "你的家长账号还没有绑定孩子。"
+msgstr "Your parent account isn't linked to a child yet."
+
+msgid "你的管理者密码"
+msgstr "Your manager password"
+
+msgid "使用学生号和密码登录"
+msgstr "Sign in with your Student ID and password"
+
+msgid "使用家长账号查看孩子的阅读成长"
+msgstr "Use a parent account to view your child's reading growth"
+
+msgid "使用情况"
+msgstr "Usage"
+
+msgid "保存后将进入当前学校的私有书库。"
+msgstr "Once saved, it goes into the current school's private library."
+
+msgid "再次输入密码"
+msgstr "Re-enter password"
+
+msgid "切换"
+msgstr "Switch"
+
+msgid "切换孩子"
+msgstr "Switch child"
+
+msgid "创建"
+msgstr "Create"
+
+msgid "创建教师邀请码"
+msgstr "Create teacher invite code"
+
+msgid "创建邀请码"
+msgstr "Create invite code"
+
+msgid "删除"
+msgstr "Delete"
+
+msgid "可使用孩子绑定码连接一个或多个孩子"
+msgstr "Use a child's bind code to link one or more children"
+
+msgid "可用"
+msgstr "Available"
+
+msgid "名称"
+msgstr "Name"
+
+msgid "姓名 / 用户名"
+msgstr "Name / username"
+
+msgid "学校与机构"
+msgstr "Schools & organizations"
+
+msgid "学校或机构名称"
+msgstr "School or organization name"
+
+msgid "学校邀请码"
+msgstr "School invite code"
+
+msgid "孩子绑定码"
+msgstr "Child bind code"
+
+msgid "孩子绑定码（可选）"
+msgstr "Child bind code (optional)"
+
+msgid "完成绑定"
+msgstr "Finish linking"
+
+msgid "家长姓名"
+msgstr "Parent name"
+
+msgid "家长注册"
+msgstr "Parent registration"
+
+msgid "密码（至少 8 位）"
+msgstr "Password (at least 8 characters)"
+
+msgid "已停用"
+msgstr "Deactivated"
+
+msgid "已停用或用完"
+msgstr "Deactivated or used up"
+
+msgid "已读本数"
+msgstr "Books read"
+
+msgid "平台管理"
+msgstr "Platform admin"
+
+msgid "当前账号"
+msgstr "Current account"
+
+msgid "待审核教师"
+msgstr "Teachers pending approval"
+
+msgid "恢复"
+msgstr "Restore"
+
+msgid "批准"
+msgstr "Approve"
+
+msgid "提交注册申请"
+msgstr "Submit registration"
+
+msgid "提升、降级、停用或恢复账号时，需要输入你自己的管理者密码。"
+msgstr "Promoting, demoting, deactivating or restoring an account requires your own manager password."
+
+msgid "提升为管理者"
+msgstr "Promote to manager"
+
+msgid "操作"
+msgstr "Actions"
+
+msgid "操作者"
+msgstr "Actor"
+
+msgid "教师与管理者"
+msgstr "Teachers & managers"
+
+msgid "教师姓名"
+msgstr "Teacher name"
+
+msgid "教师注册"
+msgstr "Teacher registration"
+
+msgid "教师邀请码"
+msgstr "Teacher invite code"
+
+msgid "新增学校或机构"
+msgstr "Add a school or organization"
+
+msgid "时间"
+msgstr "Time"
+
+msgid "暂无待审核申请"
+msgstr "No applications pending approval"
+
+msgid "暂无操作记录"
+msgstr "No account actions yet"
+
+msgid "最近账号操作"
+msgstr "Recent account actions"
+
+msgid "标识"
+msgstr "Slug"
+
+msgid "正常"
+msgstr "Active"
+
+msgid "注册后需要管理者审核，审核通过后才能登录。"
+msgstr "A manager must approve your registration before you can sign in."
+
+msgid "注册并登录"
+msgstr "Register & sign in"
+
+msgid "注册账号"
+msgstr "Register an account"
+
+msgid "注册阅见账号"
+msgstr "Register a Reading Garden account"
+
+msgid "现有学校与机构"
+msgstr "Existing schools & organizations"
+
+msgid "班级数"
+msgstr "Classes"
+
+msgid "用户名"
+msgstr "Username"
+
+msgid "用途"
+msgstr "Purpose"
+
+msgid "用途，如：小学英语组"
+msgstr "Purpose, e.g. Primary English team"
+
+msgid "由老师统一创建并发放学生号和初始密码"
+msgstr "Teachers create accounts and hand out Student IDs and initial passwords"
+
+msgid "申请已提交"
+msgstr "Application submitted"
+
+msgid "目标账号"
+msgstr "Target account"
+
+msgid "管理者"
+msgstr "Manager"
+
+msgid "管理者审核通过后，你就可以使用教师账号登录。"
+msgstr "Once a manager approves you, you can sign in with your teacher account."
+
+msgid "绑定其他孩子"
+msgstr "Link another child"
+
+msgid "绑定孩子"
+msgstr "Link a child"
+
+msgid "绑定码可稍后再填，也可以注册后继续添加孩子。"
+msgstr "You can fill in the bind code later, or keep adding children after registering."
+
+msgid "角色"
+msgstr "Role"
+
+msgid "请输入老师提供的孩子绑定码。"
+msgstr "Enter the child bind code provided by your teacher."
+
+msgid "请选择注册身份"
+msgstr "Choose who you are registering as"
+
+msgid "账号审批与教师邀请码"
+msgstr "Account approvals & teacher invite codes"
+
+msgid "返回登录"
+msgstr "Back to sign in"
+
+msgid "还没有学生"
+msgstr "No students yet"
+
+msgid "还没有账号？注册家长账号"
+msgstr "No account yet? Register a parent account"
+
+msgid "还没有邀请码"
+msgstr "No invite codes yet"
+
+msgid "邀请码"
+msgstr "Invite code"
+
+msgid "邮箱"
+msgstr "Email"
+
+msgid "降为教师"
+msgstr "Demote to teacher"
+
+msgid "需要学校邀请码，提交后等待管理者审核"
+msgstr "Requires a school invite code; wait for a manager to approve after you submit"
+
+msgid "Excel 批量导入教师"
+msgstr "Bulk import teachers from Excel"
+
+msgid "仅管理者可用。每行一位教师，只需填姓名；用户名即姓名，与已有账号重名时自动加数字后缀（如 王小明2）。"
+msgstr "Managers only. One teacher per row; fill in the name only. The username equals the name, and a numeric suffix is added automatically on duplicates (e.g. 王小明2)."
+
+msgid "初始密码统一为 %(pw)s，教师登录后可在“修改密码”自行更改。"
+msgstr "The initial password is %(pw)s for everyone; teachers can change it under 'Change password' after signing in."
+
+msgid "成功创建以下教师账号："
+msgstr "Successfully created these teacher accounts:"
+
+msgid "教师导入"
+msgstr "Import teachers"
+
+msgid "教师姓名过长"
+msgstr "Teacher name is too long"
+
+msgid "修改密码"
+msgstr "Change password"
+
+msgid "修改你自己的登录密码，保存后不会退出登录。"
+msgstr "Change your own sign-in password. You stay signed in after saving."
+
+msgid "当前密码"
+msgstr "Current password"
+
+msgid "新密码（至少 8 位）"
+msgstr "New password (at least 8 characters)"
+
+msgid "再次输入新密码"
+msgstr "Re-enter new password"
+
+msgid "保存新密码"
+msgstr "Save new password"
+
+msgid "返回工作台"
+msgstr "Back to dashboard"
+
+msgid "修改家长密码"
+msgstr "Change parent password"
+
+msgid "用于「学生姓名 + 家长密码」登录；初始密码由学校统一设置，建议尽快修改。"
+msgstr "Used for student-name plus parent-password sign-in; the initial password is set by the school, so please change it soon."
+
+msgid "当前家长密码"
+msgstr "Current parent password"
+
+msgid "新密码（至少 6 位）"
+msgstr "New password (at least 6 characters)"
+
+msgid "用家长账号（用户名或邮箱），或孩子的姓名/学号 + 家长密码登录。"
+msgstr "Sign in with a parent account (username or email), or with your child's name/Student ID plus the parent password."
+
+msgid "用户名 / 邮箱 / 孩子姓名或学号"
+msgstr "Username / email / child's name or Student ID"
+
+msgid "学号：必填且全局唯一，学生用“学号 + 密码”登录；学号已存在则更新该学生"
+msgstr "Student ID: required and globally unique; students sign in with their Student ID and password. An existing ID updates that student."
+
+msgid "中文姓名：必填；与已有学生重名时自动加数字后缀（如 张三2），因此姓名也可作为登录名"
+msgstr "Chinese name: required; if it duplicates an existing student, a numeric suffix is added automatically (e.g. 张三2), so the name can also be used to sign in"
+
+msgid "密码：学生的登录密码，必填"
+msgstr "Password: the student's sign-in password, required"
+
+msgid "教师用户名：必须已存在且为本校在职老师；班级不存在时自动创建并归给该老师，一个老师可管理多个班"
+msgstr "Teacher username: must exist and be an active teacher at this school; the class is created and assigned to that teacher if missing, and one teacher can manage multiple classes"
+
+msgid "家长登录：用“学生姓名 + 家长密码”，初始家长密码统一为 %(pw)s，家长登录后可自行修改"
+msgstr "Parent sign-in: use the student name plus the parent password; the initial parent password is %(pw)s for everyone, and parents can change it after signing in"
+
+msgid "缺少学号"
+msgstr "Missing student ID"
+
+msgid "学号不能超过 24 个字符"
+msgstr "Student ID cannot exceed 24 characters"
+
+msgid "学号 %s 在表格中重复"
+msgstr "Student ID %s is duplicated in the sheet"
+
+msgid "缺少学生密码"
+msgstr "Missing student password"

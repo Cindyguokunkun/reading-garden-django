@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow"><h1>{% trans "Excel 批量导入教师" %}</h1><p>{% trans "仅管理者可用。每行一位教师，只需填姓名；用户名即姓名，与已有账号重名时自动加数字后缀（如 王小明2）。" %}</p>
+<p>{% blocktrans with pw=default_password %}初始密码统一为 {{ pw }}，教师登录后可在“修改密码”自行更改。{% endblocktrans %}</p>
+<p><a class="button" href="?template=1">{% trans "下载导入模板" %}</a></p>
+<table><tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr></table>
+{% if created %}<div class="notice">{% trans "成功创建以下教师账号：" %}<ul>{% for u in created %}<li>{{ u }}</li>{% endfor %}</ul></div>{% endif %}
+{% if errors %}<div class="notice error"><b>{% trans "导入失败，未写入任何数据：" %}</b><ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>{% endif %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}<label>{% trans "选择 .xlsx 文件" %}<input type="file" name="file" accept=".xlsx" required></label><button>{% trans "开始导入" %}</button></form></section>{% endblock %}

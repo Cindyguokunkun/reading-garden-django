@@ -212,3 +212,30 @@ msgstr "钻石读者"
 
 msgid "Legendary Reader"
 msgstr "传奇读者"
+
+msgid "Parent"
+msgstr "家长"
+
+msgid "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
+msgstr "%(name)s 已创建。学生号：%(login)s；初始密码：%(pin)s。请立即保存。"
+
+msgid "Current password is incorrect"
+msgstr "当前密码不正确。"
+
+msgid "New password must be at least 6 characters"
+msgstr "新密码至少需要 6 位。"
+
+msgid "New password must be at least 8 characters"
+msgstr "新密码至少需要 8 位。"
+
+msgid "Only session parents can change this password here."
+msgstr "只有以「学生姓名 + 家长密码」登录的家长才能在此修改密码。"
+
+msgid "Parent password changed."
+msgstr "家长密码已修改。"
+
+msgid "Password changed."
+msgstr "密码已修改。"
+
+msgid "The two new passwords do not match"
+msgstr "两次输入的新密码不一致。"

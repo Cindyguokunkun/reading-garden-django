@@ -4,7 +4,7 @@
 
 - 员工（教师/管理员）：走 Django 内置认证体系，见 :data:`staff_login`。
 - 学生：以「选班级 + 选学生」的方式进入，无需密码。
-- 家长：以邮箱 + 密码登录，查看对应学生的阅读情况。
+- 家长：以邮箱 + 密码，或「学生姓名/学号 + 家长密码」登录，查看对应学生的阅读情况。
 
 登录后由 :mod:`reading.personas` 在会话中记录「当前身份」，
 后续视图据此判定权限与数据可见范围。模块同时提供书架（收藏）
@@ -12,7 +12,7 @@
 """
 
 from datetime import date
-from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
@@ -22,7 +22,7 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, ShelfItem, Student, StudentGoal
-from ..personas import PARENT, STUDENT, clear_persona, get_persona, persona_required, set_student_persona
+from ..personas import MANAGER, PARENT, STUDENT, TEACHER, clear_persona, get_persona, persona_required, set_student_persona
 from ..stats import period, rank_rows, reading_level, sort_rows
 from .quiz import MAX_SUBMITTED_ATTEMPTS
 
@@ -140,6 +140,15 @@ def parent_login(request):
         student = Student.objects.filter(email__iexact=account).first() if '@' in account else None
         if student and student.check_password(password):
             set_student_persona(request, student, PARENT)
+            return redirect('parent_home')
+        # 家长用「学生姓名/学号 + 家长密码」登录（批量导入的学生默认走此通道）。
+        matches = list(Student.objects.filter(active=True).filter(
+            Q(login_id__iexact=account) | Q(name__iexact=account) | Q(name_en__iexact=account))[:2])
+        if len(matches) > 1:
+            error = _('More than one student has this name. Please use the Student ID.')
+            return render(request, 'reading/parent_login.html', {'error': error})
+        if matches and matches[0].check_parent_password(password):
+            set_student_persona(request, matches[0], PARENT)
             return redirect('parent_home')
         error = _('Email or password is incorrect')
     return render(request, 'reading/parent_login.html', {'error': error})
@@ -265,6 +274,77 @@ def logout(request):
     if request.user.is_authenticated: auth_logout(request)
     else: clear_persona(request)
     return redirect('login')
+
+
+@persona_required(TEACHER, MANAGER)
+def staff_password(request):
+    """员工修改密码视图：教师/管理者修改自己的登录密码。
+
+    GET 展示修改表单；POST 校验当前密码与新密码（两次一致、至少 8 位），
+    成功后更新密码并刷新会话认证哈希，避免修改后被登出。
+
+    Args:
+        request (HttpRequest): 当前请求对象，需为员工身份。
+            POST 需含 ``current_password``、``new_password``、``confirm_password``。
+
+    Returns:
+        HttpResponse: 重定向到 ``dashboard`` 的响应，或渲染
+        ``reading/staff_password.html``（可能携带 ``error`` 文案）的响应。
+    """
+    error = None
+    if request.method == 'POST':
+        current = request.POST.get('current_password') or ''
+        new = request.POST.get('new_password') or ''
+        confirm = request.POST.get('confirm_password') or ''
+        if not request.user.check_password(current):
+            error = _('Current password is incorrect')
+        elif len(new) < 8:
+            error = _('New password must be at least 8 characters')
+        elif new != confirm:
+            error = _('The two new passwords do not match')
+        else:
+            request.user.set_password(new)
+            request.user.save(update_fields=['password'])
+            update_session_auth_hash(request, request.user)
+            messages.success(request, _('Password changed.'))
+            return redirect('dashboard')
+    return render(request, 'reading/staff_password.html', {'error': error})
+
+
+@persona_required(PARENT)
+@require_POST
+def parent_password(request):
+    """家长修改密码视图：修改所查看学生的家长登录密码。
+
+    仅适用于以「学生姓名 + 家长密码」登录的会话型家长（未绑定独立
+    家长账号）。校验当前家长密码与新密码（两次一致、至少 6 位）后，
+    写入该学生的 ``parent_password_hash``。
+
+    Args:
+        request (HttpRequest): 当前请求对象，需为家长身份且已关联学生。
+            POST 需含 ``current_password``、``new_password``、``confirm_password``。
+
+    Returns:
+        HttpResponse: 重定向到 ``parent_home`` 的响应（通过 messages 回显结果）。
+    """
+    student = get_persona(request).student
+    if not student or request.user.is_authenticated:
+        messages.error(request, _('Only session parents can change this password here.'))
+        return redirect('parent_home')
+    current = request.POST.get('current_password') or ''
+    new = request.POST.get('new_password') or ''
+    confirm = request.POST.get('confirm_password') or ''
+    if not student.check_parent_password(current):
+        messages.error(request, _('Current password is incorrect'))
+    elif len(new) < 6:
+        messages.error(request, _('New password must be at least 6 characters'))
+    elif new != confirm:
+        messages.error(request, _('The two new passwords do not match'))
+    else:
+        student.set_parent_password(new)
+        student.save(update_fields=['parent_password_hash'])
+        messages.success(request, _('Parent password changed.'))
+    return redirect('parent_home')
 
 
 def shelf_state(student, books):

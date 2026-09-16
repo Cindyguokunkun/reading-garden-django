@@ -37,7 +37,7 @@ from io import BytesIO
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.utils import timezone
 from openpyxl import Workbook
-from .models import ClassGoal, Organization, Profile, QuizAttempt, ShelfItem
+from .models import ClassGoal, Membership, Organization, Profile, QuizAttempt, ShelfItem
 
 def make_book(source_id, words=100, quiz=True, **kwargs):
     defaults = dict(title='Test Book', series='Tests')
@@ -210,6 +210,7 @@ class RanksTests(TestCase):
 
 class ImportTests(TestCase):
     def setUp(self):
+        self.org = Organization.objects.first()
         self.boss = User.objects.create_user('boss', password='pw')
         Profile.objects.create(user=self.boss, role='manager')
         self.teacher = User.objects.create_user('imp_t', password='pw')
@@ -217,39 +218,131 @@ class ImportTests(TestCase):
 
     def upload(self, rows):
         wb = Workbook(); ws = wb.active
-        ws.append(['年级', '班级名称', '教师用户名', '学生姓名', '英文名', '邮箱', '初始密码', '家长1', '家长2'])
+        ws.append(['学号', '年级', '班级名称', '教师用户名', '中文姓名', '英文名', '密码'])
         for row in rows: ws.append(row)
         out = BytesIO(); wb.save(out)
         f = SimpleUploadedFile('import.xlsx', out.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         return self.client.post(reverse('manage_import'), {'file': f})
 
-    def test_import_creates_students_and_parent_can_login(self):
+    def test_import_creates_students_and_student_can_login(self):
         self.client.login(username='boss', password='pw')
         response = self.upload([
-            [3, 'Y3C3', 'imp_t', '王小明', 'Xiaoming Wang', 'xm@example.com', 'read1234', '王妈妈', ''],
-            [3, 'Y3C3', 'imp_t', '小红', '', 'xh@example.com', 'read1234', '', ''],
+            ['S0001', 3, 'Y3C3', 'imp_t', '王小明', 'Xiaoming Wang', 'read1234'],
+            ['S0002', 3, 'Y3C3', 'imp_t', '小红', '', 'read1234'],
         ])
         self.assertContains(response, '成功导入 2 名学生')
         self.assertEqual(Student.objects.count(), 2)
         self.assertEqual(Classroom.objects.get(name='Y3C3').grade, 3)
+        xm = Student.objects.get(login_id='S0001')
+        self.assertTrue(xm.check_password('read1234'))
+        self.assertTrue(xm.check_parent_password('P000000'))
         self.client.post(reverse('logout'))
-        response = self.client.post(reverse('parent_login'), {'email': 'xm@example.com', 'password': 'read1234'})
-        self.assertRedirects(response, reverse('parent_home'))
+        response = self.client.post(reverse('student_login'), {'login_id': 'S0001', 'password': 'read1234'})
+        self.assertRedirects(response, reverse('student_home'), fetch_redirect_response=False)
 
-    def test_duplicate_email_rolls_back_whole_import(self):
+    def test_parent_logs_in_with_name_and_default_password(self):
         self.client.login(username='boss', password='pw')
-        self.upload([[3, 'Y3C3', 'imp_t', '王小明', '', 'xm@example.com', 'read1234', '', '']])
+        self.upload([['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234']])
+        self.client.post(reverse('logout'))
+        response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': 'P000000'})
+        self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
+
+    def test_duplicate_name_gets_numeric_suffix(self):
+        self.client.login(username='boss', password='pw')
+        self.upload([
+            ['S0001', 3, 'Y3C3', 'imp_t', '张三', '', 'read1234'],
+            ['S0002', 3, 'Y3C3', 'imp_t', '张三', '', 'read1234'],
+        ])
+        self.assertEqual(sorted(Student.objects.values_list('name', flat=True)), ['张三', '张三2'])
+
+    def test_duplicate_login_id_in_file_rolls_back(self):
+        self.client.login(username='boss', password='pw')
         response = self.upload([
-            [3, 'Y3C3', 'imp_t', '小刚', '', 'xg@example.com', 'read1234', '', ''],
-            [3, 'Y3C3', 'imp_t', '小美', '', 'xm@example.com', 'read1234', '', ''],
+            ['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234'],
+            ['S0001', 3, 'Y3C3', 'imp_t', '小红', '', 'read1234'],
         ])
         self.assertContains(response, '第 3 行')
-        self.assertFalse(Student.objects.filter(name='小刚').exists())
-        self.assertEqual(Student.objects.count(), 1)
+        self.assertEqual(Student.objects.count(), 0)
+
+    def test_missing_password_rolls_back(self):
+        self.client.login(username='boss', password='pw')
+        response = self.upload([
+            ['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234'],
+            ['S0002', 3, 'Y3C3', 'imp_t', '小红', '', ''],
+        ])
+        self.assertContains(response, '第 3 行')
+        self.assertEqual(Student.objects.count(), 0)
 
     def test_non_manager_forbidden(self):
         self.client.login(username='imp_t', password='pw')
         self.assertEqual(self.client.get(reverse('manage_import')).status_code, 403)
+        self.assertEqual(self.client.get(reverse('manage_teachers')).status_code, 403)
+
+class TeacherImportTests(TestCase):
+    def setUp(self):
+        self.org = Organization.objects.first()
+        self.boss = User.objects.create_user('boss', password='pw')
+        Profile.objects.create(user=self.boss, role='manager')
+
+    def upload(self, rows):
+        wb = Workbook(); ws = wb.active
+        ws.append(['教师姓名'])
+        for row in rows: ws.append(row)
+        out = BytesIO(); wb.save(out)
+        f = SimpleUploadedFile('teachers.xlsx', out.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        return self.client.post(reverse('manage_teachers'), {'file': f})
+
+    def test_creates_teachers_with_default_password(self):
+        self.client.login(username='boss', password='pw')
+        response = self.upload([['王小明'], ['李老师']])
+        self.assertContains(response, '成功创建以下教师账号')
+        for username in ('王小明', '李老师'):
+            user = User.objects.get(username=username)
+            self.assertTrue(user.check_password('000000'))
+            self.assertTrue(user.is_active)
+            self.assertEqual(user.profile.role, 'teacher')
+            self.assertTrue(user.profile.approved)
+            self.assertTrue(Membership.objects.filter(user=user, organization=self.org, role='teacher', active=True).exists())
+
+    def test_duplicate_name_gets_suffix(self):
+        self.client.login(username='boss', password='pw')
+        self.upload([['王小明'], ['王小明']])
+        self.assertTrue(User.objects.filter(username='王小明').exists())
+        self.assertTrue(User.objects.filter(username='王小明2').exists())
+
+    def test_created_teacher_can_login_and_change_password(self):
+        self.client.login(username='boss', password='pw')
+        self.upload([['王小明']])
+        self.client.post(reverse('logout'))
+        self.assertTrue(self.client.login(username='王小明', password='000000'))
+        response = self.client.post(reverse('staff_password'), {
+            'current_password': '000000', 'new_password': 'newpass123', 'confirm_password': 'newpass123'})
+        self.assertRedirects(response, reverse('dashboard'), fetch_redirect_response=False)
+        self.client.post(reverse('logout'))
+        self.assertTrue(self.client.login(username='王小明', password='newpass123'))
+
+class ParentPasswordTests(TestCase):
+    def setUp(self):
+        self.org = Organization.objects.first()
+        self.teacher = User.objects.create_user('t', password='pw')
+        Profile.objects.create(user=self.teacher, role='teacher')
+        self.room = Classroom.objects.create(owner=self.teacher, organization=self.org, name='Y3C3', grade=3)
+        self.student = Student.objects.create(classroom=self.room, name='王小明', login_id='S0001')
+        self.student.set_password('read1234')
+        self.student.set_parent_password('P000000')
+        self.student.save()
+
+    def test_parent_changes_password_then_logs_in_with_new(self):
+        response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': 'P000000'})
+        self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
+        response = self.client.post(reverse('parent_password'), {
+            'current_password': 'P000000', 'new_password': 'newpw123', 'confirm_password': 'newpw123'})
+        self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
+        self.student.refresh_from_db()
+        self.assertTrue(self.student.check_parent_password('newpw123'))
+        self.client.post(reverse('logout'))
+        response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': 'newpw123'})
+        self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
 
 class GoalAndLibraryTests(TestCase):
     def setUp(self):

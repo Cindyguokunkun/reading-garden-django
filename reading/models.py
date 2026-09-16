@@ -167,7 +167,10 @@ class Student(models.Model):
         name (models.CharField): 学生姓名，同一班级下不可重复。
         name_en (models.CharField): 英文名，可为空。
         email (models.EmailField): 登录邮箱，全局唯一，可为空。
-        password_hash (models.CharField): 密码哈希值，明文密码不入库。
+        password_hash (models.CharField): 学生登录密码哈希值，明文密码不入库。
+        parent_password_hash (models.CharField): 家长登录密码哈希值，
+            与学生密码相互独立（家长用「学生姓名 + 家长密码」登录），
+            明文密码不入库。
         parent_1_name (models.CharField): 家长一姓名，可为空。
         parent_2_name (models.CharField): 家长二姓名，可为空。
         created_at (models.DateTimeField): 创建时间，自动填充。
@@ -178,6 +181,7 @@ class Student(models.Model):
     name_en = models.CharField(max_length=100, blank=True)
     email = models.EmailField(unique=True, null=True, blank=True)
     password_hash = models.CharField(max_length=128, blank=True)
+    parent_password_hash = models.CharField(max_length=128, blank=True)
     login_id = models.CharField(max_length=24, unique=True, null=True, blank=True)
     bind_code = models.CharField(max_length=12, unique=True, null=True, blank=True)
     active = models.BooleanField(default=True, db_index=True)
@@ -215,7 +219,7 @@ class Student(models.Model):
         self.password_hash = make_password(raw)
 
     def check_password(self, raw):
-        """校验明文密码是否与已存储的哈希匹配。
+        """校验明文密码是否与已存储的学生密码哈希匹配。
 
         Args:
             raw (str): 待校验的明文密码。
@@ -225,6 +229,32 @@ class Student(models.Model):
             否则返回 ``False``。
         """
         return bool(self.password_hash) and hash_check(raw, self.password_hash)
+
+    def set_parent_password(self, raw):
+        """将家长登录的明文密码哈希后保存到 ``parent_password_hash`` 字段。
+
+        与学生自身的 :meth:`set_password` 相互独立，用于「学生姓名 +
+        家长密码」的家长登录通道。
+
+        注意：本方法只修改内存中的实例，不会自动写库，
+        调用后需执行 ``save()`` 才会持久化。
+
+        Args:
+            raw (str): 家长输入的明文密码。
+        """
+        self.parent_password_hash = make_password(raw)
+
+    def check_parent_password(self, raw):
+        """校验明文密码是否与已存储的家长密码哈希匹配。
+
+        Args:
+            raw (str): 待校验的明文密码。
+
+        Returns:
+            bool: 当已设置家长密码哈希且与 ``raw`` 匹配时返回 ``True``，
+            否则返回 ``False``。
+        """
+        return bool(self.parent_password_hash) and hash_check(raw, self.parent_password_hash)
 
     @property
     def has_credentials(self):

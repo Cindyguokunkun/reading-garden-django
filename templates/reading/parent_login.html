@@ -1,9 +1,9 @@
 {% extends 'base.html' %}{% load i18n %}{% block content %}
 <section class="card narrow"><h1>{% trans "家长登录" %}</h1>
-<p>{% trans "使用家长自己的用户名或邮箱登录。" %}</p>
+<p>{% trans "用家长账号（用户名或邮箱），或孩子的姓名/学号 + 家长密码登录。" %}</p>
 {% if error %}<div class="notice error">{{ error }}</div>{% endif %}
 <form method="post">{% csrf_token %}
-<label>{% trans "用户名或邮箱" %}<input name="account" autocomplete="username" required></label>
+<label>{% trans "用户名 / 邮箱 / 孩子姓名或学号" %}<input name="account" autocomplete="username" required></label>
 <label>{% trans "密码" %}<input type="password" name="password" autocomplete="current-password" required></label>
 <button>{% trans "登录" %}</button></form>
 <p><a class="link" href="{% url 'parent_register' %}">{% trans "还没有账号？注册家长账号" %}</a></p>

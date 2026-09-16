@@ -32,16 +32,18 @@ def get_persona(request):
     persona = getattr(request, 'persona', None)
     if persona is not None: return persona
     kind = request.session.get('persona_kind')
-    if kind in (STUDENT, PARENT):
+    if request.user.is_authenticated:
+        # A signed-in staff account outranks any student/parent keys left in the session.
+        if kind: clear_persona(request)
+        role = get_role(request.user)
+        persona = Persona(role, request.user.get_full_name() or request.user.username, user=request.user)
+    elif kind in (STUDENT, PARENT):
         student = Student.objects.filter(pk=request.session.get('persona_student_id')).select_related('classroom', 'classroom__owner').first()
         if student:
             persona = Persona(kind, student.name_en or student.name, student=student)
         else:
-            for key in ('persona_kind', 'persona_student_id'): request.session.pop(key, None)
+            clear_persona(request)
             persona = Persona(ANONYMOUS)
-    elif request.user.is_authenticated:
-        role = get_role(request.user)
-        persona = Persona(role, request.user.get_full_name() or request.user.username, user=request.user)
     else:
         persona = Persona(ANONYMOUS)
     request.persona = persona

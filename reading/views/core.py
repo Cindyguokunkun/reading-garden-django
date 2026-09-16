@@ -19,11 +19,11 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from openpyxl import Workbook
 from ..models import grade_choices, Book, ClassGoal, Classroom, ReadingRecord, Student
-from ..personas import accessible_classrooms, current_classroom
+from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, persona_required
 from ..stats import period, rank_rows, sort_rows
 
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 def dashboard(request):
     """班级阅读仪表盘视图。
 
@@ -60,7 +60,7 @@ def dashboard(request):
     return render(request, 'reading/dashboard.html', {'classes': accessible_classrooms(request), 'classroom': classroom, 'students': students, 'records': records[:100], 'series': series, 'word_rankings': word_rankings, 'time_rankings': time_rankings, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'total_words': total_words, 'total_minutes': records.aggregate(v=Sum('minutes'))['v'] or 0, 'goal': goal, 'goal_percent': goal_percent, 'grade_choices': grade_choices()})
 
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 @require_POST
 def action(request):
     """后台数据录入的统一 POST 分派入口。
@@ -99,7 +99,7 @@ def action(request):
     return redirect(f'/?class={classroom.pk}' if classroom else '/')
 
 
-@login_required
+@persona_required(TEACHER, MANAGER)
 def export_excel(request):
     """将当前班级的阅读记录导出为 Excel（.xlsx）文件下载。
 

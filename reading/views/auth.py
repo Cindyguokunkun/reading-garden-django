@@ -60,6 +60,7 @@ def student_login(request):
         HttpResponse: 重定向响应，或渲染 ``reading/student_login.html``
         （携带按年级、名称排序的班级列表）的响应。
     """
+    if request.user.is_authenticated: return redirect('dashboard')
     if get_persona(request).kind == STUDENT: return redirect('student_home')
     classrooms = Classroom.objects.all().order_by('grade', 'name')
     return render(request, 'reading/student_login.html', {'classrooms': classrooms})
@@ -81,6 +82,7 @@ def student_pick(request, classroom_id):
     Raises:
         Http404: 当班级或所选学生不存在（或学生不属于该班级）时。
     """
+    if request.user.is_authenticated: return redirect('dashboard')
     classroom = get_object_or_404(Classroom, pk=classroom_id)
     if request.method == 'POST':
         student = get_object_or_404(Student, pk=request.POST.get('student'), classroom=classroom)
@@ -102,6 +104,7 @@ def parent_login(request):
         HttpResponse: 重定向响应，或渲染 ``reading/parent_login.html``
         （可能携带 ``error`` 文案）的响应。
     """
+    if request.user.is_authenticated: return redirect('dashboard')
     if get_persona(request).kind == PARENT: return redirect('parent_home')
     error = None
     if request.method == 'POST':
@@ -199,8 +202,8 @@ def logout(request):
     Returns:
         HttpResponse: 重定向到登录入口 ``login`` 的响应。
     """
-    if get_persona(request).kind in (STUDENT, PARENT): clear_persona(request)
-    else: auth_logout(request)
+    if request.user.is_authenticated: auth_logout(request)
+    else: clear_persona(request)
     return redirect('login')
 
 

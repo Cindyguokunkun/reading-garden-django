@@ -37,6 +37,7 @@ def ranks(request):
     """
     persona = get_persona(request)
     tier = request.GET.get('tier', 'class')
+    if persona.student: tier = 'class'
     mode = request.GET.get('mode', 'week')
     try: anchor = date.fromisoformat(request.GET.get('date', ''))
     except ValueError: anchor = date.today()

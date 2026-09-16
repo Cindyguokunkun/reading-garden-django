@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="hero"><div><p>READING GARDEN</p><h1>{% trans "注册阅见账号" %}</h1><p>{% trans "请选择注册身份" %}</p></div></section>
+<div class="hubgrid">
+<a class="card hub" href="{% url 'teacher_register' %}"><b>{% trans "教师注册" %}</b><span>{% trans "需要学校邀请码，提交后等待管理者审核" %}</span></a>
+<a class="card hub" href="{% url 'parent_register' %}"><b>{% trans "家长注册" %}</b><span>{% trans "可使用孩子绑定码连接一个或多个孩子" %}</span></a>
+<div class="card hub"><b>{% trans "学生账号" %}</b><span>{% trans "由老师统一创建并发放学生号和初始密码" %}</span></div>
+</div><p class="center"><a class="link" href="{% url 'login' %}">{% trans "返回登录" %}</a></p>{% endblock %}

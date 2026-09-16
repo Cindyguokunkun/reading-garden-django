@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import auth, library, manage, ranks
+from .views import auth, library, manage, ranks, registration
 
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
@@ -17,6 +17,9 @@ urlpatterns = [
     path('library/<int:pk>/edit/', library.book_edit, name='book_edit'),
     path('manage/import/', manage.manage_import, name='manage_import'),
     path('login/', auth.login_hub, name='login'),
+    path('register/', registration.register_hub, name='register'),
+    path('register/teacher/', registration.teacher_register, name='teacher_register'),
+    path('register/parent/', registration.parent_register, name='parent_register'),
     path('login/staff/', auth.staff_login, name='staff_login'),
     path('logout/', auth.logout, name='logout'),
     path('student/login/', auth.student_login, name='student_login'),
@@ -26,4 +29,9 @@ urlpatterns = [
     path('shelf/change/', auth.shelf_change, name='shelf_change'),
     path('parent/login/', auth.parent_login, name='parent_login'),
     path('parent/', auth.parent_home, name='parent_home'),
+    path('parent/bind/', registration.parent_bind, name='parent_bind'),
+    path('parent/switch/', registration.parent_switch, name='parent_switch'),
+    path('accounts/', registration.student_accounts, name='student_accounts'),
+    path('accounts/student/<int:student_id>/', registration.student_account_action, name='student_account_action'),
+    path('manage/accounts/', registration.account_approvals, name='account_approvals'),
 ]

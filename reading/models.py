@@ -22,9 +22,14 @@ from django.utils.translation import gettext_lazy as _
 # 系统内置的员工角色标识。
 ROLE_TEACHER = 'teacher'
 ROLE_MANAGER = 'manager'
+ROLE_PARENT = 'parent'
 
 # Profile.role 字段的可选值，(存储值, 展示文本) 元组列表。
-ROLE_CHOICES = [(ROLE_TEACHER, _('Teacher')), (ROLE_MANAGER, _('Manager'))]
+ROLE_CHOICES = [
+    (ROLE_TEACHER, _('Teacher')),
+    (ROLE_MANAGER, _('Manager')),
+    (ROLE_PARENT, _('Parent')),
+]
 
 
 def grade_choices():
@@ -64,6 +69,7 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default=ROLE_TEACHER)
+    approved = models.BooleanField(default=True)
 
     def __str__(self):
         """返回便于调试与后台展示的字符串表示。
@@ -132,6 +138,8 @@ class Student(models.Model):
     name_en = models.CharField(max_length=100, blank=True)
     email = models.EmailField(unique=True, null=True, blank=True)
     password_hash = models.CharField(max_length=128, blank=True)
+    login_id = models.CharField(max_length=24, unique=True, null=True, blank=True)
+    bind_code = models.CharField(max_length=12, unique=True, null=True, blank=True)
     parent_1_name = models.CharField(max_length=100, blank=True)
     parent_2_name = models.CharField(max_length=100, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -184,7 +192,30 @@ class Student(models.Model):
         Returns:
             bool: 当邮箱与密码哈希均已设置时返回 ``True``。
         """
-        return bool(self.email and self.password_hash)
+        return bool(self.login_id and self.password_hash)
+
+
+class TeacherInvite(models.Model):
+    code = models.CharField(max_length=24, unique=True)
+    label = models.CharField(max_length=100, blank=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='teacher_invites')
+    active = models.BooleanField(default=True)
+    max_uses = models.PositiveIntegerField(default=20)
+    uses = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def available(self):
+        return self.active and self.uses < self.max_uses
+
+
+class ParentStudentLink(models.Model):
+    parent = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_links')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='parent_links')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [('parent', 'student')]
 
 
 class Book(models.Model):

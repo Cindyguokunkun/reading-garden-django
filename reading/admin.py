@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from .models import Book, ClassGoal, Classroom, Profile, QuizAttempt, ReadingRecord, Student
+from .models import (Book, ClassGoal, Classroom, ParentStudentLink, Profile,
+                     QuizAttempt, ReadingRecord, Student, TeacherInvite)
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -19,4 +20,5 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ['category','series']
     search_fields = ['title','author','series']
 
-admin.site.register([Classroom, Student, ReadingRecord, ClassGoal, QuizAttempt])
+admin.site.register([Classroom, Student, ReadingRecord, ClassGoal, QuizAttempt,
+                     TeacherInvite, ParentStudentLink])

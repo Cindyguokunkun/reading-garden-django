@@ -12,7 +12,8 @@
 """
 
 from datetime import date
-from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.db.models import Count, Max
 from django.shortcuts import get_object_or_404, redirect, render
@@ -62,8 +63,17 @@ def student_login(request):
     """
     if request.user.is_authenticated: return redirect('dashboard')
     if get_persona(request).kind == STUDENT: return redirect('student_home')
+    error = None
+    if request.method == 'POST':
+        login_id = (request.POST.get('login_id') or '').strip().upper()
+        password = request.POST.get('password') or ''
+        student = Student.objects.filter(login_id__iexact=login_id).first()
+        if student and student.check_password(password):
+            set_student_persona(request, student, STUDENT)
+            return redirect('student_home')
+        error = _('Student ID or password is incorrect')
     classrooms = Classroom.objects.all().order_by('grade', 'name')
-    return render(request, 'reading/student_login.html', {'classrooms': classrooms})
+    return render(request, 'reading/student_login.html', {'classrooms': classrooms, 'error': error})
 
 
 def student_pick(request, classroom_id):
@@ -108,8 +118,17 @@ def parent_login(request):
     if get_persona(request).kind == PARENT: return redirect('parent_home')
     error = None
     if request.method == 'POST':
-        email = (request.POST.get('email') or '').strip(); password = request.POST.get('password') or ''
-        student = Student.objects.filter(email__iexact=email).first() if email else None
+        account = (request.POST.get('account') or request.POST.get('email') or '').strip()
+        password = request.POST.get('password') or ''
+        user = User.objects.filter(email__iexact=account).first()
+        username = user.username if user else account
+        user = authenticate(request, username=username, password=password)
+        if user and getattr(getattr(user, 'profile', None), 'role', None) == PARENT:
+            auth_login(request, user)
+            return redirect('parent_home')
+        # Compatibility for families created before independent parent accounts.
+        # They can still sign in once, then create a parent account from Register.
+        student = Student.objects.filter(email__iexact=account).first() if '@' in account else None
         if student and student.check_password(password):
             set_student_persona(request, student, PARENT)
             return redirect('parent_home')
@@ -185,8 +204,15 @@ def parent_home(request):
         HttpResponse: 渲染 ``reading/parent_home.html`` 的响应，
         上下文在学生首页基础上追加 ``attempts``（测验作答列表）。
     """
-    student = get_persona(request).student
-    return render(request, 'reading/parent_home.html', {**_home_context(student), 'attempts': _attempt_rows(student)})
+    persona = get_persona(request)
+    links = (request.user.student_links.select_related('student', 'student__classroom')
+             if request.user.is_authenticated else [])
+    student = persona.student
+    if not student:
+        return render(request, 'reading/parent_home.html', {'student': None, 'links': links})
+    return render(request, 'reading/parent_home.html', {
+        **_home_context(student), 'attempts': _attempt_rows(student), 'links': links,
+    })
 
 
 @require_POST

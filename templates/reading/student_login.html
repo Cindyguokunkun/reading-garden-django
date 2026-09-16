@@ -1,1 +1,10 @@
-{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow"><h1>{% trans "选择你的班级" %}</h1>{% regroup classrooms by grade as grades %}{% for g in grades %}<h2>{% blocktrans with g=g.grouper %}{{ g }} 年级{% endblocktrans %}</h2><div class="chips">{% for c in g.list %}<a class="chipbtn" href="{% url 'student_pick' c.id %}">{{ c.name }}</a>{% endfor %}</div>{% empty %}<p>{% trans "还没有班级。" %}</p>{% endfor %}<p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>{% endblock %}
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="card narrow"><h1>{% trans "学生登录" %}</h1>
+<p>{% trans "学生号和初始密码由老师发放。" %}</p>
+{% if error %}<div class="notice error">{{ error }}</div>{% endif %}
+<form method="post">{% csrf_token %}
+<label>{% trans "学生号" %}<input name="login_id" autocomplete="username" required></label>
+<label>{% trans "密码" %}<input type="password" name="password" autocomplete="current-password" required></label>
+<button>{% trans "登录" %}</button></form>
+<p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>
+{% endblock %}

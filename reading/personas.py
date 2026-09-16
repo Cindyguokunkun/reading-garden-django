@@ -1,6 +1,6 @@
 from functools import wraps
 from django.shortcuts import render
-from .models import Classroom, Student
+from .models import Classroom, ParentStudentLink, Student
 
 TEACHER = 'teacher'
 MANAGER = 'manager'
@@ -36,7 +36,14 @@ def get_persona(request):
         # A signed-in staff account outranks any student/parent keys left in the session.
         if kind: clear_persona(request)
         role = get_role(request.user)
-        persona = Persona(role, request.user.get_full_name() or request.user.username, user=request.user)
+        if role == PARENT:
+            links = ParentStudentLink.objects.filter(parent=request.user).select_related('student', 'student__classroom')
+            selected = request.session.get('parent_student_id')
+            link = links.filter(student_id=selected).first() or links.first()
+            persona = Persona(PARENT, request.user.get_full_name() or request.user.username,
+                              student=link.student if link else None, user=request.user)
+        else:
+            persona = Persona(role, request.user.get_full_name() or request.user.username, user=request.user)
     elif kind in (STUDENT, PARENT):
         student = Student.objects.filter(pk=request.session.get('persona_student_id')).select_related('classroom', 'classroom__owner').first()
         if student:
@@ -73,7 +80,7 @@ def set_student_persona(request, student, kind):
     request.session['persona_student_id'] = student.pk
 
 def clear_persona(request):
-    for key in ('persona_kind', 'persona_student_id'): request.session.pop(key, None)
+    for key in ('persona_kind', 'persona_student_id', 'parent_student_id'): request.session.pop(key, None)
 
 def persona_required(*kinds):
     def decorator(view):

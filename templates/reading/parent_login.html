@@ -1,1 +1,11 @@
-{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow"><h1>{% trans "家长登录" %}</h1><p>{% trans "使用孩子的邮箱和密码登录，查看孩子的阅读情况。" %}</p>{% if error %}<div class="notice error">{{ error }}</div>{% endif %}<form method="post"><label>{% trans "孩子邮箱" %}<input type="email" name="email" required></label><label>{% trans "密码" %}<input type="password" name="password" required></label>{% csrf_token %}<button>{% trans "登录" %}</button></form><p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>{% endblock %}
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="card narrow"><h1>{% trans "家长登录" %}</h1>
+<p>{% trans "使用家长自己的用户名或邮箱登录。" %}</p>
+{% if error %}<div class="notice error">{{ error }}</div>{% endif %}
+<form method="post">{% csrf_token %}
+<label>{% trans "用户名或邮箱" %}<input name="account" autocomplete="username" required></label>
+<label>{% trans "密码" %}<input type="password" name="password" autocomplete="current-password" required></label>
+<button>{% trans "登录" %}</button></form>
+<p><a class="link" href="{% url 'parent_register' %}">{% trans "还没有账号？注册家长账号" %}</a></p>
+<p><a class="link" href="{% url 'login' %}">{% trans "返回身份选择" %}</a></p></section>
+{% endblock %}

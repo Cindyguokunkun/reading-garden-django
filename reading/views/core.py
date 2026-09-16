@@ -21,6 +21,7 @@ from openpyxl import Workbook
 from ..models import grade_choices, Book, ClassGoal, Classroom, ReadingRecord, Student
 from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, persona_required
 from ..stats import period, rank_rows, sort_rows
+from .registration import _unique_code
 
 
 @persona_required(TEACHER, MANAGER)
@@ -88,7 +89,11 @@ def action(request):
     if kind == 'class_add':
         Classroom.objects.create(owner=request.user, name=request.POST['name'].strip(), grade=int(request.POST.get('grade') or 1))
     elif kind == 'student_add' and classroom:
-        Student.objects.create(classroom=classroom, name=request.POST['name'].strip())
+        student = Student.objects.create(classroom=classroom, name=request.POST['name'].strip())
+        student.login_id = f'S{student.pk:05d}'
+        student.bind_code = _unique_code(Student, 'bind_code')
+        student.save(update_fields=['login_id', 'bind_code'])
+        messages.success(request, _('Student account created. Set the initial password on the account page.'))
     elif kind == 'goal_set' and classroom:
         words = int(request.POST.get('words') or 0); deadline = request.POST.get('deadline') or None
         if words > 0: ClassGoal.objects.update_or_create(classroom=classroom, defaults={'words': words, 'deadline': deadline})

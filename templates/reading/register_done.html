@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow result"><h1>{% trans "申请已提交" %}</h1><p>{% trans "管理者审核通过后，你就可以使用教师账号登录。" %}</p><a class="button" href="{% url 'login' %}">{% trans "返回登录" %}</a></section>{% endblock %}

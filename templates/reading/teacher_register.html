@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="card narrow"><h1>{% trans "教师注册" %}</h1><p>{% trans "注册后需要管理者审核，审核通过后才能登录。" %}</p>
+{% for error in errors %}<div class="notice error">{{ error }}</div>{% endfor %}
+<form method="post">{% csrf_token %}
+<label>{% trans "教师姓名" %}<input name="full_name" value="{{ values.full_name }}" required></label>
+<label>{% trans "用户名" %}<input name="username" value="{{ values.username }}" autocomplete="username" required></label>
+<label>{% trans "邮箱" %}<input type="email" name="email" value="{{ values.email }}" required></label>
+<label>{% trans "学校邀请码" %}<input name="invite_code" value="{{ values.invite_code }}" required></label>
+<label>{% trans "密码（至少 8 位）" %}<input type="password" name="password" required></label>
+<label>{% trans "再次输入密码" %}<input type="password" name="confirm" required></label>
+<button>{% trans "提交注册申请" %}</button></form></section>{% endblock %}

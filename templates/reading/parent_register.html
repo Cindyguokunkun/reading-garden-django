@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="card narrow"><h1>{% trans "家长注册" %}</h1><p>{% trans "绑定码可稍后再填，也可以注册后继续添加孩子。" %}</p>
+{% for error in errors %}<div class="notice error">{{ error }}</div>{% endfor %}
+<form method="post">{% csrf_token %}
+<label>{% trans "家长姓名" %}<input name="full_name" value="{{ values.full_name }}" required></label>
+<label>{% trans "用户名" %}<input name="username" value="{{ values.username }}" required></label>
+<label>{% trans "邮箱" %}<input type="email" name="email" value="{{ values.email }}" required></label>
+<label>{% trans "孩子绑定码（可选）" %}<input name="bind_code" value="{{ values.bind_code }}"></label>
+<label>{% trans "密码（至少 8 位）" %}<input type="password" name="password" required></label>
+<label>{% trans "再次输入密码" %}<input type="password" name="confirm" required></label>
+<button>{% trans "注册并登录" %}</button></form></section>{% endblock %}

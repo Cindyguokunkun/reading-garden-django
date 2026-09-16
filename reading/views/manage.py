@@ -1,3 +1,10 @@
+"""管理员批量导入视图。
+
+本模块供管理员通过上传 Excel（.xlsx）批量创建班级与学生，
+并提供标准导入模板下载。导入采用「先全量校验、再事务写入」的策略：
+任意一行出错则整体不写库，并将逐行错误回显给用户。
+"""
+
 from io import BytesIO
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
@@ -8,10 +15,22 @@ from openpyxl import Workbook, load_workbook
 from ..models import Classroom, Student
 from ..personas import get_role, manager_required
 
+# 导入模板与解析共用的列顺序表头（中英对照）。
 HEADERS = ['年级 Grade', '班级名称 Class', '教师用户名 Teacher username', '学生姓名 Student name',
            '英文名 English name', '邮箱 Email', '初始密码 Initial password', '家长1 Parent 1', '家长2 Parent 2']
 
+
 def _xlsx_response(rows, filename):
+    """将二维行数据打包为 .xlsx 文件并构造下载响应。
+
+    Args:
+        rows (list[list]): 需要写入表格的行数据，首个元素通常为表头。
+        filename (str): 下载时使用的文件名。
+
+    Returns:
+        HttpResponse: 内容为 xlsx 二进制、附带 ``Content-Disposition``
+        下载头的响应。
+    """
     wb = Workbook(); ws = wb.active; ws.title = 'import'
     for row in rows: ws.append(row)
     out = BytesIO(); wb.save(out)
@@ -19,11 +38,41 @@ def _xlsx_response(rows, filename):
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
     return response
 
+
 def _clean(value):
+    """将单元格值规整为去除首尾空白的字符串。
+
+    Args:
+        value: 单元格原始值，可能为 ``None`` 或任意类型。
+
+    Returns:
+        str: 转为字符串并 strip 后的结果；``None`` 归一化为空字符串。
+    """
     return str(value).strip() if value is not None else ''
+
 
 @manager_required
 def manage_import(request):
+    """管理员批量导入视图：下载模板或上传 Excel 导入班级与学生。
+
+    流程说明：
+
+    - GET 且 ``template=1`` 时，直接返回带示例行的模板文件下载。
+    - POST 时读取上传的工作簿（从第 2 行起为数据），逐行校验：
+      年级须为 1~12 的数字、班级名称与学生姓名必填、教师用户名须存在
+      且为教师账号、邮箱格式合法且（连同初始密码）未被占用等。
+    - 仅当无任何错误且存在有效数据时，才在单个数据库事务内批量
+      创建/更新班级与学生；否则回显所有错误、不写库。
+
+    Args:
+        request (HttpRequest): 当前请求对象，需为管理员身份。
+            GET 可选 ``template``；POST 需含上传文件 ``file``。
+
+    Returns:
+        HttpResponse: 模板下载响应，或渲染 ``reading/manage_import.html``
+        的响应（携带 ``errors`` 错误列表、``imported`` 成功条数与
+        ``headers`` 表头）。
+    """
     if request.GET.get('template') == '1':
         return _xlsx_response([HEADERS, [3, 'Y3C3', 'teacher', '王小明', 'Xiaoming Wang', 'xm@example.com', 'read1234', '王妈妈', '']], 'import-template.xlsx')
     errors = []; imported = 0

@@ -1,11 +1,40 @@
+"""排行榜视图。
+
+本模块提供跨班级/年级/全校三个维度的阅读排行，并按字数、时长、
+本数三种口径分别排序，供教师、管理员、学生与家长查看。
+统计周期的计算复用 :mod:`reading.stats` 中的工具函数。
+"""
+
 from datetime import date
 from django.shortcuts import render
 from ..models import Classroom
 from ..personas import TEACHER, MANAGER, STUDENT, PARENT, accessible_classrooms, current_classroom, get_persona, persona_required
 from ..stats import period, rank_rows, sort_rows
 
+
 @persona_required(TEACHER, MANAGER, STUDENT, PARENT)
 def ranks(request):
+    """排行榜视图，按维度（tier）与周期（mode）汇总阅读排名。
+
+    根据 GET 参数决定统计范围：
+
+    - ``school``: 全校所有班级。
+    - ``grade``: 指定年级（缺省或非法时回退为当前班级年级）。
+    - ``class``（默认）: 当前用户可访问的班级，可用 ``class`` 参数进一步限定。
+
+    排名结果会标记出当前学生本人所在行，便于高亮显示。
+
+    Args:
+        request (HttpRequest): 当前请求对象。支持的 GET 参数：
+            ``tier``（维度）、``mode``（周期模式，默认 ``'week'``）、
+            ``date``（周期锚点，ISO 格式，非法时回退为今天）、
+            ``grade``（年级）、``class``（班级主键）。
+
+    Returns:
+        HttpResponse: 渲染 ``reading/ranks.html`` 的响应，携带维度、周期、
+        年级列表、可访问班级、字数/时长/本数三套排行，以及是否展示
+        班级列（非 class 维度时展示）等上下文。
+    """
     persona = get_persona(request)
     tier = request.GET.get('tier', 'class')
     mode = request.GET.get('mode', 'week')

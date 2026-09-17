@@ -316,6 +316,15 @@
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=180795"
     },
     {
+      "id": "pete-the-cat-10",
+      "title": "Pete the Cat Goes Camping",
+      "series": "皮特猫 · Pete the Cat（I Can Read 精选）",
+      "level": "Level 1 · AR Quiz 198621",
+      "kind": "book",
+      "words": 424,
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=198621"
+    },
+    {
       "id": "frog-and-toad-1",
       "title": "Frog and Toad Are Friends",
       "series": "青蛙和蟾蜍 · Frog and Toad（I Can Read Level 2）",
@@ -7321,6 +7330,108 @@
           "Sharing can make something big easier and more fun."
         ],
         "answer": 1
+      }
+    ],
+    "Pete the Cat Goes Camping": [
+      {
+        "prompt": "Where does Pete go on his first camping trip?",
+        "options": [
+          "A campsite deep in the woods",
+          "A beach beside the ocean",
+          "A farm near the city",
+          "A cabin in the snow"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What do Pete and Bob collect for the fire?",
+        "options": [
+          "Sticks",
+          "Shells",
+          "Flowers",
+          "Stones"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What do Pete and Dad do together?",
+        "options": [
+          "They go fishing",
+          "They climb a mountain",
+          "They paddle a canoe",
+          "They ride bicycles"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Mom cook over the fire?",
+        "options": [
+          "Fish",
+          "Pizza",
+          "Pancakes",
+          "Soup"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who tells Pete a story about Bigfoot?",
+        "options": [
+          "Bob",
+          "Dad",
+          "Mom",
+          "A park ranger"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What treat does Pete leave for Bigfoot?",
+        "options": [
+          "A s’more",
+          "A sandwich",
+          "An apple",
+          "A cookie"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why is it hard for Pete to sleep?",
+        "options": [
+          "The dark woods are full of sounds",
+          "The tent is wet inside",
+          "Bob keeps telling jokes",
+          "The campfire is too bright"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Which sounds does Pete hear outside?",
+        "options": [
+          "Wind, crickets, an owl, and a crack",
+          "Cars, horns, and a train",
+          "Waves, gulls, and a boat",
+          "Music, drums, and singing"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Pete find the next morning?",
+        "options": [
+          "The s’more is gone and a thank-you note is there",
+          "Bigfoot is sleeping beside the tent",
+          "Bob has packed up the campsite",
+          "The fish are back in the lake"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Pete learn about someone who looks different?",
+        "options": [
+          "Looking different does not make someone scary",
+          "Strangers always want to frighten campers",
+          "Only family members can be friendly",
+          "It is best to hide from new friends"
+        ],
+        "answer": 0
       }
     ],
     "Frog and Toad Are Friends": [

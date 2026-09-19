@@ -10,12 +10,12 @@ SERIES_DIFFICULTY = {
     'Frog and Toad': 'bridge',
     'Yasmin': 'bridge',
     'The Big Bad Fox': 'bridge',
-    'Kung Pow Chicken': 'early_chapter',
-    'Monkey Me': 'early_chapter',
-    'Magic Tree House': 'middle_chapter',
-    'My Weird School': 'middle_chapter',
-    'Geronimo Stilton': 'middle_chapter',
-    'Dog Man': 'middle_chapter',
+    'Kung Pow Chicken': 'bridge',
+    'Monkey Me': 'bridge',
+    'Dog Man': 'bridge',
+    'Magic Tree House': 'early_chapter',
+    'My Weird School': 'early_chapter',
+    'Geronimo Stilton': 'early_chapter',
 }
 
 
@@ -31,11 +31,9 @@ def difficulty_category(*, series='', atos=None, current=''):
             return 'graded'
         if level <= 4:
             return 'bridge'
-        if level <= 6:
+        if level <= 8:
             return 'early_chapter'
-        if level == 7:
-            return 'middle_chapter'
-        return 'upper_chapter'
+        return 'middle_chapter'
     if '典范英语' in normalized:
         return 'graded'
     for marker, category in SERIES_DIFFICULTY.items():

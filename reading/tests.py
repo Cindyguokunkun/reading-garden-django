@@ -413,12 +413,15 @@ class DifficultyClassificationTests(TestCase):
         from .difficulty import difficulty_category
         self.assertEqual(difficulty_category(atos=Decimal('2.4')), 'bridge')
         self.assertEqual(difficulty_category(series='典范英语 5级'), 'early_chapter')
-        self.assertEqual(difficulty_category(series='典范英语 8'), 'upper_chapter')
+        self.assertEqual(difficulty_category(series='典范英语 7级'), 'early_chapter')
+        self.assertEqual(difficulty_category(series='典范英语 8'), 'early_chapter')
 
     def test_known_chapter_series_are_classified(self):
         from .difficulty import difficulty_category
-        self.assertEqual(difficulty_category(series='Kung Pow Chicken'), 'early_chapter')
-        self.assertEqual(difficulty_category(series='My Weird School · 第一季'), 'middle_chapter')
+        self.assertEqual(difficulty_category(series='Kung Pow Chicken'), 'bridge')
+        self.assertEqual(difficulty_category(series='Dog Man'), 'bridge')
+        self.assertEqual(difficulty_category(series='My Weird School · 第一季'), 'early_chapter')
+        self.assertEqual(difficulty_category(series='Geronimo Stilton · Series 1'), 'early_chapter')
 
 class ParentPasswordTests(TestCase):
     def setUp(self):

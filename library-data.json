@@ -8,7 +8,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 1
     },
     {
@@ -19,7 +19,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 2
     },
     {
@@ -30,7 +30,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 3
     },
     {
@@ -41,7 +41,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 4
     },
     {
@@ -52,7 +52,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 5
     },
     {
@@ -63,7 +63,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 6
     },
     {
@@ -74,7 +74,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 7
     },
     {
@@ -85,7 +85,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 8
     },
     {
@@ -96,7 +96,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 9
     },
     {
@@ -107,7 +107,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 10
     },
     {
@@ -118,7 +118,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 11
     },
     {
@@ -129,7 +129,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 12
     },
     {
@@ -140,7 +140,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 13
     },
     {
@@ -151,7 +151,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 14
     },
     {
@@ -162,7 +162,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 15
     },
     {
@@ -173,7 +173,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 16
     },
     {
@@ -184,7 +184,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 17
     },
     {
@@ -195,7 +195,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "upper_chapter",
+      "category": "early_chapter",
       "series_order": 18
     },
     {
@@ -206,7 +206,7 @@
       "kind": "book",
       "words": 4423,
       "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "monkey-2",
@@ -216,7 +216,7 @@
       "kind": "book",
       "words": 4092,
       "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "monkey-3",
@@ -226,7 +226,7 @@
       "kind": "book",
       "words": 4320,
       "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "monkey-4",
@@ -236,7 +236,7 @@
       "kind": "book",
       "words": 4322,
       "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "my-weird-school-1",
@@ -246,7 +246,7 @@
       "kind": "book",
       "words": 6420,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79640",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-2",
@@ -256,7 +256,7 @@
       "kind": "book",
       "words": 7201,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79641",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-3",
@@ -266,7 +266,7 @@
       "kind": "book",
       "words": 6599,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83937",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-4",
@@ -276,7 +276,7 @@
       "kind": "book",
       "words": 6780,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83938",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-5",
@@ -286,7 +286,7 @@
       "kind": "book",
       "words": 7204,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=84980",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-6",
@@ -296,7 +296,7 @@
       "kind": "book",
       "words": 6975,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=87383",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-7",
@@ -306,7 +306,7 @@
       "kind": "book",
       "words": 7686,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101364",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-8",
@@ -316,7 +316,7 @@
       "kind": "book",
       "words": 7802,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101365",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-9",
@@ -326,7 +326,7 @@
       "kind": "book",
       "words": 6851,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=102956",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-10",
@@ -336,7 +336,7 @@
       "kind": "book",
       "words": 7725,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=103837",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-11",
@@ -346,7 +346,7 @@
       "kind": "book",
       "words": 6919,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=105639",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-12",
@@ -356,7 +356,7 @@
       "kind": "book",
       "words": 7738,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109319",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-13",
@@ -366,7 +366,7 @@
       "kind": "book",
       "words": 7399,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109528",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-14",
@@ -376,7 +376,7 @@
       "kind": "book",
       "words": 8034,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=110169",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-15",
@@ -386,7 +386,7 @@
       "kind": "book",
       "words": 7319,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=112348",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-16",
@@ -396,7 +396,7 @@
       "kind": "book",
       "words": 7792,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=115027",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-17",
@@ -406,7 +406,7 @@
       "kind": "book",
       "words": 7817,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=117089",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-18",
@@ -416,7 +416,7 @@
       "kind": "book",
       "words": 7813,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118271",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-19",
@@ -426,7 +426,7 @@
       "kind": "book",
       "words": 7589,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118267",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-20",
@@ -436,7 +436,7 @@
       "kind": "book",
       "words": 7934,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=119702",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-21",
@@ -446,7 +446,7 @@
       "kind": "book",
       "words": 7599,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=121150",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "pete-the-cat-1",
@@ -596,7 +596,7 @@
       "kind": "book",
       "words": 2369,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165167",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "kung-pow-chicken-2",
@@ -606,7 +606,7 @@
       "kind": "book",
       "words": 2887,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165716",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "kung-pow-chicken-3",
@@ -616,7 +616,7 @@
       "kind": "book",
       "words": 2693,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=168179",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "kung-pow-chicken-4",
@@ -626,7 +626,7 @@
       "kind": "book",
       "words": 2732,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=171052",
-      "category": "early_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-1",
@@ -636,7 +636,7 @@
       "kind": "book",
       "words": 5035,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=184237",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-2",
@@ -646,7 +646,7 @@
       "kind": "book",
       "words": 4579,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=186901",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-3",
@@ -656,7 +656,7 @@
       "kind": "book",
       "words": 4130,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=190818",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-4",
@@ -666,7 +666,7 @@
       "kind": "book",
       "words": 3880,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=192899",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-5",
@@ -676,7 +676,7 @@
       "kind": "book",
       "words": 5099,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=197060",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-6",
@@ -686,7 +686,7 @@
       "kind": "book",
       "words": 4397,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199159",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-7",
@@ -696,7 +696,7 @@
       "kind": "book",
       "words": 4899,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=503478",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-8",
@@ -706,7 +706,7 @@
       "kind": "book",
       "words": 5477,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505396",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-9",
@@ -716,7 +716,7 @@
       "kind": "book",
       "words": 4169,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=508860",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-10",
@@ -726,7 +726,7 @@
       "kind": "book",
       "words": 4192,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=511040",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-11",
@@ -736,7 +736,7 @@
       "kind": "book",
       "words": 4125,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=518910",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-12",
@@ -746,7 +746,7 @@
       "kind": "book",
       "words": 3733,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522990",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-13",
@@ -756,7 +756,7 @@
       "kind": "book",
       "words": 3641,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=551927",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "dog-man-14",
@@ -766,7 +766,7 @@
       "kind": "book",
       "words": 4542,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=556445",
-      "category": "middle_chapter"
+      "category": "bridge"
     },
     {
       "id": "geronimo-stilton-series-1-1",
@@ -776,7 +776,7 @@
       "kind": "book",
       "words": 10336,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77127",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-2",
@@ -786,7 +786,7 @@
       "kind": "book",
       "words": 10036,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77131",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-3",
@@ -796,7 +796,7 @@
       "kind": "book",
       "words": 10051,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77123",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-4",
@@ -806,7 +806,7 @@
       "kind": "book",
       "words": 9674,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77126",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-5",
@@ -816,7 +816,7 @@
       "kind": "book",
       "words": 9524,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77124",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-6",
@@ -826,7 +826,7 @@
       "kind": "book",
       "words": 10236,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77129",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-7",
@@ -836,7 +836,7 @@
       "kind": "book",
       "words": 10558,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77130",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-8",
@@ -846,7 +846,7 @@
       "kind": "book",
       "words": 9139,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83793",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-9",
@@ -856,7 +856,7 @@
       "kind": "book",
       "words": 10123,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83159",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-10",
@@ -866,7 +866,7 @@
       "kind": "book",
       "words": 9707,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83160",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-1",
@@ -876,7 +876,7 @@
       "kind": "book",
       "words": 4737,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6311",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-2",
@@ -886,7 +886,7 @@
       "kind": "book",
       "words": 5340,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6327",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-3",
@@ -896,7 +896,7 @@
       "kind": "book",
       "words": 5105,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10644",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-4",
@@ -906,7 +906,7 @@
       "kind": "book",
       "words": 5324,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=9291",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-5",
@@ -916,7 +916,7 @@
       "kind": "book",
       "words": 5428,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10680",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-6",
@@ -926,7 +926,7 @@
       "kind": "book",
       "words": 4517,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14651",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-7",
@@ -936,7 +936,7 @@
       "kind": "book",
       "words": 4926,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14885",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-8",
@@ -946,7 +946,7 @@
       "kind": "book",
       "words": 5683,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17578",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-9",
@@ -956,7 +956,7 @@
       "kind": "book",
       "words": 4663,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17563",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-10",
@@ -966,7 +966,7 @@
       "kind": "book",
       "words": 6367,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17566",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-11",
@@ -976,7 +976,7 @@
       "kind": "book",
       "words": 5313,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18727",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-12",
@@ -986,7 +986,7 @@
       "kind": "book",
       "words": 5724,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18742",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-13",
@@ -996,7 +996,7 @@
       "kind": "book",
       "words": 5833,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20050",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-14",
@@ -1006,7 +1006,7 @@
       "kind": "book",
       "words": 5607,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20015",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-15",
@@ -1016,7 +1016,7 @@
       "kind": "book",
       "words": 5502,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=24935",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-16",
@@ -1026,7 +1026,7 @@
       "kind": "book",
       "words": 5086,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=25835",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-17",
@@ -1036,7 +1036,7 @@
       "kind": "book",
       "words": 5301,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31065",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-18",
@@ -1046,7 +1046,7 @@
       "kind": "book",
       "words": 5579,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31058",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-19",
@@ -1056,7 +1056,7 @@
       "kind": "book",
       "words": 5136,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31073",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-20",
@@ -1066,7 +1066,7 @@
       "kind": "book",
       "words": 5530,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=35832",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-21",
@@ -1076,7 +1076,7 @@
       "kind": "book",
       "words": 5991,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=44894",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-22",
@@ -1086,7 +1086,7 @@
       "kind": "book",
       "words": 5041,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=43682",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-23",
@@ -1096,7 +1096,7 @@
       "kind": "book",
       "words": 5127,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=47830",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-24",
@@ -1106,7 +1106,7 @@
       "kind": "book",
       "words": 5882,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=51896",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-25",
@@ -1116,7 +1116,7 @@
       "kind": "book",
       "words": 6219,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=58030",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-26",
@@ -1126,7 +1126,7 @@
       "kind": "book",
       "words": 6129,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=61516",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-27",
@@ -1136,7 +1136,7 @@
       "kind": "book",
       "words": 6131,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=64034",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "magic-tree-house-28",
@@ -1146,7 +1146,7 @@
       "kind": "book",
       "words": 6222,
       "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=68287",
-      "category": "middle_chapter"
+      "category": "early_chapter"
     },
     {
       "id": "good-english-1a-1",

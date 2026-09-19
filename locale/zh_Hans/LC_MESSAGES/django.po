@@ -13,19 +13,19 @@ msgid "Grade %(g)s"
 msgstr "%(g)s 年级"
 
 msgid "Graded readers"
-msgstr "启蒙级（ATOS 1.4 以下）"
+msgstr "分级读物"
 
 msgid "Bridge books"
-msgstr "基础级（ATOS 1.5–2.4）"
+msgstr "桥梁书"
 
 msgid "Early chapter books"
-msgstr "初级章节（ATOS 2.5–3.4）"
+msgstr "初章书"
 
 msgid "Middle chapter books"
-msgstr "中级章节（ATOS 3.5–4.9）"
+msgstr "中章书"
 
 msgid "Upper chapter books"
-msgstr "高阶章节（ATOS 5.0 以上）"
+msgstr "高章书"
 
 msgid "Saved"
 msgstr "已保存"

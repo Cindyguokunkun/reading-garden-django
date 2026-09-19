@@ -93,6 +93,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default=ROLE_TEACHER)
     approved = models.BooleanField(default=True)
+    name_en = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         """返回便于调试与后台展示的字符串表示。
@@ -128,6 +129,7 @@ class Classroom(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='classrooms', null=True)
     name = models.CharField(max_length=100)
     grade = models.PositiveSmallIntegerField(choices=grade_choices, default=1, db_index=True)
+    section = models.PositiveSmallIntegerField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -152,6 +154,8 @@ class Classroom(models.Model):
         if not self.organization_id:
             membership = Membership.objects.filter(user=self.owner, active=True).first()
             self.organization = membership.organization if membership else Organization.objects.first()
+        if self.section:
+            self.name = f'Y{self.grade}C{self.section}'
         super().save(*args, **kwargs)
 
 

@@ -1,5 +1,4 @@
 import secrets
-import string
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -12,6 +11,7 @@ from ..models import (
     AccountAudit, Membership, Organization, ParentStudentLink, Profile, Student, TeacherInvite,
     ROLE_MANAGER, ROLE_PARENT, ROLE_TEACHER,
 )
+from ..accounts import DEFAULT_PASSWORD, full_english_name, unique_student_login
 from ..personas import MANAGER, TEACHER, accessible_classrooms, get_persona, persona_required
 
 
@@ -213,9 +213,23 @@ def account_approvals(request):
 @persona_required(TEACHER, MANAGER)
 def student_accounts(request):
     classes = accessible_classrooms(request)
+    if request.method == 'POST':
+        classroom = get_object_or_404(classes, pk=request.POST.get('classroom'))
+        name = (request.POST.get('name') or '').strip()
+        name_en = full_english_name(name, request.POST.get('name_en'))
+        if not name or not name_en:
+            messages.error(request, '请填写学生中文名和英文名。')
+        else:
+            student = Student(classroom=classroom, name=name, name_en=name_en,
+                              login_id=unique_student_login(name_en), bind_code=_unique_code(Student, 'bind_code'))
+            student.set_password(DEFAULT_PASSWORD)
+            student.set_parent_password(DEFAULT_PASSWORD)
+            student.save()
+            messages.success(request, f'已创建 {name}，用户名：{student.login_id}，初始密码：{DEFAULT_PASSWORD}')
+            return redirect('student_accounts')
     students = Student.objects.filter(classroom__in=classes, active=True).select_related('classroom').order_by('classroom__name', 'name')
     archived = Student.objects.filter(classroom__in=classes, active=False).select_related('classroom').order_by('classroom__name', 'name')
-    return render(request, 'reading/student_accounts.html', {'students': students, 'archived': archived})
+    return render(request, 'reading/student_accounts.html', {'students': students, 'archived': archived, 'classes': classes, 'default_password': DEFAULT_PASSWORD})
 
 
 @persona_required(TEACHER, MANAGER)
@@ -224,13 +238,12 @@ def student_account_action(request, student_id):
     student = get_object_or_404(Student, pk=student_id, classroom__in=accessible_classrooms(request))
     action = request.POST.get('action')
     if not student.login_id:
-        student.login_id = f'S{student.pk:05d}'
+        student.login_id = unique_student_login(student.name_en or student.name, student)
     if not student.bind_code or action == 'bind':
         student.bind_code = _unique_code(Student, 'bind_code')
     if action == 'password':
-        pin = ''.join(secrets.choice(string.digits) for _ in range(6))
-        student.set_password(pin)
-        messages.success(request, f'{student.name} 的新初始密码：{pin}（请现在记下）')
+        student.set_password(DEFAULT_PASSWORD)
+        messages.success(request, f'{student.name} 的密码已重置为 {DEFAULT_PASSWORD}')
     elif action == 'edit':
         name = (request.POST.get('name') or '').strip()
         duplicate = Student.objects.filter(classroom=student.classroom, active=True, name=name).exclude(pk=student.pk).exists()
@@ -238,7 +251,13 @@ def student_account_action(request, student_id):
             messages.error(request, '同一班级已经有这个姓名，请添加英文名或其他标识。')
         elif name:
             student.name = name
-            student.name_en = (request.POST.get('name_en') or '').strip()
+            name_en = full_english_name(name, request.POST.get('name_en'))
+            if name_en and name_en != student.name_en:
+                student.name_en = name_en
+                student.login_id = unique_student_login(name_en, student)
+            target_class = accessible_classrooms(request).filter(pk=request.POST.get('classroom')).first()
+            if target_class:
+                student.classroom = target_class
             messages.success(request, '学生姓名已更新。')
     elif action == 'archive':
         student.active = False

@@ -10,17 +10,16 @@
 
 from datetime import date
 from io import BytesIO
-import secrets
-import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Count, Q, Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from openpyxl import Workbook
-from ..models import grade_choices, Book, ClassGoal, Classroom, ReadingRecord, Student
+from ..accounts import DEFAULT_PASSWORD, full_english_name, unique_student_login
+from ..models import grade_choices, Book, ClassGoal, Classroom, Membership, ReadingRecord, Student, ROLE_TEACHER
 from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, get_persona, persona_required
 from ..stats import period, rank_rows, sort_rows
 from .registration import _unique_code
@@ -45,13 +44,26 @@ def dashboard(request):
         携带可访问班级、当前班级、学生、阅读记录（最多 100 条）、
         系列分组、字数/时长排行、周期信息与目标完成度等上下文。
     """
+    persona = get_persona(request)
+    if persona.is_manager:
+        organization = persona.organization
+        classes = Classroom.objects.filter(organization=organization).select_related('owner').annotate(
+            active_students=Count('students', filter=Q(students__active=True))
+        ).order_by('grade', 'section', 'name')
+        return render(request, 'reading/management_dashboard.html', {
+            'class_count': classes.count(),
+            'student_count': Student.objects.filter(classroom__organization=organization, active=True).count(),
+            'teacher_count': Membership.objects.filter(organization=organization, role=ROLE_TEACHER, active=True, user__is_active=True).count(),
+            'book_count': Book.objects.count(),
+            'classes': classes[:12],
+        })
     classroom = current_classroom(request)
     mode = request.GET.get('mode', 'week')
     try: anchor = date.fromisoformat(request.GET.get('date', ''))
     except ValueError: anchor = date.today()
     start, end = period(mode, anchor)
     students = classroom.students.filter(active=True) if classroom else Student.objects.none()
-    records = ReadingRecord.objects.filter(student__classroom=classroom, passed=True).select_related('student', 'book') if classroom else ReadingRecord.objects.none()
+    records = ReadingRecord.objects.filter(student__classroom=classroom, student__active=True, passed=True).select_related('student', 'book') if classroom else ReadingRecord.objects.none()
     rows = rank_rows(Classroom.objects.filter(pk=classroom.pk) if classroom else Classroom.objects.none(), start, end)
     word_rankings = sort_rows(rows, 'words')
     time_rankings = sort_rows(rows, 'minutes')
@@ -89,17 +101,21 @@ def action(request):
     """
     kind = request.POST.get('action'); classroom = current_classroom(request)
     if kind == 'class_add':
+        grade = int(request.POST.get('grade') or 1)
+        section = int(request.POST.get('section') or 1)
         Classroom.objects.create(owner=request.user, organization=get_persona(request).organization,
-                                 name=request.POST['name'].strip(), grade=int(request.POST.get('grade') or 1))
+                                 name=f'Y{grade}C{section}', grade=grade, section=section)
     elif kind == 'student_add' and classroom:
-        student = Student.objects.create(classroom=classroom, name=request.POST['name'].strip())
-        student.login_id = f'S{student.pk:05d}'
+        name = request.POST['name'].strip()
+        name_en = full_english_name(name, request.POST.get('name_en'))
+        student = Student.objects.create(classroom=classroom, name=name, name_en=name_en,
+                                         login_id=unique_student_login(name_en or name))
         student.bind_code = _unique_code(Student, 'bind_code')
-        pin = ''.join(secrets.choice(string.digits) for _ in range(6))
-        student.set_password(pin)
-        student.save(update_fields=['login_id', 'bind_code', 'password_hash'])
+        student.set_password(DEFAULT_PASSWORD)
+        student.set_parent_password(DEFAULT_PASSWORD)
+        student.save(update_fields=['login_id', 'bind_code', 'password_hash', 'parent_password_hash'])
         messages.success(request, _('%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now.') % {
-            'name': student.name, 'login': student.login_id, 'pin': pin,
+            'name': student.name, 'login': student.login_id, 'pin': DEFAULT_PASSWORD,
         })
     elif kind == 'goal_set' and classroom:
         words = int(request.POST.get('words') or 0); deadline = request.POST.get('deadline') or None
@@ -124,5 +140,5 @@ def export_excel(request):
         国际化表头，其后逐行写入每条阅读记录。
     """
     classroom = current_classroom(request); wb = Workbook(); ws = wb.active; ws.title = _('Reading records'); ws.append([_('Student'), _('Date'), _('Series'), _('Title'), _('Words'), _('Minutes'), _('Quiz score')])
-    for r in ReadingRecord.objects.filter(student__classroom=classroom).select_related('student', 'book'): ws.append([r.student.name, r.read_date, r.book.series, r.book.title, r.words, r.minutes, r.quiz_score])
+    for r in ReadingRecord.objects.filter(student__classroom=classroom, student__active=True).select_related('student', 'book'): ws.append([r.student.name, r.read_date, r.book.series, r.book.title, r.words, r.minutes, r.quiz_score])
     out = BytesIO(); wb.save(out); response = HttpResponse(out.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); response['Content-Disposition'] = 'attachment; filename="reading-records.xlsx"'; return response

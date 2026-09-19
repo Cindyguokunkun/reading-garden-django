@@ -3,6 +3,17 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 from .models import Book, Classroom, ReadingRecord, Student
+from .accounts import full_english_name, username_base
+
+
+class AccountNamingTests(TestCase):
+    def test_chinese_surname_builds_display_login(self):
+        full_name = full_english_name('皮静仪', 'Olivia')
+        self.assertEqual(full_name, 'Olivia Pi')
+        self.assertEqual(username_base(full_name), 'Olivia Pi')
+
+    def test_compound_chinese_surname(self):
+        self.assertEqual(full_english_name('欧阳娜娜', 'Nana'), 'Nana Ouyang')
 
 class ReadingGardenTests(TestCase):
     def setUp(self):
@@ -235,7 +246,7 @@ class ImportTests(TestCase):
         self.assertEqual(Classroom.objects.get(name='Y3C3').grade, 3)
         xm = Student.objects.get(login_id='S0001')
         self.assertTrue(xm.check_password('read1234'))
-        self.assertTrue(xm.check_parent_password('P000000'))
+        self.assertTrue(xm.check_parent_password('000000'))
         self.client.post(reverse('logout'))
         response = self.client.post(reverse('student_login'), {'login_id': 'S0001', 'password': 'read1234'})
         self.assertRedirects(response, reverse('student_home'), fetch_redirect_response=False)
@@ -244,7 +255,7 @@ class ImportTests(TestCase):
         self.client.login(username='boss', password='pw')
         self.upload([['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234']])
         self.client.post(reverse('logout'))
-        response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': 'P000000'})
+        response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': '000000'})
         self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
 
     def test_duplicate_name_gets_numeric_suffix(self):
@@ -272,14 +283,14 @@ class ImportTests(TestCase):
         self.assertContains(response, '第 3 行')
         self.assertEqual(Student.objects.count(), 0)
 
-    def test_missing_password_rolls_back(self):
+    def test_missing_password_uses_default(self):
         self.client.login(username='boss', password='pw')
         response = self.upload([
             ['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234'],
             ['S0002', 3, 'Y3C3', 'imp_t', '小红', '', ''],
         ])
-        self.assertContains(response, '第 3 行')
-        self.assertEqual(Student.objects.count(), 0)
+        self.assertContains(response, '成功导入 2 名学生')
+        self.assertTrue(Student.objects.get(login_id='S0002').check_password('000000'))
 
     def test_non_manager_forbidden(self):
         self.client.login(username='imp_t', password='pw')

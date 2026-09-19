@@ -1,7 +1,6 @@
-{% extends 'base.html' %}{% load i18n %}{% block content %}<section class="card narrow"><h1>{% trans "Excel 批量导入学生" %}</h1><p>{% trans "仅管理者可用。按模板列顺序填写，导入为“全有或全无”：任何一行有错，整次导入都不会生效，并按行号提示错误。" %}</p>
-<p><a class="button" href="?template=1">{% trans "下载导入模板" %}</a></p>
-<table><tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr></table>
-<ul><li>{% trans "学号：必填且全局唯一，学生用“学号 + 密码”登录；学号已存在则更新该学生" %}</li><li>{% trans "年级：1-12 的数字" %}</li><li>{% trans "教师用户名：必须已存在且为本校在职老师；班级不存在时自动创建并归给该老师，一个老师可管理多个班" %}</li><li>{% trans "中文姓名：必填；与已有学生重名时自动加数字后缀（如 张三2），因此姓名也可作为登录名" %}</li><li>{% trans "密码：学生的登录密码，必填" %}</li><li>{% blocktrans with pw=parent_password %}家长登录：用“学生姓名 + 家长密码”，初始家长密码统一为 {{ pw }}，家长登录后可自行修改{% endblocktrans %}</li></ul>
-{% if imported %}<div class="notice">{% blocktrans with n=imported %}成功导入 {{ n }} 名学生。{% endblocktrans %}</div>{% endif %}
-{% if errors %}<div class="notice error"><b>{% trans "导入失败，未写入任何数据：" %}</b><ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>{% endif %}
-<form method="post" enctype="multipart/form-data">{% csrf_token %}<label>{% trans "选择 .xlsx 文件" %}<input type="file" name="file" accept=".xlsx" required></label><button>{% trans "开始导入" %}</button></form></section>{% endblock %}
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="admin-head"><div><h1>数据管理</h1><p>批量导入学生，并按班级导出阅读报告单。</p></div></section>
+{% if imported %}<div class="notice">成功导入 {{ imported }} 名学生。</div>{% endif %}{% if errors %}<div class="notice error"><b>导入失败，未写入任何数据：</b><ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>{% endif %}
+<section class="card"><h2>班级报告导出</h2><p>报告只包含当前在读学生；已停用学生的历史数据继续保存，但不显示。</p><div class="report-list">{% for c in classes %}<a href="{% url 'export_excel' %}?class={{ c.pk }}"><b>{{ c.name }}</b><span>{{ c.owner.get_full_name|default:c.owner.username }} · 导出 Excel</span></a>{% empty %}<p>还没有班级。</p>{% endfor %}</div></section>
+<section class="card"><h2>批量导入学生</h2><p>先下载标准模板。班级名称统一使用 Y1C1 格式；学生与家长默认密码均为 {{ parent_password }}。</p><p><a class="button" href="?template=1">下载学生模板</a></p><div class="tablewrap"><table><tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr></table></div><form method="post" enctype="multipart/form-data" class="inline">{% csrf_token %}<input type="file" name="file" accept=".xlsx" required><button>开始导入</button></form></section>
+{% endblock %}

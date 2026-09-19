@@ -12,19 +12,20 @@ from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import render
 from openpyxl import Workbook, load_workbook
+from ..accounts import DEFAULT_PASSWORD, full_english_name, unique_staff_username, unique_student_login
 from ..models import AccountAudit, Classroom, Membership, Profile, Student, ROLE_TEACHER
 from ..personas import get_persona, manager_required
 
 # 学生导入模板与解析共用的列顺序表头（中英对照）。
-HEADERS = ['学号 Student ID', '年级 Grade', '班级名称 Class', '教师用户名 Teacher username',
-           '中文姓名 Name', '英文名 English name', '密码 Password']
+HEADERS = ['用户名 Username（可空）', '年级 Grade', '班号 Class number', '教师用户名 Teacher username',
+           '中文姓名 Name', '英文名 English given name', '密码 Password（可空）']
 
 # 教师导入模板与解析共用的列顺序表头（中英对照）。
-TEACHER_HEADERS = ['教师姓名 Teacher name']
+TEACHER_HEADERS = ['中文姓名 Chinese name', '英文名 English name', '用户名 Username（可空，系统自动生成）', '密码 Password（可空）']
 
 # 批量导入使用的默认初始密码：教师登录密码、家长登录密码。
-TEACHER_DEFAULT_PASSWORD = '000000'
-PARENT_DEFAULT_PASSWORD = 'P000000'
+TEACHER_DEFAULT_PASSWORD = DEFAULT_PASSWORD
+PARENT_DEFAULT_PASSWORD = DEFAULT_PASSWORD
 
 
 def _xlsx_response(rows, filename):
@@ -165,9 +166,48 @@ def manage_teachers(request):
     """
     organization = get_persona(request).organization
     if request.GET.get('template') == '1':
-        return _xlsx_response([TEACHER_HEADERS, ['王小明']], 'teacher-import-template.xlsx')
+        return _xlsx_response([TEACHER_HEADERS, ['皮静仪', 'Olivia', '', '000000']], 'teacher-import-template.xlsx')
     errors = []; created = []
     if request.method == 'POST':
+        action = request.POST.get('action')
+        if action in {'create', 'edit', 'reset', 'archive', 'restore'}:
+            target = User.objects.filter(pk=request.POST.get('user')).first() if action != 'create' else None
+            if target and not Membership.objects.filter(user=target, organization=organization).exists():
+                errors.append(_('该教师不属于当前学校'))
+            elif action == 'create':
+                chinese_name = _clean(request.POST.get('name'))
+                english_name = full_english_name(chinese_name, _clean(request.POST.get('name_en')))
+                if not chinese_name or not english_name:
+                    errors.append(_('请填写教师中文名和英文名'))
+                else:
+                    username = unique_staff_username(english_name)
+                    user = User.objects.create_user(username=username, password=DEFAULT_PASSWORD, first_name=chinese_name)
+                    Profile.objects.create(user=user, role=ROLE_TEACHER, approved=True, name_en=english_name)
+                    Membership.objects.get_or_create(user=user, organization=organization, defaults={'role': ROLE_TEACHER, 'active': True})
+                    created.append(username)
+            elif target:
+                if action == 'edit':
+                    chinese_name = _clean(request.POST.get('name'))
+                    english_name = full_english_name(chinese_name, _clean(request.POST.get('name_en')))
+                    if chinese_name and english_name:
+                        target.first_name = chinese_name
+                        target.username = unique_staff_username(english_name, target)
+                        target.save(update_fields=['first_name', 'username'])
+                        profile, _ = Profile.objects.get_or_create(user=target)
+                        profile.name_en = english_name; profile.save(update_fields=['name_en'])
+                elif action == 'reset':
+                    target.set_password(DEFAULT_PASSWORD); target.save(update_fields=['password'])
+                elif action == 'archive':
+                    target.is_active = False; target.save(update_fields=['is_active'])
+                    Membership.objects.filter(user=target, organization=organization).update(active=False)
+                elif action == 'restore':
+                    target.is_active = True; target.save(update_fields=['is_active'])
+                    Membership.objects.filter(user=target, organization=organization).update(active=True)
+            return render(request, 'reading/manage_teachers.html', {
+                'errors': errors, 'created': created, 'headers': TEACHER_HEADERS,
+                'default_password': DEFAULT_PASSWORD,
+                'teachers': Membership.objects.filter(organization=organization, role=ROLE_TEACHER).select_related('user', 'user__profile').order_by('-active', 'user__first_name'),
+            })
         upload = request.FILES.get('file')
         if not upload:
             errors.append(_('请选择要导入的 Excel 文件'))
@@ -179,11 +219,16 @@ def manage_teachers(request):
                 raw_rows = []; errors.append(_('无法读取 Excel 文件，请使用模板格式（.xlsx）'))
             prepared = []; taken = set()
             for number, row in enumerate(raw_rows, start=2):
-                name = _clean((list(row) + [None])[0])
-                if not name: continue
+                name, name_en, username, password = (_clean(c) for c in (list(row) + [None] * 4)[:4])
+                legacy_name_only = not name_en and not username and not password
+                name_en = name if legacy_name_only else full_english_name(name, name_en)
+                if not name and not name_en: continue
+                if not name or not name_en:
+                    errors.append(_('第 %s 行：请填写中文名和英文名') % number); continue
                 if len(name) > 150:
                     errors.append(_('第 %s 行：') % number + _('教师姓名过长')); continue
-                prepared.append({'name': name, 'username': _unique_username(name, taken)})
+                generated = username or (name if legacy_name_only else unique_staff_username(name_en))
+                prepared.append({'name': name, 'name_en': name_en, 'username': _unique_username(generated, taken), 'password': password or DEFAULT_PASSWORD})
             if not errors and prepared:
                 with transaction.atomic():
                     for p in prepared:
@@ -192,9 +237,9 @@ def manage_teachers(request):
                                 actor=request.user, target=old, organization=organization,
                                 action='deactivated_username_yielded', detail=old.username)
                         user = User.objects.create_user(
-                            username=p['username'], password=TEACHER_DEFAULT_PASSWORD,
+                            username=p['username'], password=p['password'],
                             first_name=p['name'])
-                        Profile.objects.create(user=user, role=ROLE_TEACHER, approved=True)
+                        Profile.objects.create(user=user, role=ROLE_TEACHER, approved=True, name_en=p['name_en'])
                         Membership.objects.get_or_create(
                             user=user, organization=organization,
                             defaults={'role': ROLE_TEACHER, 'active': True})
@@ -209,6 +254,7 @@ def manage_teachers(request):
     return render(request, 'reading/manage_teachers.html', {
         'errors': errors, 'created': created, 'headers': TEACHER_HEADERS,
         'default_password': TEACHER_DEFAULT_PASSWORD,
+        'teachers': Membership.objects.filter(organization=organization, role=ROLE_TEACHER).select_related('user', 'user__profile').order_by('-active', 'user__first_name'),
     })
 
 
@@ -241,7 +287,7 @@ def manage_import(request):
     organization = get_persona(request).organization
     if request.GET.get('template') == '1':
         return _xlsx_response(
-            [HEADERS, ['S00001', 3, 'Y3C3', 'teacher', '王小明', 'Xiaoming Wang', 'read1234']],
+            [HEADERS, ['', 1, 1, 'teacher', '皮静仪', 'Olivia', '']],
             'student-import-template.xlsx')
     errors = []; imported = 0
     if request.method == 'POST':
@@ -258,47 +304,57 @@ def manage_import(request):
             for number, row in enumerate(raw_rows, start=2):
                 cells = (list(row) + [None] * 7)[:7]
                 if all(_clean(c) == '' for c in cells): continue
-                login_id, grade_s, class_name, teacher_s, name, name_en, password = (_clean(c) for c in cells)
+                login_id, grade_s, section_s, teacher_s, name, name_en, password = (_clean(c) for c in cells)
+                provided_login = bool(login_id)
                 row_errors = []
-                if not login_id:
-                    row_errors.append(_('缺少学号'))
-                elif len(login_id) > 24:
+                if login_id and len(login_id) > 24:
                     row_errors.append(_('学号不能超过 24 个字符'))
-                elif login_id.lower() in ids_in_file:
+                elif login_id and login_id.lower() in ids_in_file:
                     row_errors.append(_('学号 %s 在表格中重复') % login_id)
-                else:
+                elif login_id:
                     ids_in_file.add(login_id.lower())
                 try:
                     grade = int(float(grade_s))
                     if not 1 <= grade <= 12: row_errors.append(_('年级必须在 1-12 之间'))
                 except ValueError:
                     grade = None; row_errors.append(_('年级必须是数字（1-12）'))
-                if not class_name: row_errors.append(_('缺少班级名称'))
+                try:
+                    match = __import__('re').fullmatch(r'Y\d+C(\d+)', section_s, __import__('re').IGNORECASE)
+                    section = int(match.group(1)) if match else int(float(section_s))
+                    if not 1 <= section <= 99: row_errors.append(_('班号必须在 1-99 之间'))
+                except ValueError:
+                    section = None; row_errors.append(_('班号必须是数字'))
                 teacher = User.objects.filter(username=teacher_s).first() if teacher_s else None
                 if not teacher: row_errors.append(_('教师用户名 %s 不存在') % (teacher_s or _('(空)')))
                 elif not Membership.objects.filter(user=teacher, organization=organization,
                                                    role='teacher', active=True).exists():
                     row_errors.append(_('%s 不是本校老师账号') % teacher_s)
                 if not name: row_errors.append(_('缺少学生姓名'))
-                if not password: row_errors.append(_('缺少学生密码'))
                 if row_errors:
                     errors.append(_('第 %s 行：') % number + '；'.join(row_errors))
                 else:
-                    existing = Student.objects.filter(login_id__iexact=login_id).first()
+                    name_en = full_english_name(name, name_en)
+                    existing = Student.objects.filter(login_id__iexact=login_id).first() if login_id else None
+                    if not provided_login:
+                        login_id = unique_student_login(name_en)
+                        base_login = login_id; suffix = 2
+                        while login_id.lower() in ids_in_file:
+                            login_id = f'{base_login}{suffix}'; suffix += 1
+                        ids_in_file.add(login_id.lower())
                     prepared.append({
-                        'login_id': login_id, 'grade': grade, 'class_name': class_name, 'teacher': teacher,
+                        'login_id': login_id, 'grade': grade, 'section': section, 'class_name': f'Y{grade}C{section}', 'teacher': teacher,
                         'name': _unique_student_name(name, exclude_pk=existing.pk if existing else None,
                                                      taken=names_taken),
-                        'name_en': name_en, 'password': password, 'existing': existing,
+                        'name_en': name_en, 'password': password or DEFAULT_PASSWORD, 'existing': existing,
                     })
             if not errors and prepared:
                 with transaction.atomic():
                     for p in prepared:
                         classroom, _created = Classroom.objects.get_or_create(
                             owner=p['teacher'], organization=organization, name=p['class_name'],
-                            defaults={'grade': p['grade']})
-                        if classroom.grade != p['grade']:
-                            classroom.grade = p['grade']; classroom.save()
+                            defaults={'grade': p['grade'], 'section': p['section']})
+                        if classroom.grade != p['grade'] or classroom.section != p['section']:
+                            classroom.grade = p['grade']; classroom.section = p['section']; classroom.save()
                         student = p['existing'] or Student()
                         student.classroom = classroom
                         student.login_id = p['login_id']
@@ -313,4 +369,5 @@ def manage_import(request):
     return render(request, 'reading/manage_import.html', {
         'errors': errors, 'imported': imported, 'headers': HEADERS,
         'parent_password': PARENT_DEFAULT_PASSWORD,
+        'classes': Classroom.objects.filter(organization=organization).select_related('owner').order_by('grade', 'section', 'name'),
     })

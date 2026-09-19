@@ -46,6 +46,7 @@ def period(mode, anchor=None):
 def rank_rows(classrooms, start, end):
     qs = (ReadingRecord.objects
           .filter(passed=True, read_date__range=(start, end), student__classroom__in=classrooms)
+          .filter(student__active=True)
           .values('student_id', 'student__name', 'student__name_en', 'student__classroom__name')
           .annotate(words=Sum('words'), minutes=Sum('minutes'), books=Count('book', distinct=True)))
     rows = [{'student_id': r['student_id'], 'name': r['student__name'], 'name_en': r['student__name_en'],

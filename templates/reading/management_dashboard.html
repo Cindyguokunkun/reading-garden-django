@@ -1,0 +1,12 @@
+{% extends 'base.html' %}{% load i18n %}{% block content %}
+<section class="admin-head"><div><h1>学校管理</h1><p>账号、班级、图书与数据集中管理，不再混在单个班级工作台里。</p></div><a class="button" href="{% url 'manage_import' %}">进入数据管理</a></section>
+<section class="admin-summary"><a href="{% url 'manage_teachers' %}"><b>{{ teacher_count }}</b><span>在职教师</span></a><a href="{% url 'student_accounts' %}"><b>{{ student_count }}</b><span>在读学生</span></a><a href="#classes"><b>{{ class_count }}</b><span>班级</span></a><a href="{% url 'library' %}"><b>{{ book_count }}</b><span>馆藏图书</span></a></section>
+<section class="admin-actions">
+  <a href="{% url 'manage_teachers' %}"><strong>教师账号管理</strong><span>新增、编辑、停用、重置密码与批量导入</span></a>
+  <a href="{% url 'student_accounts' %}"><strong>学生账号管理</strong><span>维护姓名、班级、登录名及家长登录凭证</span></a>
+  <a href="{% url 'library' %}"><strong>图书管理</strong><span>新增图书、编辑资料与维护测验题</span></a>
+  <a href="{% url 'manage_import' %}"><strong>数据管理</strong><span>批量导入学生并导出各班报告</span></a>
+</section>
+<section id="classes" class="card"><div class="sectionhead"><div><h2>班级管理</h2><p>班级统一按 Y年级C班号 命名，例如一年级一班为 Y1C1。</p></div></div>
+<table><tr><th>班级</th><th>年级</th><th>负责教师</th><th>在读学生</th></tr>{% for c in classes %}<tr><td><b>{{ c.name }}</b></td><td>{{ c.grade }} 年级</td><td>{{ c.owner.get_full_name|default:c.owner.username }}</td><td>{{ c.active_students }}</td></tr>{% empty %}<tr><td colspan="4">还没有班级</td></tr>{% endfor %}</table></section>
+{% endblock %}

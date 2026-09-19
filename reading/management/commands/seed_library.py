@@ -26,6 +26,8 @@ class Command(BaseCommand):
                 'cover': row.get('cover', ''),
                 'quiz_data': data['quizzes'].get(row['title']) or [],
             }
+            if 'series_order' in row:
+                defaults['series_order'] = row['series_order']
             existing = Book.objects.filter(source_id=row['id']).first()
             changed = existing is not None and any(getattr(existing, field) != value for field, value in defaults.items())
             _, created = Book.objects.update_or_create(source_id=row['id'], defaults=defaults)

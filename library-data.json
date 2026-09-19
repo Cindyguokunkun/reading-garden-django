@@ -1,13 +1,202 @@
 {
   "books": [
     {
-      "id": "good-8-5",
-      "title": "The Wrong Letter · 送错的信",
-      "series": "典范英语 · 全新升级版",
-      "level": "8级 · 第5册",
+      "id": "good-english-8-1",
+      "title": "Amy the Hedgehog Girl · 刺猬女孩艾蜜",
+      "series": "典范英语 8",
+      "level": "8级 · 第1册 · Oxford Level 11",
       "kind": "story",
       "words": null,
-      "source": "用户提供封面；英文正文单词数待核实"
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 1
+    },
+    {
+      "id": "good-english-8-2",
+      "title": "Coming Clean · 坦白",
+      "series": "典范英语 8",
+      "level": "8级 · 第2册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 2
+    },
+    {
+      "id": "good-english-8-3",
+      "title": "Bertha's Secret Battle · 博莎的秘密招数",
+      "series": "典范英语 8",
+      "level": "8级 · 第3册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 3
+    },
+    {
+      "id": "good-english-8-4",
+      "title": "Titanic Survivor: The Story of Harold Bride · 泰坦尼克号的幸存者哈罗德·布莱德的故事",
+      "series": "典范英语 8",
+      "level": "8级 · 第4册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 4
+    },
+    {
+      "id": "good-english-8-5",
+      "title": "The Big Chance · 大好时机",
+      "series": "典范英语 8",
+      "level": "8级 · 第5册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 5
+    },
+    {
+      "id": "good-english-8-6",
+      "title": "Blackbones Saves the School · 布莱克博恩拯救学校",
+      "series": "典范英语 8",
+      "level": "8级 · 第6册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 6
+    },
+    {
+      "id": "good-english-8-7",
+      "title": "The Wrong Letter · 送错的信",
+      "series": "典范英语 8",
+      "level": "8级 · 第7册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 7
+    },
+    {
+      "id": "good-english-8-8",
+      "title": "Jem Stone Genie – the Crash · 精灵简姆·斯通——撞击事件",
+      "series": "典范英语 8",
+      "level": "8级 · 第8册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 8
+    },
+    {
+      "id": "good-english-8-9",
+      "title": "The Luckless Monster · 不走运的怪物",
+      "series": "典范英语 8",
+      "level": "8级 · 第9册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 9
+    },
+    {
+      "id": "good-english-8-10",
+      "title": "Dangerous Trainers · 危险的运动鞋",
+      "series": "典范英语 8",
+      "level": "8级 · 第10册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 10
+    },
+    {
+      "id": "good-english-8-11",
+      "title": "Stinky Street · 臭街",
+      "series": "典范英语 8",
+      "level": "8级 · 第11册 · Oxford Level 11",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 11
+    },
+    {
+      "id": "good-english-8-12",
+      "title": "Cool Clive · 酷酷的克莱夫",
+      "series": "典范英语 8",
+      "level": "8级 · 第12册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 12
+    },
+    {
+      "id": "good-english-8-13",
+      "title": "Robbie Woods and his Merry Men · 罗比·伍兹和他快乐的弟兄们",
+      "series": "典范英语 8",
+      "level": "8级 · 第13册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 13
+    },
+    {
+      "id": "good-english-8-14",
+      "title": "Pass the Ball! · 传球！",
+      "series": "典范英语 8",
+      "level": "8级 · 第14册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 14
+    },
+    {
+      "id": "good-english-8-15",
+      "title": "Here Comes Trouble · 来麻烦了",
+      "series": "典范英语 8",
+      "level": "8级 · 第15册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 15
+    },
+    {
+      "id": "good-english-8-16",
+      "title": "Doohickey and the Robot · 杜希奇与机器人",
+      "series": "典范英语 8",
+      "level": "8级 · 第16册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 16
+    },
+    {
+      "id": "good-english-8-17",
+      "title": "Doughnut Dilemma · 炸面圈的两难处境",
+      "series": "典范英语 8",
+      "level": "8级 · 第17册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 17
+    },
+    {
+      "id": "good-english-8-18",
+      "title": "Scrapman and the Incredible Flying Machine · 废铁人与神奇飞行器",
+      "series": "典范英语 8",
+      "level": "8级 · 第18册 · Oxford Level 12",
+      "kind": "story",
+      "words": null,
+      "source": "用户提供书单；英文正文单词数待核实",
+      "category": "graded",
+      "series_order": 18
     },
     {
       "id": "monkey-1",
@@ -3863,7 +4052,108 @@
     }
   ],
   "quizzes": {
-    "The Wrong Letter · 送错的信": null,
+    "The Wrong Letter · 送错的信": [
+      {
+        "prompt": "What sport does Pippa love?",
+        "options": [
+          "Tennis",
+          "Swimming",
+          "Football",
+          "Horse riding"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What sport does Flo love?",
+        "options": [
+          "Horse riding",
+          "Tennis",
+          "Swimming",
+          "Football"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does the postman deliver the letters to the wrong girls?",
+        "options": [
+          "The girls switch the envelopes",
+          "He cannot find Elm Road",
+          "A dog takes the letters",
+          "He has broken his glasses"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why are the two letters easy to mix up?",
+        "options": [
+          "Both envelopes are wet and empty",
+          "Both letters have no names or addresses",
+          "Both girls live in the same house",
+          "Both girls are called Miss Jones and their house numbers look alike"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where does Pippa go because of the wrong letter?",
+        "options": [
+          "A horse show",
+          "A tennis lesson",
+          "A swimming race",
+          "A football match"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How does Pippa help her football team win?",
+        "options": [
+          "She catches every shot as goalkeeper",
+          "She tells the team a new plan",
+          "She brings on another player",
+          "She kicks the ball hard and scores the winning goal"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where does Flo go because of the wrong letter?",
+        "options": [
+          "A swimming race",
+          "A football match",
+          "A tennis lesson",
+          "A horse show"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does Flo win at the horse show?",
+        "options": [
+          "The other riders leave before the show",
+          "She has trained Thunder for many years",
+          "She answers every question about horses",
+          "Thunder gallops over all the fences in the fastest time"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How do Pippa and Flo feel about each other at the end?",
+        "options": [
+          "They are still angry and never speak",
+          "They decide to exchange houses",
+          "They blame each other for the letters",
+          "They like each other and laugh about the mix-up"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What changes the girls’ first ideas about each other?",
+        "options": [
+          "They discover that both letters were invitations to a party",
+          "Their families make them join the same team",
+          "The postman buys them new sports clothes",
+          "Each girl tries the other girl’s sport and enjoys it"
+        ],
+        "answer": 3
+      }
+    ],
     "Monkey Me and the Golden Monkey": [
       {
         "prompt": "What does Clyde eat at the museum?",
@@ -22277,16 +22567,1026 @@
     "Shrinking Powder": null,
     "Husky Adventure": null,
     "Trapped!": null,
-    "In the Garden": null,
-    "Kipper and the Giant": null,
-    "The Outing": null,
-    "Land of the Dinosaurs": null,
-    "The Treasure Chest": null,
-    "Robin Hood": null,
-    "The Hairy-Scary Monster": null,
-    "The Golden Touch": null,
-    "The Lost Voice": null,
-    "The Palace Statues": null,
+    "In the Garden": [
+      {
+        "prompt": "What does Kipper pick up in Chip’s room?",
+        "options": [
+          "A toy dinosaur",
+          "A football",
+          "A model boat",
+          "The magic key"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happens when the key begins to glow?",
+        "options": [
+          "The house begins to fly",
+          "The garden freezes",
+          "Floppy starts to talk",
+          "The children become very small"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How does the grass look to the tiny children?",
+        "options": [
+          "Like a blue river",
+          "Like a sandy beach",
+          "Like a snowy hill",
+          "Like a thick jungle"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What do the children eat during the adventure?",
+        "options": [
+          "Apples",
+          "Doughnuts",
+          "Carrots",
+          "Strawberries"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does Kipper begin to feel sick?",
+        "options": [
+          "He drinks muddy water",
+          "A bee stings him",
+          "He spins on a leaf",
+          "He eats too much strawberry"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What ordinary animal looks enormous to the children?",
+        "options": [
+          "A rabbit",
+          "A duck",
+          "A mouse",
+          "A bumblebee"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What do the children use to protect themselves from huge raindrops?",
+        "options": [
+          "A bucket",
+          "A newspaper",
+          "A shoe",
+          "A flower"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What brings the children back to their normal size?",
+        "options": [
+          "They find another key",
+          "They climb a tree",
+          "Dad calls them inside",
+          "The magic ends"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does Dad think giant slugs have been in the garden?",
+        "options": [
+          "Floppy is covered in slime",
+          "He finds a giant shell",
+          "The vegetables have disappeared",
+          "He sees the marks left after the adventure"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What makes the garden exciting in this story?",
+        "options": [
+          "The children build a new playground",
+          "Dad hides treasure under the grass",
+          "A zoo moves into the garden",
+          "Being tiny changes how ordinary things look"
+        ],
+        "answer": 3
+      }
+    ],
+    "Kipper and the Giant": [
+      {
+        "prompt": "Who notices that the magic key is glowing?",
+        "options": [
+          "Mrs May",
+          "Wilma",
+          "Kipper",
+          "Dad"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where does the magic take Kipper?",
+        "options": [
+          "Onto a pirate ship",
+          "To a dinosaur museum",
+          "Into a village in a giant’s land",
+          "Under the sea"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why are the villagers frightened when they see Kipper?",
+        "options": [
+          "He looks like a giant to them",
+          "He has arrived on a dragon",
+          "He is wearing a mask",
+          "He is carrying a sword"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How does Kipper show the villagers that he is kind?",
+        "options": [
+          "He helps repair their homes",
+          "He catches their animals",
+          "He builds them a boat",
+          "He gives them gold"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is the real giant like at first?",
+        "options": [
+          "Tiny and cheerful",
+          "Grumpy and frightening",
+          "Lost and hungry",
+          "Quiet and afraid"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens when the giant comes down the hill?",
+        "options": [
+          "He trips on a rock and hurts his head",
+          "He loses his boots",
+          "He drops a bag of treasure",
+          "He falls into a river"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Kipper do when the giant is hurt?",
+        "options": [
+          "He helps him",
+          "He hides the magic key",
+          "He calls the villagers to fight",
+          "He runs away"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Kipper teach the giant?",
+        "options": [
+          "To play football",
+          "To be gentle and friendly",
+          "To find buried treasure",
+          "To build taller houses"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How do the villagers feel after the giant changes?",
+        "options": [
+          "They are no longer afraid of him",
+          "They become angry with Kipper",
+          "They leave the village",
+          "They ask Kipper to send him away"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What lesson best fits the story?",
+        "options": [
+          "It is safest never to help strangers",
+          "Magic solves every problem by itself",
+          "Kindness can change how people treat one another",
+          "Big people always cause trouble"
+        ],
+        "answer": 2
+      }
+    ],
+    "The Outing": [
+      {
+        "prompt": "Where does Mrs May plan to take the children?",
+        "options": [
+          "The beach",
+          "The zoo",
+          "A farm",
+          "A castle"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why does Mrs May keep telling the children “Don’t”?",
+        "options": [
+          "She is worried about their safety",
+          "She wants everyone to be silent",
+          "She wants to end the outing",
+          "She has forgotten their names"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does Wilf do near the water?",
+        "options": [
+          "He pushes a boat away",
+          "He catches a large fish",
+          "He goes too close and loses a shoe",
+          "He finds a gold coin"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What changes the class’s plan?",
+        "options": [
+          "A broken bus",
+          "A closed road",
+          "Heavy rain",
+          "A missing ticket"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where do the children go instead?",
+        "options": [
+          "A sports centre",
+          "A swimming pool",
+          "A museum",
+          "A library"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What large model do they see there?",
+        "options": [
+          "A pirate ship",
+          "A blue whale",
+          "An apatosaurus",
+          "A giant robot"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does Nadim bring back from the outing?",
+        "options": [
+          "A treasure map",
+          "A model dinosaur",
+          "A baby crocodile",
+          "A bag of shells"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why is the museum visit important to the next adventure?",
+        "options": [
+          "The dinosaur model gives the children an idea of where the magic may take them",
+          "The bus turns into a dinosaur",
+          "It contains the missing magic key",
+          "Mrs May decides to live there"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How does Chip know another adventure is beginning?",
+        "options": [
+          "The magic key starts to glow",
+          "A museum door opens by itself",
+          "The dinosaur model roars",
+          "The rain turns to snow"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the story show about the outing?",
+        "options": [
+          "Rain always ruins a school day",
+          "A spoiled plan can still lead to something interesting",
+          "Museums are more dangerous than zoos",
+          "Children should ignore safety rules"
+        ],
+        "answer": 1
+      }
+    ],
+    "Land of the Dinosaurs": [
+      {
+        "prompt": "What are the children doing before the adventure?",
+        "options": [
+          "Playing football",
+          "Learning to swim",
+          "Looking at and making model dinosaurs",
+          "Planting flowers"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What takes the children to the dinosaur land?",
+        "options": [
+          "A flying carpet",
+          "A museum bus",
+          "The magic key",
+          "A treasure chest"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What do the children discover around them?",
+        "options": [
+          "Giant robots",
+          "Friendly pirates",
+          "Real dinosaurs",
+          "Wild horses"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why must the children be careful?",
+        "options": [
+          "Some dinosaurs are huge and dangerous",
+          "Their boat has a hole",
+          "The ground is made of ice",
+          "They cannot see in the dark"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What helps the children understand some of the dinosaurs?",
+        "options": [
+          "What they learned from the models and museum",
+          "A map from a pirate",
+          "A message from Dad",
+          "A talking bird"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How do the children react to the dinosaur world?",
+        "options": [
+          "They refuse to look around",
+          "They are amazed but also frightened",
+          "They find it boring",
+          "They think it is only a zoo"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is the main challenge during the adventure?",
+        "options": [
+          "Exploring without being caught or hurt",
+          "Teaching dinosaurs to read",
+          "Winning a dinosaur race",
+          "Building a stone house"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What signals that it is time to return?",
+        "options": [
+          "The magic key glows again",
+          "The sun disappears",
+          "The dinosaurs go to sleep",
+          "A bell rings"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where do the children return?",
+        "options": [
+          "The museum",
+          "Home",
+          "The giant’s village",
+          "The zoo"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "Dinosaurs make good pets",
+          "Learning about the past can make an adventure easier to understand",
+          "The safest adventure is one with no friends",
+          "Models are always better than real animals"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Treasure Chest": [
+      {
+        "prompt": "What do Biff and Chip receive after their swimming tests?",
+        "options": [
+          "Certificates",
+          "Gold medals",
+          "Treasure maps",
+          "New bicycles"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What surprise do Mum and Dad buy?",
+        "options": [
+          "A fish tank",
+          "A swimming pool",
+          "A glass boat",
+          "A model ship"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What decoration is placed inside the tank?",
+        "options": [
+          "A dinosaur",
+          "A football goal",
+          "A small treasure chest",
+          "A magic castle"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who visits when the magic key begins to glow?",
+        "options": [
+          "Mrs May and Wilf",
+          "Kipper and Floppy",
+          "Wilma and Nadim",
+          "Gran and Dad"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where does the magic take the children?",
+        "options": [
+          "Back to Roman times",
+          "Into a giant’s village",
+          "Under the sea",
+          "Onto a mountain"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What do Biff and Nadim find?",
+        "options": [
+          "A bag of magic keys",
+          "A chest filled with gold",
+          "A box of dinosaur bones",
+          "A sunken bicycle"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why do Biff and Nadim not notice the danger at first?",
+        "options": [
+          "They have fallen asleep",
+          "They are busy looking at the treasure",
+          "They are hiding behind a rock",
+          "They are trying to catch a fish"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What dangerous animal approaches?",
+        "options": [
+          "A shark",
+          "A sea snake",
+          "A crocodile",
+          "A giant squid"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What helps the children escape?",
+        "options": [
+          "Dad pulling them from the water",
+          "Their swimming skills and the glowing magic key",
+          "A pirate ship",
+          "The octopus carrying them"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What surprise do they notice after returning home?",
+        "options": [
+          "The fish tank has vanished",
+          "The treasure in the fish tank has changed",
+          "Their certificates have turned to gold",
+          "The shark is inside the tank"
+        ],
+        "answer": 1
+      }
+    ],
+    "Robin Hood": [
+      {
+        "prompt": "What show do Biff, Wilma and Anneena see?",
+        "options": [
+          "A play about King Midas",
+          "A dinosaur film",
+          "A pirate concert",
+          "A pantomime about Robin Hood"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why is Biff cross with Kipper the next day?",
+        "options": [
+          "He will not go to the pantomime",
+          "He has broken Wilma’s guitar",
+          "He has hidden Anneena’s coat",
+          "He is wearing the magic key instead of putting it away"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where does the magic key take the children?",
+        "options": [
+          "A palace made of gold",
+          "An island under the sea",
+          "A giant’s village",
+          "The wood where Robin Hood lives"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does Kipper look inside the big black pot?",
+        "options": [
+          "He wants somewhere to sleep",
+          "He thinks Robin is hiding there",
+          "He hears the key inside it",
+          "He can smell food"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who captures Robin Hood and the others?",
+        "options": [
+          "A group of giants",
+          "The palace guards",
+          "A band of pirates",
+          "The Sheriff and his men"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How does Kipper avoid being captured?",
+        "options": [
+          "He runs through a secret door",
+          "He becomes invisible",
+          "He climbs a tall tree",
+          "He hides in the big black pot"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How does Kipper trick the guard?",
+        "options": [
+          "He tells the guard Robin has escaped",
+          "He challenges the guard to an archery contest",
+          "He dresses as the Sheriff",
+          "He asks the guard to show how the stocks work"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What does Kipper take after trapping the guard?",
+        "options": [
+          "A map of the wood",
+          "The Sheriff’s gold",
+          "Robin’s bow",
+          "The guard’s keys"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why does Kipper say “Just in time” when the key glows?",
+        "options": [
+          "The children have missed dinner",
+          "The Sheriff has found their new camp",
+          "It is beginning to rain",
+          "Robin wants everyone to sing the song again"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who is the real hero of this adventure?",
+        "options": [
+          "The Sheriff, because he catches Robin",
+          "The guard, because he explains the stocks",
+          "Anneena, because she sings the song",
+          "Kipper, because his quick thinking frees everyone"
+        ],
+        "answer": 3
+      }
+    ],
+    "The Hairy-Scary Monster": [
+      {
+        "prompt": "Why does Kipper not want to go to sleep?",
+        "options": [
+          "He is waiting for Chip to come home",
+          "He has lost the magic key",
+          "He is bored and wants Mum and Dad to come back",
+          "He wants to finish his homework"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does Kipper pretend is in his room?",
+        "options": [
+          "A talking dog",
+          "A hairy-scary monster",
+          "A giant dinosaur",
+          "A jewel thief"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why does Kipper call Mum and Dad?",
+        "options": [
+          "He is playing tricks so he can stay awake",
+          "He needs help finding Floppy",
+          "He really sees a monster at first",
+          "He hears someone at the front door"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How do Mum and Dad react after several false alarms?",
+        "options": [
+          "They stop believing Kipper’s monster story",
+          "They search the garden all night",
+          "They call the police",
+          "They sleep in Kipper’s room"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Which old tale does Kipper’s trick resemble?",
+        "options": [
+          "The golden touch",
+          "The boy who cried wolf",
+          "The ugly duckling",
+          "Robin Hood"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens after Kipper has fooled his parents?",
+        "options": [
+          "He hears something under the bed",
+          "The magic key begins to glow",
+          "A window blows open",
+          "The bedroom turns to gold"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How does Kipper feel when the noise seems real?",
+        "options": [
+          "Frightened",
+          "Proud",
+          "Bored",
+          "Angry"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who is under Kipper’s bed?",
+        "options": [
+          "Chip",
+          "Floppy",
+          "A real monster",
+          "Dad"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why is the ending funny?",
+        "options": [
+          "The bed begins to talk",
+          "Mum has been wearing a monster suit",
+          "The “monster” is only the family dog",
+          "Kipper turns into a monster"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What lesson does Kipper learn?",
+        "options": [
+          "Staying awake makes magic happen",
+          "Dogs should sleep outside every night",
+          "If you keep giving false alarms, people may not believe you",
+          "Monsters only visit untidy rooms"
+        ],
+        "answer": 2
+      }
+    ],
+    "The Golden Touch": [
+      {
+        "prompt": "Whom do the children meet in the golden palace?",
+        "options": [
+          "A princess called Wilma",
+          "Anneena, the Sheriff’s daughter",
+          "Zoe, the daughter of King Midas",
+          "Mrs May, the queen"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What wish has King Midas made?",
+        "options": [
+          "He should live forever",
+          "His palace should become invisible",
+          "Everything he touches should turn to gold",
+          "He should own every dog"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why can King Midas not eat?",
+        "options": [
+          "Zoe hides all the food",
+          "The palace has no kitchen",
+          "His food turns into gold when he touches it",
+          "He has lost his golden plate"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why can King Midas no longer hug Zoe?",
+        "options": [
+          "He might turn her into gold",
+          "He has forgotten who she is",
+          "She is hiding from the guards",
+          "She has gone to Mount Olympus"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happens when Midas pats Floppy?",
+        "options": [
+          "Floppy runs away",
+          "Floppy turns into gold",
+          "Floppy begins to speak",
+          "Floppy becomes a statue of stone"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who originally granted Midas’s wish?",
+        "options": [
+          "Dionysus",
+          "Robin Hood",
+          "The Sheriff",
+          "The magic key"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where do Midas and the children go for help?",
+        "options": [
+          "Mount Olympus",
+          "The bottom of the sea",
+          "Sherwood Forest",
+          "The dinosaur land"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What must they pour on the golden things?",
+        "options": [
+          "Milk from the palace",
+          "Water from the river",
+          "Rain from a cloud",
+          "Paint from a jar"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What can Midas do after the spell is removed?",
+        "options": [
+          "Turn only food into gold",
+          "Eat normally and hug Zoe again",
+          "Keep Floppy as a gold statue",
+          "Make a second golden palace"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What has King Midas learned?",
+        "options": [
+          "His greedy wish was foolish and love matters more than gold",
+          "Gold is useful only for building palaces",
+          "Every wish should be kept forever",
+          "Dogs should never enter a palace"
+        ],
+        "answer": 0
+      }
+    ],
+    "The Lost Voice": [
+      {
+        "prompt": "Why can Chip not talk?",
+        "options": [
+          "He is frightened of a monster",
+          "He has swallowed a whistle",
+          "His throat is sore",
+          "He is playing a silent game"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does Dad say has happened to Chip?",
+        "options": [
+          "Chip has forgotten his homework",
+          "Chip has missed the bus",
+          "Chip has lost his voice",
+          "Chip has lost the magic key"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How does Floppy understand Dad’s words?",
+        "options": [
+          "He thinks Chip has run away",
+          "He believes the voice is in the garden",
+          "He thinks Chip’s voice is a thing that can be found",
+          "He knows Dad is making a joke"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why does Floppy decide to help?",
+        "options": [
+          "He wants to avoid going for a walk",
+          "Biff tells him to search",
+          "He thinks he is good at finding things",
+          "He wants a reward from Dad"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where does Floppy look for the voice?",
+        "options": [
+          "At the doctor’s office",
+          "In different places around the house",
+          "Inside the magic key",
+          "Only in the garden"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens while Floppy is searching?",
+        "options": [
+          "Ordinary sounds make the search confusing and scary",
+          "The house fills with smoke",
+          "The furniture turns to gold",
+          "He finds a talking cat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where does Floppy finally hide and fall asleep?",
+        "options": [
+          "Behind the garden shed",
+          "Under Chip’s bed",
+          "Under the kitchen table",
+          "Inside the car"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What has happened when Chip comes home?",
+        "options": [
+          "He can only whisper to Floppy",
+          "His throat is better and he can speak again",
+          "He has found the magic key",
+          "He has bought a new whistle"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why is Floppy pleased when Chip calls him?",
+        "options": [
+          "He thinks Chip has found his voice",
+          "He knows the search was a game",
+          "He wants Chip to open the door",
+          "He thinks Chip has found a bone"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What joke ends the story?",
+        "options": [
+          "Chip hides his voice under the bed",
+          "Biff now has a sore throat and has “lost” her voice",
+          "Dad cannot remember Floppy’s name",
+          "Floppy suddenly loses his bark"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Palace Statues": [
+      {
+        "prompt": "Where does the magic key take the children?",
+        "options": [
+          "Sherwood Forest",
+          "A royal palace",
+          "A football stadium",
+          "A dinosaur museum"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who needs the children’s help?",
+        "options": [
+          "Mrs May and Nadim",
+          "A girl and her brother who live at the palace",
+          "Robin Hood and his men",
+          "King Midas and Zoe"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What crime is happening at the palace?",
+        "options": [
+          "Thieves are trying to steal jewels",
+          "Pirates are hiding treasure",
+          "Someone has taken the magic key",
+          "A guard is stealing food"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why are the palace jewels important?",
+        "options": [
+          "They show the way home",
+          "They belong to the royal family and must be protected",
+          "They can open the magic box",
+          "They make the statues come alive"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What do the children decide to do?",
+        "options": [
+          "Hide outside until morning",
+          "Help the brother and sister catch the thieves",
+          "Ask the thieves to share",
+          "Carry the jewels home"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How do the palace statues help the plan?",
+        "options": [
+          "A statue hides the magic key",
+          "The statues point to a secret tunnel",
+          "The children can keep still and blend in with them",
+          "The statues chase the thieves"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What must the children do while waiting?",
+        "options": [
+          "Turn off every light",
+          "Move all the jewels",
+          "Stay very still and quiet",
+          "Sing loudly"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What mistake do the thieves make?",
+        "options": [
+          "They drop the jewels into a river",
+          "They wake the king",
+          "They believe the children are only statues",
+          "They leave their keys at home"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happens to the jewel thieves?",
+        "options": [
+          "They escape through the magic door",
+          "They return the jewels without being seen",
+          "They are caught before they can escape with the jewels",
+          "They become stone statues forever"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What makes the children’s plan successful?",
+        "options": [
+          "Courage, patience, and pretending convincingly",
+          "A dog barking at the guards",
+          "The palace disappearing",
+          "A wish that turns everything to gold"
+        ],
+        "answer": 0
+      }
+    ],
     "The Secret of the Sands": null,
     "Mountain Rescue": null,
     "Rotten Apples": null,
@@ -24792,6 +26092,1740 @@
           "Helping someone can make you feel better when you are lonely."
         ],
         "answer": 3
+      }
+    ],
+    "Amy the Hedgehog Girl · 刺猬女孩艾蜜": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Bertha and Fiona, twin sisters who are professional wrestlers",
+          "Harold Bride, a twenty-one-year-old wireless operator on Titanic",
+          "Derek and Janey, two pupils who damage their teacher’s trousers",
+          "Amy Harris, a girl who wants to understand hedgehogs"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Ray becomes the new boss and finds players pouring away Hilda’s tea",
+          "Harold joins Titanic for her first voyage in 1912",
+          "the crowd cheers Fairplay Fiona but boos Fearsome Bertha",
+          "Amy hears a wildlife talk and decides to become a hedgehog expert"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to teach his class in his own adventurous way",
+          "to help the football team play better and stop fearing Hilda",
+          "to send passengers’ messages and answer the captain’s emergency calls",
+          "to learn about hedgehogs and talk to one"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "the headteacher doubts that a pirate can behave like a proper teacher",
+          "Jem’s emergency spell changes a teacher into a spider",
+          "Hilda bullies the players and makes tea that nobody likes",
+          "Mr Peck mocks hedgehogs and later tries to make money from Amy"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Flossie watches children by the loch and notices a girl in danger",
+          "Blackbones turns lessons and the school fair into pirate-style adventures",
+          "Jem uses magic quickly and then tries to put the mistake right",
+          "Amy borrows a wildlife recording and practises hedgehog noises"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "the narrator’s big brother, who is part of the mystery",
+          "Pebble, Jem’s loyal friend",
+          "the girl whose glasses are thrown into the water",
+          "a recording called Calls of the Wild"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the girl falls into Loch Ness while trying to get her glasses",
+          "their tricks frighten away a possible buyer",
+          "the trainers seem to go outdoors by themselves during the night",
+          "real hedgehogs answer Amy in the garden"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Clive finally gets the chance to afford what he wants",
+          "the story leaves readers wondering whether it was real or a bad dream",
+          "Mrs Cox suggests a solution that gives the family more space",
+          "Amy makes sure the entrance money goes to a hedgehog hospital"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Clive learns how hard it can be to earn money for something costly",
+          "Franklin no longer needs to sabotage the sale to stay in the street",
+          "Robbie goes from being left out to playing an important part",
+          "Mr Peck has to admit that hedgehogs protect his vegetables from slugs"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "wanting something is easy, but earning it takes effort and patience",
+          "practice and support can give an overlooked person a chance to shine",
+          "older people may still have skills that surprise and help others",
+          "knowledge and quick thinking can protect animals from greedy people"
+        ],
+        "answer": 3
+      }
+    ],
+    "Coming Clean · 坦白": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Derek and Janey, two pupils who damage their teacher’s trousers",
+          "Bertha and Fiona, twin sisters who are professional wrestlers",
+          "Harold Bride, a twenty-one-year-old wireless operator on Titanic",
+          "Hilda, the frightening tea lady at Smalltown Football Club"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Harold joins Titanic for her first voyage in 1912",
+          "Ray becomes the new boss and finds players pouring away Hilda’s tea",
+          "Mr Such wears a new white suit for Parents’ Evening",
+          "Blackbones arrives as a new teacher at Abbey Park School"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to help the football team play better and stop fearing Hilda",
+          "to teach his class in his own adventurous way",
+          "to remove the green marks without Mr Such finding out",
+          "to prevent a flying accident during a lesson"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Jem’s emergency spell changes a teacher into a spider",
+          "the headteacher doubts that a pirate can behave like a proper teacher",
+          "every attempt to clean the trousers makes them dirtier",
+          "Flossie is lonely and is bullied by Nessie"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Jem uses magic quickly and then tries to put the mistake right",
+          "Flossie watches children by the loch and notices a girl in danger",
+          "Derek and Janey scrub the trousers and take them away to clean them",
+          "the narrator watches for clues and tries to explain what is happening"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "the narrator’s big brother, who is part of the mystery",
+          "Janey, who finally says that they must tell the truth",
+          "the girl whose glasses are thrown into the water",
+          "Josh, who knows that problem houses are difficult to sell"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "a fire starts in the school kitchen before they can confess",
+          "their tricks frighten away a possible buyer",
+          "the trainers seem to go outdoors by themselves during the night",
+          "Clive’s paper round goes badly and he stops being a paper boy"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Clive finally gets the chance to afford what he wants",
+          "Mr Such uses the ruined suit to smother the fire and is promised a new one",
+          "Mrs Cox suggests a solution that gives the family more space",
+          "Robbie and Grandad help make the class play a success"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Clive learns how hard it can be to earn money for something costly",
+          "the children stop hiding the accident and prepare to own up",
+          "Robbie goes from being left out to playing an important part",
+          "Tommy stops feeling ashamed and becomes proud of Grandad"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "hiding a mistake often makes it worse, so honesty is the better choice",
+          "practice and support can give an overlooked person a chance to shine",
+          "older people may still have skills that surprise and help others",
+          "labels can hurt people, while encouragement can change how they act"
+        ],
+        "answer": 0
+      }
+    ],
+    "Bertha's Secret Battle · 博莎的秘密招数": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Captain Blackbones, a pirate who becomes a schoolteacher",
+          "Hilda, the frightening tea lady at Smalltown Football Club",
+          "Bertha and Fiona, twin sisters who are professional wrestlers",
+          "Harold Bride, a twenty-one-year-old wireless operator on Titanic"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Blackbones arrives as a new teacher at Abbey Park School",
+          "Jem and her friend Pebble are learning magic at genie school",
+          "the crowd cheers Fairplay Fiona but boos Fearsome Bertha",
+          "Ray becomes the new boss and finds players pouring away Hilda’s tea"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to find a friend and prove that she is not useless",
+          "to prevent a flying accident during a lesson",
+          "to show that Bertha is not the nasty person the crowd imagines",
+          "to teach his class in his own adventurous way"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "strange night-time events make the trainers seem dangerous",
+          "Flossie is lonely and is bullied by Nessie",
+          "people judge the twins by their wrestling names and appearance",
+          "Jem’s emergency spell changes a teacher into a spider"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "the sisters use their identical looks to challenge the crowd’s judgment",
+          "the narrator watches for clues and tries to explain what is happening",
+          "Franklin and Josh create smells, stains, and other fake house problems",
+          "Flossie watches children by the loch and notices a girl in danger"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Fiona, who experiences what happens when she looks like Bertha",
+          "Josh, who knows that problem houses are difficult to sell",
+          "a piece of unexpected good luck after Clive has nearly given up",
+          "the narrator’s big brother, who is part of the mystery"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Clive’s paper round goes badly and he stops being a paper boy",
+          "the crowd treats Fiona differently when they think she is Bertha",
+          "the performance runs into trouble and Grandad steps in",
+          "their tricks frighten away a possible buyer"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "the truth about the twins shows how unfair the crowd has been",
+          "Grandad’s football skill helps the team when he is needed",
+          "Robbie and Grandad help make the class play a success",
+          "Clive finally gets the chance to afford what he wants"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "people begin to see the kind person behind Bertha’s fierce costume",
+          "Trudy begins to see herself as graceful rather than troublesome",
+          "Tommy stops feeling ashamed and becomes proud of Grandad",
+          "Robbie goes from being left out to playing an important part"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "instructions and inventions must be tested and used responsibly",
+          "a person’s appearance and public role do not reveal their true character",
+          "labels can hurt people, while encouragement can change how they act",
+          "older people may still have skills that surprise and help others"
+        ],
+        "answer": 1
+      }
+    ],
+    "Titanic Survivor: The Story of Harold Bride · 泰坦尼克号的幸存者哈罗德·布莱德的故事": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Captain Blackbones, a pirate who becomes a schoolteacher",
+          "Harold Bride, a twenty-one-year-old wireless operator on Titanic",
+          "Hilda, the frightening tea lady at Smalltown Football Club",
+          "Jem Stone, a pupil at Three Wishes School for genies"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Harold joins Titanic for her first voyage in 1912",
+          "Jem and her friend Pebble are learning magic at genie school",
+          "Blackbones arrives as a new teacher at Abbey Park School",
+          "Nessie teases Flossie for not being big, scary, or famous"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to send passengers’ messages and answer the captain’s emergency calls",
+          "to prevent a flying accident during a lesson",
+          "to find a friend and prove that she is not useless",
+          "to discover whether the trainers really come alive"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Flossie is lonely and is bullied by Nessie",
+          "Titanic strikes an iceberg and begins to sink",
+          "strange night-time events make the trainers seem dangerous",
+          "the family plans to sell the house and move somewhere larger"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Harold and Jack Phillips keep sending distress messages",
+          "the narrator watches for clues and tries to explain what is happening",
+          "Franklin and Josh create smells, stains, and other fake house problems",
+          "Clive tries several jobs, including delivering newspapers"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Jack Phillips, the ship’s other wireless operator",
+          "Josh, who knows that problem houses are difficult to sell",
+          "a piece of unexpected good luck after Clive has nearly given up",
+          "Grandad, who helps Robbie learn and later saves the show"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Clive’s paper round goes badly and he stops being a paper boy",
+          "the performance runs into trouble and Grandad steps in",
+          "the captain releases the operators as water reaches their room",
+          "the team suddenly needs another player during a match"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Grandad’s football skill helps the team when he is needed",
+          "Robbie and Grandad help make the class play a success",
+          "Harold survives the sinking despite badly injured feet",
+          "Trudy moves with new confidence instead of expecting disaster"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Trudy begins to see herself as graceful rather than troublesome",
+          "Tommy stops feeling ashamed and becomes proud of Grandad",
+          "an ordinary radio job becomes a fight to summon help and survive",
+          "an easy plan becomes harder than doing the jobs properly"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "labels can hurt people, while encouragement can change how they act",
+          "instructions and inventions must be tested and used responsibly",
+          "courage means continuing important work even in great danger",
+          "solving a dilemma means balancing what someone wants with what they need"
+        ],
+        "answer": 2
+      }
+    ],
+    "The Big Chance · 大好时机": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Hilda, the frightening tea lady at Smalltown Football Club",
+          "Captain Blackbones, a pirate who becomes a schoolteacher",
+          "Jem Stone, a pupil at Three Wishes School for genies",
+          "Flossie, a small monster who lives in Loch Ness"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Ray becomes the new boss and finds players pouring away Hilda’s tea",
+          "Jem and her friend Pebble are learning magic at genie school",
+          "Nessie teases Flossie for not being big, scary, or famous",
+          "the narrator starts to suspect that the trainers move at night"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to find a friend and prove that she is not useless",
+          "to help the football team play better and stop fearing Hilda",
+          "to discover whether the trainers really come alive",
+          "to stay in number 3 Stanley Street near his friends"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Hilda bullies the players and makes tea that nobody likes",
+          "strange night-time events make the trainers seem dangerous",
+          "the family plans to sell the house and move somewhere larger",
+          "each small job goes wrong or pays very little"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Clive tries several jobs, including delivering newspapers",
+          "Franklin and Josh create smells, stains, and other fake house problems",
+          "Ray confronts Hilda about the team’s problem",
+          "Robbie practises the play with his grandad"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "a piece of unexpected good luck after Clive has nearly given up",
+          "Grandad, who helps Robbie learn and later saves the show",
+          "Ray, the new team boss who sees that Hilda needs a different role",
+          "Trevor Davies, the coach who knows Tommy’s mum and grandad"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the team suddenly needs another player during a match",
+          "the performance runs into trouble and Grandad steps in",
+          "the goalkeeper is injured and Hilda takes his place",
+          "thinking like a swan changes how Trudy carries herself"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Hilda scores the winning goal and later looks after a tea machine",
+          "Trudy moves with new confidence instead of expecting disaster",
+          "Grandad’s football skill helps the team when he is needed",
+          "Doohickey has to face the results of taking an unsafe shortcut"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "an easy plan becomes harder than doing the jobs properly",
+          "Hilda becomes useful and happier when she is given a real chance",
+          "Trudy begins to see herself as graceful rather than troublesome",
+          "Danny learns that a favourite treat is not always a helpful gift"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "the right opportunity can bring out a better side of someone",
+          "solving a dilemma means balancing what someone wants with what they need",
+          "instructions and inventions must be tested and used responsibly",
+          "determination and teamwork can make an invention succeed"
+        ],
+        "answer": 0
+      }
+    ],
+    "Blackbones Saves the School · 布莱克博恩拯救学校": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Jem Stone, a pupil at Three Wishes School for genies",
+          "Flossie, a small monster who lives in Loch Ness",
+          "a child narrator who becomes frightened of a pair of trainers",
+          "Captain Blackbones, a pirate who becomes a schoolteacher"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "the narrator starts to suspect that the trainers move at night",
+          "Nessie teases Flossie for not being big, scary, or famous",
+          "Mum is expecting twins and says their house is too small",
+          "Blackbones arrives as a new teacher at Abbey Park School"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to stay in number 3 Stanley Street near his friends",
+          "to earn enough money to buy the trainers",
+          "to discover whether the trainers really come alive",
+          "to teach his class in his own adventurous way"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "each small job goes wrong or pays very little",
+          "Robbie is often overlooked and has trouble learning his lines",
+          "the family plans to sell the house and move somewhere larger",
+          "the headteacher doubts that a pirate can behave like a proper teacher"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Grandad watches the match and waits for a chance to help",
+          "Robbie practises the play with his grandad",
+          "Clive tries several jobs, including delivering newspapers",
+          "Blackbones turns lessons and the school fair into pirate-style adventures"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Grandad, who helps Robbie learn and later saves the show",
+          "Miss Willow, a graceful woman who treats Trudy kindly",
+          "Trevor Davies, the coach who knows Tommy’s mum and grandad",
+          "Yasmin, a pupil who believes Blackbones is a wonderful teacher"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the team suddenly needs another player during a match",
+          "the robot follows instructions in ways Doohickey did not expect",
+          "thinking like a swan changes how Trudy carries herself",
+          "the school needs money and the fair appears to end in disaster"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Danny helps resolve Keith’s doughnut problem and receives his thanks",
+          "Trudy moves with new confidence instead of expecting disaster",
+          "Doohickey has to face the results of taking an unsafe shortcut",
+          "Blackbones’s inventive ideas save the school and impress the headteacher"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "an easy plan becomes harder than doing the jobs properly",
+          "Scrapman changes from a disappointed helper into the successful pilot",
+          "Danny learns that a favourite treat is not always a helpful gift",
+          "the adults stop seeing Blackbones as only a dangerous pirate"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "solving a dilemma means balancing what someone wants with what they need",
+          "determination and teamwork can make an invention succeed",
+          "knowledge and quick thinking can protect animals from greedy people",
+          "unusual people can succeed when their special strengths are valued"
+        ],
+        "answer": 3
+      }
+    ],
+    "Jem Stone Genie – the Crash · 精灵简姆·斯通——撞击事件": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "a child narrator who becomes frightened of a pair of trainers",
+          "Flossie, a small monster who lives in Loch Ness",
+          "Jem Stone, a pupil at Three Wishes School for genies",
+          "Franklin, a boy who does not want his family to move house"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "the narrator starts to suspect that the trainers move at night",
+          "Mum is expecting twins and says their house is too small",
+          "Jem and her friend Pebble are learning magic at genie school",
+          "Clive sees trainers that he thinks will make him look cool"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to earn enough money to buy the trainers",
+          "to stay in number 3 Stanley Street near his friends",
+          "to prevent a flying accident during a lesson",
+          "to win the part of Robin Hood and take part in the play"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Jem’s emergency spell changes a teacher into a spider",
+          "Robbie is often overlooked and has trouble learning his lines",
+          "each small job goes wrong or pays very little",
+          "Tommy feels embarrassed by Grandad’s clothes and enthusiasm"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Grandad watches the match and waits for a chance to help",
+          "Jem uses magic quickly and then tries to put the mistake right",
+          "Robbie practises the play with his grandad",
+          "Trudy follows Miss Willow’s advice to imagine herself as a swan"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Miss Willow, a graceful woman who treats Trudy kindly",
+          "Pebble, Jem’s loyal friend",
+          "Trevor Davies, the coach who knows Tommy’s mum and grandad",
+          "the robot, although its literal actions soon cause trouble"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Pearl threatens to report Jem to the head, Miss Stick",
+          "the robot follows instructions in ways Doohickey did not expect",
+          "thinking like a swan changes how Trudy carries herself",
+          "Keith’s desire for doughnuts begins to affect an important match"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Doohickey has to face the results of taking an unsafe shortcut",
+          "the teacher is restored and Pearl’s hidden paper gets Pearl into trouble",
+          "Danny helps resolve Keith’s doughnut problem and receives his thanks",
+          "Scrapman lands safely and proves that the invention can fly"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Danny learns that a favourite treat is not always a helpful gift",
+          "Pearl’s attempt to blame Jem exposes Pearl’s own wrongdoing",
+          "Scrapman changes from a disappointed helper into the successful pilot",
+          "Mr Peck has to admit that hedgehogs protect his vegetables from slugs"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "loyalty and honest intentions matter more than using rules to hurt others",
+          "determination and teamwork can make an invention succeed",
+          "knowledge and quick thinking can protect animals from greedy people",
+          "hiding a mistake often makes it worse, so honesty is the better choice"
+        ],
+        "answer": 0
+      }
+    ],
+    "The Luckless Monster · 不走运的怪物": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Flossie, a small monster who lives in Loch Ness",
+          "a child narrator who becomes frightened of a pair of trainers",
+          "Franklin, a boy who does not want his family to move house",
+          "Clive, a boy who badly wants an expensive pair of trainers"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Clive sees trainers that he thinks will make him look cool",
+          "Mum is expecting twins and says their house is too small",
+          "Nessie teases Flossie for not being big, scary, or famous",
+          "Robbie’s class prepares a play about Robin Hood"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to earn enough money to buy the trainers",
+          "to win the part of Robin Hood and take part in the play",
+          "to find a friend and prove that she is not useless",
+          "to support Tommy and still be part of the game he loves"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Tommy feels embarrassed by Grandad’s clothes and enthusiasm",
+          "Robbie is often overlooked and has trouble learning his lines",
+          "Flossie is lonely and is bullied by Nessie",
+          "her nickname makes teachers and pupils notice every mistake she makes"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Flossie watches children by the loch and notices a girl in danger",
+          "Trudy follows Miss Willow’s advice to imagine herself as a swan",
+          "Grandad watches the match and waits for a chance to help",
+          "Doohickey asks the professor’s newest robot to do the work"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "the robot, although its literal actions soon cause trouble",
+          "the girl whose glasses are thrown into the water",
+          "Miss Willow, a graceful woman who treats Trudy kindly",
+          "Danny’s understanding of both Keith and football"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Keith’s desire for doughnuts begins to affect an important match",
+          "the girl falls into Loch Ness while trying to get her glasses",
+          "the robot follows instructions in ways Doohickey did not expect",
+          "Scrapman pedals fast enough for the machine to take off"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Flossie rescues the girl and the two become friends",
+          "Scrapman lands safely and proves that the invention can fly",
+          "Danny helps resolve Keith’s doughnut problem and receives his thanks",
+          "Amy makes sure the entrance money goes to a hedgehog hospital"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Scrapman changes from a disappointed helper into the successful pilot",
+          "Flossie discovers that being kind is more important than being scary",
+          "Mr Peck has to admit that hedgehogs protect his vegetables from slugs",
+          "the children stop hiding the accident and prepare to own up"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "knowledge and quick thinking can protect animals from greedy people",
+          "someone who is mocked as weak may show the greatest courage",
+          "hiding a mistake often makes it worse, so honesty is the better choice",
+          "a person’s appearance and public role do not reveal their true character"
+        ],
+        "answer": 1
+      }
+    ],
+    "Dangerous Trainers · 危险的运动鞋": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Franklin, a boy who does not want his family to move house",
+          "a child narrator who becomes frightened of a pair of trainers",
+          "Clive, a boy who badly wants an expensive pair of trainers",
+          "Robbie Woods, a pupil who is rarely chosen for school activities"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "the narrator starts to suspect that the trainers move at night",
+          "Clive sees trainers that he thinks will make him look cool",
+          "Robbie’s class prepares a play about Robin Hood",
+          "Grandad starts turning up at Tommy’s matches in his old football kit"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to discover whether the trainers really come alive",
+          "to win the part of Robin Hood and take part in the play",
+          "to support Tommy and still be part of the game he loves",
+          "to get through school without being blamed and laughed at"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Tommy feels embarrassed by Grandad’s clothes and enthusiasm",
+          "strange night-time events make the trainers seem dangerous",
+          "her nickname makes teachers and pupils notice every mistake she makes",
+          "the chores are boring and using an untested robot creates mistakes"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Doohickey asks the professor’s newest robot to do the work",
+          "Trudy follows Miss Willow’s advice to imagine herself as a swan",
+          "the narrator watches for clues and tries to explain what is happening",
+          "Danny takes doughnuts to Keith and then looks for a better solution"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Danny’s understanding of both Keith and football",
+          "the robot, although its literal actions soon cause trouble",
+          "the narrator’s big brother, who is part of the mystery",
+          "Emma, who helps Scrapman when he cannot work out how to land"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Keith’s desire for doughnuts begins to affect an important match",
+          "Scrapman pedals fast enough for the machine to take off",
+          "the trainers seem to go outdoors by themselves during the night",
+          "real hedgehogs answer Amy in the garden"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Scrapman lands safely and proves that the invention can fly",
+          "Amy makes sure the entrance money goes to a hedgehog hospital",
+          "the story leaves readers wondering whether it was real or a bad dream",
+          "Mr Such uses the ruined suit to smother the fire and is promised a new one"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "ordinary shoes become terrifying as the narrator’s imagination grows",
+          "the children stop hiding the accident and prepare to own up",
+          "Mr Peck has to admit that hedgehogs protect his vegetables from slugs",
+          "people begin to see the kind person behind Bertha’s fierce costume"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "a person’s appearance and public role do not reveal their true character",
+          "fear and imagination can make everyday objects seem alive",
+          "hiding a mistake often makes it worse, so honesty is the better choice",
+          "courage means continuing important work even in great danger"
+        ],
+        "answer": 1
+      }
+    ],
+    "Stinky Street · 臭街": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Robbie Woods, a pupil who is rarely chosen for school activities",
+          "Clive, a boy who badly wants an expensive pair of trainers",
+          "Tommy and his grandad, who used to be a famous footballer",
+          "Franklin, a boy who does not want his family to move house"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Robbie’s class prepares a play about Robin Hood",
+          "Grandad starts turning up at Tommy’s matches in his old football kit",
+          "Trudy’s clumsiness makes people expect her to cause accidents",
+          "Mum is expecting twins and says their house is too small"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to get through school without being blamed and laughed at",
+          "to finish the long list of jobs the professor leaves behind",
+          "to support Tommy and still be part of the game he loves",
+          "to stay in number 3 Stanley Street near his friends"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "thinking about doughnuts distracts Keith and harms his football",
+          "the chores are boring and using an untested robot creates mistakes",
+          "her nickname makes teachers and pupils notice every mistake she makes",
+          "the family plans to sell the house and move somewhere larger"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Scrapman secretly pedals the machine after Winston’s test fails",
+          "Danny takes doughnuts to Keith and then looks for a better solution",
+          "Doohickey asks the professor’s newest robot to do the work",
+          "Franklin and Josh create smells, stains, and other fake house problems"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Emma, who helps Scrapman when he cannot work out how to land",
+          "a recording called Calls of the Wild",
+          "Danny’s understanding of both Keith and football",
+          "Josh, who knows that problem houses are difficult to sell"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "a fire starts in the school kitchen before they can confess",
+          "Scrapman pedals fast enough for the machine to take off",
+          "real hedgehogs answer Amy in the garden",
+          "their tricks frighten away a possible buyer"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "the truth about the twins shows how unfair the crowd has been",
+          "Amy makes sure the entrance money goes to a hedgehog hospital",
+          "Mr Such uses the ruined suit to smother the fire and is promised a new one",
+          "Mrs Cox suggests a solution that gives the family more space"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "the children stop hiding the accident and prepare to own up",
+          "an ordinary radio job becomes a fight to summon help and survive",
+          "people begin to see the kind person behind Bertha’s fierce costume",
+          "Franklin no longer needs to sabotage the sale to stay in the street"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "the right opportunity can bring out a better side of someone",
+          "a person’s appearance and public role do not reveal their true character",
+          "courage means continuing important work even in great danger",
+          "talking and creative problem-solving are better than dishonest tricks"
+        ],
+        "answer": 3
+      }
+    ],
+    "Cool Clive · 酷酷的克莱夫": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Clive, a boy who badly wants an expensive pair of trainers",
+          "Trudy Hubble, a girl whom everyone calls Trouble",
+          "Tommy and his grandad, who used to be a famous footballer",
+          "Robbie Woods, a pupil who is rarely chosen for school activities"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Doohickey answers an advertisement for a professor’s assistant",
+          "Clive sees trainers that he thinks will make him look cool",
+          "Trudy’s clumsiness makes people expect her to cause accidents",
+          "Grandad starts turning up at Tommy’s matches in his old football kit"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to finish the long list of jobs the professor leaves behind",
+          "to give his football hero a present and help the team",
+          "to earn enough money to buy the trainers",
+          "to get through school without being blamed and laughed at"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "thinking about doughnuts distracts Keith and harms his football",
+          "Winston says Scrapman is too big and heavy for the machine",
+          "each small job goes wrong or pays very little",
+          "the chores are boring and using an untested robot creates mistakes"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Amy borrows a wildlife recording and practises hedgehog noises",
+          "Scrapman secretly pedals the machine after Winston’s test fails",
+          "Clive tries several jobs, including delivering newspapers",
+          "Danny takes doughnuts to Keith and then looks for a better solution"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Janey, who finally says that they must tell the truth",
+          "a recording called Calls of the Wild",
+          "a piece of unexpected good luck after Clive has nearly given up",
+          "Emma, who helps Scrapman when he cannot work out how to land"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Clive’s paper round goes badly and he stops being a paper boy",
+          "a fire starts in the school kitchen before they can confess",
+          "the crowd treats Fiona differently when they think she is Bertha",
+          "real hedgehogs answer Amy in the garden"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "the truth about the twins shows how unfair the crowd has been",
+          "Clive finally gets the chance to afford what he wants",
+          "Harold survives the sinking despite badly injured feet",
+          "Mr Such uses the ruined suit to smother the fire and is promised a new one"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "an ordinary radio job becomes a fight to summon help and survive",
+          "Clive learns how hard it can be to earn money for something costly",
+          "Hilda becomes useful and happier when she is given a real chance",
+          "people begin to see the kind person behind Bertha’s fierce costume"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "wanting something is easy, but earning it takes effort and patience",
+          "unusual people can succeed when their special strengths are valued",
+          "the right opportunity can bring out a better side of someone",
+          "courage means continuing important work even in great danger"
+        ],
+        "answer": 0
+      }
+    ],
+    "Robbie Woods and his Merry Men · 罗比·伍兹和他快乐的弟兄们": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Doohickey, the new assistant to an inventor professor",
+          "Robbie Woods, a pupil who is rarely chosen for school activities",
+          "Tommy and his grandad, who used to be a famous footballer",
+          "Trudy Hubble, a girl whom everyone calls Trouble"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Danny hears star striker Keith Connolly say that he loves doughnuts",
+          "Robbie’s class prepares a play about Robin Hood",
+          "Trudy’s clumsiness makes people expect her to cause accidents",
+          "Doohickey answers an advertisement for a professor’s assistant"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to win the part of Robin Hood and take part in the play",
+          "to help test the flying machine and prove that he can fly it",
+          "to finish the long list of jobs the professor leaves behind",
+          "to give his football hero a present and help the team"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Robbie is often overlooked and has trouble learning his lines",
+          "thinking about doughnuts distracts Keith and harms his football",
+          "Mr Peck mocks hedgehogs and later tries to make money from Amy",
+          "Winston says Scrapman is too big and heavy for the machine"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Scrapman secretly pedals the machine after Winston’s test fails",
+          "Robbie practises the play with his grandad",
+          "Derek and Janey scrub the trousers and take them away to clean them",
+          "Amy borrows a wildlife recording and practises hedgehog noises"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Grandad, who helps Robbie learn and later saves the show",
+          "a recording called Calls of the Wild",
+          "Fiona, who experiences what happens when she looks like Bertha",
+          "Janey, who finally says that they must tell the truth"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the captain releases the operators as water reaches their room",
+          "a fire starts in the school kitchen before they can confess",
+          "the performance runs into trouble and Grandad steps in",
+          "the crowd treats Fiona differently when they think she is Bertha"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "the truth about the twins shows how unfair the crowd has been",
+          "Hilda scores the winning goal and later looks after a tea machine",
+          "Robbie and Grandad help make the class play a success",
+          "Harold survives the sinking despite badly injured feet"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "the adults stop seeing Blackbones as only a dangerous pirate",
+          "an ordinary radio job becomes a fight to summon help and survive",
+          "Robbie goes from being left out to playing an important part",
+          "Hilda becomes useful and happier when she is given a real chance"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "loyalty and honest intentions matter more than using rules to hurt others",
+          "the right opportunity can bring out a better side of someone",
+          "practice and support can give an overlooked person a chance to shine",
+          "unusual people can succeed when their special strengths are valued"
+        ],
+        "answer": 2
+      }
+    ],
+    "Pass the Ball! · 传球！": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Doohickey, the new assistant to an inventor professor",
+          "Tommy and his grandad, who used to be a famous footballer",
+          "Trudy Hubble, a girl whom everyone calls Trouble",
+          "Danny, a young supporter of Lowgate United"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Grandad starts turning up at Tommy’s matches in his old football kit",
+          "Danny hears star striker Keith Connolly say that he loves doughnuts",
+          "Doohickey answers an advertisement for a professor’s assistant",
+          "Winston builds a pedal-powered aeroplane that uses no petrol"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to give his football hero a present and help the team",
+          "to support Tommy and still be part of the game he loves",
+          "to help test the flying machine and prove that he can fly it",
+          "to learn about hedgehogs and talk to one"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Winston says Scrapman is too big and heavy for the machine",
+          "Tommy feels embarrassed by Grandad’s clothes and enthusiasm",
+          "Mr Peck mocks hedgehogs and later tries to make money from Amy",
+          "every attempt to clean the trousers makes them dirtier"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Grandad watches the match and waits for a chance to help",
+          "Amy borrows a wildlife recording and practises hedgehog noises",
+          "Derek and Janey scrub the trousers and take them away to clean them",
+          "the sisters use their identical looks to challenge the crowd’s judgment"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Trevor Davies, the coach who knows Tommy’s mum and grandad",
+          "Janey, who finally says that they must tell the truth",
+          "Fiona, who experiences what happens when she looks like Bertha",
+          "Jack Phillips, the ship’s other wireless operator"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the crowd treats Fiona differently when they think she is Bertha",
+          "the captain releases the operators as water reaches their room",
+          "the team suddenly needs another player during a match",
+          "the goalkeeper is injured and Hilda takes his place"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Hilda scores the winning goal and later looks after a tea machine",
+          "Harold survives the sinking despite badly injured feet",
+          "Grandad’s football skill helps the team when he is needed",
+          "Blackbones’s inventive ideas save the school and impress the headteacher"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "the adults stop seeing Blackbones as only a dangerous pirate",
+          "Hilda becomes useful and happier when she is given a real chance",
+          "Tommy stops feeling ashamed and becomes proud of Grandad",
+          "Pearl’s attempt to blame Jem exposes Pearl’s own wrongdoing"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "unusual people can succeed when their special strengths are valued",
+          "loyalty and honest intentions matter more than using rules to hurt others",
+          "older people may still have skills that surprise and help others",
+          "someone who is mocked as weak may show the greatest courage"
+        ],
+        "answer": 2
+      }
+    ],
+    "Here Comes Trouble · 来麻烦了": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Danny, a young supporter of Lowgate United",
+          "Scrapman, a robot built from pieces of scrap metal",
+          "Doohickey, the new assistant to an inventor professor",
+          "Trudy Hubble, a girl whom everyone calls Trouble"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Amy hears a wildlife talk and decides to become a hedgehog expert",
+          "Winston builds a pedal-powered aeroplane that uses no petrol",
+          "Danny hears star striker Keith Connolly say that he loves doughnuts",
+          "Trudy’s clumsiness makes people expect her to cause accidents"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to learn about hedgehogs and talk to one",
+          "to remove the green marks without Mr Such finding out",
+          "to help test the flying machine and prove that he can fly it",
+          "to get through school without being blamed and laughed at"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Mr Peck mocks hedgehogs and later tries to make money from Amy",
+          "people judge the twins by their wrestling names and appearance",
+          "every attempt to clean the trousers makes them dirtier",
+          "her nickname makes teachers and pupils notice every mistake she makes"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Harold and Jack Phillips keep sending distress messages",
+          "Derek and Janey scrub the trousers and take them away to clean them",
+          "the sisters use their identical looks to challenge the crowd’s judgment",
+          "Trudy follows Miss Willow’s advice to imagine herself as a swan"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Ray, the new team boss who sees that Hilda needs a different role",
+          "Fiona, who experiences what happens when she looks like Bertha",
+          "Jack Phillips, the ship’s other wireless operator",
+          "Miss Willow, a graceful woman who treats Trudy kindly"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the captain releases the operators as water reaches their room",
+          "the school needs money and the fair appears to end in disaster",
+          "the goalkeeper is injured and Hilda takes his place",
+          "thinking like a swan changes how Trudy carries herself"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Blackbones’s inventive ideas save the school and impress the headteacher",
+          "Hilda scores the winning goal and later looks after a tea machine",
+          "the teacher is restored and Pearl’s hidden paper gets Pearl into trouble",
+          "Trudy moves with new confidence instead of expecting disaster"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Pearl’s attempt to blame Jem exposes Pearl’s own wrongdoing",
+          "the adults stop seeing Blackbones as only a dangerous pirate",
+          "Flossie discovers that being kind is more important than being scary",
+          "Trudy begins to see herself as graceful rather than troublesome"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "loyalty and honest intentions matter more than using rules to hurt others",
+          "someone who is mocked as weak may show the greatest courage",
+          "fear and imagination can make everyday objects seem alive",
+          "labels can hurt people, while encouragement can change how they act"
+        ],
+        "answer": 3
+      }
+    ],
+    "Doohickey and the Robot · 杜希奇与机器人": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Scrapman, a robot built from pieces of scrap metal",
+          "Amy Harris, a girl who wants to understand hedgehogs",
+          "Doohickey, the new assistant to an inventor professor",
+          "Danny, a young supporter of Lowgate United"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Amy hears a wildlife talk and decides to become a hedgehog expert",
+          "Mr Such wears a new white suit for Parents’ Evening",
+          "Doohickey answers an advertisement for a professor’s assistant",
+          "Winston builds a pedal-powered aeroplane that uses no petrol"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to remove the green marks without Mr Such finding out",
+          "to finish the long list of jobs the professor leaves behind",
+          "to show that Bertha is not the nasty person the crowd imagines",
+          "to learn about hedgehogs and talk to one"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "the chores are boring and using an untested robot creates mistakes",
+          "people judge the twins by their wrestling names and appearance",
+          "Titanic strikes an iceberg and begins to sink",
+          "every attempt to clean the trousers makes them dirtier"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Doohickey asks the professor’s newest robot to do the work",
+          "Harold and Jack Phillips keep sending distress messages",
+          "Ray confronts Hilda about the team’s problem",
+          "the sisters use their identical looks to challenge the crowd’s judgment"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Ray, the new team boss who sees that Hilda needs a different role",
+          "the robot, although its literal actions soon cause trouble",
+          "Yasmin, a pupil who believes Blackbones is a wonderful teacher",
+          "Jack Phillips, the ship’s other wireless operator"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Pearl threatens to report Jem to the head, Miss Stick",
+          "the robot follows instructions in ways Doohickey did not expect",
+          "the school needs money and the fair appears to end in disaster",
+          "the goalkeeper is injured and Hilda takes his place"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Doohickey has to face the results of taking an unsafe shortcut",
+          "Flossie rescues the girl and the two become friends",
+          "the teacher is restored and Pearl’s hidden paper gets Pearl into trouble",
+          "Blackbones’s inventive ideas save the school and impress the headteacher"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "ordinary shoes become terrifying as the narrator’s imagination grows",
+          "an easy plan becomes harder than doing the jobs properly",
+          "Flossie discovers that being kind is more important than being scary",
+          "Pearl’s attempt to blame Jem exposes Pearl’s own wrongdoing"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "talking and creative problem-solving are better than dishonest tricks",
+          "fear and imagination can make everyday objects seem alive",
+          "instructions and inventions must be tested and used responsibly",
+          "someone who is mocked as weak may show the greatest courage"
+        ],
+        "answer": 2
+      }
+    ],
+    "Doughnut Dilemma · 炸面圈的两难处境": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Amy Harris, a girl who wants to understand hedgehogs",
+          "Derek and Janey, two pupils who damage their teacher’s trousers",
+          "Danny, a young supporter of Lowgate United",
+          "Scrapman, a robot built from pieces of scrap metal"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "the crowd cheers Fairplay Fiona but boos Fearsome Bertha",
+          "Mr Such wears a new white suit for Parents’ Evening",
+          "Danny hears star striker Keith Connolly say that he loves doughnuts",
+          "Amy hears a wildlife talk and decides to become a hedgehog expert"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to show that Bertha is not the nasty person the crowd imagines",
+          "to send passengers’ messages and answer the captain’s emergency calls",
+          "to give his football hero a present and help the team",
+          "to remove the green marks without Mr Such finding out"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "thinking about doughnuts distracts Keith and harms his football",
+          "Titanic strikes an iceberg and begins to sink",
+          "Hilda bullies the players and makes tea that nobody likes",
+          "people judge the twins by their wrestling names and appearance"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Ray confronts Hilda about the team’s problem",
+          "Danny takes doughnuts to Keith and then looks for a better solution",
+          "Blackbones turns lessons and the school fair into pirate-style adventures",
+          "Harold and Jack Phillips keep sending distress messages"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "Danny’s understanding of both Keith and football",
+          "Yasmin, a pupil who believes Blackbones is a wonderful teacher",
+          "Pebble, Jem’s loyal friend",
+          "Ray, the new team boss who sees that Hilda needs a different role"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "Keith’s desire for doughnuts begins to affect an important match",
+          "Pearl threatens to report Jem to the head, Miss Stick",
+          "the girl falls into Loch Ness while trying to get her glasses",
+          "the school needs money and the fair appears to end in disaster"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "the story leaves readers wondering whether it was real or a bad dream",
+          "Danny helps resolve Keith’s doughnut problem and receives his thanks",
+          "Flossie rescues the girl and the two become friends",
+          "the teacher is restored and Pearl’s hidden paper gets Pearl into trouble"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Danny learns that a favourite treat is not always a helpful gift",
+          "Franklin no longer needs to sabotage the sale to stay in the street",
+          "ordinary shoes become terrifying as the narrator’s imagination grows",
+          "Flossie discovers that being kind is more important than being scary"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "solving a dilemma means balancing what someone wants with what they need",
+          "wanting something is easy, but earning it takes effort and patience",
+          "talking and creative problem-solving are better than dishonest tricks",
+          "fear and imagination can make everyday objects seem alive"
+        ],
+        "answer": 0
+      }
+    ],
+    "Scrapman and the Incredible Flying Machine · 废铁人与神奇飞行器": [
+      {
+        "prompt": "Who or what is the main focus of the story?",
+        "options": [
+          "Amy Harris, a girl who wants to understand hedgehogs",
+          "Scrapman, a robot built from pieces of scrap metal",
+          "Bertha and Fiona, twin sisters who are professional wrestlers",
+          "Derek and Janey, two pupils who damage their teacher’s trousers"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happens near the beginning?",
+        "options": [
+          "Winston builds a pedal-powered aeroplane that uses no petrol",
+          "Mr Such wears a new white suit for Parents’ Evening",
+          "Harold joins Titanic for her first voyage in 1912",
+          "the crowd cheers Fairplay Fiona but boos Fearsome Bertha"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What does the main character want to do?",
+        "options": [
+          "to show that Bertha is not the nasty person the crowd imagines",
+          "to help the football team play better and stop fearing Hilda",
+          "to help test the flying machine and prove that he can fly it",
+          "to send passengers’ messages and answer the captain’s emergency calls"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What is the main problem?",
+        "options": [
+          "Titanic strikes an iceberg and begins to sink",
+          "the headteacher doubts that a pirate can behave like a proper teacher",
+          "Winston says Scrapman is too big and heavy for the machine",
+          "Hilda bullies the players and makes tea that nobody likes"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What important action moves the story forward?",
+        "options": [
+          "Jem uses magic quickly and then tries to put the mistake right",
+          "Ray confronts Hilda about the team’s problem",
+          "Scrapman secretly pedals the machine after Winston’s test fails",
+          "Blackbones turns lessons and the school fair into pirate-style adventures"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who or what provides important help?",
+        "options": [
+          "the girl whose glasses are thrown into the water",
+          "Emma, who helps Scrapman when he cannot work out how to land",
+          "Yasmin, a pupil who believes Blackbones is a wonderful teacher",
+          "Pebble, Jem’s loyal friend"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What is a key turning point?",
+        "options": [
+          "the trainers seem to go outdoors by themselves during the night",
+          "Scrapman pedals fast enough for the machine to take off",
+          "Pearl threatens to report Jem to the head, Miss Stick",
+          "the girl falls into Loch Ness while trying to get her glasses"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How is the main problem resolved?",
+        "options": [
+          "Scrapman lands safely and proves that the invention can fly",
+          "Mrs Cox suggests a solution that gives the family more space",
+          "Flossie rescues the girl and the two become friends",
+          "the story leaves readers wondering whether it was real or a bad dream"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What important change happens?",
+        "options": [
+          "Clive learns how hard it can be to earn money for something costly",
+          "Scrapman changes from a disappointed helper into the successful pilot",
+          "ordinary shoes become terrifying as the narrator’s imagination grows",
+          "Franklin no longer needs to sabotage the sale to stay in the street"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What idea best fits the story?",
+        "options": [
+          "talking and creative problem-solving are better than dishonest tricks",
+          "determination and teamwork can make an invention succeed",
+          "practice and support can give an overlooked person a chance to shine",
+          "wanting something is easy, but earning it takes effort and patience"
+        ],
+        "answer": 1
       }
     ]
   }

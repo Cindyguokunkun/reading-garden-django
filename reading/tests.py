@@ -352,6 +352,74 @@ class TeacherImportTests(TestCase):
         self.client.post(reverse('logout'))
         self.assertTrue(self.client.login(username='王小明', password='newpass123'))
 
+class AccountLifecycleTests(TestCase):
+    def setUp(self):
+        self.org = Organization.objects.first()
+        self.manager = User.objects.create_user('manager-delete', password='pw')
+        Profile.objects.create(user=self.manager, role='manager')
+        self.teacher = User.objects.create_user('teacher-delete', password='pw')
+        Profile.objects.create(user=self.teacher, role='teacher')
+        self.room = Classroom.objects.create(
+            owner=self.teacher, organization=self.org, name='Y4C1', grade=4, section=1)
+        self.student = Student.objects.create(
+            classroom=self.room, name='测试学生', name_en='Amy Ce', login_id='Amy Ce')
+        self.book = make_book('delete-test-book')
+        ReadingRecord.objects.create(
+            student=self.student, book=self.book, read_date=date.today(), words=100)
+        QuizAttempt.objects.create(
+            student=self.student, book=self.book, score=80, passed=True,
+            submitted=True, started_at=timezone.now())
+        ShelfItem.objects.create(student=self.student, book=self.book)
+        self.client.login(username='manager-delete', password='pw')
+
+    def test_stopping_student_preserves_related_data(self):
+        self.client.post(reverse('student_account_action', args=[self.student.pk]), {'action': 'archive'})
+        self.student.refresh_from_db()
+        self.assertFalse(self.student.active)
+        self.assertEqual(ReadingRecord.objects.filter(student=self.student).count(), 1)
+        self.assertEqual(QuizAttempt.objects.filter(student=self.student).count(), 1)
+
+    def test_deleting_student_removes_all_related_data(self):
+        student_id = self.student.pk
+        self.client.post(reverse('student_account_action', args=[student_id]), {'action': 'delete'})
+        self.assertFalse(Student.objects.filter(pk=student_id).exists())
+        self.assertFalse(ReadingRecord.objects.filter(student_id=student_id).exists())
+        self.assertFalse(QuizAttempt.objects.filter(student_id=student_id).exists())
+        self.assertFalse(ShelfItem.objects.filter(student_id=student_id).exists())
+
+    def test_stopping_teacher_preserves_class_and_student(self):
+        self.client.post(reverse('manage_teachers'), {'action': 'archive', 'user': self.teacher.pk})
+        self.teacher.refresh_from_db()
+        self.assertFalse(self.teacher.is_active)
+        self.assertTrue(Classroom.objects.filter(pk=self.room.pk).exists())
+        self.assertTrue(Student.objects.filter(pk=self.student.pk).exists())
+
+    def test_deleting_teacher_removes_owned_school_data(self):
+        teacher_id = self.teacher.pk
+        student_id = self.student.pk
+        self.client.post(reverse('manage_teachers'), {'action': 'delete', 'user': teacher_id})
+        self.assertFalse(User.objects.filter(pk=teacher_id).exists())
+        self.assertFalse(Classroom.objects.filter(pk=self.room.pk).exists())
+        self.assertFalse(Student.objects.filter(pk=student_id).exists())
+        self.assertFalse(ReadingRecord.objects.filter(student_id=student_id).exists())
+
+    def test_teacher_delete_action_cannot_target_a_manager(self):
+        self.client.post(reverse('manage_teachers'), {'action': 'delete', 'user': self.manager.pk})
+        self.assertTrue(User.objects.filter(pk=self.manager.pk).exists())
+
+class DifficultyClassificationTests(TestCase):
+    def test_atos_and_good_english_use_shared_bands(self):
+        from decimal import Decimal
+        from .difficulty import difficulty_category
+        self.assertEqual(difficulty_category(atos=Decimal('2.4')), 'bridge')
+        self.assertEqual(difficulty_category(series='典范英语 5级'), 'early_chapter')
+        self.assertEqual(difficulty_category(series='典范英语 8'), 'upper_chapter')
+
+    def test_known_chapter_series_are_classified(self):
+        from .difficulty import difficulty_category
+        self.assertEqual(difficulty_category(series='Kung Pow Chicken'), 'early_chapter')
+        self.assertEqual(difficulty_category(series='My Weird School · 第一季'), 'middle_chapter')
+
 class ParentPasswordTests(TestCase):
     def setUp(self):
         self.org = Organization.objects.first()

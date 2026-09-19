@@ -170,9 +170,10 @@ def manage_teachers(request):
     errors = []; created = []
     if request.method == 'POST':
         action = request.POST.get('action')
-        if action in {'create', 'edit', 'reset', 'archive', 'restore'}:
+        if action in {'create', 'edit', 'reset', 'archive', 'restore', 'delete'}:
             target = User.objects.filter(pk=request.POST.get('user')).first() if action != 'create' else None
-            if target and not Membership.objects.filter(user=target, organization=organization).exists():
+            if target and not Membership.objects.filter(
+                    user=target, organization=organization, role=ROLE_TEACHER).exists():
                 errors.append(_('该教师不属于当前学校'))
             elif action == 'create':
                 chinese_name = _clean(request.POST.get('name'))
@@ -193,16 +194,23 @@ def manage_teachers(request):
                         target.first_name = chinese_name
                         target.username = unique_staff_username(english_name, target)
                         target.save(update_fields=['first_name', 'username'])
-                        profile, _ = Profile.objects.get_or_create(user=target)
+                        profile, _profile_created = Profile.objects.get_or_create(user=target)
                         profile.name_en = english_name; profile.save(update_fields=['name_en'])
                 elif action == 'reset':
                     target.set_password(DEFAULT_PASSWORD); target.save(update_fields=['password'])
                 elif action == 'archive':
-                    target.is_active = False; target.save(update_fields=['is_active'])
                     Membership.objects.filter(user=target, organization=organization).update(active=False)
+                    target.is_active = Membership.objects.filter(user=target, active=True).exists()
+                    target.save(update_fields=['is_active'])
                 elif action == 'restore':
                     target.is_active = True; target.save(update_fields=['is_active'])
                     Membership.objects.filter(user=target, organization=organization).update(active=True)
+                elif action == 'delete':
+                    with transaction.atomic():
+                        Classroom.objects.filter(owner=target, organization=organization).delete()
+                        Membership.objects.filter(user=target, organization=organization).delete()
+                        if not target.memberships.exists():
+                            target.delete()
             return render(request, 'reading/manage_teachers.html', {
                 'errors': errors, 'created': created, 'headers': TEACHER_HEADERS,
                 'default_password': DEFAULT_PASSWORD,

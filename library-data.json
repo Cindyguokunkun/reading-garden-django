@@ -8,7 +8,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 1
     },
     {
@@ -19,7 +19,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 2
     },
     {
@@ -30,7 +30,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 3
     },
     {
@@ -41,7 +41,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 4
     },
     {
@@ -52,7 +52,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 5
     },
     {
@@ -63,7 +63,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 6
     },
     {
@@ -74,7 +74,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 7
     },
     {
@@ -85,7 +85,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 8
     },
     {
@@ -96,7 +96,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 9
     },
     {
@@ -107,7 +107,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 10
     },
     {
@@ -118,7 +118,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 11
     },
     {
@@ -129,7 +129,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 12
     },
     {
@@ -140,7 +140,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 13
     },
     {
@@ -151,7 +151,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 14
     },
     {
@@ -162,7 +162,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 15
     },
     {
@@ -173,7 +173,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 16
     },
     {
@@ -184,7 +184,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 17
     },
     {
@@ -195,7 +195,7 @@
       "kind": "story",
       "words": null,
       "source": "用户提供书单；英文正文单词数待核实",
-      "category": "graded",
+      "category": "upper_chapter",
       "series_order": 18
     },
     {
@@ -205,7 +205,8 @@
       "level": "第1本",
       "kind": "book",
       "words": 4423,
-      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf"
+      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
+      "category": "early_chapter"
     },
     {
       "id": "monkey-2",
@@ -214,7 +215,8 @@
       "level": "第2本",
       "kind": "book",
       "words": 4092,
-      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf"
+      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
+      "category": "early_chapter"
     },
     {
       "id": "monkey-3",
@@ -223,7 +225,8 @@
       "level": "第3本",
       "kind": "book",
       "words": 4320,
-      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf"
+      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
+      "category": "early_chapter"
     },
     {
       "id": "monkey-4",
@@ -232,7 +235,8 @@
       "level": "第4本",
       "kind": "book",
       "words": 4322,
-      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf"
+      "source": "https://clubs.scholastic.com/on/demandware.static/-/Sites-rco-us-Library/default/pdfs/2022-23_PDP/Scholastic_BRNCHSDG_052018.pdf",
+      "category": "early_chapter"
     },
     {
       "id": "my-weird-school-1",
@@ -241,7 +245,8 @@
       "level": "第1本 · AR Quiz 79640",
       "kind": "book",
       "words": 6420,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79640"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79640",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-2",
@@ -250,7 +255,8 @@
       "level": "第2本 · AR Quiz 79641",
       "kind": "book",
       "words": 7201,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79641"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=79641",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-3",
@@ -259,7 +265,8 @@
       "level": "第3本 · AR Quiz 83937",
       "kind": "book",
       "words": 6599,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83937"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83937",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-4",
@@ -268,7 +275,8 @@
       "level": "第4本 · AR Quiz 83938",
       "kind": "book",
       "words": 6780,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83938"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83938",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-5",
@@ -277,7 +285,8 @@
       "level": "第5本 · AR Quiz 84980",
       "kind": "book",
       "words": 7204,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=84980"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=84980",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-6",
@@ -286,7 +295,8 @@
       "level": "第6本 · AR Quiz 87383",
       "kind": "book",
       "words": 6975,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=87383"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=87383",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-7",
@@ -295,7 +305,8 @@
       "level": "第7本 · AR Quiz 101364",
       "kind": "book",
       "words": 7686,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101364"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101364",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-8",
@@ -304,7 +315,8 @@
       "level": "第8本 · AR Quiz 101365",
       "kind": "book",
       "words": 7802,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101365"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=101365",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-9",
@@ -313,7 +325,8 @@
       "level": "第9本 · AR Quiz 102956",
       "kind": "book",
       "words": 6851,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=102956"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=102956",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-10",
@@ -322,7 +335,8 @@
       "level": "第10本 · AR Quiz 103837",
       "kind": "book",
       "words": 7725,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=103837"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=103837",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-11",
@@ -331,7 +345,8 @@
       "level": "第11本 · AR Quiz 105639",
       "kind": "book",
       "words": 6919,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=105639"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=105639",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-12",
@@ -340,7 +355,8 @@
       "level": "第12本 · AR Quiz 109319",
       "kind": "book",
       "words": 7738,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109319"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109319",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-13",
@@ -349,7 +365,8 @@
       "level": "第13本 · AR Quiz 109528",
       "kind": "book",
       "words": 7399,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109528"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=109528",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-14",
@@ -358,7 +375,8 @@
       "level": "第14本 · AR Quiz 110169",
       "kind": "book",
       "words": 8034,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=110169"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=110169",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-15",
@@ -367,7 +385,8 @@
       "level": "第15本 · AR Quiz 112348",
       "kind": "book",
       "words": 7319,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=112348"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=112348",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-16",
@@ -376,7 +395,8 @@
       "level": "第16本 · AR Quiz 115027",
       "kind": "book",
       "words": 7792,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=115027"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=115027",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-17",
@@ -385,7 +405,8 @@
       "level": "第17本 · AR Quiz 117089",
       "kind": "book",
       "words": 7817,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=117089"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=117089",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-18",
@@ -394,7 +415,8 @@
       "level": "第18本 · AR Quiz 118271",
       "kind": "book",
       "words": 7813,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118271"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118271",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-19",
@@ -403,7 +425,8 @@
       "level": "第19本 · AR Quiz 118267",
       "kind": "book",
       "words": 7589,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118267"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=118267",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-20",
@@ -412,7 +435,8 @@
       "level": "第20本 · AR Quiz 119702",
       "kind": "book",
       "words": 7934,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=119702"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=119702",
+      "category": "middle_chapter"
     },
     {
       "id": "my-weird-school-21",
@@ -421,7 +445,8 @@
       "level": "第21本 · AR Quiz 121150",
       "kind": "book",
       "words": 7599,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=121150"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=121150",
+      "category": "middle_chapter"
     },
     {
       "id": "pete-the-cat-1",
@@ -430,7 +455,8 @@
       "level": "经典绘本 · AR Quiz 154280",
       "kind": "book",
       "words": 275,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=154280"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=154280",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-2",
@@ -439,7 +465,8 @@
       "level": "My First · AR Quiz 159070",
       "kind": "book",
       "words": 237,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=159070"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=159070",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-3",
@@ -448,7 +475,8 @@
       "level": "My First · AR Quiz 159071",
       "kind": "book",
       "words": 331,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=159071"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=159071",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-4",
@@ -457,7 +485,8 @@
       "level": "My First · AR Quiz 160625",
       "kind": "book",
       "words": 343,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=160625"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=160625",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-5",
@@ -466,7 +495,8 @@
       "level": "My First · AR Quiz 165800",
       "kind": "book",
       "words": 215,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165800"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165800",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-6",
@@ -475,7 +505,8 @@
       "level": "Level 1 · AR Quiz 168478",
       "kind": "book",
       "words": 386,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=168478"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=168478",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-7",
@@ -484,7 +515,8 @@
       "level": "My First · AR Quiz 170430",
       "kind": "book",
       "words": 314,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=170430"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=170430",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-8",
@@ -493,7 +525,8 @@
       "level": "My First · AR Quiz 176132",
       "kind": "book",
       "words": 317,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=176132"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=176132",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-9",
@@ -502,7 +535,8 @@
       "level": "My First · AR Quiz 180795",
       "kind": "book",
       "words": 360,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=180795"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=180795",
+      "category": "graded"
     },
     {
       "id": "pete-the-cat-10",
@@ -511,7 +545,8 @@
       "level": "Level 1 · AR Quiz 198621",
       "kind": "book",
       "words": 424,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=198621"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=198621",
+      "category": "graded"
     },
     {
       "id": "frog-and-toad-1",
@@ -520,7 +555,8 @@
       "level": "第1本 · AR Quiz 6116",
       "kind": "book",
       "words": 2281,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6116"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6116",
+      "category": "bridge"
     },
     {
       "id": "frog-and-toad-2",
@@ -529,7 +565,8 @@
       "level": "第2本 · AR Quiz 5467",
       "kind": "book",
       "words": 1942,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=5467"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=5467",
+      "category": "bridge"
     },
     {
       "id": "frog-and-toad-3",
@@ -538,7 +575,8 @@
       "level": "第3本 · AR Quiz 5512",
       "kind": "book",
       "words": 1727,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=5512"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=5512",
+      "category": "bridge"
     },
     {
       "id": "frog-and-toad-4",
@@ -547,7 +585,8 @@
       "level": "第4本 · AR Quiz 6061",
       "kind": "book",
       "words": 2075,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6061"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6061",
+      "category": "bridge"
     },
     {
       "id": "kung-pow-chicken-1",
@@ -556,7 +595,8 @@
       "level": "Book 1 · ATOS 3.0 · AR Quiz 165167",
       "kind": "book",
       "words": 2369,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165167"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165167",
+      "category": "early_chapter"
     },
     {
       "id": "kung-pow-chicken-2",
@@ -565,7 +605,8 @@
       "level": "Book 2 · ATOS 3.2 · AR Quiz 165716",
       "kind": "book",
       "words": 2887,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165716"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=165716",
+      "category": "early_chapter"
     },
     {
       "id": "kung-pow-chicken-3",
@@ -574,7 +615,8 @@
       "level": "Book 3 · ATOS 3.2 · AR Quiz 168179",
       "kind": "book",
       "words": 2693,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=168179"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=168179",
+      "category": "early_chapter"
     },
     {
       "id": "kung-pow-chicken-4",
@@ -583,7 +625,8 @@
       "level": "Book 4 · ATOS 2.9 · AR Quiz 171052",
       "kind": "book",
       "words": 2732,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=171052"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=171052",
+      "category": "early_chapter"
     },
     {
       "id": "dog-man-1",
@@ -592,7 +635,8 @@
       "level": "Book 1 · ATOS 2.6 · AR Quiz 184237",
       "kind": "book",
       "words": 5035,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=184237"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=184237",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-2",
@@ -601,7 +645,8 @@
       "level": "Book 2 · ATOS 2.5 · AR Quiz 186901",
       "kind": "book",
       "words": 4579,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=186901"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=186901",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-3",
@@ -610,7 +655,8 @@
       "level": "Book 3 · ATOS 2.3 · AR Quiz 190818",
       "kind": "book",
       "words": 4130,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=190818"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=190818",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-4",
@@ -619,7 +665,8 @@
       "level": "Book 4 · ATOS 2.6 · AR Quiz 192899",
       "kind": "book",
       "words": 3880,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=192899"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=192899",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-5",
@@ -628,7 +675,8 @@
       "level": "Book 5 · ATOS 2.6 · AR Quiz 197060",
       "kind": "book",
       "words": 5099,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=197060"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=197060",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-6",
@@ -637,7 +685,8 @@
       "level": "Book 6 · ATOS 2.6 · AR Quiz 199159",
       "kind": "book",
       "words": 4397,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199159"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199159",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-7",
@@ -646,7 +695,8 @@
       "level": "Book 7 · ATOS 2.5 · AR Quiz 503478",
       "kind": "book",
       "words": 4899,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=503478"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=503478",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-8",
@@ -655,7 +705,8 @@
       "level": "Book 8 · ATOS 2.7 · AR Quiz 505396",
       "kind": "book",
       "words": 5477,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505396"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505396",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-9",
@@ -664,7 +715,8 @@
       "level": "Book 9 · ATOS 2.5 · AR Quiz 508860",
       "kind": "book",
       "words": 4169,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=508860"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=508860",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-10",
@@ -673,7 +725,8 @@
       "level": "Book 10 · ATOS 2.6 · AR Quiz 511040",
       "kind": "book",
       "words": 4192,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=511040"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=511040",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-11",
@@ -682,7 +735,8 @@
       "level": "Book 11 · ATOS 2.5 · AR Quiz 518910",
       "kind": "book",
       "words": 4125,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=518910"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=518910",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-12",
@@ -691,7 +745,8 @@
       "level": "Book 12 · ATOS 2.8 · AR Quiz 522990",
       "kind": "book",
       "words": 3733,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522990"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522990",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-13",
@@ -700,7 +755,8 @@
       "level": "Book 13 · ATOS 2.7 · AR Quiz 551927",
       "kind": "book",
       "words": 3641,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=551927"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=551927",
+      "category": "middle_chapter"
     },
     {
       "id": "dog-man-14",
@@ -709,7 +765,8 @@
       "level": "Book 14 · ATOS 3.2 · AR Quiz 556445",
       "kind": "book",
       "words": 4542,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=556445"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=556445",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-1",
@@ -718,7 +775,8 @@
       "level": "Book 1 · ATOS 3.7 · AR Quiz 77127",
       "kind": "book",
       "words": 10336,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77127"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77127",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-2",
@@ -727,7 +785,8 @@
       "level": "Book 2 · ATOS 3.7 · AR Quiz 77131",
       "kind": "book",
       "words": 10036,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77131"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77131",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-3",
@@ -736,7 +795,8 @@
       "level": "Book 3 · ATOS 3.4 · AR Quiz 77123",
       "kind": "book",
       "words": 10051,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77123"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77123",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-4",
@@ -745,7 +805,8 @@
       "level": "Book 4 · ATOS 3.5 · AR Quiz 77126",
       "kind": "book",
       "words": 9674,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77126"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77126",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-5",
@@ -754,7 +815,8 @@
       "level": "Book 5 · ATOS 3.1 · AR Quiz 77124",
       "kind": "book",
       "words": 9524,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77124"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77124",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-6",
@@ -763,7 +825,8 @@
       "level": "Book 6 · ATOS 3.4 · AR Quiz 77129",
       "kind": "book",
       "words": 10236,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77129"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77129",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-7",
@@ -772,7 +835,8 @@
       "level": "Book 7 · ATOS 3.6 · AR Quiz 77130",
       "kind": "book",
       "words": 10558,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77130"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=77130",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-8",
@@ -781,7 +845,8 @@
       "level": "Book 8 · ATOS 3.8 · AR Quiz 83793",
       "kind": "book",
       "words": 9139,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83793"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83793",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-9",
@@ -790,7 +855,8 @@
       "level": "Book 9 · ATOS 3.5 · AR Quiz 83159",
       "kind": "book",
       "words": 10123,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83159"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83159",
+      "category": "middle_chapter"
     },
     {
       "id": "geronimo-stilton-series-1-10",
@@ -799,7 +865,8 @@
       "level": "Book 10 · ATOS 3.2 · AR Quiz 83160",
       "kind": "book",
       "words": 9707,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83160"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=83160",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-1",
@@ -808,7 +875,8 @@
       "level": "主系列第1本 · AR Quiz 6311",
       "kind": "book",
       "words": 4737,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6311"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6311",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-2",
@@ -817,7 +885,8 @@
       "level": "主系列第2本 · AR Quiz 6327",
       "kind": "book",
       "words": 5340,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6327"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=6327",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-3",
@@ -826,7 +895,8 @@
       "level": "主系列第3本 · AR Quiz 10644",
       "kind": "book",
       "words": 5105,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10644"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10644",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-4",
@@ -835,7 +905,8 @@
       "level": "主系列第4本 · AR Quiz 9291",
       "kind": "book",
       "words": 5324,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=9291"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=9291",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-5",
@@ -844,7 +915,8 @@
       "level": "主系列第5本 · AR Quiz 10680",
       "kind": "book",
       "words": 5428,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10680"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=10680",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-6",
@@ -853,7 +925,8 @@
       "level": "主系列第6本 · AR Quiz 14651",
       "kind": "book",
       "words": 4517,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14651"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14651",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-7",
@@ -862,7 +935,8 @@
       "level": "主系列第7本 · AR Quiz 14885",
       "kind": "book",
       "words": 4926,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14885"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=14885",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-8",
@@ -871,7 +945,8 @@
       "level": "主系列第8本 · AR Quiz 17578",
       "kind": "book",
       "words": 5683,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17578"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17578",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-9",
@@ -880,7 +955,8 @@
       "level": "主系列第9本 · AR Quiz 17563",
       "kind": "book",
       "words": 4663,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17563"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17563",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-10",
@@ -889,7 +965,8 @@
       "level": "主系列第10本 · AR Quiz 17566",
       "kind": "book",
       "words": 6367,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17566"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=17566",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-11",
@@ -898,7 +975,8 @@
       "level": "主系列第11本 · AR Quiz 18727",
       "kind": "book",
       "words": 5313,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18727"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18727",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-12",
@@ -907,7 +985,8 @@
       "level": "主系列第12本 · AR Quiz 18742",
       "kind": "book",
       "words": 5724,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18742"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=18742",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-13",
@@ -916,7 +995,8 @@
       "level": "主系列第13本 · AR Quiz 20050",
       "kind": "book",
       "words": 5833,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20050"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20050",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-14",
@@ -925,7 +1005,8 @@
       "level": "主系列第14本 · AR Quiz 20015",
       "kind": "book",
       "words": 5607,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20015"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=20015",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-15",
@@ -934,7 +1015,8 @@
       "level": "主系列第15本 · AR Quiz 24935",
       "kind": "book",
       "words": 5502,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=24935"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=24935",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-16",
@@ -943,7 +1025,8 @@
       "level": "主系列第16本 · AR Quiz 25835",
       "kind": "book",
       "words": 5086,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=25835"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=25835",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-17",
@@ -952,7 +1035,8 @@
       "level": "主系列第17本 · AR Quiz 31065",
       "kind": "book",
       "words": 5301,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31065"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31065",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-18",
@@ -961,7 +1045,8 @@
       "level": "主系列第18本 · AR Quiz 31058",
       "kind": "book",
       "words": 5579,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31058"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31058",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-19",
@@ -970,7 +1055,8 @@
       "level": "主系列第19本 · AR Quiz 31073",
       "kind": "book",
       "words": 5136,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31073"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=31073",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-20",
@@ -979,7 +1065,8 @@
       "level": "主系列第20本 · AR Quiz 35832",
       "kind": "book",
       "words": 5530,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=35832"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=35832",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-21",
@@ -988,7 +1075,8 @@
       "level": "主系列第21本 · AR Quiz 44894",
       "kind": "book",
       "words": 5991,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=44894"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=44894",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-22",
@@ -997,7 +1085,8 @@
       "level": "主系列第22本 · AR Quiz 43682",
       "kind": "book",
       "words": 5041,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=43682"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=43682",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-23",
@@ -1006,7 +1095,8 @@
       "level": "主系列第23本 · AR Quiz 47830",
       "kind": "book",
       "words": 5127,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=47830"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=47830",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-24",
@@ -1015,7 +1105,8 @@
       "level": "主系列第24本 · AR Quiz 51896",
       "kind": "book",
       "words": 5882,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=51896"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=51896",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-25",
@@ -1024,7 +1115,8 @@
       "level": "主系列第25本 · AR Quiz 58030",
       "kind": "book",
       "words": 6219,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=58030"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=58030",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-26",
@@ -1033,7 +1125,8 @@
       "level": "主系列第26本 · AR Quiz 61516",
       "kind": "book",
       "words": 6129,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=61516"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=61516",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-27",
@@ -1042,7 +1135,8 @@
       "level": "主系列第27本 · AR Quiz 64034",
       "kind": "book",
       "words": 6131,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=64034"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=64034",
+      "category": "middle_chapter"
     },
     {
       "id": "magic-tree-house-28",
@@ -1051,7 +1145,8 @@
       "level": "主系列第28本 · AR Quiz 68287",
       "kind": "book",
       "words": 6222,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=68287"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=68287",
+      "category": "middle_chapter"
     },
     {
       "id": "good-english-1a-1",
@@ -1060,7 +1155,8 @@
       "level": "1A · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 10,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-2",
@@ -1069,7 +1165,8 @@
       "level": "1A · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 19,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-3",
@@ -1078,7 +1175,8 @@
       "level": "1A · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-4",
@@ -1087,7 +1185,8 @@
       "level": "1A · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 8,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-5",
@@ -1096,7 +1195,8 @@
       "level": "1A · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 23,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-6",
@@ -1105,7 +1205,8 @@
       "level": "1A · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 16,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-7",
@@ -1114,7 +1215,8 @@
       "level": "1A · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 25,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-8",
@@ -1123,7 +1225,8 @@
       "level": "1A · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 22,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-9",
@@ -1132,7 +1235,8 @@
       "level": "1A · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 23,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-10",
@@ -1141,7 +1245,8 @@
       "level": "1A · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 20,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-11",
@@ -1150,7 +1255,8 @@
       "level": "1A · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 23,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-12",
@@ -1159,7 +1265,8 @@
       "level": "1A · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 25,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-13",
@@ -1168,7 +1275,8 @@
       "level": "1A · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 29,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-14",
@@ -1177,7 +1285,8 @@
       "level": "1A · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 23,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-15",
@@ -1186,7 +1295,8 @@
       "level": "1A · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-16",
@@ -1195,7 +1305,8 @@
       "level": "1A · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 20,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-17",
@@ -1204,7 +1315,8 @@
       "level": "1A · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 31,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-18",
@@ -1213,7 +1325,8 @@
       "level": "1A · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 21,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-19",
@@ -1222,7 +1335,8 @@
       "level": "1A · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 15,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-20",
@@ -1231,7 +1345,8 @@
       "level": "1A · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 24,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-21",
@@ -1240,7 +1355,8 @@
       "level": "1A · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 23,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-22",
@@ -1249,7 +1365,8 @@
       "level": "1A · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 35,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-23",
@@ -1258,7 +1375,8 @@
       "level": "1A · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 36,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-24",
@@ -1267,7 +1385,8 @@
       "level": "1A · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 24,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-25",
@@ -1276,7 +1395,8 @@
       "level": "1A · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 36,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-26",
@@ -1285,7 +1405,8 @@
       "level": "1A · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 30,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-27",
@@ -1294,7 +1415,8 @@
       "level": "1A · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 39,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-28",
@@ -1303,7 +1425,8 @@
       "level": "1A · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 29,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-29",
@@ -1312,7 +1435,8 @@
       "level": "1A · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 20,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-30",
@@ -1321,7 +1445,8 @@
       "level": "1A · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 40,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-31",
@@ -1330,7 +1455,8 @@
       "level": "1A · 第31课 · L31 (L31)",
       "kind": "story",
       "words": 52,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-32",
@@ -1339,7 +1465,8 @@
       "level": "1A · 第32课 · L32 (L32)",
       "kind": "story",
       "words": 30,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-33",
@@ -1348,7 +1475,8 @@
       "level": "1A · 第33课 · L33 (L33)",
       "kind": "story",
       "words": 40,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-34",
@@ -1357,7 +1485,8 @@
       "level": "1A · 第34课 · L34 (L34)",
       "kind": "story",
       "words": 38,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-35",
@@ -1366,7 +1495,8 @@
       "level": "1A · 第35课 · L35 (L35)",
       "kind": "story",
       "words": 45,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-36",
@@ -1375,7 +1505,8 @@
       "level": "1A · 第36课 · L36 (L36)",
       "kind": "story",
       "words": 39,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-37",
@@ -1384,7 +1515,8 @@
       "level": "1A · 第37课 · L37 (L37)",
       "kind": "story",
       "words": 31,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-38",
@@ -1393,7 +1525,8 @@
       "level": "1A · 第38课 · L38 (L38)",
       "kind": "story",
       "words": 39,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-39",
@@ -1402,7 +1535,8 @@
       "level": "1A · 第39课 · L39 (L39)",
       "kind": "story",
       "words": 43,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-40",
@@ -1411,7 +1545,8 @@
       "level": "1A · 第40课 · L40 (L40)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-41",
@@ -1420,7 +1555,8 @@
       "level": "1A · 第41课 · L41 (L41)",
       "kind": "story",
       "words": 36,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1a-42",
@@ -1429,7 +1565,8 @@
       "level": "1A · 第42课 · L42 (L42)",
       "kind": "story",
       "words": 26,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-1",
@@ -1438,7 +1575,8 @@
       "level": "1B · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 57,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-2",
@@ -1447,7 +1585,8 @@
       "level": "1B · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 51,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-3",
@@ -1456,7 +1595,8 @@
       "level": "1B · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 65,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-4",
@@ -1465,7 +1605,8 @@
       "level": "1B · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 55,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-5",
@@ -1474,7 +1615,8 @@
       "level": "1B · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 55,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-6",
@@ -1483,7 +1625,8 @@
       "level": "1B · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 52,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-7",
@@ -1492,7 +1635,8 @@
       "level": "1B · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 39,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-8",
@@ -1501,7 +1645,8 @@
       "level": "1B · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-9",
@@ -1510,7 +1655,8 @@
       "level": "1B · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 31,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-10",
@@ -1519,7 +1665,8 @@
       "level": "1B · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 48,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-11",
@@ -1528,7 +1675,8 @@
       "level": "1B · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 37,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-12",
@@ -1537,7 +1685,8 @@
       "level": "1B · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 56,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-13",
@@ -1546,7 +1695,8 @@
       "level": "1B · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-14",
@@ -1555,7 +1705,8 @@
       "level": "1B · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 42,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-15",
@@ -1564,7 +1715,8 @@
       "level": "1B · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 48,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-16",
@@ -1573,7 +1725,8 @@
       "level": "1B · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 40,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-17",
@@ -1582,7 +1735,8 @@
       "level": "1B · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 52,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-18",
@@ -1591,7 +1745,8 @@
       "level": "1B · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 44,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-19",
@@ -1600,7 +1755,8 @@
       "level": "1B · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 51,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-20",
@@ -1609,7 +1765,8 @@
       "level": "1B · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 47,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-21",
@@ -1618,7 +1775,8 @@
       "level": "1B · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 56,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-22",
@@ -1627,7 +1785,8 @@
       "level": "1B · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 40,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-23",
@@ -1636,7 +1795,8 @@
       "level": "1B · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 48,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-24",
@@ -1645,7 +1805,8 @@
       "level": "1B · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 54,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-25",
@@ -1654,7 +1815,8 @@
       "level": "1B · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 51,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-26",
@@ -1663,7 +1825,8 @@
       "level": "1B · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 54,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-27",
@@ -1672,7 +1835,8 @@
       "level": "1B · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 47,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-28",
@@ -1681,7 +1845,8 @@
       "level": "1B · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 52,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-29",
@@ -1690,7 +1855,8 @@
       "level": "1B · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 50,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-1b-30",
@@ -1699,7 +1865,8 @@
       "level": "1B · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 34,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-1",
@@ -1708,7 +1875,8 @@
       "level": "2A · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 69,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-2",
@@ -1717,7 +1885,8 @@
       "level": "2A · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 57,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-3",
@@ -1726,7 +1895,8 @@
       "level": "2A · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 73,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-4",
@@ -1735,7 +1905,8 @@
       "level": "2A · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 57,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-5",
@@ -1744,7 +1915,8 @@
       "level": "2A · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 88,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-6",
@@ -1753,7 +1925,8 @@
       "level": "2A · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 73,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-7",
@@ -1762,7 +1935,8 @@
       "level": "2A · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 91,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-8",
@@ -1771,7 +1945,8 @@
       "level": "2A · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 65,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-9",
@@ -1780,7 +1955,8 @@
       "level": "2A · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 87,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-10",
@@ -1789,7 +1965,8 @@
       "level": "2A · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 66,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-11",
@@ -1798,7 +1975,8 @@
       "level": "2A · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 55,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-12",
@@ -1807,7 +1985,8 @@
       "level": "2A · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 65,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-13",
@@ -1816,7 +1995,8 @@
       "level": "2A · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 68,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-14",
@@ -1825,7 +2005,8 @@
       "level": "2A · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 75,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-15",
@@ -1834,7 +2015,8 @@
       "level": "2A · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 76,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-16",
@@ -1843,7 +2025,8 @@
       "level": "2A · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 83,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-17",
@@ -1852,7 +2035,8 @@
       "level": "2A · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 77,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-18",
@@ -1861,7 +2045,8 @@
       "level": "2A · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 92,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-19",
@@ -1870,7 +2055,8 @@
       "level": "2A · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 67,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-20",
@@ -1879,7 +2065,8 @@
       "level": "2A · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 55,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-21",
@@ -1888,7 +2075,8 @@
       "level": "2A · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 63,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-22",
@@ -1897,7 +2085,8 @@
       "level": "2A · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 63,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-23",
@@ -1906,7 +2095,8 @@
       "level": "2A · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 56,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-24",
@@ -1915,7 +2105,8 @@
       "level": "2A · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 64,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-25",
@@ -1924,7 +2115,8 @@
       "level": "2A · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 59,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-26",
@@ -1933,7 +2125,8 @@
       "level": "2A · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 81,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-27",
@@ -1942,7 +2135,8 @@
       "level": "2A · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 74,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-28",
@@ -1951,7 +2145,8 @@
       "level": "2A · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 58,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-29",
@@ -1960,7 +2155,8 @@
       "level": "2A · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 73,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2a-30",
@@ -1969,7 +2165,8 @@
       "level": "2A · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 63,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-1",
@@ -1978,7 +2175,8 @@
       "level": "2B · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 63,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-2",
@@ -1987,7 +2185,8 @@
       "level": "2B · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 81,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-3",
@@ -1996,7 +2195,8 @@
       "level": "2B · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 123,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-4",
@@ -2005,7 +2205,8 @@
       "level": "2B · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 95,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-5",
@@ -2014,7 +2215,8 @@
       "level": "2B · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 95,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-6",
@@ -2023,7 +2225,8 @@
       "level": "2B · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 90,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-7",
@@ -2032,7 +2235,8 @@
       "level": "2B · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 75,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-8",
@@ -2041,7 +2245,8 @@
       "level": "2B · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 82,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-9",
@@ -2050,7 +2255,8 @@
       "level": "2B · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 75,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-10",
@@ -2059,7 +2265,8 @@
       "level": "2B · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 76,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-11",
@@ -2068,7 +2275,8 @@
       "level": "2B · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 75,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-12",
@@ -2077,7 +2285,8 @@
       "level": "2B · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 71,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-13",
@@ -2086,7 +2295,8 @@
       "level": "2B · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 86,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-14",
@@ -2095,7 +2305,8 @@
       "level": "2B · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 90,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-15",
@@ -2104,7 +2315,8 @@
       "level": "2B · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 90,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-16",
@@ -2113,7 +2325,8 @@
       "level": "2B · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 82,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-17",
@@ -2122,7 +2335,8 @@
       "level": "2B · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 125,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-18",
@@ -2131,7 +2345,8 @@
       "level": "2B · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 94,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-19",
@@ -2140,7 +2355,8 @@
       "level": "2B · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 58,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-20",
@@ -2149,7 +2365,8 @@
       "level": "2B · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 64,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-21",
@@ -2158,7 +2375,8 @@
       "level": "2B · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 59,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-22",
@@ -2167,7 +2385,8 @@
       "level": "2B · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 77,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-23",
@@ -2176,7 +2395,8 @@
       "level": "2B · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 72,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-24",
@@ -2185,7 +2405,8 @@
       "level": "2B · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 69,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-25",
@@ -2194,7 +2415,8 @@
       "level": "2B · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 89,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-26",
@@ -2203,7 +2425,8 @@
       "level": "2B · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 73,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-27",
@@ -2212,7 +2435,8 @@
       "level": "2B · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 69,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-28",
@@ -2221,7 +2445,8 @@
       "level": "2B · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 74,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-29",
@@ -2230,7 +2455,8 @@
       "level": "2B · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 105,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-2b-30",
@@ -2239,7 +2465,8 @@
       "level": "2B · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 84,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "graded"
     },
     {
       "id": "good-english-3a-1",
@@ -2248,7 +2475,8 @@
       "level": "3A · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 69,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-2",
@@ -2257,7 +2485,8 @@
       "level": "3A · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 81,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-3",
@@ -2266,7 +2495,8 @@
       "level": "3A · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 86,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-4",
@@ -2275,7 +2505,8 @@
       "level": "3A · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 84,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-5",
@@ -2284,7 +2515,8 @@
       "level": "3A · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 82,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-6",
@@ -2293,7 +2525,8 @@
       "level": "3A · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 75,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-7",
@@ -2302,7 +2535,8 @@
       "level": "3A · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 78,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-8",
@@ -2311,7 +2545,8 @@
       "level": "3A · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 77,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-9",
@@ -2320,7 +2555,8 @@
       "level": "3A · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 73,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-10",
@@ -2329,7 +2565,8 @@
       "level": "3A · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 69,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-11",
@@ -2338,7 +2575,8 @@
       "level": "3A · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 84,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-12",
@@ -2347,7 +2585,8 @@
       "level": "3A · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 87,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-13",
@@ -2356,7 +2595,8 @@
       "level": "3A · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 106,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-14",
@@ -2365,7 +2605,8 @@
       "level": "3A · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 79,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-15",
@@ -2374,7 +2615,8 @@
       "level": "3A · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 102,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-16",
@@ -2383,7 +2625,8 @@
       "level": "3A · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 105,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-17",
@@ -2392,7 +2635,8 @@
       "level": "3A · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 104,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-18",
@@ -2401,7 +2645,8 @@
       "level": "3A · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 108,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-19",
@@ -2410,7 +2655,8 @@
       "level": "3A · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 105,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-20",
@@ -2419,7 +2665,8 @@
       "level": "3A · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 114,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-21",
@@ -2428,7 +2675,8 @@
       "level": "3A · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 97,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-22",
@@ -2437,7 +2685,8 @@
       "level": "3A · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 104,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-23",
@@ -2446,7 +2695,8 @@
       "level": "3A · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 111,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-24",
@@ -2455,7 +2705,8 @@
       "level": "3A · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 110,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-25",
@@ -2464,7 +2715,8 @@
       "level": "3A · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 97,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-26",
@@ -2473,7 +2725,8 @@
       "level": "3A · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 106,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-27",
@@ -2482,7 +2735,8 @@
       "level": "3A · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 119,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-28",
@@ -2491,7 +2745,8 @@
       "level": "3A · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 130,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-29",
@@ -2500,7 +2755,8 @@
       "level": "3A · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 97,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3a-30",
@@ -2509,7 +2765,8 @@
       "level": "3A · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 91,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-1",
@@ -2518,7 +2775,8 @@
       "level": "3B · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 109,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-2",
@@ -2527,7 +2785,8 @@
       "level": "3B · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 120,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-3",
@@ -2536,7 +2795,8 @@
       "level": "3B · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 106,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-4",
@@ -2545,7 +2805,8 @@
       "level": "3B · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 95,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-5",
@@ -2554,7 +2815,8 @@
       "level": "3B · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 84,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-6",
@@ -2563,7 +2825,8 @@
       "level": "3B · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 104,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-7",
@@ -2572,7 +2835,8 @@
       "level": "3B · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 121,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-8",
@@ -2581,7 +2845,8 @@
       "level": "3B · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 104,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-9",
@@ -2590,7 +2855,8 @@
       "level": "3B · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 133,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-10",
@@ -2599,7 +2865,8 @@
       "level": "3B · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 162,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-11",
@@ -2608,7 +2875,8 @@
       "level": "3B · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 150,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-12",
@@ -2617,7 +2885,8 @@
       "level": "3B · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 130,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-13",
@@ -2626,7 +2895,8 @@
       "level": "3B · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 153,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-14",
@@ -2635,7 +2905,8 @@
       "level": "3B · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 158,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-15",
@@ -2644,7 +2915,8 @@
       "level": "3B · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 137,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-16",
@@ -2653,7 +2925,8 @@
       "level": "3B · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 122,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-17",
@@ -2662,7 +2935,8 @@
       "level": "3B · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 120,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-18",
@@ -2671,7 +2945,8 @@
       "level": "3B · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 135,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-19",
@@ -2680,7 +2955,8 @@
       "level": "3B · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 135,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-20",
@@ -2689,7 +2965,8 @@
       "level": "3B · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 138,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-21",
@@ -2698,7 +2975,8 @@
       "level": "3B · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 133,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-22",
@@ -2707,7 +2985,8 @@
       "level": "3B · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 134,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-23",
@@ -2716,7 +2995,8 @@
       "level": "3B · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 146,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-24",
@@ -2725,7 +3005,8 @@
       "level": "3B · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 123,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-25",
@@ -2734,7 +3015,8 @@
       "level": "3B · 第25课 · L25 (L25)",
       "kind": "story",
       "words": 181,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-26",
@@ -2743,7 +3025,8 @@
       "level": "3B · 第26课 · L26 (L26)",
       "kind": "story",
       "words": 183,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-27",
@@ -2752,7 +3035,8 @@
       "level": "3B · 第27课 · L27 (L27)",
       "kind": "story",
       "words": 158,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-28",
@@ -2761,7 +3045,8 @@
       "level": "3B · 第28课 · L28 (L28)",
       "kind": "story",
       "words": 196,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-29",
@@ -2770,7 +3055,8 @@
       "level": "3B · 第29课 · L29 (L29)",
       "kind": "story",
       "words": 202,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-3b-30",
@@ -2779,7 +3065,8 @@
       "level": "3B · 第30课 · L30 (L30)",
       "kind": "story",
       "words": 187,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-1",
@@ -2788,7 +3075,8 @@
       "level": "4A · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 186,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-2",
@@ -2797,7 +3085,8 @@
       "level": "4A · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 188,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-3",
@@ -2806,7 +3095,8 @@
       "level": "4A · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 186,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-4",
@@ -2815,7 +3105,8 @@
       "level": "4A · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 192,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-5",
@@ -2824,7 +3115,8 @@
       "level": "4A · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 200,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-6",
@@ -2833,7 +3125,8 @@
       "level": "4A · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 227,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-7",
@@ -2842,7 +3135,8 @@
       "level": "4A · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 152,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-8",
@@ -2851,7 +3145,8 @@
       "level": "4A · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 177,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-9",
@@ -2860,7 +3155,8 @@
       "level": "4A · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 162,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-10",
@@ -2869,7 +3165,8 @@
       "level": "4A · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 189,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-11",
@@ -2878,7 +3175,8 @@
       "level": "4A · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 160,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-12",
@@ -2887,7 +3185,8 @@
       "level": "4A · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 181,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-13",
@@ -2896,7 +3195,8 @@
       "level": "4A · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 266,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-14",
@@ -2905,7 +3205,8 @@
       "level": "4A · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 324,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-15",
@@ -2914,7 +3215,8 @@
       "level": "4A · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 289,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-16",
@@ -2923,7 +3225,8 @@
       "level": "4A · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 300,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-17",
@@ -2932,7 +3235,8 @@
       "level": "4A · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 294,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-18",
@@ -2941,7 +3245,8 @@
       "level": "4A · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 329,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-19",
@@ -2950,7 +3255,8 @@
       "level": "4A · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 322,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-20",
@@ -2959,7 +3265,8 @@
       "level": "4A · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 332,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-21",
@@ -2968,7 +3275,8 @@
       "level": "4A · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 345,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-22",
@@ -2977,7 +3285,8 @@
       "level": "4A · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 320,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-23",
@@ -2986,7 +3295,8 @@
       "level": "4A · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 305,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4a-24",
@@ -2995,7 +3305,8 @@
       "level": "4A · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 309,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-1",
@@ -3004,7 +3315,8 @@
       "level": "4B · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 330,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-2",
@@ -3013,7 +3325,8 @@
       "level": "4B · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 319,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-3",
@@ -3022,7 +3335,8 @@
       "level": "4B · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 340,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-4",
@@ -3031,7 +3345,8 @@
       "level": "4B · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 356,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-5",
@@ -3040,7 +3355,8 @@
       "level": "4B · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 351,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-6",
@@ -3049,7 +3365,8 @@
       "level": "4B · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 314,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-7",
@@ -3058,7 +3375,8 @@
       "level": "4B · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 315,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-8",
@@ -3067,7 +3385,8 @@
       "level": "4B · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 330,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-9",
@@ -3076,7 +3395,8 @@
       "level": "4B · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 356,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-10",
@@ -3085,7 +3405,8 @@
       "level": "4B · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 324,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-11",
@@ -3094,7 +3415,8 @@
       "level": "4B · 第11课 · L11 (L11)",
       "kind": "story",
       "words": 338,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-12",
@@ -3103,7 +3425,8 @@
       "level": "4B · 第12课 · L12 (L12)",
       "kind": "story",
       "words": 364,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-13",
@@ -3112,7 +3435,8 @@
       "level": "4B · 第13课 · L13 (L13)",
       "kind": "story",
       "words": 273,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-14",
@@ -3121,7 +3445,8 @@
       "level": "4B · 第14课 · L14 (L14)",
       "kind": "story",
       "words": 311,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-15",
@@ -3130,7 +3455,8 @@
       "level": "4B · 第15课 · L15 (L15)",
       "kind": "story",
       "words": 367,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-16",
@@ -3139,7 +3465,8 @@
       "level": "4B · 第16课 · L16 (L16)",
       "kind": "story",
       "words": 354,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-17",
@@ -3148,7 +3475,8 @@
       "level": "4B · 第17课 · L17 (L17)",
       "kind": "story",
       "words": 398,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-18",
@@ -3157,7 +3485,8 @@
       "level": "4B · 第18课 · L18 (L18)",
       "kind": "story",
       "words": 394,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-19",
@@ -3166,7 +3495,8 @@
       "level": "4B · 第19课 · L19 (L19)",
       "kind": "story",
       "words": 319,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-20",
@@ -3175,7 +3505,8 @@
       "level": "4B · 第20课 · L20 (L20)",
       "kind": "story",
       "words": 335,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-21",
@@ -3184,7 +3515,8 @@
       "level": "4B · 第21课 · L21 (L21)",
       "kind": "story",
       "words": 312,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-22",
@@ -3193,7 +3525,8 @@
       "level": "4B · 第22课 · L22 (L22)",
       "kind": "story",
       "words": 358,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-23",
@@ -3202,7 +3535,8 @@
       "level": "4B · 第23课 · L23 (L23)",
       "kind": "story",
       "words": 359,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-4b-24",
@@ -3211,7 +3545,8 @@
       "level": "4B · 第24课 · L24 (L24)",
       "kind": "story",
       "words": 359,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "bridge"
     },
     {
       "id": "good-english-5a-1",
@@ -3220,7 +3555,8 @@
       "level": "5A · 第1课 · L01 (L1)",
       "kind": "story",
       "words": 442,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-2",
@@ -3229,7 +3565,8 @@
       "level": "5A · 第2课 · L02 (L2)",
       "kind": "story",
       "words": 482,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-3",
@@ -3238,7 +3575,8 @@
       "level": "5A · 第3课 · L03 (L3)",
       "kind": "story",
       "words": 505,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-4",
@@ -3247,7 +3585,8 @@
       "level": "5A · 第4课 · L04 (L4)",
       "kind": "story",
       "words": 482,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-5",
@@ -3256,7 +3595,8 @@
       "level": "5A · 第5课 · L05 (L5)",
       "kind": "story",
       "words": 729,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-6",
@@ -3265,7 +3605,8 @@
       "level": "5A · 第6课 · L06 (L6)",
       "kind": "story",
       "words": 625,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-7",
@@ -3274,7 +3615,8 @@
       "level": "5A · 第7课 · L07 (L7)",
       "kind": "story",
       "words": 432,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-8",
@@ -3283,7 +3625,8 @@
       "level": "5A · 第8课 · L08 (L8)",
       "kind": "story",
       "words": 499,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-9",
@@ -3292,7 +3635,8 @@
       "level": "5A · 第9课 · L09 (L9)",
       "kind": "story",
       "words": 422,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-10",
@@ -3301,7 +3645,8 @@
       "level": "5A · 第10课 · L10 (L10)",
       "kind": "story",
       "words": 471,
-      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》"
+      "source": "老师提供：《典范英语1-6全级别_每课词数统计.xlsx》",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-11",
@@ -3311,7 +3656,8 @@
       "kind": "story",
       "words": 498,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mysterious old key buried in the sand. The key has a strange shape and looks very old. They wonder who it belonged to and what it opens. They decide to take it home and show it to Gran."
+      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mysterious old key buried in the sand. The key has a strange shape and looks very old. They wonder who it belonged to and what it opens. They decide to take it home and show it to Gran.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-12",
@@ -3321,7 +3667,8 @@
       "kind": "story",
       "words": 493,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In Mountain Rescue, Biff, Chip, and Kipper go to the mountains with Dad. They meet a mountain rescue team and see their dog, Jet. A boy falls and hurts his leg on the mountain. The rescue team and Jet help the boy. The children learn how rescue teams save people in the mountains."
+      "synopsis": "In Mountain Rescue, Biff, Chip, and Kipper go to the mountains with Dad. They meet a mountain rescue team and see their dog, Jet. A boy falls and hurts his leg on the mountain. The rescue team and Jet help the boy. The children learn how rescue teams save people in the mountains.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-13",
@@ -3331,7 +3678,8 @@
       "kind": "story",
       "words": 485,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are helping Mum and Dad in the garden. They find some rotten apples under the apple tree. Dad makes a pile of the rotten apples. Floppy the dog rolls in the rotten apples and gets very smelly. In the end, Dad gives Floppy a bath."
+      "synopsis": "Biff, Chip, and Kipper are helping Mum and Dad in the garden. They find some rotten apples under the apple tree. Dad makes a pile of the rotten apples. Floppy the dog rolls in the rotten apples and gets very smelly. In the end, Dad gives Floppy a bath.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-14",
@@ -3341,7 +3689,8 @@
       "kind": "story",
       "words": 456,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "It is Christmas Eve, and Biff, Chip, Kipper, and Floppy are excited. The magic key begins to glow, and it takes them to a snowy land. They meet a sad little girl who says a giant has taken Father Christmas. The children find the giant's castle and see Father Christmas locked in a room. They help Father Christmas escape, and he takes them home in his sleigh."
+      "synopsis": "It is Christmas Eve, and Biff, Chip, Kipper, and Floppy are excited. The magic key begins to glow, and it takes them to a snowy land. They meet a sad little girl who says a giant has taken Father Christmas. The children find the giant's castle and see Father Christmas locked in a room. They help Father Christmas escape, and he takes them home in his sleigh.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-15",
@@ -3351,7 +3700,8 @@
       "kind": "story",
       "words": 473,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper build a go-kart with Dad. They take the go-kart to a hill to race. Dad rides the go-kart first and goes fast down the hill. The go-kart crashes into a bush at the bottom. Everyone is okay, and they pull the go-kart out of the bush."
+      "synopsis": "Biff, Chip, and Kipper build a go-kart with Dad. They take the go-kart to a hill to race. Dad rides the go-kart first and goes fast down the hill. The go-kart crashes into a bush at the bottom. Everyone is okay, and they pull the go-kart out of the bush.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-16",
@@ -3361,7 +3711,8 @@
       "kind": "story",
       "words": 479,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, Mum, and Dad are camping in the garden. They sit around a campfire and toast marshmallows. Dad tells a scary story about a monster. Later, Kipper sees a shadow and thinks it is a monster. It is only Dad coming out of the tent."
+      "synopsis": "Biff, Chip, Kipper, Mum, and Dad are camping in the garden. They sit around a campfire and toast marshmallows. Dad tells a scary story about a monster. Later, Kipper sees a shadow and thinks it is a monster. It is only Dad coming out of the tent.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-17",
@@ -3371,7 +3722,8 @@
       "kind": "story",
       "words": 469,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The Laughing Princess is a story about a princess who never laughs. The king and queen are sad because she is always serious. Many people try to make her laugh, but they all fail. One day, a young man tries and accidentally makes her laugh. The princess laughs and everyone is happy."
+      "synopsis": "The Laughing Princess is a story about a princess who never laughs. The king and queen are sad because she is always serious. Many people try to make her laugh, but they all fail. One day, a young man tries and accidentally makes her laugh. The princess laughs and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-18",
@@ -3381,7 +3733,8 @@
       "kind": "story",
       "words": 492,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper find a shiny key in the park. The key belongs to Mrs. May. She had lost it earlier. The children return the key to her. Mrs. May is very happy and thanks them."
+      "synopsis": "Biff, Chip, and Kipper find a shiny key in the park. The key belongs to Mrs. May. She had lost it earlier. The children return the key to her. Mrs. May is very happy and thanks them.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-19",
@@ -3391,7 +3744,8 @@
       "kind": "story",
       "words": 534,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Dad has a grand plan to build a new shed. He asks Biff, Chip, and Kipper to help him. They get the tools and materials ready. Dad starts to build the shed, but it is hard work. In the end, the shed is finished and everyone is happy."
+      "synopsis": "Dad has a grand plan to build a new shed. He asks Biff, Chip, and Kipper to help him. They get the tools and materials ready. Dad starts to build the shed, but it is hard work. In the end, the shed is finished and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-20",
@@ -3401,7 +3755,8 @@
       "kind": "story",
       "words": 539,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mirror in the sand and look at it. The mirror takes them to Mirror Island, where everything is reversed. They meet a girl named Miranda who is also reversed. They help her fix her boat and then return home."
+      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mirror in the sand and look at it. The mirror takes them to Mirror Island, where everything is reversed. They meet a girl named Miranda who is also reversed. They help her fix her boat and then return home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5a-21",
@@ -3411,7 +3766,8 @@
       "kind": "story",
       "words": 541,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In 'Don't Be Silly', Biff, Chip, and Kipper play with a big box. They make it into a boat and then a car. Dad joins in and makes it into a rocket. They have fun using their imaginations. In the end, the box breaks and they all laugh."
+      "synopsis": "In 'Don't Be Silly', Biff, Chip, and Kipper play with a big box. They make it into a boat and then a car. Dad joins in and makes it into a rocket. They have fun using their imaginations. In the end, the box breaks and they all laugh.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-1",
@@ -3421,7 +3777,8 @@
       "kind": "story",
       "words": 557,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to Paris with their parents. They visit the Eiffel Tower and take a boat ride on the River Seine. In the magic adventure, they meet a French boy named Jean-Luc who needs help. The children find a lost key and return it to him. They also see famous sights like Notre-Dame Cathedral."
+      "synopsis": "Biff, Chip, and Kipper go to Paris with their parents. They visit the Eiffel Tower and take a boat ride on the River Seine. In the magic adventure, they meet a French boy named Jean-Luc who needs help. The children find a lost key and return it to him. They also see famous sights like Notre-Dame Cathedral.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-2",
@@ -3431,7 +3788,8 @@
       "kind": "story",
       "words": 568,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy go to the beach with Mum and Dad. The children find a magic key in the sand and take it home. The magic key glows and takes them to a castle. A king tells them that his crown has been stolen. The children agree to help find the crown."
+      "synopsis": "Biff, Chip, Kipper, and Floppy go to the beach with Mum and Dad. The children find a magic key in the sand and take it home. The magic key glows and takes them to a castle. A king tells them that his crown has been stolen. The children agree to help find the crown.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-3",
@@ -3441,7 +3799,8 @@
       "kind": "story",
       "words": 520,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In The Stolen Crown Part 2, Biff, Chip, Kipper, and Floppy continue their adventure in a magical land. They must retrieve the stolen crown from the evil king's castle. With help from a friendly dragon, they sneak into the castle. After a tense confrontation, they manage to take back the crown. They return the crown to its rightful owner and are celebrated as heroes."
+      "synopsis": "In The Stolen Crown Part 2, Biff, Chip, Kipper, and Floppy continue their adventure in a magical land. They must retrieve the stolen crown from the evil king's castle. With help from a friendly dragon, they sneak into the castle. After a tense confrontation, they manage to take back the crown. They return the crown to its rightful owner and are celebrated as heroes.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-4",
@@ -3451,7 +3810,8 @@
       "kind": "story",
       "words": 522,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to the Olympic Games in ancient Greece with the magic key. They meet a girl named Hera who wants to run in the boys' race. Biff helps Hera by lending her some clothes so she can run as a boy. Hera wins the race, but then the boys discover she is a girl. The boys chase Hera, but she escapes, and the children return home."
+      "synopsis": "Biff, Chip, and Kipper go to the Olympic Games in ancient Greece with the magic key. They meet a girl named Hera who wants to run in the boys' race. Biff helps Hera by lending her some clothes so she can run as a boy. Hera wins the race, but then the boys discover she is a girl. The boys chase Hera, but she escapes, and the children return home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-5",
@@ -3461,7 +3821,8 @@
       "kind": "story",
       "words": 530,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are playing in the garden when the magic key begins to glow. The magic takes them to a harbour where they see a large ship in trouble. The ship has hit a rock and is taking on water. The children help the crew by using a lifeboat to rescue people. In the end, everyone is safe and the magic key takes the children home."
+      "synopsis": "Biff, Chip, and Kipper are playing in the garden when the magic key begins to glow. The magic takes them to a harbour where they see a large ship in trouble. The ship has hit a rock and is taking on water. The children help the crew by using a lifeboat to rescue people. In the end, everyone is safe and the magic key takes the children home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-6",
@@ -3471,7 +3832,8 @@
       "kind": "story",
       "words": 522,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy are at home. Mum tells the children to do their homework. Biff and Chip work on their projects, but Kipper does not want to do his. Floppy causes trouble and makes a mess. In the end, the children finish their homework and everyone is happy."
+      "synopsis": "Biff, Chip, Kipper, and Floppy are at home. Mum tells the children to do their homework. Biff and Chip work on their projects, but Kipper does not want to do his. Floppy causes trouble and makes a mess. In the end, the children finish their homework and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-7",
@@ -3481,7 +3843,8 @@
       "kind": "story",
       "words": 971,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy go to the jungle with Dad. They meet a parrot that can talk. The parrot flies away with Dad's hat. Biff, Chip, and Kipper follow the parrot to get the hat back. They find the parrot in a tree and get the hat back."
+      "synopsis": "Biff, Chip, Kipper, and Floppy go to the jungle with Dad. They meet a parrot that can talk. The parrot flies away with Dad's hat. Biff, Chip, and Kipper follow the parrot to get the hat back. They find the parrot in a tree and get the hat back.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-8",
@@ -3491,7 +3854,8 @@
       "kind": "story",
       "words": 895,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are at home when a magic key begins to glow. The magic takes them to a red planet. On the planet, they meet a creature called a Zog. The Zog is friendly and shows them around. The children have an adventure before the magic key takes them home."
+      "synopsis": "Biff, Chip, and Kipper are at home when a magic key begins to glow. The magic takes them to a red planet. On the planet, they meet a creature called a Zog. The Zog is friendly and shows them around. The children have an adventure before the magic key takes them home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-9",
@@ -3501,7 +3865,8 @@
       "kind": "story",
       "words": 973,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The magic key takes Biff, Chip, and Kipper back in time. They find themselves in a Victorian street where children work hard. The children meet a poor girl named Anneena who lives in a small house. Anneena's roof is broken and rain comes in. The children help fix the roof and then the magic key takes them home."
+      "synopsis": "The magic key takes Biff, Chip, and Kipper back in time. They find themselves in a Victorian street where children work hard. The children meet a poor girl named Anneena who lives in a small house. Anneena's roof is broken and rain comes in. The children help fix the roof and then the magic key takes them home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-10",
@@ -3511,7 +3876,8 @@
       "kind": "story",
       "words": 1054,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are playing in the garden when Dad asks them to help find his lost key. They search in the grass, in the shed, and by the back door, but the key is not there. Floppy runs to the compost heap and starts digging. He finds the key buried in the compost. Dad is happy and gives Floppy a biscuit."
+      "synopsis": "Biff, Chip, and Kipper are playing in the garden when Dad asks them to help find his lost key. They search in the grass, in the shed, and by the back door, but the key is not there. Floppy runs to the compost heap and starts digging. He finds the key buried in the compost. Dad is happy and gives Floppy a biscuit.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-11",
@@ -3521,7 +3887,8 @@
       "kind": "story",
       "words": 853,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are in the school playground when a new boy called Baz tries to take Chip's ball. Baz pushes Chip and calls him names. The children tell Mrs May, who talks to Baz and explains that bullying is wrong. Baz says sorry and asks to play with them. In the end, everyone plays together happily."
+      "synopsis": "Biff, Chip, and Kipper are in the school playground when a new boy called Baz tries to take Chip's ball. Baz pushes Chip and calls him names. The children tell Mrs May, who talks to Baz and explains that bullying is wrong. Baz says sorry and asks to play with them. In the end, everyone plays together happily.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-12",
@@ -3531,7 +3898,8 @@
       "kind": "story",
       "words": 905,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to a gold mine with their dad. They meet a man named Wilf who tells them about gold. The children find a big nugget of gold. A thief tries to steal the gold from them. In the end, the police catch the thief and the children keep the gold."
+      "synopsis": "Biff, Chip, and Kipper go to a gold mine with their dad. They meet a man named Wilf who tells them about gold. The children find a big nugget of gold. A thief tries to steal the gold from them. In the end, the police catch the thief and the children keep the gold.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-13",
@@ -3541,7 +3909,8 @@
       "kind": "story",
       "words": 841,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are at home on a rainy day. They decide to do a jigsaw puzzle. The puzzle shows a picture of a farm. They work together to complete the puzzle. When it is finished, they feel happy and proud."
+      "synopsis": "Biff, Chip, and Kipper are at home on a rainy day. They decide to do a jigsaw puzzle. The puzzle shows a picture of a farm. They work together to complete the puzzle. When it is finished, they feel happy and proud.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-14",
@@ -3551,7 +3920,8 @@
       "kind": "story",
       "words": 877,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In The Motorway, Biff, Chip, and Kipper are at home when they hear about a new motorway being built. The motorway will go through the countryside near their house. The family is upset because the motorway will destroy trees and disturb animals. They join a protest to try to stop the motorway. In the end, the motorway is not built, and the countryside is saved."
+      "synopsis": "In The Motorway, Biff, Chip, and Kipper are at home when they hear about a new motorway being built. The motorway will go through the countryside near their house. The family is upset because the motorway will destroy trees and disturb animals. They join a protest to try to stop the motorway. In the end, the motorway is not built, and the countryside is saved.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-15",
@@ -3561,7 +3931,8 @@
       "kind": "story",
       "words": 866,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy go on a magic adventure to Roman times. They meet a Roman boy named Marcus who is sad because his father is a slave. The children help Marcus buy his father's freedom by selling a golden cup. They return home safely after their adventure."
+      "synopsis": "Biff, Chip, Kipper, and Floppy go on a magic adventure to Roman times. They meet a Roman boy named Marcus who is sad because his father is a slave. The children help Marcus buy his father's freedom by selling a golden cup. They return home safely after their adventure.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-16",
@@ -3571,7 +3942,8 @@
       "kind": "story",
       "words": 928,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper look at a willow pattern plate with Mum. The plate shows a story about a rich mandarin, his daughter, and a poor clerk. The mandarin wants his daughter to marry a rich suitor, but she loves the poor clerk. The couple runs away and is chased by the mandarin. In the end, the couple turns into doves and flies away together."
+      "synopsis": "Biff, Chip, and Kipper look at a willow pattern plate with Mum. The plate shows a story about a rich mandarin, his daughter, and a poor clerk. The mandarin wants his daughter to marry a rich suitor, but she loves the poor clerk. The couple runs away and is chased by the mandarin. In the end, the couple turns into doves and flies away together.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-17",
@@ -3581,7 +3953,8 @@
       "kind": "story",
       "words": 897,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Dad make a joke machine for the school fun day. The machine has a box, a funnel, and a handle. When you turn the handle, a joke comes out on a piece of paper. The children take the machine to school and everyone enjoys the jokes. The joke machine is a big success."
+      "synopsis": "Biff, Chip, Kipper, and Dad make a joke machine for the school fun day. The machine has a box, a funnel, and a handle. When you turn the handle, a joke comes out on a piece of paper. The children take the machine to school and everyone enjoys the jokes. The joke machine is a big success.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-5b-18",
@@ -3591,7 +3964,8 @@
       "kind": "story",
       "words": 888,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy go to the beach with Dad. They find a magic key that takes them on an adventure. The magic takes them inside a submarine under the sea. They see fish and a shipwreck through the submarine's windows. The adventure ends when the magic key glows and takes them home."
+      "synopsis": "Biff, Chip, Kipper, and Floppy go to the beach with Dad. They find a magic key that takes them on an adventure. The magic takes them inside a submarine under the sea. They see fish and a shipwreck through the submarine's windows. The adventure ends when the magic key glows and takes them home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-1",
@@ -3601,7 +3975,8 @@
       "kind": "story",
       "words": 969,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The family is at home when the power goes out. Dad checks the fuse box but cannot fix the problem. Mum calls the electricity company and learns that the whole street is affected. The children find torches and candles to use in the dark. Later, the power comes back on and everyone is happy."
+      "synopsis": "The family is at home when the power goes out. Dad checks the fuse box but cannot fix the problem. Mum calls the electricity company and learns that the whole street is affected. The children find torches and candles to use in the dark. Later, the power comes back on and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-2",
@@ -3611,7 +3986,8 @@
       "kind": "story",
       "words": 889,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to Australia with their parents. They visit a beach and see a lifeguard. The children learn about beach safety. They also see a kangaroo and a joey. At the end, they enjoy a barbecue with their new friends."
+      "synopsis": "Biff, Chip, and Kipper go to Australia with their parents. They visit a beach and see a lifeguard. The children learn about beach safety. They also see a kangaroo and a joey. At the end, they enjoy a barbecue with their new friends.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-3",
@@ -3621,7 +3997,8 @@
       "kind": "story",
       "words": 898,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mysterious stone with a riddle on it. The riddle says, 'I have a face and two hands, but no arms or legs. What am I?' Kipper solves the riddle: it is a clock. The magic key glows and takes them to a strange land."
+      "synopsis": "Biff, Chip, and Kipper go to the beach with Mum and Dad. They find a mysterious stone with a riddle on it. The riddle says, 'I have a face and two hands, but no arms or legs. What am I?' Kipper solves the riddle: it is a clock. The magic key glows and takes them to a strange land.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-4",
@@ -3631,7 +4008,8 @@
       "kind": "story",
       "words": 921,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The children find a riddle stone that leads them to a mysterious land. They meet a boy named Hong and his family, who are trapped by a powerful magician. The magician has turned Hong's parents into stone. The children must solve a riddle to free them. In the end, they solve the riddle and the family is reunited."
+      "synopsis": "The children find a riddle stone that leads them to a mysterious land. They meet a boy named Hong and his family, who are trapped by a powerful magician. The magician has turned Hong's parents into stone. The children must solve a riddle to free them. In the end, they solve the riddle and the family is reunited.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-5",
@@ -3641,7 +4019,8 @@
       "kind": "story",
       "words": 934,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go on a boat trip with Dad. They see a small island and explore it. On the island, they find a mysterious old chest. Inside the chest, they discover a map and a key. The map leads them to a hidden cave where they find treasure."
+      "synopsis": "Biff, Chip, and Kipper go on a boat trip with Dad. They see a small island and explore it. On the island, they find a mysterious old chest. Inside the chest, they discover a map and a key. The map leads them to a hidden cave where they find treasure.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-6",
@@ -3651,7 +4030,8 @@
       "kind": "story",
       "words": 840,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Mum and Dad are in the kitchen making a big breakfast. Biff, Chip, and Kipper come to the table. Dad cooks eggs, bacon, and tomatoes. The family eats the breakfast together. Everyone enjoys the meal."
+      "synopsis": "Mum and Dad are in the kitchen making a big breakfast. Biff, Chip, and Kipper come to the table. Dad cooks eggs, bacon, and tomatoes. The family eats the breakfast together. Everyone enjoys the meal.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-7",
@@ -3661,7 +4041,8 @@
       "kind": "story",
       "words": 891,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In The Kidnappers, Biff, Chip, and Kipper are excited to go to a funfair. While they are there, they see two men acting suspiciously. The men kidnap a young girl, but Biff, Chip, and Kipper notice and follow them. The children alert the police, who rescue the girl and arrest the kidnappers. The story ends with the children being praised for their bravery."
+      "synopsis": "In The Kidnappers, Biff, Chip, and Kipper are excited to go to a funfair. While they are there, they see two men acting suspiciously. The men kidnap a young girl, but Biff, Chip, and Kipper notice and follow them. The children alert the police, who rescue the girl and arrest the kidnappers. The story ends with the children being praised for their bravery.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-8",
@@ -3671,7 +4052,8 @@
       "kind": "story",
       "words": 923,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go on a Viking adventure with their magic key. They meet a Viking boy named Erik who is worried about his father. Erik's father has not returned from a voyage, so the children help him look for his father. They find Erik's father stranded on an island. The children help him get back home safely."
+      "synopsis": "Biff, Chip, and Kipper go on a Viking adventure with their magic key. They meet a Viking boy named Erik who is worried about his father. Erik's father has not returned from a voyage, so the children help him look for his father. They find Erik's father stranded on an island. The children help him get back home safely.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-9",
@@ -3681,7 +4063,8 @@
       "kind": "story",
       "words": 989,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The children see a rainbow and wonder where it comes from. The magic key takes them to a place where rainbows are made. They meet a man who works the rainbow machine. The machine makes a rainbow, but then it goes wrong and makes a big mess. In the end, the rainbow is fixed and the children go home."
+      "synopsis": "The children see a rainbow and wonder where it comes from. The magic key takes them to a place where rainbows are made. They meet a man who works the rainbow machine. The machine makes a rainbow, but then it goes wrong and makes a big mess. In the end, the rainbow is fixed and the children go home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-10",
@@ -3691,7 +4074,8 @@
       "kind": "story",
       "words": 1030,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper find a magic carpet in the magic house. The carpet takes them to a desert land. They meet a boy named Ali who is in trouble. The children help Ali escape from a wicked magician. In the end, they return home safely."
+      "synopsis": "Biff, Chip, and Kipper find a magic carpet in the magic house. The carpet takes them to a desert land. They meet a boy named Ali who is in trouble. The children help Ali escape from a wicked magician. In the end, they return home safely.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-11",
@@ -3701,7 +4085,8 @@
       "kind": "story",
       "words": 891,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The family goes to London for a day. They take a train to the city. They see Big Ben, the Houses of Parliament, and the River Thames. They also visit Buckingham Palace and see the Changing of the Guard. At the end of the day, they take the train home."
+      "synopsis": "The family goes to London for a day. They take a train to the city. They see Big Ben, the Houses of Parliament, and the River Thames. They also visit Buckingham Palace and see the Changing of the Guard. At the end of the day, they take the train home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-12",
@@ -3711,7 +4096,8 @@
       "kind": "story",
       "words": 909,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go on a Victorian adventure with the magic key. They arrive in a Victorian street and see a poor girl named Eliza selling matches. The children meet a kind lady who buys all of Eliza's matches. The lady gives Eliza money and food, and Eliza is very happy. The magic key takes the children home after their adventure."
+      "synopsis": "Biff, Chip, and Kipper go on a Victorian adventure with the magic key. They arrive in a Victorian street and see a poor girl named Eliza selling matches. The children meet a kind lady who buys all of Eliza's matches. The lady gives Eliza money and food, and Eliza is very happy. The magic key takes the children home after their adventure.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-13",
@@ -3721,7 +4107,8 @@
       "kind": "story",
       "words": 1266,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In 'Pocket Money', Biff, Chip, and Kipper want to earn some money. They decide to do chores for their family and neighbours. They wash a car, walk a dog, and help in the garden. They work hard and get paid for their jobs. In the end, they are happy with the money they have earned."
+      "synopsis": "In 'Pocket Money', Biff, Chip, and Kipper want to earn some money. They decide to do chores for their family and neighbours. They wash a car, walk a dog, and help in the garden. They work hard and get paid for their jobs. In the end, they are happy with the money they have earned.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-14",
@@ -3731,7 +4118,8 @@
       "kind": "story",
       "words": 1281,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper find a magic key that takes them to a desert island. There, they meet a boy named Ali who is trapped by an evil genie. The evil genie forces Ali to work for him and will not let him leave. Biff and Chip use the magic key to help Ali escape from the genie. In the end, they return home safely and the genie is left behind."
+      "synopsis": "Biff, Chip, and Kipper find a magic key that takes them to a desert island. There, they meet a boy named Ali who is trapped by an evil genie. The evil genie forces Ali to work for him and will not let him leave. Biff and Chip use the magic key to help Ali escape from the genie. In the end, they return home safely and the genie is left behind.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6a-15",
@@ -3741,7 +4129,8 @@
       "kind": "story",
       "words": 1245,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "In 'Save Floppy!', Biff, Chip, and Kipper find a magic key that takes them to a new adventure. They arrive on a beach where they see a dog named Floppy trapped in a cave. The children work together to rescue Floppy from the rising tide. After saving him, they return home safely with the magic key."
+      "synopsis": "In 'Save Floppy!', Biff, Chip, and Kipper find a magic key that takes them to a new adventure. They arrive on a beach where they see a dog named Floppy trapped in a cave. The children work together to rescue Floppy from the rising tide. After saving him, they return home safely with the magic key.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-1",
@@ -3751,7 +4140,8 @@
       "kind": "story",
       "words": 1232,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The children find an old box in the attic. Inside, they discover items from the past, such as a wooden toy and an old coin. They imagine what life was like for children long ago. They compare the old items with things they use today. In the end, they learn that life was different but also similar in some ways."
+      "synopsis": "The children find an old box in the attic. Inside, they discover items from the past, such as a wooden toy and an old coin. They imagine what life was like for children long ago. They compare the old items with things they use today. In the end, they learn that life was different but also similar in some ways.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-2",
@@ -3761,7 +4151,8 @@
       "kind": "story",
       "words": 1143,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "It rains very hard, and the stream near Biff and Chip's house rises. The water floods the road and comes into the house. The family moves things upstairs to keep them safe. Then the water goes down, and they clean the house. In the end, they are safe and happy."
+      "synopsis": "It rains very hard, and the stream near Biff and Chip's house rises. The water floods the road and comes into the house. The family moves things upstairs to keep them safe. Then the water goes down, and they clean the house. In the end, they are safe and happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-3",
@@ -3771,7 +4162,8 @@
       "kind": "story",
       "words": 1124,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to a museum with their parents. In the museum, they see ancient Egyptian exhibits. The magic key begins to glow and takes them back in time to ancient Egypt. They meet a boy named Tariq who needs help. They help him and then return home."
+      "synopsis": "Biff, Chip, and Kipper go to a museum with their parents. In the museum, they see ancient Egyptian exhibits. The magic key begins to glow and takes them back in time to ancient Egypt. They meet a boy named Tariq who needs help. They help him and then return home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-4",
@@ -3781,7 +4173,8 @@
       "kind": "story",
       "words": 1547,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go to Green Island with Gran. They take a boat to the island. On the island, they find a small hut. Inside the hut, they see a parrot. The parrot says 'Hello' and makes them laugh."
+      "synopsis": "Biff, Chip, and Kipper go to Green Island with Gran. They take a boat to the island. On the island, they find a small hut. Inside the hut, they see a parrot. The parrot says 'Hello' and makes them laugh.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-5",
@@ -3791,7 +4184,8 @@
       "kind": "story",
       "words": 1367,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are at home when a storm begins. The magic key starts to glow, and the children are taken to a castle. Inside the castle, they meet a friendly dragon. The dragon helps them find a way back home. The magic key takes them home after their adventure."
+      "synopsis": "Biff, Chip, and Kipper are at home when a storm begins. The magic key starts to glow, and the children are taken to a castle. Inside the castle, they meet a friendly dragon. The dragon helps them find a way back home. The magic key takes them home after their adventure.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-6",
@@ -3801,7 +4195,8 @@
       "kind": "story",
       "words": 1501,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Floppy is a dog who dreams of being a superhero called Superdog. In his dream, he wears a cape and flies to help others. He rescues a cat stuck in a tree and helps a lost little dog find its way home. Floppy also stops a robber and returns a stolen bag to its owner. He wakes up feeling happy and proud."
+      "synopsis": "Floppy is a dog who dreams of being a superhero called Superdog. In his dream, he wears a cape and flies to help others. He rescues a cat stuck in a tree and helps a lost little dog find its way home. Floppy also stops a robber and returns a stolen bag to its owner. He wakes up feeling happy and proud.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-7",
@@ -3811,7 +4206,8 @@
       "kind": "story",
       "words": 1444,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The Litter Queen is a story about the magic key adventure. The children meet a queen who hates litter. She asks them to help clean up the land. They work together to pick up the rubbish. In the end, the land is clean and everyone is happy."
+      "synopsis": "The Litter Queen is a story about the magic key adventure. The children meet a queen who hates litter. She asks them to help clean up the land. They work together to pick up the rubbish. In the end, the land is clean and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-8",
@@ -3821,7 +4217,8 @@
       "kind": "story",
       "words": 1522,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper go into the magic house and find themselves in a strange land. They meet a man who gives them a quest to find a special key. They must solve puzzles and face dangers to get the key. In the end, they find the key and return home. The adventure helps them learn about teamwork and bravery."
+      "synopsis": "Biff, Chip, and Kipper go into the magic house and find themselves in a strange land. They meet a man who gives them a quest to find a special key. They must solve puzzles and face dangers to get the key. In the end, they find the key and return home. The adventure helps them learn about teamwork and bravery.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-9",
@@ -3831,7 +4228,8 @@
       "kind": "story",
       "words": 1451,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Anneena are in the magic house when the magic key begins to glow. The magic takes them to a snowy mountain where they meet a man who teaches them survival skills. They learn how to build a snow cave and how to stay warm. Later, a rescue team arrives and takes them to safety. The children return home and tell their parents about their adventure."
+      "synopsis": "Biff, Chip, and Anneena are in the magic house when the magic key begins to glow. The magic takes them to a snowy mountain where they meet a man who teaches them survival skills. They learn how to build a snow cave and how to stay warm. Later, a rescue team arrives and takes them to safety. The children return home and tell their parents about their adventure.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-10",
@@ -3841,7 +4239,8 @@
       "kind": "story",
       "words": 1204,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper find a magic key that takes them to a desert. They meet a boy named Ali who has lost his blue eye. The children help Ali search for his blue eye. They find it in a cave guarded by a dragon. They escape with the blue eye and return home."
+      "synopsis": "Biff, Chip, and Kipper find a magic key that takes them to a desert. They meet a boy named Ali who has lost his blue eye. The children help Ali search for his blue eye. They find it in a cave guarded by a dragon. They escape with the blue eye and return home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-11",
@@ -3851,7 +4250,8 @@
       "kind": "story",
       "words": 1300,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, and Kipper are playing in the garden when they see a little bird that cannot fly. Floppy finds the bird and wants to play with it, but the children stop him. They put the bird in a box and take it to the vet. The vet checks the bird and says it is not hurt. The children take the bird back home and let it go. The bird flies away, and everyone is happy."
+      "synopsis": "Biff, Chip, and Kipper are playing in the garden when they see a little bird that cannot fly. Floppy finds the bird and wants to play with it, but the children stop him. They put the bird in a box and take it to the vet. The vet checks the bird and says it is not hurt. The children take the bird back home and let it go. The bird flies away, and everyone is happy.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-12",
@@ -3861,7 +4261,8 @@
       "kind": "story",
       "words": 1371,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Biff, Chip, Kipper, and Floppy go to the Netherlands with Mum and Dad. They visit a cheese market and see big yellow cheese wheels. Kipper buys a small wooden clog as a souvenir. Floppy chases a cat and gets lost. In the end, Floppy is found safe near a windmill."
+      "synopsis": "Biff, Chip, Kipper, and Floppy go to the Netherlands with Mum and Dad. They visit a cheese market and see big yellow cheese wheels. Kipper buys a small wooden clog as a souvenir. Floppy chases a cat and gets lost. In the end, Floppy is found safe near a windmill.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-13",
@@ -3871,7 +4272,8 @@
       "kind": "story",
       "words": 1257,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "The magic key takes Biff, Chip, and Kipper to a castle in the past. They meet a lord who is preparing a feast. The lord wants a special dish called 'the finest in the land' for his banquet. The children help the cook make the dish. In the end, the lord is happy and the children return home."
+      "synopsis": "The magic key takes Biff, Chip, and Kipper to a castle in the past. They meet a lord who is preparing a feast. The lord wants a special dish called 'the finest in the land' for his banquet. The children help the cook make the dish. In the end, the lord is happy and the children return home.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-14",
@@ -3881,7 +4283,8 @@
       "kind": "story",
       "words": 1292,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Mrs May shows the children a picture of an old flying machine. She tells them that a man called Mr Johnson built it long ago. The children think the machine looks like a big box with wings. They imagine flying in it and having an adventure. In the end, they learn that the flying machine never actually flew."
+      "synopsis": "Mrs May shows the children a picture of an old flying machine. She tells them that a man called Mr Johnson built it long ago. The children think the machine looks like a big box with wings. They imagine flying in it and having an adventure. In the end, they learn that the flying machine never actually flew.",
+      "category": "early_chapter"
     },
     {
       "id": "good-english-6b-15",
@@ -3891,7 +4294,8 @@
       "kind": "story",
       "words": 1276,
       "source": "Oxford Reading Tree story; AI-assisted editorial draft, structure validated",
-      "synopsis": "Kipper finds a magic key that takes him and his friends on an adventure. They meet a wizard who has lost his key. Kipper helps the wizard find his key. The wizard is happy and sends them home. The magic key then stops glowing."
+      "synopsis": "Kipper finds a magic key that takes him and his friends on an adventure. They meet a wizard who has lost his key. Kipper helps the wizard find his key. The wizard is happy and sends them home. The magic key then stops glowing.",
+      "category": "early_chapter"
     },
     {
       "id": "yasmin-1",
@@ -3900,7 +4304,8 @@
       "level": "主系列第1本 · AR Quiz 196603",
       "kind": "book",
       "words": 508,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196603"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196603",
+      "category": "bridge"
     },
     {
       "id": "yasmin-2",
@@ -3909,7 +4314,8 @@
       "level": "主系列第2本 · AR Quiz 196606",
       "kind": "book",
       "words": 538,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196606"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196606",
+      "category": "bridge"
     },
     {
       "id": "yasmin-3",
@@ -3918,7 +4324,8 @@
       "level": "主系列第3本 · AR Quiz 196604",
       "kind": "book",
       "words": 569,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196604"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196604",
+      "category": "bridge"
     },
     {
       "id": "yasmin-4",
@@ -3927,7 +4334,8 @@
       "level": "主系列第4本 · AR Quiz 196605",
       "kind": "book",
       "words": 534,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196605"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=196605",
+      "category": "bridge"
     },
     {
       "id": "yasmin-5",
@@ -3936,7 +4344,8 @@
       "level": "主系列第5本 · AR Quiz 199543",
       "kind": "book",
       "words": 531,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199543"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199543",
+      "category": "bridge"
     },
     {
       "id": "yasmin-6",
@@ -3945,7 +4354,8 @@
       "level": "主系列第6本 · AR Quiz 199544",
       "kind": "book",
       "words": 522,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199544"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199544",
+      "category": "bridge"
     },
     {
       "id": "yasmin-7",
@@ -3954,7 +4364,8 @@
       "level": "主系列第7本 · AR Quiz 199545",
       "kind": "book",
       "words": 499,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199545"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199545",
+      "category": "bridge"
     },
     {
       "id": "yasmin-8",
@@ -3963,7 +4374,8 @@
       "level": "主系列第8本 · AR Quiz 199546",
       "kind": "book",
       "words": 508,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199546"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=199546",
+      "category": "bridge"
     },
     {
       "id": "yasmin-9",
@@ -3972,7 +4384,8 @@
       "level": "主系列第9本 · AR Quiz 505839",
       "kind": "book",
       "words": 534,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505839"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505839",
+      "category": "bridge"
     },
     {
       "id": "yasmin-10",
@@ -3981,7 +4394,8 @@
       "level": "主系列第10本 · AR Quiz 505840",
       "kind": "book",
       "words": 547,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505840"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505840",
+      "category": "bridge"
     },
     {
       "id": "yasmin-11",
@@ -3990,7 +4404,8 @@
       "level": "主系列第11本 · AR Quiz 505841",
       "kind": "book",
       "words": 549,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505841"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505841",
+      "category": "bridge"
     },
     {
       "id": "yasmin-12",
@@ -3999,7 +4414,8 @@
       "level": "主系列第12本 · AR Quiz 505838",
       "kind": "book",
       "words": 540,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505838"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=505838",
+      "category": "bridge"
     },
     {
       "id": "yasmin-13",
@@ -4008,7 +4424,8 @@
       "level": "主系列第13本 · AR Quiz 510957",
       "kind": "book",
       "words": 549,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510957"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510957",
+      "category": "bridge"
     },
     {
       "id": "yasmin-14",
@@ -4017,7 +4434,8 @@
       "level": "主系列第14本 · AR Quiz 510958",
       "kind": "book",
       "words": 552,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510958"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510958",
+      "category": "bridge"
     },
     {
       "id": "yasmin-15",
@@ -4026,7 +4444,8 @@
       "level": "主系列第15本 · AR Quiz 510959",
       "kind": "book",
       "words": 558,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510959"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510959",
+      "category": "bridge"
     },
     {
       "id": "yasmin-16",
@@ -4035,7 +4454,8 @@
       "level": "主系列第16本 · AR Quiz 510960",
       "kind": "book",
       "words": 533,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510960"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=510960",
+      "category": "bridge"
     },
     {
       "id": "yasmin-17",
@@ -4044,7 +4464,8 @@
       "level": "主系列第17本 · AR Quiz 516338",
       "kind": "book",
       "words": 713,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516338"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516338",
+      "category": "bridge"
     },
     {
       "id": "yasmin-18",
@@ -4053,7 +4474,8 @@
       "level": "主系列第18本 · AR Quiz 516339",
       "kind": "book",
       "words": 630,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516339"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516339",
+      "category": "bridge"
     },
     {
       "id": "yasmin-19",
@@ -4062,7 +4484,8 @@
       "level": "主系列第19本 · AR Quiz 516340",
       "kind": "book",
       "words": 661,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516340"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516340",
+      "category": "bridge"
     },
     {
       "id": "yasmin-20",
@@ -4071,7 +4494,8 @@
       "level": "主系列第20本 · AR Quiz 516341",
       "kind": "book",
       "words": 658,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516341"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=516341",
+      "category": "bridge"
     },
     {
       "id": "yasmin-21",
@@ -4080,7 +4504,8 @@
       "level": "主系列第21本 · AR Quiz 522555",
       "kind": "book",
       "words": 738,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522555"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522555",
+      "category": "bridge"
     },
     {
       "id": "yasmin-22",
@@ -4089,7 +4514,8 @@
       "level": "主系列第22本 · AR Quiz 522556",
       "kind": "book",
       "words": 738,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522556"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522556",
+      "category": "bridge"
     },
     {
       "id": "yasmin-23",
@@ -4098,7 +4524,8 @@
       "level": "主系列第23本 · AR Quiz 522557",
       "kind": "book",
       "words": 722,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522557"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522557",
+      "category": "bridge"
     },
     {
       "id": "yasmin-24",
@@ -4107,7 +4534,8 @@
       "level": "主系列第24本 · AR Quiz 522558",
       "kind": "book",
       "words": 747,
-      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522558"
+      "source": "https://www.arbookfind.com/bookdetailprint.aspx?l=EN&q=522558",
+      "category": "bridge"
     },
     {
       "id": "the-big-bad-fox",

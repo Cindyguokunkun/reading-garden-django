@@ -265,6 +265,11 @@ def student_account_action(request, student_id):
     elif action == 'restore':
         student.active = True
         messages.success(request, f'{student.name} 已恢复。')
+    elif action == 'delete':
+        name = student.name
+        student.delete()
+        messages.success(request, f'{name} 已永久删除，相关阅读、测验和书架数据已一并清除。')
+        return redirect('student_accounts')
     student.save()
     return redirect('student_accounts')
 

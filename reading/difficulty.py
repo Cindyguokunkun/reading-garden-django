@@ -27,10 +27,8 @@ def difficulty_category(*, series='', atos=None, current=''):
     match = re.search(r'(?:典范英语|Good English)\s*(\d+)', normalized, re.I)
     if match:
         level = int(match.group(1))
-        if level <= 2:
+        if level <= 6:
             return 'graded'
-        if level <= 4:
-            return 'bridge'
         if level <= 8:
             return 'early_chapter'
         return 'middle_chapter'

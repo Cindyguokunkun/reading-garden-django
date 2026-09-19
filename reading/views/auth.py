@@ -311,6 +311,29 @@ def staff_password(request):
     return render(request, 'reading/staff_password.html', {'error': error})
 
 
+@persona_required(STUDENT)
+def student_password(request):
+    """Let a signed-in student change only their own login password."""
+    student = get_persona(request).student
+    error = None
+    if request.method == 'POST':
+        current = request.POST.get('current_password') or ''
+        new = request.POST.get('new_password') or ''
+        confirm = request.POST.get('confirm_password') or ''
+        if not student.check_password(current):
+            error = _('Current password is incorrect')
+        elif len(new) < 6:
+            error = _('New password must be at least 6 characters')
+        elif new != confirm:
+            error = _('The two new passwords do not match')
+        else:
+            student.set_password(new)
+            student.save(update_fields=['password_hash'])
+            messages.success(request, _('Password changed.'))
+            return redirect('student_home')
+    return render(request, 'reading/student_password.html', {'error': error})
+
+
 @persona_required(PARENT)
 @require_POST
 def parent_password(request):

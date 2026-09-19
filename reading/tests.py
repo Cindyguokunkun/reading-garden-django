@@ -412,7 +412,8 @@ class DifficultyClassificationTests(TestCase):
         from decimal import Decimal
         from .difficulty import difficulty_category
         self.assertEqual(difficulty_category(atos=Decimal('2.4')), 'bridge')
-        self.assertEqual(difficulty_category(series='典范英语 5级'), 'early_chapter')
+        self.assertEqual(difficulty_category(series='典范英语 5级'), 'graded')
+        self.assertEqual(difficulty_category(series='典范英语 6级'), 'graded')
         self.assertEqual(difficulty_category(series='典范英语 7级'), 'early_chapter')
         self.assertEqual(difficulty_category(series='典范英语 8'), 'early_chapter')
 
@@ -445,6 +446,37 @@ class ParentPasswordTests(TestCase):
         self.client.post(reverse('logout'))
         response = self.client.post(reverse('parent_login'), {'account': '王小明', 'password': 'newpw123'})
         self.assertRedirects(response, reverse('parent_home'), fetch_redirect_response=False)
+
+class StudentPasswordTests(TestCase):
+    def setUp(self):
+        self.teacher = User.objects.create_user('student-pw-teacher', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C2', grade=3, section=2)
+        self.student = Student.objects.create(classroom=self.room, name='Amy', login_id='Amy Pi')
+        self.student.set_password('000000')
+        self.student.set_parent_password('parentpw')
+        self.student.save()
+        session = self.client.session
+        session['persona_kind'] = 'student'
+        session['persona_student_id'] = self.student.pk
+        session.save()
+
+    def test_student_changes_own_password_without_changing_parent_password(self):
+        response = self.client.post(reverse('student_password'), {
+            'current_password': '000000', 'new_password': 'reader7', 'confirm_password': 'reader7'})
+        self.assertRedirects(response, reverse('student_home'), fetch_redirect_response=False)
+        self.student.refresh_from_db()
+        self.assertTrue(self.student.check_password('reader7'))
+        self.assertTrue(self.student.check_parent_password('parentpw'))
+
+    def test_wrong_current_password_is_rejected(self):
+        response = self.client.post(reverse('student_password'), {
+            'current_password': 'wrong', 'new_password': 'reader7', 'confirm_password': 'reader7'})
+        self.assertContains(response, 'Current password is incorrect')
+        self.student.refresh_from_db()
+        self.assertTrue(self.student.check_password('000000'))
+
+    def test_student_navigation_has_password_link(self):
+        self.assertContains(self.client.get(reverse('student_home')), reverse('student_password'))
 
 class GoalAndLibraryTests(TestCase):
     def setUp(self):

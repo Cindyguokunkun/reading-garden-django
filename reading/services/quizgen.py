@@ -36,8 +36,17 @@ SYSTEM_PROMPT = (
     '1. Every question must be answerable from the material alone. Even if you know this book, never use a name, event or fact '
     'that is not in the material: the material may be an adaptation that differs from the original.\n'
     '2. Exactly 4 options, all different, all plausible, exactly one correct. Never offer "all of the above" or "none of the above".\n'
-    '3. Write prompts and options in simpler English than the book: short sentences under 25 words, common vocabulary.\n'
-    '4. Ask mostly literal comprehension questions and at most one inference question. No trick questions.')
+    '3. Match the language and thinking demand to the book level shown by its ATOS, category, series or level. '
+    'Keep directions clear, but do not flatten an upper-level book into beginner English. Reuse important vocabulary '
+    'from the material when context makes it understandable. Keep each prompt under 25 words.\n'
+    '4. For 10 questions, use this mix: 5 literal detail questions, 2 sequence or cause-and-effect questions, '
+    '1 vocabulary-in-context question, 1 character-motivation question, and at most 1 inference or theme question. '
+    'For other totals, keep roughly the same proportions.\n'
+    '5. Cover the beginning, middle and ending. Do not test the same event twice.\n'
+    '6. Distractors must be plausible in the story, parallel in grammar and meaning, and no longer than the correct answer. '
+    'Do not reveal the answer through wording copied only into the correct option.\n'
+    '7. Vary the correct option position across the set. Difficulty must come from understanding the text, not obscure '
+    'wording or trick questions.')
 
 
 class QuizGenError(Exception):
@@ -80,7 +89,7 @@ def read_material(uploaded=None, pasted=''):
     return text.strip()[:settings.QUIZGEN_MATERIAL_CHARS]
 
 
-def build_messages(*, title, series='', atos=None, category_label='', words=None, material='', n=10):
+def build_messages(*, title, series='', level='', atos=None, category_label='', words=None, material='', n=10):
     """组装发送给 AI 服务的对话消息（system + user）。
 
     将书籍标题、系列、难度等元信息拼为可读的抬头，并把素材作为唯一
@@ -100,11 +109,12 @@ def build_messages(*, title, series='', atos=None, category_label='', words=None
         ``{'role': 'user', ...}``，可直接放入请求体的 ``messages``。
     """
     # category_label comes from CATEGORY_CHOICES, so it is a lazy translation proxy: join() needs a real str.
-    level = ' / '.join(part for part in [
+    difficulty_summary = ' / '.join(part for part in [
         f'ATOS {atos}' if atos is not None else '', str(category_label or ''), f'{words} words' if words else ''] if part)
     lines = [f'Title: {title}']
     if series: lines.append(f'Series: {series}')
-    if level: lines.append(f'Level: {level}')
+    if level: lines.append(f'Book level: {level}')
+    if difficulty_summary: lines.append(f'Level: {difficulty_summary}')
     lines.append('Material, the only source of truth:')
     lines.append('"""\n' + material + '\n"""')
     lines.append(f'Write {n} questions about this material. If the material cannot support {n} questions, return fewer rather than inventing content.')
@@ -243,7 +253,7 @@ def _status_message(status):
     return _('The AI service could not answer this request.')
 
 
-def generate_questions(*, title, series='', atos=None, category_label='', words=None, material='', n=None):
+def generate_questions(*, title, series='', level='', atos=None, category_label='', words=None, material='', n=None):
     """调用 AI 服务为书籍生成阅读理解题草稿。
 
     组装提示词、按配置发起 Chat Completions 请求，解析并校验返回内容。
@@ -273,7 +283,7 @@ def generate_questions(*, title, series='', atos=None, category_label='', words=
         raise QuizGenError(_('Paste the book text or its synopsis first: AI questions need source material.'))
     count = n or settings.QUIZGEN_QUESTIONS
     payload = {'model': settings.QUIZGEN_MODEL, 'temperature': 0.2, 'max_tokens': 3000,
-        'messages': build_messages(title=title, series=series, atos=atos, category_label=category_label, words=words, material=material, n=count)}
+        'messages': build_messages(title=title, series=series, level=level, atos=atos, category_label=category_label, words=words, material=material, n=count)}
     if settings.QUIZGEN_JSON_MODE: payload['response_format'] = {'type': 'json_object'}
     opener = http.build_opener(settings.QUIZGEN_PROXY, cookies=False)
     url = settings.QUIZGEN_BASE_URL.rstrip('/') + '/chat/completions'

@@ -668,6 +668,18 @@ def golden(count=1, **overrides):
     return [dict(item) for _ in range(count)]
 
 class QuizGenParseTests(TestCase):
+    def test_authoring_prompt_requires_balanced_text_based_questions(self):
+        self.assertIn('5 literal detail questions', quizgen.SYSTEM_PROMPT)
+        self.assertIn('beginning, middle and ending', quizgen.SYSTEM_PROMPT)
+        self.assertIn('Distractors must be plausible', quizgen.SYSTEM_PROMPT)
+        self.assertIn('Match the language and thinking demand to the book level', quizgen.SYSTEM_PROMPT)
+        self.assertIn('do not flatten an upper-level book into beginner English', quizgen.SYSTEM_PROMPT)
+        self.assertIn('never use a name, event or fact that is not in the material', quizgen.SYSTEM_PROMPT)
+
+    def test_book_level_is_included_in_generation_context(self):
+        messages = quizgen.build_messages(title='Story', level='6B · L12', material='Story text')
+        self.assertIn('Book level: 6B · L12', messages[1]['content'])
+
     def test_bare_array(self):
         self.assertEqual(quizgen.extract_json('[{"prompt": "A?", "options": ["a", "b"], "answer": 0}]'), [{'prompt': 'A?', 'options': ['a', 'b'], 'answer': 0}])
 

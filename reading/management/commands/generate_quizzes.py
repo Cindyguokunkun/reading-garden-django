@@ -154,7 +154,7 @@ class Command(BaseCommand):
                 continue
             try:
                 questions = quizgen.generate_questions(
-                    title=book.title, series=book.series, atos=book.atos, words=book.words,
+                    title=book.title, series=book.series, level=book.level, atos=book.atos, words=book.words,
                     category_label=dict(CATEGORY_CHOICES).get(book.category, ''), material=material)
             except quizgen.QuizGenError as error:
                 failed += 1

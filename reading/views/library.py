@@ -497,7 +497,7 @@ def _generate(request, book):
     material = quizgen.read_material(request.FILES.get('material_file'), request.POST.get('material')) or book.synopsis
     request.session[IN_FLIGHT_KEY] = time.monotonic()
     try:
-        questions = quizgen.generate_questions(title=book.title, series=book.series, atos=book.atos, words=book.words,
+        questions = quizgen.generate_questions(title=book.title, series=book.series, level=book.level, atos=book.atos, words=book.words,
             category_label=dict(CATEGORY_CHOICES).get(book.category, ''), material=material)
     finally:
         request.session.pop(IN_FLIGHT_KEY, None)

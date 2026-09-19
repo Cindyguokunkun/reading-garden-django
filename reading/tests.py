@@ -255,6 +255,14 @@ class ImportTests(TestCase):
         ])
         self.assertEqual(sorted(Student.objects.values_list('name', flat=True)), ['张三', '张三2'])
 
+    def test_archived_student_name_is_reusable_without_suffix(self):
+        room = Classroom.objects.create(owner=self.teacher, name='Old', grade=3)
+        Student.objects.create(classroom=room, name='张三', login_id='S9001', active=False)
+        self.client.login(username='boss', password='pw')
+        self.upload([['S0001', 3, 'Y3C3', 'imp_t', '张三', '', 'read1234']])
+        names = sorted(Student.objects.filter(active=True).values_list('name', flat=True))
+        self.assertEqual(names, ['张三'])
+
     def test_duplicate_login_id_in_file_rolls_back(self):
         self.client.login(username='boss', password='pw')
         response = self.upload([
@@ -309,6 +317,18 @@ class TeacherImportTests(TestCase):
         self.upload([['王小明'], ['王小明']])
         self.assertTrue(User.objects.filter(username='王小明').exists())
         self.assertTrue(User.objects.filter(username='王小明2').exists())
+
+    def test_deactivated_teacher_yields_username_without_suffix(self):
+        old = User.objects.create_user('王小明', password='pw', is_active=False)
+        self.client.login(username='boss', password='pw')
+        self.upload([['王小明']])
+        new = User.objects.get(username='王小明')
+        self.assertTrue(new.is_active)
+        self.assertNotEqual(new.pk, old.pk)
+        old.refresh_from_db()
+        self.assertFalse(old.is_active)
+        self.assertTrue(old.username.startswith('王小明_off'))
+        self.assertFalse(User.objects.filter(username='王小明2').exists())
 
     def test_created_teacher_can_login_and_change_password(self):
         self.client.login(username='boss', password='pw')

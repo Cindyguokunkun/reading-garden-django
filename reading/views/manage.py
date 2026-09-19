@@ -62,7 +62,9 @@ def _unique_username(base, taken):
     """为教师用户名生成全局唯一的取值，重名时追加数字后缀。
 
     用户名默认等于教师姓名；为使批量导入不因重名失败，若 ``王小明``
-    已被占用，则依次尝试 ``王小明2``、``王小明3``……直到空闲。
+    已被**在职**账号占用，则依次尝试 ``王小明2``、``王小明3``……直到
+    空闲。已停用的账号不占用用户名：导入时会自动让其改名让位（见
+    :func:`_free_username`），新教师可直接复用原名而不加后缀。
 
     Args:
         base (str): 期望使用的用户名（通常等于教师姓名）。
@@ -73,18 +75,47 @@ def _unique_username(base, taken):
         str: 全局唯一、可安全用于创建账号的用户名。
     """
     name = base; suffix = 2
-    while name.lower() in taken or User.objects.filter(username__iexact=name).exists():
+    while name.lower() in taken or User.objects.filter(username__iexact=name, is_active=True).exists():
         name = f'{base}{suffix}'; suffix += 1
     taken.add(name.lower())
     return name
+
+
+def _free_username(username, taken):
+    """让占用 ``username`` 的停用账号改名让位，返回被改名的账号列表。
+
+    用户名在数据库层唯一，停用账号若继续占用原名，新账号便无法复用。
+    这里把每个停用的占用者改名为 ``<原名>_off<主键>``（冲突时再追加
+    序号），从而把 ``username`` 释放给本次导入的新账号；改名由调用方
+    在导入事务内执行，导入回滚时一并撤销。
+
+    Args:
+        username (str): 需要释放的用户名。
+        taken (set): 本次导入已占用用户名（小写）的集合，会被就地更新，
+            避免让位后的新名字又被同批新账号抢用。
+
+    Returns:
+        list[User]: 被改名让位的停用账号列表（已保存新用户名）。
+    """
+    renamed = []
+    for old in User.objects.filter(username__iexact=username, is_active=False):
+        new = f'{old.username}_off{old.pk}'; suffix = 2
+        while new.lower() in taken or User.objects.filter(username__iexact=new).exists():
+            new = f'{old.username}_off{old.pk}_{suffix}'; suffix += 1
+        old.username = new
+        old.save(update_fields=['username'])
+        taken.add(new.lower())
+        renamed.append(old)
+    return renamed
 
 
 def _unique_student_name(base, exclude_pk=None, taken=None):
     """为学生姓名生成全局唯一的取值，重名时追加数字后缀。
 
     为使姓名也能安全地用作登录名（学生与家长均可用姓名登录），导入时
-    保证姓名在全体学生中唯一：若 ``张三`` 已被占用，则依次尝试
-    ``张三2``、``张三3``……直到空闲。
+    保证姓名在全体**在读（未停用）**学生中唯一：若 ``张三`` 已被占用，
+    则依次尝试 ``张三2``、``张三3``……直到空闲。已停用（归档）的学生
+    不再占用姓名，新学生可直接复用其原名而不加后缀。
 
     Args:
         base (str): 期望使用的原始姓名。
@@ -97,7 +128,9 @@ def _unique_student_name(base, exclude_pk=None, taken=None):
         str: 全局唯一、可用于登录的姓名。
     """
     if taken is None: taken = set()
-    others = Student.objects.all() if exclude_pk is None else Student.objects.exclude(pk=exclude_pk)
+    others = Student.objects.filter(active=True)
+    if exclude_pk is not None:
+        others = others.exclude(pk=exclude_pk)
     name = base; suffix = 2
     while name.lower() in taken or others.filter(name__iexact=name).exists():
         name = f'{base}{suffix}'; suffix += 1
@@ -113,9 +146,11 @@ def manage_teachers(request):
 
     - GET 且 ``template=1`` 时，返回带示例行的教师导入模板下载。
     - POST 时读取上传的工作簿（从第 2 行起为数据），每行只取第一列
-      「教师姓名」。用户名等于姓名，重名时自动追加数字后缀（如
-      ``王小明2``）；初始密码统一为 :data:`TEACHER_DEFAULT_PASSWORD`，
-      教师登录后可在「修改密码」入口自行修改。
+      「教师姓名」。用户名等于姓名，被**在职**账号占用时自动追加数字
+      后缀（如 ``王小明2``）；已停用账号不占用用户名，导入时自动让其
+      改名让位，新教师可复用原名。初始密码统一为
+      :data:`TEACHER_DEFAULT_PASSWORD`，教师登录后可在「修改密码」入口
+      自行修改。
     - 仅当无任何错误且存在有效数据时，才在单个事务内创建账号：建为
       已审批、在职的教师，并只归属管理员所在学校；否则回显错误、不写库。
 
@@ -152,6 +187,10 @@ def manage_teachers(request):
             if not errors and prepared:
                 with transaction.atomic():
                     for p in prepared:
+                        for old in _free_username(p['username'], taken):
+                            AccountAudit.objects.create(
+                                actor=request.user, target=old, organization=organization,
+                                action='deactivated_username_yielded', detail=old.username)
                         user = User.objects.create_user(
                             username=p['username'], password=TEACHER_DEFAULT_PASSWORD,
                             first_name=p['name'])

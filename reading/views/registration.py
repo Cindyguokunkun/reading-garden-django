@@ -233,7 +233,7 @@ def student_account_action(request, student_id):
         messages.success(request, f'{student.name} 的新初始密码：{pin}（请现在记下）')
     elif action == 'edit':
         name = (request.POST.get('name') or '').strip()
-        duplicate = Student.objects.filter(classroom=student.classroom, name=name).exclude(pk=student.pk).exists()
+        duplicate = Student.objects.filter(classroom=student.classroom, active=True, name=name).exclude(pk=student.pk).exists()
         if duplicate:
             messages.error(request, '同一班级已经有这个姓名，请添加英文名或其他标识。')
         elif name:

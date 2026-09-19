@@ -2,15 +2,15 @@ import os
 from pathlib import Path
 from .envfile import load_env
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'local-reading-garden-change-me'
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', '*']
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'local-reading-garden-change-me')
+DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,0.0.0.0,*').split(',') if host.strip()]
 INSTALLED_APPS = ['django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles','reading']
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.middleware.locale.LocaleMiddleware','reading.middleware.StudentEnglishMiddleware','django.middleware.common.CommonMiddleware','django.middleware.csrf.CsrfViewMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware','django.middleware.clickjacking.XFrameOptionsMiddleware']
 ROOT_URLCONF = 'config.urls'
 TEMPLATES = [{'BACKEND':'django.template.backends.django.DjangoTemplates','DIRS':[BASE_DIR/'templates'],'APP_DIRS':True,'OPTIONS':{'context_processors':['django.template.context_processors.request','django.template.context_processors.i18n','django.contrib.auth.context_processors.auth','django.contrib.messages.context_processors.messages','reading.personas.persona_processor']}}]
 WSGI_APPLICATION = 'config.wsgi.application'
-DATABASES = {'default': {'ENGINE':'django.db.backends.sqlite3','NAME':BASE_DIR/'db.sqlite3'}}
+DATABASES = {'default': {'ENGINE':'django.db.backends.sqlite3','NAME':os.environ.get('SQLITE_PATH', BASE_DIR/'db.sqlite3')}}
 AUTH_PASSWORD_VALIDATORS = []
 LANGUAGE_CODE = 'zh-hans'
 LANGUAGES = [('zh-hans','简体中文'),('en','English')]
@@ -21,6 +21,7 @@ USE_TZ = True
 TERM_BOUNDARIES = {'fall': (9, 1), 'spring': (2, 1)}
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
+STATIC_ROOT = BASE_DIR/'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -43,3 +44,8 @@ QUIZGEN_MATERIAL_CHARS = int(os.environ.get('QUIZGEN_MATERIAL_CHARS', '8000'))
 QUIZGEN_JSON_MODE = os.environ.get('QUIZGEN_JSON_MODE', '1') == '1'
 QUIZGEN_ENABLED = bool(QUIZGEN_BASE_URL and QUIZGEN_API_KEY and QUIZGEN_MODEL)
 ATOS_BANDS = [(1.5, 'graded'), (2.5, 'bridge'), (3.5, 'early_chapter'), (5.0, 'middle_chapter')]
+
+if os.environ.get('VERCEL'):
+    DEBUG = False
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    CSRF_TRUSTED_ORIGINS = ['https://*.vercel.app']

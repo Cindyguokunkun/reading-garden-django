@@ -12,6 +12,7 @@ from datetime import date
 from io import BytesIO
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.db.models import Count, Q, Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -55,7 +56,7 @@ def dashboard(request):
             'student_count': Student.objects.filter(classroom__organization=organization, active=True).count(),
             'teacher_count': Membership.objects.filter(organization=organization, role=ROLE_TEACHER, active=True, user__is_active=True).count(),
             'book_count': Book.objects.count(),
-            'classes': classes[:12],
+            'classes': classes,
         })
     classroom = current_classroom(request)
     mode = request.GET.get('mode', 'week')
@@ -92,6 +93,10 @@ def action(request):
             - ``goal_set``: 设置/更新班级目标，需 ``words``、可选 ``deadline``。
             - ``record_add``: 录入阅读记录，需 ``student``、``book``、
               ``date``、``minutes``，可选 ``words``。
+            - ``class_promote``: 将指定 ``class`` 升一个年级（原地升级，
+              学生与阅读数据保持不变并继续累加）。
+            - ``class_delete``: 永久删除指定 ``class`` 及其学生与全部阅读数据。
+            - ``class_promote_all``: 仅管理者可用，将本校所有班级各升一个年级。
 
     Returns:
         HttpResponse: 重定向回仪表盘（带当前班级参数）的响应。
@@ -123,8 +128,66 @@ def action(request):
     elif kind == 'record_add' and classroom:
         student = get_object_or_404(Student, pk=request.POST['student'], classroom=classroom); book = get_object_or_404(Book, pk=request.POST['book'])
         ReadingRecord.objects.create(student=student, book=book, read_date=request.POST['date'], words=book.words or int(request.POST.get('words') or 0), minutes=int(request.POST['minutes']) if request.POST.get('minutes') else None, passed=True)
+    elif kind in ('class_promote', 'class_delete', 'class_promote_all'):
+        return _class_management_action(request, kind)
     messages.success(request, _('Saved'))
     return redirect(f'/?class={classroom.pk}' if classroom else '/')
+
+
+def _class_management_action(request, kind):
+    """处理班级升级与删除（含全校一键升级）。
+
+    升级采用「原地修改 :class:`~reading.models.Classroom` 的 ``grade``」策略：
+    由于学生（:class:`~reading.models.Student`）及其阅读记录、测验、书架、
+    目标等数据都外键到学生本人而非年级，升级不会新建任何记录，学生的累计
+    阅读量会跟着他一直累加。班级的 ``name`` 在 ``save()`` 时按
+    ``Y{grade}C{section}`` 自动重命名，因此「三年级三班」升级后即变为
+    「四年级三班」（Y3C3 -> Y4C3）。
+
+    目标班级必须落在 :func:`~reading.personas.accessible_classrooms` 范围内：
+    教师仅限本人名下班级，管理者为本校全部班级；``class_promote_all`` 额外
+    要求管理者身份。
+
+    Args:
+        request (HttpRequest): 已登录员工的 POST 请求，``class`` 指定目标班级主键。
+        kind (str): ``class_promote``、``class_delete`` 或 ``class_promote_all``。
+
+    Returns:
+        HttpResponse: 携带成功/失败提示并重定向回相应仪表盘的响应；
+            无权限执行全校升级时返回 403 页面。
+    """
+    persona = get_persona(request)
+    accessible = accessible_classrooms(request)
+    if kind == 'class_promote_all':
+        if not persona.is_manager:
+            return render(request, 'reading/forbidden.html', status=403)
+        promotable = list(accessible.filter(grade__lt=12))
+        with transaction.atomic():
+            for target in promotable:
+                target.grade += 1
+                target.save()
+        if promotable:
+            messages.success(request, _('Promoted %(count)s classes to the next grade.') % {'count': len(promotable)})
+        else:
+            messages.info(request, _('No classes to promote; every class is already at Grade 12.'))
+        return redirect('/')
+    target = accessible.filter(pk=request.POST.get('class')).first()
+    if not target:
+        messages.error(request, _('Class not found, or you do not have permission to manage it.'))
+        return redirect('/')
+    if kind == 'class_promote':
+        if target.grade >= 12:
+            messages.error(request, _('Already at the top grade; cannot promote further.'))
+        else:
+            target.grade += 1
+            target.save()
+            messages.success(request, _('Class promoted to %(name)s (Grade %(grade)s).') % {'name': target.name, 'grade': target.grade})
+        return redirect(f'/?class={target.pk}')
+    name = target.name
+    student_count = target.students.count()
+    target.delete()
+    messages.success(request, _('Deleted class %(name)s along with its %(count)s students and all of their reading data.') % {'name': name, 'count': student_count})
+    return redirect('/')
 
 
 @persona_required(TEACHER, MANAGER)

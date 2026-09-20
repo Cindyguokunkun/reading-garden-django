@@ -89,7 +89,7 @@ class RegistrationTests(TestCase):
         self.assertEqual((child.name, child.name_en), ('Amy Wang', 'Amy'))
         self.client.post(url, {'action': 'archive'})
         child.refresh_from_db(); self.assertFalse(child.active)
-        self.assertContains(self.client.get(reverse('student_accounts')), '已停用学生')
+        self.assertContains(self.client.get(reverse('student_accounts')), 'Deactivated students')
         self.client.post(url, {'action': 'restore'})
         child.refresh_from_db(); self.assertTrue(child.active)
 

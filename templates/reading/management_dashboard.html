@@ -1,12 +1,12 @@
 {% extends 'base.html' %}{% load i18n %}{% block content %}
-<section class="admin-head"><div><h1>学校管理</h1><p>账号、班级、图书与数据集中管理，不再混在单个班级工作台里。</p></div><a class="button" href="{% url 'manage_import' %}">进入数据管理</a></section>
-<section class="admin-summary"><a href="{% url 'manage_teachers' %}"><b>{{ teacher_count }}</b><span>在职教师</span></a><a href="{% url 'student_accounts' %}"><b>{{ student_count }}</b><span>在读学生</span></a><a href="#classes"><b>{{ class_count }}</b><span>班级</span></a><a href="{% url 'library' %}"><b>{{ book_count }}</b><span>馆藏图书</span></a></section>
+<section class="admin-head"><div><h1>{% trans "学校管理" %}</h1><p>{% trans "账号、班级、图书与数据集中管理，不再混在单个班级工作台里。" %}</p></div><a class="button" href="{% url 'manage_import' %}">{% trans "进入数据管理" %}</a></section>
+<section class="admin-summary"><a href="{% url 'manage_teachers' %}"><b>{{ teacher_count }}</b><span>{% trans "在职教师" %}</span></a><a href="{% url 'student_accounts' %}"><b>{{ student_count }}</b><span>{% trans "在读学生" %}</span></a><a href="#classes"><b>{{ class_count }}</b><span>{% trans "班级" %}</span></a><a href="{% url 'library' %}"><b>{{ book_count }}</b><span>{% trans "馆藏图书" %}</span></a></section>
 <section class="admin-actions">
-  <a href="{% url 'manage_teachers' %}"><strong>教师账号管理</strong><span>新增、编辑、停用、重置密码与批量导入</span></a>
-  <a href="{% url 'student_accounts' %}"><strong>学生账号管理</strong><span>维护姓名、班级、登录名及家长登录凭证</span></a>
-  <a href="{% url 'library' %}"><strong>图书管理</strong><span>新增图书、编辑资料与维护测验题</span></a>
-  <a href="{% url 'manage_import' %}"><strong>数据管理</strong><span>批量导入学生并导出各班报告</span></a>
+  <a href="{% url 'manage_teachers' %}"><strong>{% trans "教师账号管理" %}</strong><span>{% trans "新增、编辑、停用、重置密码与批量导入" %}</span></a>
+  <a href="{% url 'student_accounts' %}"><strong>{% trans "学生账号管理" %}</strong><span>{% trans "维护姓名、班级、登录名及家长登录凭证" %}</span></a>
+  <a href="{% url 'library' %}"><strong>{% trans "图书管理" %}</strong><span>{% trans "新增图书、编辑资料与维护测验题" %}</span></a>
+  <a href="{% url 'manage_import' %}"><strong>{% trans "数据管理" %}</strong><span>{% trans "批量导入学生并导出各班报告" %}</span></a>
 </section>
-<section id="classes" class="card"><div class="sectionhead"><div><h2>班级管理</h2><p>班级统一按 Y年级C班号 命名，例如一年级一班为 Y1C1。</p></div></div>
-<table><tr><th>班级</th><th>年级</th><th>负责教师</th><th>在读学生</th></tr>{% for c in classes %}<tr><td><b>{{ c.name }}</b></td><td>{{ c.grade }} 年级</td><td>{{ c.owner.get_full_name|default:c.owner.username }}</td><td>{{ c.active_students }}</td></tr>{% empty %}<tr><td colspan="4">还没有班级</td></tr>{% endfor %}</table></section>
+<section id="classes" class="card"><div class="sectionhead"><div><h2>{% trans "班级管理" %}</h2><p>{% trans "班级统一按 Y年级C班号 命名，例如一年级一班为 Y1C1。" %}</p><p>{% trans "升级只修改年级、不改动学生，阅读数据会随学生一直累加。" %}</p></div><form method="post" action="{% url 'action' %}" onsubmit="return confirm('{% trans "全校升级会把本校每个班级各升一个年级（如 Y3C3 变为 Y4C3），学生与阅读数据保持不变并继续累加。确定继续吗？" %}')">{% csrf_token %}<input type="hidden" name="action" value="class_promote_all"><button class="button">{% trans "全校升级" %}</button></form></div>
+<table><tr><th>{% trans "班级" %}</th><th>{% trans "年级" %}</th><th>{% trans "负责教师" %}</th><th>{% trans "在读学生" %}</th><th>{% trans "操作" %}</th></tr>{% for c in classes %}<tr><td><b>{{ c.name }}</b></td><td>{% blocktrans with grade=c.grade %}Grade {{ grade }}{% endblocktrans %}</td><td>{{ c.owner.get_full_name|default:c.owner.username }}</td><td>{{ c.active_students }}</td><td><form method="post" action="{% url 'action' %}" class="inline">{% csrf_token %}<input type="hidden" name="action" value="class_promote"><input type="hidden" name="class" value="{{ c.pk }}"><button class="link">{% trans "升到下一年级" %}</button></form><form method="post" action="{% url 'action' %}" class="inline" onsubmit="return confirm('{% trans "删除班级会同时永久删除该班全部学生及其阅读、测验、目标和书架数据，且不可恢复。确定继续吗？" %}')">{% csrf_token %}<input type="hidden" name="action" value="class_delete"><input type="hidden" name="class" value="{{ c.pk }}"><button class="link danger">{% trans "删除班级" %}</button></form></td></tr>{% empty %}<tr><td colspan="5">{% trans "还没有班级" %}</td></tr>{% endfor %}</table></section>
 {% endblock %}

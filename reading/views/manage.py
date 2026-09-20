@@ -6,6 +6,7 @@
 """
 
 from io import BytesIO
+import re
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
 from django.db import transaction
@@ -327,7 +328,7 @@ def manage_import(request):
                 except ValueError:
                     grade = None; row_errors.append(_('年级必须是数字（1-12）'))
                 try:
-                    match = __import__('re').fullmatch(r'Y\d+C(\d+)', section_s, __import__('re').IGNORECASE)
+                    match = re.fullmatch(r'Y\d+C(\d+)', section_s, re.IGNORECASE)
                     section = int(match.group(1)) if match else int(float(section_s))
                     if not 1 <= section <= 99: row_errors.append(_('班号必须在 1-99 之间'))
                 except ValueError:

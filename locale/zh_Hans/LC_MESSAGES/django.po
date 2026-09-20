@@ -239,3 +239,36 @@ msgstr "密码已修改。"
 
 msgid "The two new passwords do not match"
 msgstr "两次输入的新密码不一致。"
+
+msgid "Deactivated students (%(count)s)"
+msgstr "已停用学生（%(count)s）"
+
+msgid "Successfully imported %(count)s students."
+msgstr "成功导入 %(count)s 名学生。"
+
+msgid "Grade %(grade)s"
+msgstr "%(grade)s 年级"
+
+msgid "Download the standard template first. Use the Y1C1 format for class names. The default password for students and parents is %(password)s."
+msgstr "先下载标准模板。班级名称统一使用 Y1C1 格式；学生与家长默认密码均为 %(password)s。"
+
+msgid "The username is generated automatically, for example Olivia Pi. The initial password for both the student and parent is %(password)s."
+msgstr "自动生成用户名 Olivia Pi；学生与家长初始密码均为 %(password)s。"
+
+msgid "Already at the top grade; cannot promote further."
+msgstr "已经是最高年级，无法继续升级。"
+
+msgid "Class not found, or you do not have permission to manage it."
+msgstr "未找到该班级，或你没有管理它的权限。"
+
+msgid "Class promoted to %(name)s (Grade %(grade)s)."
+msgstr "班级已升级为 %(name)s（%(grade)s 年级）。"
+
+msgid "Deleted class %(name)s along with its %(count)s students and all of their reading data."
+msgstr "已删除班级 %(name)s，连同班上的 %(count)s 名学生及其全部阅读数据。"
+
+msgid "No classes to promote; every class is already at Grade 12."
+msgstr "没有可升级的班级；所有班级都已经是 12 年级。"
+
+msgid "Promoted %(count)s classes to the next grade."
+msgstr "已将 %(count)s 个班级升到下一年级。"

@@ -1,16 +1,14 @@
+#
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "阅见 · 英文阅读成长"
 msgstr "Reading Garden · English reading growth"
 
 msgid "阅见"
 msgstr "Reading Garden"
-
-msgid "工作台"
-msgstr "Dashboard"
 
 msgid "首页"
 msgstr "Home"
@@ -20,9 +18,6 @@ msgstr "Rankings"
 
 msgid "图书馆"
 msgstr "Library"
-
-msgid "数据导入"
-msgstr "Data import"
 
 msgid "退出"
 msgstr "Log out"
@@ -175,7 +170,7 @@ msgid "学生"
 msgstr "Student"
 
 msgid "班级"
-msgstr "Class"
+msgstr "Classes"
 
 msgid "阅读时长榜"
 msgstr "By minutes"
@@ -246,29 +241,11 @@ msgstr "Save"
 msgid "返回图书馆"
 msgstr "Back to library"
 
-msgid "Excel 批量导入学生"
-msgstr "Bulk import students from Excel"
-
-msgid "仅管理者可用。按模板列顺序填写，导入为“全有或全无”：任何一行有错，整次导入都不会生效，并按行号提示错误。"
-msgstr "Managers only. Fill in the template column order. Import is all-or-nothing: if any row has an error, nothing is imported and errors are listed by row number."
-
-msgid "下载导入模板"
-msgstr "Download template"
-
-msgid "年级：1-12 的数字"
-msgstr "Grade: a number from 1 to 12"
-
-msgid "成功导入 %(n)s 名学生。"
-msgstr "Imported %(n)s students successfully."
-
 msgid "导入失败，未写入任何数据："
-msgstr "Import failed; no data was written:"
-
-msgid "选择 .xlsx 文件"
-msgstr "Choose an .xlsx file"
+msgstr "Import failed. No data was saved:"
 
 msgid "开始导入"
-msgstr "Start import"
+msgstr "Start Import"
 
 msgid "请先创建班级和学生。"
 msgstr "Please create a class and students first."
@@ -294,9 +271,6 @@ msgstr "Overview"
 msgid "学生与目标"
 msgstr "Students & goal"
 
-msgid "新班级名称"
-msgstr "New class name"
-
 msgid "新建班级"
 msgstr "Create class"
 
@@ -307,7 +281,7 @@ msgid "班级学生"
 msgstr "Students in class"
 
 msgid "学生姓名"
-msgstr "Student name"
+msgstr "Student Name"
 
 msgid "添加学生"
 msgstr "Add student"
@@ -349,7 +323,9 @@ msgid "查看年级 / 全校排行榜"
 msgstr "See grade / school rankings"
 
 msgid "全校图书馆已上线：按难度分类浏览、搜索书名、标注兰斯值，并可添加新书。"
-msgstr "The school-wide library is here: browse by difficulty, search titles, see Lexile levels, and add new books."
+msgstr ""
+"The school-wide library is here: browse by difficulty, search titles, see "
+"Lexile levels, and add new books."
 
 msgid "进入图书馆"
 msgstr "Open library"
@@ -365,9 +341,6 @@ msgstr "Grade must be between 1 and 12"
 
 msgid "年级必须是数字（1-12）"
 msgstr "Grade must be a number (1-12)"
-
-msgid "缺少班级名称"
-msgstr "Missing class name"
 
 msgid "教师用户名 %s 不存在"
 msgstr "Teacher username %s does not exist"
@@ -424,16 +397,21 @@ msgid "自动查询书籍信息"
 msgstr "Look up the book"
 
 msgid "AI 生成测验题（约 40-80 秒，请勿离开或重复点击）"
-msgstr "Generate questions with AI (about 40-80 seconds; please do not leave or click twice)"
+msgstr ""
+"Generate questions with AI (about 40-80 seconds; please do not leave or "
+"click twice)"
 
 msgid "在 .env 配置出题服务后，可用 AI 生成测验题"
-msgstr "AI question generation becomes available once the service is configured in .env"
+msgstr ""
+"AI question generation becomes available once the service is configured in "
+".env"
 
 msgid "编辑现有测验题"
 msgstr "Edit the existing questions"
 
 msgid "查询结果（选中后自动填入作者、ATOS、词数与简介）："
-msgstr "Results (choosing one fills in the author, ATOS, word count and synopsis):"
+msgstr ""
+"Results (choosing one fills in the author, ATOS, word count and synopsis):"
 
 msgid "封面"
 msgstr "Cover"
@@ -475,7 +453,9 @@ msgid "出题素材"
 msgstr "Source material"
 
 msgid "留空则使用上面的内容简介；素材越完整，题目越准确。正文不会保存到数据库。"
-msgstr "Leave this empty to use the synopsis above. The fuller the material, the better the questions. The text itself is never stored."
+msgstr ""
+"Leave this empty to use the synopsis above. The fuller the material, the "
+"better the questions. The text itself is never stored."
 
 msgid "粘贴英文正文或简介"
 msgstr "Paste the English text or the synopsis"
@@ -487,7 +467,9 @@ msgid "测验题"
 msgstr "Quiz questions"
 
 msgid "保存前请逐题检查；勾选“删除此题”可在保存时移除该题。"
-msgstr "Check every question before saving. Tick the delete box to drop a question when you save."
+msgstr ""
+"Check every question before saving. Tick the delete box to drop a question "
+"when you save."
 
 msgid "第 %(n)s 题"
 msgstr "Question %(n)s"
@@ -556,7 +538,9 @@ msgid "正确答案"
 msgstr "Correct answer"
 
 msgid "该历史答卷无法逐题回看"
-msgstr "This attempt is from before answer snapshots existed, so it cannot be reviewed question by question."
+msgstr ""
+"This attempt is from before answer snapshots existed, so it cannot be "
+"reviewed question by question."
 
 msgid "我的书架"
 msgstr "My shelf"
@@ -583,7 +567,8 @@ msgid "测评结果"
 msgstr "Quiz result"
 
 msgid "未通过的答卷不显示逐题答案，只能看到分数与时间。"
-msgstr "A quiz that was not passed shows only its score and time, not the answers."
+msgstr ""
+"A quiz that was not passed shows only its score and time, not the answers."
 
 msgid "提交时间"
 msgstr "Submitted"
@@ -606,11 +591,8 @@ msgstr "No quiz attempts yet."
 msgid "学生账号"
 msgstr "Student accounts"
 
-msgid "账号审批"
-msgstr "Account approvals"
-
 msgid "学校管理"
-msgstr "School management"
+msgstr "School Management"
 
 msgid "按系列选择"
 msgstr "Browse by series"
@@ -633,44 +615,17 @@ msgstr "books"
 msgid "姓名"
 msgstr "Name"
 
-msgid "学生号"
-msgstr "Student ID"
-
-msgid "家长绑定码"
-msgstr "Parent link code"
-
 msgid "账号操作"
-msgstr "Account actions"
+msgstr "Account Actions"
 
 msgid "英文名"
-msgstr "English name"
-
-msgid "英文名（可空）"
-msgstr "English name (optional)"
-
-msgid "保存姓名"
-msgstr "Save name"
-
-msgid "重置密码"
-msgstr "Reset password"
-
-msgid "更换绑定码"
-msgstr "Change link code"
+msgstr "English Name"
 
 msgid "停用"
 msgstr "Deactivate"
 
 msgid "恢复账号"
-msgstr "Restore account"
-
-msgid "已停用学生"
-msgstr "Deactivated students"
-
-msgid "确定停用这个学生账号吗？历史记录会保留。"
-msgstr "Deactivate this student account? Reading history will be kept."
-
-msgid "学生使用学生号和密码登录。新增学生时系统会自动生成初始密码；以后也可以在这里重置。停用学生不会删除历史阅读记录。"
-msgstr "Students sign in with a student ID and password. An initial password is created automatically, and teachers can reset it here. Deactivation keeps reading history."
+msgstr "Reactivate Account"
 
 msgid "先选择系列"
 msgstr "Choose a series first"
@@ -678,14 +633,20 @@ msgstr "Choose a series first"
 msgid "再选择书名"
 msgstr "Then choose a book"
 
-msgid "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
-msgstr "%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please save it now."
+msgid ""
+"%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please "
+"save it now."
+msgstr ""
+"%(name)s created. Student ID: %(login)s; initial password: %(pin)s. Please "
+"save it now."
 
 msgid "学生姓名或学生号"
 msgstr "Student name or Student ID"
 
 msgid "可以使用姓名或学生号登录；初始密码由老师发放。"
-msgstr "Sign in with your name or Student ID. Your teacher provides the initial password."
+msgstr ""
+"Sign in with your name or Student ID. Your teacher provides the initial "
+"password."
 
 msgid "我的阅读目标"
 msgstr "My reading goal"
@@ -706,7 +667,9 @@ msgid "已完成"
 msgstr "Completed"
 
 msgid "还没有完成的书，通过阅读测试后会自动出现在这里。"
-msgstr "No completed books yet. Books appear here automatically after you pass their quiz."
+msgstr ""
+"No completed books yet. Books appear here automatically after you pass their"
+" quiz."
 
 msgid "想读书单"
 msgstr "Want-to-read list"
@@ -715,7 +678,9 @@ msgid "还没有添加想读的书。"
 msgstr "No books have been added to the want-to-read list."
 
 msgid "先读完书，再答题。达到 60 分即可过关，每本书最多有 3 次答题机会。"
-msgstr "Finish the book before taking the quiz. Pass at 60%. Each book allows up to 3 attempts."
+msgstr ""
+"Finish the book before taking the quiz. Pass at 60%. Each book allows up to "
+"3 attempts."
 
 msgid "图书类别"
 msgstr "Book category"
@@ -775,7 +740,9 @@ msgid "%s 不是本校老师账号"
 msgstr "%s is not a teacher account at this school"
 
 msgid "你以平台管理者身份添加，保存后将进入公共书库，所有学校均可使用。"
-msgstr "Added as a platform admin, this book goes into the public library that every school can use once saved."
+msgstr ""
+"Added as a platform admin, this book goes into the public library that every"
+" school can use once saved."
 
 msgid "你的家长账号还没有绑定孩子。"
 msgstr "Your parent account isn't linked to a child yet."
@@ -874,7 +841,7 @@ msgid "待审核教师"
 msgstr "Teachers pending approval"
 
 msgid "恢复"
-msgstr "Restore"
+msgstr "Reactivate"
 
 msgid "批准"
 msgstr "Approve"
@@ -883,7 +850,9 @@ msgid "提交注册申请"
 msgstr "Submit registration"
 
 msgid "提升、降级、停用或恢复账号时，需要输入你自己的管理者密码。"
-msgstr "Promoting, demoting, deactivating or restoring an account requires your own manager password."
+msgstr ""
+"Promoting, demoting, deactivating or restoring an account requires your own "
+"manager password."
 
 msgid "提升为管理者"
 msgstr "Promote to manager"
@@ -955,7 +924,8 @@ msgid "用途，如：小学英语组"
 msgstr "Purpose, e.g. Primary English team"
 
 msgid "由老师统一创建并发放学生号和初始密码"
-msgstr "Teachers create accounts and hand out Student IDs and initial passwords"
+msgstr ""
+"Teachers create accounts and hand out Student IDs and initial passwords"
 
 msgid "申请已提交"
 msgstr "Application submitted"
@@ -967,7 +937,8 @@ msgid "管理者"
 msgstr "Manager"
 
 msgid "管理者审核通过后，你就可以使用教师账号登录。"
-msgstr "Once a manager approves you, you can sign in with your teacher account."
+msgstr ""
+"Once a manager approves you, you can sign in with your teacher account."
 
 msgid "绑定其他孩子"
 msgstr "Link another child"
@@ -976,7 +947,9 @@ msgid "绑定孩子"
 msgstr "Link a child"
 
 msgid "绑定码可稍后再填，也可以注册后继续添加孩子。"
-msgstr "You can fill in the bind code later, or keep adding children after registering."
+msgstr ""
+"You can fill in the bind code later, or keep adding children after "
+"registering."
 
 msgid "角色"
 msgstr "Role"
@@ -992,9 +965,6 @@ msgstr "Account approvals & teacher invite codes"
 
 msgid "返回登录"
 msgstr "Back to sign in"
-
-msgid "还没有学生"
-msgstr "No students yet"
 
 msgid "还没有账号？注册家长账号"
 msgstr "No account yet? Register a parent account"
@@ -1012,28 +982,18 @@ msgid "降为教师"
 msgstr "Demote to teacher"
 
 msgid "需要学校邀请码，提交后等待管理者审核"
-msgstr "Requires a school invite code; wait for a manager to approve after you submit"
-
-msgid "Excel 批量导入教师"
-msgstr "Bulk import teachers from Excel"
-
-msgid "仅管理者可用。每行一位教师，只需填姓名；用户名即姓名，与已有账号重名时自动加数字后缀（如 王小明2）。"
-msgstr "Managers only. One teacher per row; fill in the name only. The username equals the name, and a numeric suffix is added automatically on duplicates (e.g. 王小明2)."
-
-msgid "初始密码统一为 %(pw)s，教师登录后可在“修改密码”自行更改。"
-msgstr "The initial password is %(pw)s for everyone; teachers can change it under 'Change password' after signing in."
+msgstr ""
+"Requires a school invite code; wait for a manager to approve after you "
+"submit"
 
 msgid "成功创建以下教师账号："
-msgstr "Successfully created these teacher accounts:"
-
-msgid "教师导入"
-msgstr "Import teachers"
+msgstr "The following teacher accounts were created:"
 
 msgid "教师姓名过长"
 msgstr "Teacher name is too long"
 
 msgid "修改密码"
-msgstr "Change password"
+msgstr "Change Password"
 
 msgid "修改你自己的登录密码，保存后不会退出登录。"
 msgstr "Change your own sign-in password. You stay signed in after saving."
@@ -1057,7 +1017,9 @@ msgid "修改家长密码"
 msgstr "Change parent password"
 
 msgid "用于「学生姓名 + 家长密码」登录；初始密码由学校统一设置，建议尽快修改。"
-msgstr "Used for student-name plus parent-password sign-in; the initial password is set by the school, so please change it soon."
+msgstr ""
+"Used for student-name plus parent-password sign-in; the initial password is "
+"set by the school, so please change it soon."
 
 msgid "当前家长密码"
 msgstr "Current parent password"
@@ -1066,28 +1028,12 @@ msgid "新密码（至少 6 位）"
 msgstr "New password (at least 6 characters)"
 
 msgid "用家长账号（用户名或邮箱），或孩子的姓名/学号 + 家长密码登录。"
-msgstr "Sign in with a parent account (username or email), or with your child's name/Student ID plus the parent password."
+msgstr ""
+"Sign in with a parent account (username or email), or with your child's "
+"name/Student ID plus the parent password."
 
 msgid "用户名 / 邮箱 / 孩子姓名或学号"
 msgstr "Username / email / child's name or Student ID"
-
-msgid "学号：必填且全局唯一，学生用“学号 + 密码”登录；学号已存在则更新该学生"
-msgstr "Student ID: required and globally unique; students sign in with their Student ID and password. An existing ID updates that student."
-
-msgid "中文姓名：必填；与已有学生重名时自动加数字后缀（如 张三2），因此姓名也可作为登录名"
-msgstr "Chinese name: required; if it duplicates an existing student, a numeric suffix is added automatically (e.g. 张三2), so the name can also be used to sign in"
-
-msgid "密码：学生的登录密码，必填"
-msgstr "Password: the student's sign-in password, required"
-
-msgid "教师用户名：必须已存在且为本校在职老师；班级不存在时自动创建并归给该老师，一个老师可管理多个班"
-msgstr "Teacher username: must exist and be an active teacher at this school; the class is created and assigned to that teacher if missing, and one teacher can manage multiple classes"
-
-msgid "家长登录：用“学生姓名 + 家长密码”，初始家长密码统一为 %(pw)s，家长登录后可自行修改"
-msgstr "Parent sign-in: use the student name plus the parent password; the initial parent password is %(pw)s for everyone, and parents can change it after signing in"
-
-msgid "缺少学号"
-msgstr "Missing student ID"
 
 msgid "学号不能超过 24 个字符"
 msgstr "Student ID cannot exceed 24 characters"
@@ -1095,5 +1041,249 @@ msgstr "Student ID cannot exceed 24 characters"
 msgid "学号 %s 在表格中重复"
 msgstr "Student ID %s is duplicated in the sheet"
 
-msgid "缺少学生密码"
-msgstr "Missing student password"
+msgid "管理首页"
+msgstr "Management"
+
+msgid "班级工作台"
+msgstr "Class Dashboard"
+
+msgid "教师账号管理"
+msgstr "Teacher Accounts"
+
+msgid "学生账号管理"
+msgstr "Student Accounts"
+
+msgid "图书管理"
+msgstr "Book Management"
+
+msgid "数据管理"
+msgstr "Data Management"
+
+msgid "权限与审批"
+msgstr "Permissions & Approvals"
+
+msgid "账号、班级、图书与数据集中管理，不再混在单个班级工作台里。"
+msgstr ""
+"Manage accounts, classes, books and data in one place, separate from "
+"individual class dashboards."
+
+msgid "进入数据管理"
+msgstr "Open Data Management"
+
+msgid "在职教师"
+msgstr "Active Teachers"
+
+msgid "在读学生"
+msgstr "Active Students"
+
+msgid "馆藏图书"
+msgstr "Library Books"
+
+msgid "新增、编辑、停用、重置密码与批量导入"
+msgstr "Add, edit and deactivate teachers, reset passwords, or import in bulk"
+
+msgid "维护姓名、班级、登录名及家长登录凭证"
+msgstr "Manage names, classes, usernames and parent login credentials"
+
+msgid "新增图书、编辑资料与维护测验题"
+msgstr "Add books, edit details and maintain quiz questions"
+
+msgid "批量导入学生并导出各班报告"
+msgstr "Import students in bulk and export class reports"
+
+msgid "班级管理"
+msgstr "Class Management"
+
+msgid "班级统一按 Y年级C班号 命名，例如一年级一班为 Y1C1。"
+msgstr ""
+"Class names follow the Y-grade/C-class format; for example, Year 1 Class 1 "
+"is Y1C1."
+
+msgid "年级"
+msgstr "Year"
+
+msgid "负责教师"
+msgstr "Teacher"
+
+msgid "还没有班级"
+msgstr "No classes yet"
+
+msgid "批量导入学生，并按班级导出阅读报告单。"
+msgstr "Import students in bulk and export reading reports by class."
+
+msgid "班级报告导出"
+msgstr "Export Class Reports"
+
+msgid "报告只包含当前在读学生；已停用学生的历史数据继续保存，但不显示。"
+msgstr ""
+"Reports include active students only. Deactivated students' history remains "
+"stored but is not shown."
+
+msgid "还没有班级。"
+msgstr "No classes yet."
+
+msgid "批量导入学生"
+msgstr "Bulk Import Students"
+
+msgid "下载学生模板"
+msgstr "Download Student Template"
+
+msgid "统一维护教师姓名、登录名、密码和账号状态。"
+msgstr "Manage teacher names, usernames, passwords and account status."
+
+msgid "修改我的密码"
+msgstr "Change My Password"
+
+msgid "单独新增教师"
+msgstr "Add a Teacher"
+
+msgid "中文姓名"
+msgstr "Chinese Name"
+
+msgid "例如：皮静仪"
+msgstr "For example: Pi Jingyi"
+
+msgid "例如：Olivia"
+msgstr "For example: Olivia"
+
+msgid "系统自动生成用户名，例如 Olivia Pi。"
+msgstr "The username is generated automatically, for example Olivia Pi."
+
+msgid "创建教师"
+msgstr "Create Teacher"
+
+msgid "教师列表"
+msgstr "Teacher List"
+
+msgid "停用会保留班级和历史数据；永久删除会同时清除该教师名下的班级、学生及相关阅读数据。"
+msgstr ""
+"Deactivation preserves classes and history. Permanent deletion also removes "
+"the teacher's classes, students and related reading data."
+
+msgid "教师"
+msgstr "Teacher"
+
+msgid "登录名"
+msgstr "Username"
+
+msgid "永久删除后，该教师名下的班级、学生、阅读和测验数据都无法恢复。确定继续吗？"
+msgstr ""
+"Permanently deleting this teacher will also erase their classes, students, "
+"reading and quiz data. Continue?"
+
+msgid "重置为 000000"
+msgstr "Reset to 000000"
+
+msgid "永久删除"
+msgstr "Delete Permanently"
+
+msgid "还没有教师账号"
+msgstr "No teacher accounts yet"
+
+msgid "批量导入教师"
+msgstr "Bulk Import Teachers"
+
+msgid "模板包含中文名、英文名、用户名和密码。用户名与密码留空时，系统自动生成并使用 000000。"
+msgstr ""
+"The template includes Chinese name, English name, username and password. "
+"Leave username and password blank to generate them automatically and use "
+"000000."
+
+msgid "下载教师模板"
+msgstr "Download Teacher Template"
+
+msgid "教师管理自己班级的学生；管理者可管理全校学生。"
+msgstr ""
+"Teachers manage students in their own classes; administrators can manage all"
+" students in the school."
+
+msgid "单独新增学生"
+msgstr "Add a Student"
+
+msgid "所在班级"
+msgstr "Class"
+
+msgid "创建学生"
+msgstr "Create Student"
+
+msgid "停用会保留历史数据并从日常列表隐藏；永久删除会清除阅读、测验、目标和书架数据。"
+msgstr ""
+"Deactivation preserves history and hides the student from everyday lists. "
+"Permanent deletion erases reading, quiz, goal and bookshelf data."
+
+msgid "班级 / 教师"
+msgstr "Class / Teacher"
+
+msgid "家长使用同一登录名"
+msgstr "Parents use the same username"
+
+msgid "永久删除后，该学生的阅读、测验、目标和书架数据都无法恢复。确定继续吗？"
+msgstr ""
+"Permanently deleting this student will erase all reading, quiz, goal and "
+"bookshelf data. Continue?"
+
+msgid "还没有在读学生"
+msgstr "No active students yet"
+
+msgid "这些账号的数据仍保留，可以恢复或永久删除。"
+msgstr ""
+"These accounts still retain their data and can be reactivated or permanently"
+" deleted."
+
+msgid "永久删除后，该学生的全部数据都无法恢复。确定继续吗？"
+msgstr ""
+"Permanently deleting this student will erase all of their data. Continue?"
+
+msgid "该教师不属于当前学校"
+msgstr "That teacher does not belong to the current school"
+
+msgid "请填写教师中文名和英文名"
+msgstr "Please fill in both the Chinese and English names of the teacher"
+
+msgid "第 %s 行：请填写中文名和英文名"
+msgstr "Row %s: please fill in both the Chinese and English names"
+
+msgid "班号必须在 1-99 之间"
+msgstr "Class number must be between 1 and 99"
+
+msgid "班号必须是数字"
+msgstr "Class number must be a number"
+
+msgid "班号"
+msgstr "Class"
+
+msgid "%(n)s 班"
+msgstr "Class %(n)s"
+
+msgid "中文姓名，如皮静仪"
+msgstr "Chinese name, e.g. Pi Jingyi"
+
+msgid "英文名，如 Olivia"
+msgstr "English name, e.g. Olivia"
+
+msgid "单本书"
+msgstr "Single books"
+
+msgid "全校升级"
+msgstr "Promote All Classes"
+
+msgid "全校升级会把本校每个班级各升一个年级（如 Y3C3 变为 Y4C3），学生与阅读数据保持不变并继续累加。确定继续吗？"
+msgstr "Promoting all classes moves every class in your school up one grade (e.g. Y3C3 becomes Y4C3). Students and their reading data stay unchanged and keep accumulating. Continue?"
+
+msgid "删除班级"
+msgstr "Delete Class"
+
+msgid "删除班级会同时永久删除该班全部学生及其阅读、测验、目标和书架数据，且不可恢复。确定继续吗？"
+msgstr "Deleting this class permanently removes all of its students together with their reading, quiz, goal and shelf data. This cannot be undone. Continue?"
+
+msgid "升到下一年级"
+msgstr "Promote to Next Grade"
+
+msgid "升到下一年级会把班级名称改为下一年级（如 Y3C3 变为 Y4C3），学生与阅读数据保持不变并继续累加。确定继续吗？"
+msgstr "Promoting moves this class up one grade (e.g. Y3C3 becomes Y4C3). Students and their reading data stay unchanged and keep accumulating. Continue?"
+
+msgid "升级只修改年级、不改动学生，阅读数据会随学生一直累加。"
+msgstr "Promoting only changes the grade and never touches the students, so their reading data keeps accumulating with them."
+
+msgid "班级设置"
+msgstr "Class Settings"

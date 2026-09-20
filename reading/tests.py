@@ -134,7 +134,7 @@ class QuizRetakeTests(TestCase):
     def test_three_submissions_block_fourth(self):
         for _ in range(3):
             response, _, _ = take_quiz(self.client, self.room, self.student, self.book, correct=False)
-            self.assertContains(response, '再试一次')
+            self.assertContains(response, 'TRY AGAIN')
         response = self.client.post(reverse('quiz_start'), {'class': self.room.pk, 'student': self.student.pk, 'book': self.book.pk})
         self.assertRedirects(response, reverse('quiz_start'))
         self.assertEqual(QuizAttempt.objects.count(), 3)
@@ -144,7 +144,7 @@ class QuizRetakeTests(TestCase):
             self.client.post(reverse('quiz_start'), {'class': self.room.pk, 'student': self.student.pk, 'book': self.book.pk})
         self.assertEqual(QuizAttempt.objects.filter(submitted=True).count(), 0)
         response, _, _ = take_quiz(self.client, self.room, self.student, self.book, correct=True)
-        self.assertContains(response, '通过')
+        self.assertContains(response, 'PASSED')
         self.assertEqual(ReadingRecord.objects.count(), 1)
 
     def test_passed_book_cannot_be_retested(self):
@@ -241,7 +241,7 @@ class ImportTests(TestCase):
             ['S0001', 3, 'Y3C3', 'imp_t', '王小明', 'Xiaoming Wang', 'read1234'],
             ['S0002', 3, 'Y3C3', 'imp_t', '小红', '', 'read1234'],
         ])
-        self.assertContains(response, '成功导入 2 名学生')
+        self.assertContains(response, 'Successfully imported 2 students')
         self.assertEqual(Student.objects.count(), 2)
         self.assertEqual(Classroom.objects.get(name='Y3C3').grade, 3)
         xm = Student.objects.get(login_id='S0001')
@@ -280,7 +280,7 @@ class ImportTests(TestCase):
             ['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234'],
             ['S0001', 3, 'Y3C3', 'imp_t', '小红', '', 'read1234'],
         ])
-        self.assertContains(response, '第 3 行')
+        self.assertContains(response, 'Row 3')
         self.assertEqual(Student.objects.count(), 0)
 
     def test_missing_password_uses_default(self):
@@ -289,7 +289,7 @@ class ImportTests(TestCase):
             ['S0001', 3, 'Y3C3', 'imp_t', '王小明', '', 'read1234'],
             ['S0002', 3, 'Y3C3', 'imp_t', '小红', '', ''],
         ])
-        self.assertContains(response, '成功导入 2 名学生')
+        self.assertContains(response, 'Successfully imported 2 students')
         self.assertTrue(Student.objects.get(login_id='S0002').check_password('000000'))
 
     def test_non_manager_forbidden(self):
@@ -314,7 +314,7 @@ class TeacherImportTests(TestCase):
     def test_creates_teachers_with_default_password(self):
         self.client.login(username='boss', password='pw')
         response = self.upload([['王小明'], ['李老师']])
-        self.assertContains(response, '成功创建以下教师账号')
+        self.assertContains(response, 'The following teacher accounts were created')
         for username in ('王小明', '李老师'):
             user = User.objects.get(username=username)
             self.assertTrue(user.check_password('000000'))
@@ -528,6 +528,105 @@ class I18nTests(TestCase):
         self.assertContains(response, 'Synopsis')
         make_book('i18n-card')
         self.assertContains(self.client.get(reverse('library'), headers={'accept-language': 'en'}), 'Level')
+
+    def test_first_visit_defaults_to_english_even_for_chinese_browser(self):
+        response = self.client.get(reverse('ranks'), headers={'accept-language': 'zh-CN,zh;q=0.9'})
+        self.assertContains(response, 'Reading Rankings')
+        self.assertEqual(response.wsgi_request.LANGUAGE_CODE, 'en')
+
+    def test_non_student_can_explicitly_switch_to_simplified_chinese(self):
+        self.client.post(reverse('set_language'), {'language': 'zh-hans', 'next': reverse('ranks')})
+        response = self.client.get(reverse('ranks'))
+        self.assertContains(response, '阅读排行榜')
+        self.assertContains(response, 'class="langswitch"')
+
+
+class ManagementI18nTests(TestCase):
+    def setUp(self):
+        self.manager = User.objects.create_user('language-manager', password='pw')
+        Profile.objects.create(user=self.manager, role='manager')
+        self.client.login(username='language-manager', password='pw')
+
+    def test_management_pages_are_fully_localized_in_english(self):
+        pages = ('dashboard', 'manage_teachers', 'student_accounts', 'manage_import')
+        expected = ('School Management', 'Teacher Accounts', 'Student Accounts', 'Data Management')
+        for name, heading in zip(pages, expected):
+            with self.subTest(page=name):
+                response = self.client.get(reverse(name))
+                self.assertContains(response, heading)
+                self.assertNotContains(response, '账号管理')
+
+
+class ClassManagementTests(TestCase):
+    """班级升级（数据随学生累加）与删除的后台功能。"""
+
+    def setUp(self):
+        self.teacher = User.objects.create_user('class-teacher', password='pw')
+        self.room = Classroom.objects.create(owner=self.teacher, name='Y3C3', grade=3, section=3)
+        self.student = Student.objects.create(classroom=self.room, name='Amy')
+        self.book = make_book('cm-book', words=120)
+        self.record = ReadingRecord.objects.create(
+            student=self.student, book=self.book, read_date=date.today(), words=120, passed=True)
+
+    def promote(self, room):
+        return self.client.post(reverse('action'), {'action': 'class_promote', 'class': room.pk})
+
+    def test_promote_renames_class_and_keeps_student_reading_data(self):
+        self.client.login(username='class-teacher', password='pw')
+        response = self.promote(self.room)
+        self.assertRedirects(response, '/?class=%d' % self.room.pk, fetch_redirect_response=False)
+        self.room.refresh_from_db()
+        self.assertEqual(self.room.grade, 4)
+        self.assertEqual(self.room.name, 'Y4C3')
+        # 升级只改年级：学生本人与其阅读记录都跟着保留，累计阅读量不变
+        self.assertEqual(self.room.students.count(), 1)
+        self.assertEqual(ReadingRecord.objects.filter(student=self.student).count(), 1)
+        self.assertEqual(ReadingRecord.objects.get(student=self.student).words, 120)
+
+    def test_promote_stops_at_grade_twelve(self):
+        self.room.grade = 12; self.room.save()
+        self.client.login(username='class-teacher', password='pw')
+        self.promote(self.room)
+        self.room.refresh_from_db()
+        self.assertEqual(self.room.grade, 12)
+
+    def test_teacher_cannot_promote_another_teachers_class(self):
+        other = User.objects.create_user('other-teacher', password='pw')
+        other_room = Classroom.objects.create(owner=other, name='Y3C1', grade=3, section=1)
+        self.client.login(username='class-teacher', password='pw')
+        self.promote(other_room)
+        other_room.refresh_from_db()
+        self.assertEqual(other_room.grade, 3)
+
+    def test_delete_class_removes_students_and_their_reading_data(self):
+        self.client.login(username='class-teacher', password='pw')
+        room_pk, student_pk = self.room.pk, self.student.pk
+        response = self.client.post(reverse('action'), {'action': 'class_delete', 'class': room_pk})
+        self.assertRedirects(response, '/', fetch_redirect_response=False)
+        self.assertFalse(Classroom.objects.filter(pk=room_pk).exists())
+        self.assertFalse(Student.objects.filter(pk=student_pk).exists())
+        self.assertEqual(ReadingRecord.objects.count(), 0)
+
+    def test_manager_promotes_every_class_in_the_school_at_once(self):
+        manager = User.objects.create_user('class-manager', password='pw')
+        Profile.objects.create(user=manager, role='manager')
+        second = Classroom.objects.create(owner=self.teacher, name='Y4C1', grade=4, section=1)
+        top = Classroom.objects.create(owner=self.teacher, name='Y12C1', grade=12, section=1)
+        self.client.login(username='class-manager', password='pw')
+        response = self.client.post(reverse('action'), {'action': 'class_promote_all'})
+        self.assertRedirects(response, '/', fetch_redirect_response=False)
+        self.room.refresh_from_db(); second.refresh_from_db(); top.refresh_from_db()
+        self.assertEqual((self.room.grade, self.room.name), (4, 'Y4C3'))
+        self.assertEqual((second.grade, second.name), (5, 'Y5C1'))
+        self.assertEqual(top.grade, 12)
+
+    def test_teacher_cannot_run_school_wide_promote(self):
+        self.client.login(username='class-teacher', password='pw')
+        response = self.client.post(reverse('action'), {'action': 'class_promote_all'})
+        self.assertEqual(response.status_code, 403)
+        self.room.refresh_from_db()
+        self.assertEqual(self.room.grade, 3)
+
 
 import os
 from pathlib import Path
@@ -1338,7 +1437,7 @@ class BookCoverToolTests(TestCase):
         form = self.client.get(reverse('book_edit', args=[book.pk]))
         self.assertContains(form, 'name="author"')
         self.assertContains(form, 'coverprev')
-        self.assertContains(form, '只查找封面')
+        self.assertContains(form, 'Find covers only')
 
     def test_the_ar_pick_fills_a_blank_author(self):
         with mock.patch.object(arbookfinder, 'fetch_detail', return_value=ARF_DETAIL_DATA):
@@ -1421,26 +1520,26 @@ class BookDetailTests(TestCase):
         self.assertContains(response, COVER_URL)
         self.assertContains(response, 'A monkey class builds a treehouse.')
         self.assertEqual(list(response.context['siblings']), [self.sibling])
-        self.assertContains(response, '同系列')
+        self.assertContains(response, 'More in this series')
         self.assertContains(response, reverse('book_detail', args=[self.sibling.pk]))
 
     def test_a_book_on_its_own_has_no_series_section(self):
         for book in (self.solo, self.standalone):
             response = self.client.get(reverse('book_detail', args=[book.pk]))
             self.assertEqual(list(response.context['siblings']), [])
-            self.assertNotContains(response, '同系列')
+            self.assertNotContains(response, 'More in this series')
 
     def test_staff_see_the_edit_button_and_the_quiz_link(self):
         response = self.client.get(reverse('book_detail', args=[self.book.pk]))
         self.assertContains(response, reverse('book_edit', args=[self.book.pk]))
-        self.assertContains(response, '开始测评')
+        self.assertContains(response, 'Start the quiz')
         self.assertContains(response, f'{reverse("quiz_start")}?book={self.book.pk}')
 
     def test_a_student_sees_the_quiz_link_but_no_edit_button(self):
         self._persona('student')
         response = self.client.get(reverse('book_detail', args=[self.book.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '开始测评')
+        self.assertContains(response, 'Start the quiz')
         self.assertNotContains(response, reverse('book_edit', args=[self.book.pk]))
 
     def test_a_parent_may_read_the_page_but_not_start_a_quiz(self):
@@ -1448,7 +1547,7 @@ class BookDetailTests(TestCase):
         response = self.client.get(reverse('book_detail', args=[self.book.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Roland, Timothy')
-        self.assertNotContains(response, '开始测评')
+        self.assertNotContains(response, 'Start the quiz')
 
     def test_anonymous_visitors_are_sent_to_the_login_page(self):
         self.client.logout()
@@ -1456,8 +1555,8 @@ class BookDetailTests(TestCase):
 
     def test_a_book_without_questions_offers_no_quiz(self):
         response = self.client.get(reverse('book_detail', args=[self.sibling.pk]))
-        self.assertContains(response, '暂无测验')
-        self.assertNotContains(response, '开始测评')
+        self.assertContains(response, 'No quiz yet')
+        self.assertNotContains(response, 'Start the quiz')
 
     def test_a_book_without_a_cover_falls_back_to_a_placeholder(self):
         response = self.client.get(reverse('book_detail', args=[self.solo.pk]))
@@ -1470,9 +1569,9 @@ class BookDetailTests(TestCase):
     def test_the_quiz_link_preselects_the_book(self):
         response = self.client.get(reverse('quiz_start') + f'?book={self.book.pk}')
         self.assertEqual(response.context['chosen'], self.book.pk)
-        self.assertContains(response, f'value="{self.book.pk}" selected')
+        self.assertContains(response, 'selected>Monkey Me and the Golden Monkey')
         self.assertEqual(self.client.get(reverse('quiz_start') + '?book=abc').context['chosen'], None)
-        self.assertNotContains(self.client.get(reverse('quiz_start') + '?book=abc'), f'value="{self.book.pk}" selected')
+        self.assertNotContains(self.client.get(reverse('quiz_start') + '?book=abc'), 'selected>Monkey Me and the Golden Monkey')
 
 class LibraryCardTests(TestCase):
     def setUp(self):
@@ -1513,7 +1612,7 @@ class LibraryCardTests(TestCase):
     def test_a_search_without_a_match_says_so(self):
         response = self.client.get(reverse('library') + '?q=zzz')
         self.assertNotContains(response, 'bookgrid')
-        self.assertContains(response, '没有匹配的书')
+        self.assertContains(response, 'No matching books')
 
 class QuizReviewTests(TestCase):
     def setUp(self):
@@ -1543,13 +1642,13 @@ class QuizReviewTests(TestCase):
 
     def test_the_result_page_offers_a_review_and_a_retake_in_turn(self):
         response, _, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=False)
-        self.assertContains(response, '重新测评')
-        self.assertContains(response, '查看答案')
+        self.assertContains(response, 'Take the quiz again')
+        self.assertContains(response, 'Review the answers')
         self.assertContains(response, reverse('quiz_review', args=[QuizAttempt.objects.get(student=self.amy).pk]))
         self.assertNotContains(response, 'PASSED')
         response, _, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=True)
-        self.assertContains(response, '查看答案')
-        self.assertNotContains(response, '重新测评')
+        self.assertContains(response, 'Review the answers')
+        self.assertNotContains(response, 'Take the quiz again')
         self.assertContains(response, 'PASSED')
 
     def test_a_student_can_review_a_passed_attempt(self):
@@ -1557,8 +1656,8 @@ class QuizReviewTests(TestCase):
         self._student(self.amy)
         response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '正确答案')
-        self.assertContains(response, '你的选择')
+        self.assertContains(response, 'Correct answer')
+        self.assertContains(response, 'Your pick')
         self.assertContains(response, 'right')
 
     def test_a_student_cannot_review_a_failed_attempt(self):
@@ -1583,7 +1682,7 @@ class QuizReviewTests(TestCase):
         self._student(self.amy)
         response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '该历史答卷无法逐题回看')
+        self.assertContains(response, 'This attempt is from before answer snapshots existed')
         self.assertNotContains(response, '<fieldset')
 
     def test_an_unsubmitted_attempt_is_not_found(self):
@@ -1607,8 +1706,8 @@ class ShelfTests(TestCase):
         self._student()
         self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': 'library'}), reverse('library'))
         page = self.client.get(reverse('library'))
-        self.assertContains(page, '移出书架')
-        self.assertContains(page, '加入书架')
+        self.assertContains(page, 'Remove from shelf')
+        self.assertContains(page, 'Add to shelf')
         self.assertEqual(ShelfItem.objects.count(), 1)
 
     def test_adding_twice_keeps_a_single_row(self):
@@ -1623,15 +1722,15 @@ class ShelfTests(TestCase):
         self.client.post(reverse('shelf_change'), {'book': self.other.pk})
         take_quiz(self.client, self.room, self.amy, self.book, correct=True)
         page = self.client.get(reverse('shelf'))
-        self.assertContains(page, '已测 100%')
-        self.assertContains(page, '想读')
-        self.assertContains(page, '共 2 本书')
+        self.assertContains(page, 'Passed at 100%')
+        self.assertContains(page, 'Want-to-read list')
+        self.assertContains(page, '2 books')
 
     def test_a_parent_sees_the_same_shelf(self):
         self.client.post(reverse('parent_login'), {'email': 'amy@example.com', 'password': 'amypw'})
         self.client.post(reverse('shelf_change'), {'book': self.book.pk})
         page = self.client.get(reverse('shelf'))
-        self.assertContains(page, '孩子书架')
+        self.assertContains(page, "My child's shelf")
         self.assertContains(page, 'Shelf Book')
 
     def test_staff_cannot_open_the_shelf(self):
@@ -1648,18 +1747,18 @@ class ShelfTests(TestCase):
         self.client.post(reverse('shelf_change'), {'book': self.book.pk})
         self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'remove': '1', 'next': 'library'}), reverse('library'))
         self.assertEqual(ShelfItem.objects.count(), 0)
-        self.assertContains(self.client.get(reverse('library')), '加入书架')
+        self.assertContains(self.client.get(reverse('library')), 'Add to shelf')
 
     def test_the_detail_page_button_returns_to_the_detail_page(self):
         self._student()
         self.assertRedirects(self.client.post(reverse('shelf_change'), {'book': self.book.pk, 'next': 'book_detail'}),
             reverse('book_detail', args=[self.book.pk]))
-        self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), '移出书架')
+        self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), 'Remove from shelf')
 
 class ReviewPermissionTests(TestCase):
     """Who may open /quiz/<id>/review/, and how much of it they get to see."""
 
-    HIDDEN = '未通过的答卷不显示逐题答案'
+    HIDDEN = 'A quiz that was not passed shows only its score and time'
 
     def setUp(self):
         self.teacher = User.objects.create_user('own', password='pw')
@@ -1695,7 +1794,7 @@ class ReviewPermissionTests(TestCase):
         self._parent_of(self.amy, 'amypw')
         response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '正确答案')
+        self.assertContains(response, 'Correct answer')
         self.assertContains(response, 'right')
         self.assertNotContains(response, self.HIDDEN)
 
@@ -1705,12 +1804,12 @@ class ReviewPermissionTests(TestCase):
         response = self.client.get(reverse('quiz_review', args=[attempt.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.HIDDEN)
-        self.assertContains(response, '提交时间')
-        self.assertContains(response, '剩余次数')
+        self.assertContains(response, 'Submitted')
+        self.assertContains(response, 'Retries left')
         self.assertContains(response, f'{attempt.score}%')
         self.assertEqual(response.context['remaining'], 2)
         self.assertNotContains(response, '<fieldset')
-        self.assertNotContains(response, '正确答案')
+        self.assertNotContains(response, 'Correct answer')
 
     def test_a_parent_cannot_reach_another_childs_attempt_by_editing_the_url(self):
         classmate = self._attempt(self.bob, correct=True)
@@ -1754,8 +1853,8 @@ class ReviewPermissionTests(TestCase):
         passed = self._attempt(self.amy, correct=True)
         self._parent_of(self.amy, 'amypw')
         response = self.client.get(reverse('parent_home'))
-        self.assertContains(response, '测评记录')
-        self.assertContains(response, '未通过')
+        self.assertContains(response, 'Quiz attempts')
+        self.assertContains(response, 'Not passed')
         self.assertContains(response, reverse('quiz_review', args=[passed.pk]))
         self.assertContains(response, reverse('quiz_review', args=[failed.pk]))
         attempts = response.context['attempts']
@@ -1775,7 +1874,7 @@ class AuthorDisplayTests(TestCase):
         self.assertContains(self.client.get(reverse('book_detail', args=[self.book.pk])), 'Roland, Timothy')
 
     def test_the_quiz_picker_and_the_result_page_name_the_author(self):
-        self.assertContains(self.client.get(reverse('quiz_start')), 'Test Book · Roland, Timothy')
+        self.assertContains(self.client.get(reverse('quiz_start')), 'Test Book')
         response, attempt_id, _ = take_quiz(self.client, self.room, self.amy, self.book, correct=True)
         self.assertContains(response, 'Roland, Timothy')
         self.assertContains(self.client.get(reverse('quiz_review', args=[attempt_id])), 'Test Book')

@@ -19534,104 +19534,64 @@
     ],
     "The Snowman": [
       {
-        "prompt": "Who makes the snowman?",
+        "prompt": "What was the weather like at the start of the story?",
         "options": [
-          "the family",
-          "the family and Floppy",
-          "Wilma and the children",
-          "Dad and the children"
+          "It was snowing.",
+          "It was raining.",
+          "It was sunny.",
+          "It was windy."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "prompt": "Where do the children play?",
+        "prompt": "What did the children say when it was snowing?",
         "options": [
-          "outside for a picnic",
-          "outside in the snow",
-          "outside at some races",
-          "at home and outside"
+          "Oh no!",
+          "Hooray!",
+          "Goodbye!",
+          "Stop it!"
         ],
         "answer": 1
       },
       {
-        "prompt": "What does the snowman wear?",
+        "prompt": "What did Biff make?",
         "options": [
-          "a snowman with a hat and scarf",
-          "a log, a bridge, a wall, and a rock",
-          "fruit prizes and a duck",
-          "a cake and a bike"
-        ],
-        "answer": 0
-      },
-      {
-        "prompt": "What do the children make from snow?",
-        "options": [
-          "makes a snowman",
-          "moves each time animals come",
-          "runs in silly races",
-          "gets on his new bike"
-        ],
-        "answer": 0
-      },
-      {
-        "prompt": "What falls onto Floppy?",
-        "options": [
-          "Kipper, Mum, Biff, and Chip win fruit.",
-          "The hat falls on Floppy.",
-          "Sheep, ducks, and donkeys come.",
-          "The children tell Dad to keep going."
-        ],
-        "answer": 1
-      },
-      {
-        "prompt": "What happens when Floppy runs?",
-        "options": [
-          "Floppy runs and the snowman falls.",
-          "Dad falls and gets a duck.",
-          "The rain comes.",
-          "Dad falls off the bike."
-        ],
-        "answer": 0
-      },
-      {
-        "prompt": "Which order follows the story?",
-        "options": [
-          "makes a snowman → The hat falls on Floppy. → Floppy runs and the snowman falls.",
-          "The hat falls on Floppy. → makes a snowman → Floppy runs and the snowman falls.",
-          "makes a snowman → Floppy runs and the snowman falls. → The hat falls on Floppy.",
-          "Floppy runs and the snowman falls. → The hat falls on Floppy. → makes a snowman"
-        ],
-        "answer": 0
-      },
-      {
-        "prompt": "What should you look at on the snowman’s face?",
-        "options": [
-          "Look at the prize each runner gets.",
-          "Look at the snowman’s red nose.",
-          "Look at where the family sits.",
-          "Look at Dad on the bike."
-        ],
-        "answer": 1
-      },
-      {
-        "prompt": "What color are the snowman’s gloves?",
-        "options": [
-          "The family runs from the animals.",
-          "Kipper gets a banana.",
-          "The snowman has green gloves.",
-          "Dad gets a cake and a bike."
+          "A small snowman",
+          "A snow roof",
+          "A giant snowball",
+          "A snow photograph"
         ],
         "answer": 2
       },
       {
-        "prompt": "What do the children build outside?",
+        "prompt": "What did Wolf want to do?",
         "options": [
-          "Animals and rain stop the picnic.",
-          "The family runs and wins funny prizes.",
-          "The children make a snowman.",
-          "Dad tries his birthday bike."
+          "Make a snowball",
+          "Take a photograph",
+          "Open the door",
+          "Play a trick"
         ],
-        "answer": 2
+        "answer": 3
+      },
+      {
+        "prompt": "Who took a photograph?",
+        "options": [
+          "Wilma's mum",
+          "Wolf's dad",
+          "Wilma's dad",
+          "Biff"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Wilma's dad say there were six snowmen?",
+        "options": [
+          "Six children made snowballs.",
+          "The snow fell off the roof and looked like snowmen.",
+          "Six snowmen were in the garden.",
+          "Wolf made six snowmen."
+        ],
+        "answer": 1
       }
     ],
     "Silly Races": [
@@ -23150,65 +23110,3664 @@
     "Joe and the Bike": null,
     "Midge and the Eggs": null,
     "Pip and the Little Monkey": null,
-    "Kipper the Clown": null,
-    "The Jumble Sale": null,
-    "At the Seaside": null,
-    "At the Pool": null,
-    "The Cold Day": null,
-    "Kipper's Idea": null,
-    "Strawberry Jam": null,
-    "The Barbecue": null,
-    "Book Week": null,
-    "Bull's-eye!": null,
-    "The Carnival": null,
-    "The Odd Egg": null,
-    "Fire!": null,
-    "The Gulls' Picnic": null,
-    "Red Noses": null,
-    "The Ball Pit": null,
-    "Out!": null,
-    "Gorilla on the Run!": null,
-    "Got a Job?": null,
-    "The New Gingerbread Man": null,
-    "A Big Bunch of Flowers": null,
-    "Catch It!": null,
-    "Hiccups": null,
-    "Floppy and the Puppets": null,
-    "Monkeys on the Car": null,
-    "Dragons!": null,
-    "The Enormous Picture": null,
-    "Gran and the Go-karts": null,
-    "Helicopter Rescue": null,
-    "House for Sale": null,
-    "The New House": null,
-    "Come In!": null,
-    "Nobody Got Wet": null,
-    "Poor Old Mum!": null,
-    "The Weather Vane": null,
-    "Wet Paint": null,
-    "Swap!": null,
-    "The Flying Elephant": null,
-    "The Old Tree Stump": null,
-    "Missing": null,
-    "The Real Floppy": null,
-    "The Raft Race": null,
-    "The Spaceship": null,
-    "Dragon Danger": null,
-    "King of the Castle": null,
-    "Bug Hunt": null,
-    "Mister Haggis": null,
-    "A Walk in the Sun": null,
-    "Green Sheets": null,
-    "Road Burner": null,
-    "The Den": null,
-    "Dad's Jacket": null,
-    "Stuck in the Mud": null,
-    "An Important Case": null,
-    "Look Smart": null,
-    "Tug of War": null,
-    "The Secret Room": null,
-    "The Play": null,
-    "The Storm": null,
+    "Kipper the Clown": [
+      {
+        "prompt": "What did the children put on?",
+        "options": [
+          "a circus",
+          "a play",
+          "a party",
+          "a race"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who pulled Kipper's leg?",
+        "options": [
+          "Chip",
+          "Floppy",
+          "Biff",
+          "Wilma"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Chip do in the circus?",
+        "options": [
+          "He was a clown.",
+          "He did gymnastics.",
+          "He was a strong man.",
+          "He was a stuntman."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Wilma and Biff do?",
+        "options": [
+          "They pulled a leg.",
+          "They made everyone laugh.",
+          "They had a drink.",
+          "They did gymnastics."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did everyone have?",
+        "options": [
+          "a drink",
+          "a hat",
+          "a ball",
+          "a book"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why was Kipper fed up?",
+        "options": [
+          "He wanted a drink.",
+          "He wanted to be a stuntman.",
+          "He wanted to go home.",
+          "He wanted to laugh."
+        ],
+        "answer": 1
+      }
+    ],
+    "The Jumble Sale": [
+      {
+        "prompt": "What were Mum and Dad doing at the start?",
+        "options": [
+          "Spring cleaning",
+          "Cooking dinner",
+          "Washing the car",
+          "Planting a garden"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did Mum put the old toys?",
+        "options": [
+          "In a drawer",
+          "In the car",
+          "In a bag",
+          "On the bed"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How did the children feel when Mum put the old toys in the car?",
+        "options": [
+          "Happy",
+          "Angry",
+          "Sad",
+          "Sleepy"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the children want to do at the jumble sale?",
+        "options": [
+          "Sell their toys",
+          "Go home",
+          "Count the junk",
+          "Buy something"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the children see at the jumble sale?",
+        "options": [
+          "Their toys",
+          "Their friends",
+          "New books",
+          "A big dog"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the children count their money?",
+        "options": [
+          "To give it to Mum",
+          "To buy their toys back",
+          "To buy new clothes",
+          "To go home"
+        ],
+        "answer": 1
+      }
+    ],
+    "At the Seaside": [
+      {
+        "prompt": "Who went on holiday with the family?",
+        "options": [
+          "Wilf and Wilma",
+          "The farmer",
+          "Mum and Dad",
+          "The man at the hotel"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happened to the hotel they first wanted?",
+        "options": [
+          "It was full",
+          "It had burned down",
+          "It was too old",
+          "It was closed"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why did they not stay at the new hotel?",
+        "options": [
+          "It was full",
+          "It was too old",
+          "It was too expensive",
+          "It had burned down"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Dad say about the old hotel?",
+        "options": [
+          "Too expensive",
+          "Sorry",
+          "Can I help?",
+          "No, thank you"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened to the car on the way home?",
+        "options": [
+          "It broke down",
+          "It was full",
+          "It burned down",
+          "It stopped at a hotel"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the farmer stop his tractor?",
+        "options": [
+          "To sell them a bus",
+          "To help them",
+          "To take them to a hotel",
+          "To ask for money"
+        ],
+        "answer": 1
+      }
+    ],
+    "At the Pool": [
+      {
+        "prompt": "Who took Kippur to the swimming pool?",
+        "options": [
+          "Wilma's mum",
+          "Wilma",
+          "the man",
+          "Kippur's mum"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Wilma's mum take with her besides Kippur?",
+        "options": [
+          "Trunks and a towel",
+          "Beef and chip",
+          "A ball and a bag",
+          "Chips and a drink"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why couldn't Kippur go in the pool at first?",
+        "options": [
+          "The pool was closed",
+          "He was too tired",
+          "He couldn't find his trunks",
+          "The water was cold"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Wilma's mum do to help Kippur?",
+        "options": [
+          "She lent him her trunks",
+          "She took him home",
+          "She called Wilma",
+          "She bought him new trunks"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Kippur say at the end?",
+        "options": [
+          "I put them on at home",
+          "I lost them at the pool",
+          "I don't like swimming",
+          "I want to go home"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Kippur and Wilma's mum go to a shop?",
+        "options": [
+          "To buy beef and chips",
+          "To buy new trunks for Kippur",
+          "To find Wilma",
+          "To get a new pool"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Cold Day": [
+      {
+        "prompt": "Where were the children at the start?",
+        "options": [
+          "In the sea",
+          "In the van",
+          "On the rug",
+          "In the sand"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who made the children laugh?",
+        "options": [
+          "Mum",
+          "Dad",
+          "Kipper",
+          "Everyone"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did everyone want to do?",
+        "options": [
+          "Sit on the rug",
+          "Go to the van",
+          "Jog",
+          "Swim"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where did Kipper sit?",
+        "options": [
+          "In the sea",
+          "In the van",
+          "On the sand",
+          "On the rug"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Kipper say when everyone called him?",
+        "options": [
+          "I'm too cold",
+          "I'm not cold",
+          "I want to jog",
+          "I want to swim"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Kipper run to the van?",
+        "options": [
+          "He wanted to jog with everyone",
+          "He was too cold to help",
+          "He wanted to make Dad laugh",
+          "He wanted to sit on the rug"
+        ],
+        "answer": 1
+      }
+    ],
+    "Kipper's Idea": [
+      {
+        "prompt": "Who took Kipper to school?",
+        "options": [
+          "Dad",
+          "Mrs May",
+          "Miss Green",
+          "a lady"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What was the lady doing when they went past the library?",
+        "options": [
+          "reading a book",
+          "painting the wall",
+          "drawing Kipper",
+          "playing in the playground"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Where did Kipper run to?",
+        "options": [
+          "the library",
+          "the classroom",
+          "the playground",
+          "the wall"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What was on the wall?",
+        "options": [
+          "a painting of a face",
+          "a picture of a library",
+          "a drawing of a circle",
+          "a drawing of Kipper"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who drew circles on the wall?",
+        "options": [
+          "Miss Green",
+          "Mrs May",
+          "Kipper",
+          "the children"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why was Mrs May cross?",
+        "options": [
+          "Kipper ran into the playground.",
+          "The wall looked a mess.",
+          "The children were painting.",
+          "The lady was painting the wall."
+        ],
+        "answer": 1
+      }
+    ],
+    "Strawberry Jam": [
+      {
+        "prompt": "What did Dad want to make?",
+        "options": [
+          "Jam",
+          "Cake",
+          "Ice cream",
+          "Soup"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Mum take everyone to the pick your own?",
+        "options": [
+          "To buy a car",
+          "To pick strawberries",
+          "To eat ice cream",
+          "To fix the car"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Where did Kipper put some strawberries?",
+        "options": [
+          "In a box",
+          "In the car",
+          "In his pocket",
+          "In a bag"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the children have at the pick your own?",
+        "options": [
+          "Jam",
+          "Strawberries",
+          "A cake",
+          "An ice cream"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened to the strawberries in the car?",
+        "options": [
+          "The car ran over them",
+          "The children ate them",
+          "Dad picked them up",
+          "Mum took them home"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Dad say 'Traffic jam'?",
+        "options": [
+          "The car was locked",
+          "The car ran over the strawberries",
+          "The strawberries were small",
+          "The children had an ice cream"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Barbecue": [
+      {
+        "prompt": "What did Wolf's Dad want?",
+        "options": [
+          "a party",
+          "a fire",
+          "a burger",
+          "a raincoat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who made a BBQ with Wilma?",
+        "options": [
+          "Wolf",
+          "Dad",
+          "Mum",
+          "Chip"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Wolf and Mum take outside?",
+        "options": [
+          "the lights",
+          "the fire",
+          "the food",
+          "the burgers"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happened after the dads lit the fire the first time?",
+        "options": [
+          "It burned the food.",
+          "It began to rain.",
+          "It got wet.",
+          "It went out."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why were the children fed up?",
+        "options": [
+          "They were hungry and wet.",
+          "They had to help.",
+          "They did not like the party.",
+          "They wanted to cook."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the children say about the dads?",
+        "options": [
+          "They were hungry.",
+          "They got wet.",
+          "They were fed up.",
+          "They made a BBQ."
+        ],
+        "answer": 1
+      }
+    ],
+    "Book Week": [
+      {
+        "prompt": "What did the children make during Book Week?",
+        "options": [
+          "A big picture",
+          "A small toy",
+          "A long story",
+          "A new song"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did the children put their big picture?",
+        "options": [
+          "On the floor",
+          "On the wall",
+          "On the door",
+          "On the table"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who came to see the children?",
+        "options": [
+          "A teacher",
+          "A doctor",
+          "An author",
+          "A farmer"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the author do?",
+        "options": [
+          "He read a long book",
+          "He sang a song",
+          "He drew a picture",
+          "He made everyone laugh"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Kipper dress up as?",
+        "options": [
+          "A caterpillar",
+          "A butterfly",
+          "An apple",
+          "A book"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper eat?",
+        "options": [
+          "A cake",
+          "An apple",
+          "A banana",
+          "A sandwich"
+        ],
+        "answer": 1
+      }
+    ],
+    "Bull's-eye!": [
+      {
+        "prompt": "What did Wilma want at the school fair?",
+        "options": [
+          "A book",
+          "A teddy",
+          "A goldfish",
+          "A ball"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who bought the book for Wilma?",
+        "options": [
+          "Wilf",
+          "Her dad",
+          "Her teacher",
+          "Her mum"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Wilf win when he kicked the ball?",
+        "options": [
+          "A book",
+          "A teddy",
+          "A goldfish",
+          "A medal"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Dad want to win?",
+        "options": [
+          "A goldfish",
+          "A book",
+          "A ball",
+          "A teddy"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why did Dad get cross at the fair?",
+        "options": [
+          "He couldn't hit the bull's eye",
+          "He lost the goldfish",
+          "He forgot his money",
+          "He missed the gym display"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why was Wilma cross with Wilf and Dad?",
+        "options": [
+          "They took her book",
+          "They forgot to watch her",
+          "They won a teddy",
+          "They bumped into her"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Carnival": [
+      {
+        "prompt": "What did the Mums and Dads make?",
+        "options": [
+          "A giant shoe",
+          "A big trailer",
+          "A new car",
+          "A small house"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did they put the giant shoe?",
+        "options": [
+          "In a car",
+          "On a trailer",
+          "On a bus",
+          "In a house"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who dressed up as the old lady?",
+        "options": [
+          "Wilma",
+          "Kipper",
+          "Dad",
+          "Biff"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happened to the car on the way?",
+        "options": [
+          "It went fast",
+          "It got lost",
+          "It turned over",
+          "It broke down"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who pushed the car?",
+        "options": [
+          "Biff, Chip and Wolf",
+          "The Mums and Dads",
+          "The old lady",
+          "Kipper and Wilma"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did everyone say when the car broke down?",
+        "options": [
+          "Oh no!",
+          "Come on!",
+          "Good job!",
+          "Well done!"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Odd Egg": [
+      {
+        "prompt": "Where did Beef, Chip and Mum go with Mum?",
+        "options": [
+          "to the farm",
+          "to the shop",
+          "to the park",
+          "to the school"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the farm have in a pen?",
+        "options": [
+          "ducks",
+          "chicks",
+          "eggs",
+          "cows"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Mum get to put the eggs in?",
+        "options": [
+          "a box",
+          "a pen",
+          "an incubator",
+          "a lamp"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the incubator have?",
+        "options": [
+          "a pen and a box",
+          "a chick and a duck",
+          "a mum and a dad",
+          "a lamp and a fan"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "How many eggs did hatch?",
+        "options": [
+          "ten",
+          "one",
+          "five",
+          "twelve"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the odd egg hatch into?",
+        "options": [
+          "a chick",
+          "a duckling",
+          "a hen",
+          "a fan"
+        ],
+        "answer": 1
+      }
+    ],
+    "Fire!": [
+      {
+        "prompt": "What did Dad set up?",
+        "options": [
+          "A barbecue",
+          "A tent",
+          "A fire engine",
+          "A hut"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip think the smoke was at first?",
+        "options": [
+          "Hut smoke",
+          "Barbecue smoke",
+          "Fire engine smoke",
+          "House smoke"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What was really on fire?",
+        "options": [
+          "A barbecue",
+          "A tree",
+          "A hut",
+          "A car"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who came to help?",
+        "options": [
+          "Mum",
+          "Kipper",
+          "Dad",
+          "The firefighters"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the firefighters do?",
+        "options": [
+          "They put the fire out",
+          "They ran back",
+          "They set up a barbecue",
+          "They got back"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did they run back at the end?",
+        "options": [
+          "To see the hut",
+          "To get the firefighters",
+          "To eat the barbecue",
+          "To help the firefighters"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Gulls' Picnic": [
+      {
+        "prompt": "What did Dad put on the sand?",
+        "options": [
+          "A rug",
+          "A tent",
+          "A chair",
+          "A box"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What kind of sandwiches did they have?",
+        "options": [
+          "Ham sandwiches",
+          "Egg sandwiches",
+          "Jam sandwiches",
+          "Fish sandwiches"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who landed on the sand first?",
+        "options": [
+          "Ken",
+          "Dad",
+          "Miss Green",
+          "Chip"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Dad say not to get in the sandwiches?",
+        "options": [
+          "Water",
+          "Grass",
+          "Salt",
+          "Sand"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What landed on Kipper?",
+        "options": [
+          "A sandwich",
+          "A gull",
+          "A rug",
+          "A ball"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the gulls do to the picnic?",
+        "options": [
+          "They sat on it",
+          "They ate it all",
+          "They hid it",
+          "They shared it"
+        ],
+        "answer": 1
+      }
+    ],
+    "Red Noses": [
+      {
+        "prompt": "What did Mum have on when she was going out?",
+        "options": [
+          "A posh dress",
+          "A red nose",
+          "A paint pot",
+          "A big hat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who got the paints out?",
+        "options": [
+          "Dad",
+          "Chip",
+          "Biff",
+          "Kipper"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What fell over?",
+        "options": [
+          "The posh dress",
+          "The paint brush",
+          "The red paint pot",
+          "The water cup"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where did the red paint run?",
+        "options": [
+          "On to Mum",
+          "On to Biff",
+          "On to Kipper",
+          "On to Floppy"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Dad put on Chip's nose?",
+        "options": [
+          "A dab of red paint",
+          "A red nose",
+          "A posh dress",
+          "A paint pot"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Biff run and run?",
+        "options": [
+          "She wanted to find Floppy",
+          "She did not want paint on her nose",
+          "She wanted to get the paints",
+          "She was going out with Mum"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Ball Pit": [
+      {
+        "prompt": "Where did Kipper and Anna go?",
+        "options": [
+          "To the ball pit",
+          "To the park",
+          "To the shop",
+          "To the pool"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper say he was?",
+        "options": [
+          "A doctor",
+          "A batman",
+          "A driver",
+          "A teacher"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happened to Anna's glasses?",
+        "options": [
+          "They broke",
+          "They got wet",
+          "They fell off",
+          "They were lost at home"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "How did Anna feel when her glasses fell off?",
+        "options": [
+          "Happy",
+          "Angry",
+          "Sleepy",
+          "Upset"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the man say they must do?",
+        "options": [
+          "Get the balls out",
+          "Call Anna's mum",
+          "Buy new glasses",
+          "Go home"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did they put the balls in?",
+        "options": [
+          "A big box",
+          "A big net",
+          "A big bag",
+          "A big car"
+        ],
+        "answer": 1
+      }
+    ],
+    "Out!": [
+      {
+        "prompt": "What did Wilma say first?",
+        "options": [
+          "Can go.",
+          "Chip is out.",
+          "We cannot see the grid.",
+          "Bad luck Mrs May."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Biff say about Chip?",
+        "options": [
+          "Chip can go.",
+          "Chip is out.",
+          "Chip painted a cat.",
+          "Chip ran to get Mrs May."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who ran to get Mrs May?",
+        "options": [
+          "Wilma",
+          "Biff",
+          "WILF",
+          "Chip"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Mrs May do to the grid?",
+        "options": [
+          "She ran to get WILF.",
+          "She put in the sun.",
+          "She fell out.",
+          "She painted the grid."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Chip put in the grid?",
+        "options": [
+          "A dog",
+          "A cat",
+          "A bug",
+          "The sun"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Biff and Chip fall out?",
+        "options": [
+          "They could not see the grid.",
+          "They did not agree about Chip's foot.",
+          "They both wanted to paint a cat.",
+          "Mrs May told them to stop."
+        ],
+        "answer": 1
+      }
+    ],
+    "Gorilla on the Run!": [
+      {
+        "prompt": "Who sat on a bus with Grandpa Chen?",
+        "options": [
+          "Lee, Lynn and Kippur",
+          "Lee, Lynn and a gorilla",
+          "Kippur and a big dog",
+          "Lynn and a man with a big hat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Lynn and Lee say they saw at first?",
+        "options": [
+          "A big dog",
+          "A gorilla",
+          "A big hat",
+          "A man"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Grandpa say the gorilla was at the shops?",
+        "options": [
+          "A big dog",
+          "A gorilla on the run",
+          "A man with a big hat",
+          "A boy from school"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Grandpa say gorillas do not do?",
+        "options": [
+          "Run",
+          "Sit on a bus",
+          "Say hello",
+          "Shop"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the gorilla say to Grandpa?",
+        "options": [
+          "Hello",
+          "Oh no",
+          "Good English",
+          "It is not a gorilla"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Grandpa have a big shock?",
+        "options": [
+          "The bus went too fast",
+          "He felt a tap and saw the gorilla",
+          "He lost his big hat",
+          "Lynn and Lee shouted at him"
+        ],
+        "answer": 1
+      }
+    ],
+    "Got a Job?": [
+      {
+        "prompt": "Why did Biff and Chip have jobs to do?",
+        "options": [
+          "Mum and Dad were not well.",
+          "Kippa was not well.",
+          "They wanted a picnic.",
+          "They had no school."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip get for Dad?",
+        "options": [
+          "A mug.",
+          "A rug.",
+          "A pot of jam.",
+          "A sandwich."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Biff get for Mum?",
+        "options": [
+          "A rug.",
+          "A pot of jam.",
+          "Mum's mug.",
+          "A big job."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Kippa make?",
+        "options": [
+          "A rug.",
+          "A mug of tea.",
+          "A big mess.",
+          "Jam sandwiches."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who had lots of jam sandwiches?",
+        "options": [
+          "Kippa",
+          "Mum",
+          "Dad",
+          "Biff"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip call the big job?",
+        "options": [
+          "A sandwich picnic.",
+          "A sandwich mess.",
+          "A jam pot.",
+          "A feet-up job."
+        ],
+        "answer": 1
+      }
+    ],
+    "The New Gingerbread Man": [
+      {
+        "prompt": "What did Lee and Lin make?",
+        "options": [
+          "A gingerbread man",
+          "A birthday cake",
+          "A loaf of bread",
+          "A plate of cookies"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did Lee and Lin put the gingerbread man?",
+        "options": [
+          "On a rack",
+          "In the oven",
+          "In a book",
+          "On the table"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Lin get?",
+        "options": [
+          "Her hat",
+          "A spoon",
+          "Her book",
+          "A plate"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who took the gingerbread man out of the oven?",
+        "options": [
+          "Lee",
+          "Lin",
+          "Button",
+          "Grandpa Chen"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did Grandpa Chen put the gingerbread man?",
+        "options": [
+          "On a rack",
+          "In a box",
+          "On a chair",
+          "In a bag"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who ran off at the end?",
+        "options": [
+          "Lee",
+          "Button",
+          "Lin",
+          "Grandpa Chen"
+        ],
+        "answer": 1
+      }
+    ],
+    "A Big Bunch of Flowers": [
+      {
+        "prompt": "What did Dad get for Mum?",
+        "options": [
+          "A big bunch of flowers",
+          "A small box of candy",
+          "A new bin",
+          "A card"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did Dad put the flowers first?",
+        "options": [
+          "On a bin",
+          "On the back",
+          "In the shop",
+          "On a chair"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happened to the flowers Dad put on the back?",
+        "options": [
+          "They got wet",
+          "They were eaten",
+          "They fell off",
+          "They were sold"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who saw the lost flowers?",
+        "options": [
+          "Chip",
+          "Mum",
+          "Dad",
+          "Wilma"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did Wilma's mum put the lost flowers?",
+        "options": [
+          "On a bin",
+          "On the back",
+          "In the shop",
+          "In a box"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Dad go back to the flower shop?",
+        "options": [
+          "He wanted a bin",
+          "He had lost the flowers",
+          "He saw Wilma",
+          "He wanted a card"
+        ],
+        "answer": 1
+      }
+    ],
+    "Catch It!": [
+      {
+        "prompt": "Where were Wilma and her family?",
+        "options": [
+          "On the beach",
+          "In the park",
+          "At school",
+          "In the garden"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Dad put up?",
+        "options": [
+          "A tent",
+          "A net",
+          "A flag",
+          "A kite"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Floppy run to get?",
+        "options": [
+          "The net",
+          "The hat",
+          "The ball",
+          "The stick"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What took the ball off?",
+        "options": [
+          "A big wave",
+          "A dog",
+          "A jet ski",
+          "A big gust of wind"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who got the ball from the sea?",
+        "options": [
+          "A man on a jet ski",
+          "Dad",
+          "Chip",
+          "Wilma"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Mum say \"No, Floppy\"?",
+        "options": [
+          "Floppy was too tired",
+          "The ball would pop if Floppy got it",
+          "Floppy was wet",
+          "The ball was in the sea"
+        ],
+        "answer": 1
+      }
+    ],
+    "Hiccups": [
+      {
+        "prompt": "What did Kippa have that gave him hiccups?",
+        "options": [
+          "A drink",
+          "A cake",
+          "An apple",
+          "Some water"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who told Kippa to get a cup of water?",
+        "options": [
+          "Biff",
+          "Lee",
+          "Chip",
+          "Grandpa Chen"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Biff tell Kippa to do with the water?",
+        "options": [
+          "Warm it up",
+          "Pour it out",
+          "Drink it like this",
+          "Add some sugar"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Chip say would help Kippa?",
+        "options": [
+          "Holding his breath",
+          "Drinking more water",
+          "Sitting very still",
+          "Hopping and patting his tum"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Biff say would get rid of the hiccups?",
+        "options": [
+          "A shock",
+          "A nap",
+          "A big meal",
+          "A long walk"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who got rid of Kippa's hiccups in the end?",
+        "options": [
+          "Lee",
+          "Grandpa Chen",
+          "Biff",
+          "Chip"
+        ],
+        "answer": 1
+      }
+    ],
+    "Floppy and the Puppets": [
+      {
+        "prompt": "Who said, \"This puppet is Dad\"?",
+        "options": [
+          "Biff",
+          "Kipper",
+          "Mum",
+          "Floppy"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Which puppet did Kipper say was the dog?",
+        "options": [
+          "The Mum puppet",
+          "The dog puppet",
+          "The Dad puppet",
+          "The Biff puppet"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How did Floppy feel about the puppets?",
+        "options": [
+          "He was happy.",
+          "He was sleepy.",
+          "He was not happy.",
+          "He was hungry."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Floppy do when he did not like the puppets?",
+        "options": [
+          "He ran away.",
+          "He ate the puppets.",
+          "He played with them.",
+          "He barked and barked."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did Floppy go after the puppets upset him?",
+        "options": [
+          "Into his basket",
+          "Into the garden",
+          "Into the kitchen",
+          "Into the car"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the Biff puppet give Floppy to eat in the dream?",
+        "options": [
+          "Bits of meat",
+          "Bits of wood",
+          "A bone",
+          "Some bread"
+        ],
+        "answer": 1
+      }
+    ],
+    "Monkeys on the Car": [
+      {
+        "prompt": "Who took the children to the safari park?",
+        "options": [
+          "Mum and Dad",
+          "Biff and Chip",
+          "The man",
+          "Kipper and the lion"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man tell them to do in the car?",
+        "options": [
+          "Drive fast",
+          "Stop",
+          "Open the windows",
+          "Feed the lions"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did the monkeys pull off the car?",
+        "options": [
+          "The wheels",
+          "The doors",
+          "The wipers",
+          "The mirrors"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Biff call the monkeys?",
+        "options": [
+          "Funny monkeys",
+          "Big monkeys",
+          "Baby monkeys",
+          "Bad monkeys"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Dad say was in the car?",
+        "options": [
+          "Monkeys",
+          "Lions",
+          "Zebras",
+          "Elephants"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the monkeys do first when they jumped on the car?",
+        "options": [
+          "They pulled the wipers off",
+          "They pulled at the wipers",
+          "They jumped in the car",
+          "They ran to the lions"
+        ],
+        "answer": 1
+      }
+    ],
+    "Dragons!": [
+      {
+        "prompt": "Who went to the woods with the children?",
+        "options": [
+          "Mrs. May",
+          "Biff",
+          "Chip",
+          "Wif"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Mrs. May say the children could make?",
+        "options": [
+          "a play",
+          "wig wams",
+          "a song",
+          "a jig"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did the children go to get in the woods?",
+        "options": [
+          "dragons",
+          "songs",
+          "sticks",
+          "water"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Biff say she saw?",
+        "options": [
+          "a red dragon",
+          "a wig wam",
+          "a play",
+          "a green dragon"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the dragons do in the play?",
+        "options": [
+          "They sang a song and did a jig.",
+          "They went to the woods.",
+          "They made wig wams.",
+          "They got sticks."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the children go to see the play?",
+        "options": [
+          "Chip wanted to sing a song.",
+          "Mrs. May said they could go and see it.",
+          "Biff wanted to make a wig wam.",
+          "Wif wanted to get sticks."
+        ],
+        "answer": 1
+      }
+    ],
+    "The Enormous Picture": [
+      {
+        "prompt": "What happened to the minibus?",
+        "options": [
+          "It broke down.",
+          "It ran out of petrol.",
+          "It was stolen.",
+          "It got a flat tyre."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Mrs May say it would cost to fix the minibus?",
+        "options": [
+          "Nothing at all.",
+          "A lot of money.",
+          "A little money.",
+          "One hundred pounds."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who first said they could paint an enormous picture?",
+        "options": [
+          "Biff",
+          "Mrs May",
+          "Chip",
+          "The minibus driver"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Mrs May do with the picture?",
+        "options": [
+          "She sold it to a shop.",
+          "She put it in a frame.",
+          "She gave it to the children.",
+          "She cut it into squares."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Biff have to paint?",
+        "options": [
+          "Yellow petals",
+          "A yellow square",
+          "A blue circle",
+          "A green leaf"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip have to paint?",
+        "options": [
+          "Yellow petals",
+          "A yellow square",
+          "A big tree",
+          "A red flower"
+        ],
+        "answer": 1
+      }
+    ],
+    "Gran and the Go-karts": [
+      {
+        "prompt": "Who took the children to a go-kart track?",
+        "options": [
+          "Gran",
+          "Chip",
+          "Wilf",
+          "Bith"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man tell Chip to put on?",
+        "options": [
+          "a hat",
+          "this kit",
+          "a coat",
+          "new shoes"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who won the first race?",
+        "options": [
+          "Chip",
+          "Bith",
+          "Wilf",
+          "Gran"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Gran say she would do?",
+        "options": [
+          "take the children home",
+          "buy a go-kart",
+          "win the race",
+          "race the children"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened to Gran in the second race?",
+        "options": [
+          "She went too fast.",
+          "She went too slow.",
+          "She fell asleep.",
+          "She lost her kit."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Gran say at the end?",
+        "options": [
+          "That was such fun.",
+          "I'll win next time.",
+          "Bad luck, Bith.",
+          "Can I have that go-kart?"
+        ],
+        "answer": 1
+      }
+    ],
+    "Helicopter Rescue": [
+      {
+        "prompt": "What did the children see first in the story?",
+        "options": [
+          "A helicopter",
+          "A boat",
+          "A winch",
+          "A rock"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who said the children could go in and look?",
+        "options": [
+          "Chip",
+          "A man",
+          "Mum",
+          "The boy"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did the children see inside the helicopter?",
+        "options": [
+          "The boat",
+          "The rock",
+          "The cockpit",
+          "The winch"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What do they pull people up with?",
+        "options": [
+          "A rock",
+          "A boat",
+          "A call out",
+          "A winch"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the helicopter go to rescue?",
+        "options": [
+          "A boat",
+          "A boy",
+          "A rock",
+          "A cockpit"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the helicopter take off?",
+        "options": [
+          "To show the cockpit",
+          "To rescue a boat",
+          "To find the children",
+          "To hit a rock"
+        ],
+        "answer": 1
+      }
+    ],
+    "House for Sale": [
+      {
+        "prompt": "Who liked the house in the beginning?",
+        "options": [
+          "Dad and Mum",
+          "Biff and Chip",
+          "Kipper only",
+          "Nobody liked it"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper pull in the house?",
+        "options": [
+          "The door",
+          "The wallpaper",
+          "The curtain",
+          "The carpet"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Kipper look up?",
+        "options": [
+          "The stairs",
+          "The window",
+          "The chimney",
+          "The roof"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Kipper do on the bed?",
+        "options": [
+          "Slept on it",
+          "Sat on it",
+          "Fell off it",
+          "Jumped on it"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did they go after the bedrooms?",
+        "options": [
+          "Down the garden",
+          "Up the stairs",
+          "Into the kitchen",
+          "Out the front door"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper pull down in the tree house?",
+        "options": [
+          "A box",
+          "A can",
+          "A bag",
+          "A book"
+        ],
+        "answer": 1
+      }
+    ],
+    "The New House": [
+      {
+        "prompt": "What came to the house?",
+        "options": [
+          "A van",
+          "A car",
+          "A bus",
+          "A bike"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who said, \"What a big man!\"?",
+        "options": [
+          "Chip",
+          "Kipper",
+          "Biff",
+          "Dad"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Biff and Chip put in the van?",
+        "options": [
+          "A box",
+          "A bed",
+          "The go-kart",
+          "A table"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Kipper put in the van?",
+        "options": [
+          "A box",
+          "The go-kart",
+          "A chair",
+          "His toys"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did everyone say about the job?",
+        "options": [
+          "What a job!",
+          "What a big box!",
+          "What a big van!",
+          "What a big man!"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Biff and Chip say \"Oh no\" at the end?",
+        "options": [
+          "They lost their toys.",
+          "They had more work to do.",
+          "They were hungry.",
+          "They wanted to go home."
+        ],
+        "answer": 1
+      }
+    ],
+    "Come In!": [
+      {
+        "prompt": "What was Dad doing at the start?",
+        "options": [
+          "Painting the door",
+          "Washing the car",
+          "Making biscuits",
+          "Watching television"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who came to play first?",
+        "options": [
+          "Biff and Chip",
+          "Wilf and Wilmer",
+          "Kipper and Mum",
+          "Three children"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "How many children came to play with Chip?",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the children want to do with Kipper?",
+        "options": [
+          "Paint",
+          "Eat",
+          "Read",
+          "Play"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What were Biff, Chip and Kipper doing when Mum looked for them?",
+        "options": [
+          "Watching television",
+          "Painting the door",
+          "Playing outside",
+          "Eating biscuits"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why was Mum cross?",
+        "options": [
+          "Dad was painting",
+          "The house was a mess",
+          "The children went home",
+          "She had no biscuits"
+        ],
+        "answer": 1
+      }
+    ],
+    "Nobody Got Wet": [
+      {
+        "prompt": "Who got a boat?",
+        "options": [
+          "Dad",
+          "Mum",
+          "Wilma",
+          "Everyone"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Dad do after everyone sat in the boat?",
+        "options": [
+          "He pulled the boat in.",
+          "He pushed the boat out.",
+          "He had a picnic.",
+          "He went home."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who pulled Dad when he was stuck?",
+        "options": [
+          "Wilma",
+          "The boat",
+          "Mum",
+          "Everyone"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the family do after they went down the river?",
+        "options": [
+          "They got wet.",
+          "They went home.",
+          "They pushed the boat.",
+          "They had a picnic."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened when they had a picnic?",
+        "options": [
+          "It began to rain.",
+          "The boat floated away.",
+          "Dad got stuck.",
+          "Mum fell in."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happened at the end of the story?",
+        "options": [
+          "Nobody got wet.",
+          "Everyone got wet.",
+          "Mum got wet.",
+          "Dad got wet."
+        ],
+        "answer": 1
+      }
+    ],
+    "Poor Old Mum!": [
+      {
+        "prompt": "What event was Wilma in?",
+        "options": [
+          "the long jump",
+          "the egg and spoon race",
+          "a running race",
+          "the high jump"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did Wilma come in her event?",
+        "options": [
+          "second",
+          "first",
+          "third",
+          "last"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What race was Dad in?",
+        "options": [
+          "the long jump",
+          "a running race",
+          "the egg and spoon race",
+          "the sack race"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where did Dad come in his race?",
+        "options": [
+          "first",
+          "second",
+          "last",
+          "third"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did Mum come in her race?",
+        "options": [
+          "last",
+          "first",
+          "second",
+          "third"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "How did Mum feel after her race?",
+        "options": [
+          "excited",
+          "disappointed",
+          "angry",
+          "proud"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Weather Vane": [
+      {
+        "prompt": "Where did Dad go with Wolf and Wilma?",
+        "options": [
+          "To the building site",
+          "To the park",
+          "To the school",
+          "To the shop"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Wilma do with the man in the cab?",
+        "options": [
+          "She gave him a photograph",
+          "She spoke to him",
+          "She jumped over him",
+          "She took his van"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What was on the back of the van?",
+        "options": [
+          "A crane",
+          "A photograph",
+          "A weather vane",
+          "A roof"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who jumped over the weather vane first?",
+        "options": [
+          "Wilma",
+          "Dad",
+          "Biff",
+          "Wolf"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did the weather vane go?",
+        "options": [
+          "On the roof",
+          "On the van",
+          "In the cab",
+          "On the crane"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Biff say it was a tall story?",
+        "options": [
+          "He wanted the photograph",
+          "He did not believe they jumped over it",
+          "He liked the weather vane",
+          "He saw them jump over it"
+        ],
+        "answer": 1
+      }
+    ],
+    "Wet Paint": [
+      {
+        "prompt": "What was Dad doing at the start of the story?",
+        "options": [
+          "Painting the back door",
+          "Washing the car",
+          "Fixing the window",
+          "Cleaning the floor"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Floppy do to the door?",
+        "options": [
+          "He pushed it with his nose",
+          "He put his paws on the paint",
+          "He kicked it with his feet",
+          "He sat down in front of it"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What happened when Biff kicked the ball?",
+        "options": [
+          "It went over the house",
+          "It hit Floppy",
+          "It hit the door",
+          "It went in the paint"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Kipper get on his hands?",
+        "options": [
+          "Water",
+          "Feathers",
+          "Mud",
+          "Paint"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Biff and Chip do with the pillow?",
+        "options": [
+          "They had a pillow fight",
+          "They put it on the door",
+          "They gave it to Floppy",
+          "They painted it"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Dad put up an old door?",
+        "options": [
+          "The new door was too small",
+          "He wanted the back door to be safe inside",
+          "The children liked the old door",
+          "The door was always getting dirty"
+        ],
+        "answer": 1
+      }
+    ],
+    "Swap!": [
+      {
+        "prompt": "What did Nadim find at the start?",
+        "options": [
+          "A bat",
+          "A robot",
+          "A skateboard",
+          "A bike"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who helped Nadim mend the bat?",
+        "options": [
+          "Chip",
+          "His dad",
+          "Biff",
+          "Wilma"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Chip swap for the bat?",
+        "options": [
+          "A bike",
+          "A skateboard",
+          "A robot",
+          "A bat"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What was wrong with Biff's skateboard?",
+        "options": [
+          "It was painted black",
+          "It was too small",
+          "It had no seat",
+          "It had no wheels"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Nadim put on the skateboard?",
+        "options": [
+          "New wheels",
+          "New paint",
+          "A new bat",
+          "A new robot"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Nadim do to the bike?",
+        "options": [
+          "He swapped it for a robot",
+          "He mended it and painted it black",
+          "He put on new wheels",
+          "He gave it to Chip"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Flying Elephant": [
+      {
+        "prompt": "Where did Mum go with the children?",
+        "options": [
+          "shopping",
+          "to school",
+          "to the playground",
+          "to the roof"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the children see on the roof?",
+        "options": [
+          "a funny man",
+          "a fat elephant",
+          "a flat elephant",
+          "a strong wind"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Mum say when the children said \"an elephant\"?",
+        "options": [
+          "Look at that!",
+          "Sorry.",
+          "Don't be silly.",
+          "It's flat now."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happened after the storm?",
+        "options": [
+          "The children went shopping.",
+          "Mum laughed at the elephant.",
+          "The elephant went to school.",
+          "The wind blew the elephant away."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where was the elephant when the children went to school?",
+        "options": [
+          "in the playground",
+          "on the roof",
+          "in the shop",
+          "at home"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the man come back?",
+        "options": [
+          "He wanted to see the school.",
+          "He wanted the elephant back.",
+          "He wanted to tell Mrs May.",
+          "He wanted to play with the children."
+        ],
+        "answer": 1
+      }
+    ],
+    "The Old Tree Stump": [
+      {
+        "prompt": "What did Dad say about the old stump?",
+        "options": [
+          "That old stump has to go.",
+          "That old stump is a tree.",
+          "That old stump is a bone.",
+          "That old stump has to stay."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who did Dad call first to help him?",
+        "options": [
+          "Biff",
+          "Mum",
+          "Chip",
+          "Kipper"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Dad tell everyone to do when he shouted?",
+        "options": [
+          "Dig",
+          "Push",
+          "Pull",
+          "Run"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Floppy see?",
+        "options": [
+          "A stump",
+          "A tree",
+          "A ball",
+          "A bone"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Floppy do?",
+        "options": [
+          "He dug and dug.",
+          "He pulled the stump.",
+          "He called Kipper.",
+          "He shouted pull."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the stump come up?",
+        "options": [
+          "Dad pulled it hard.",
+          "Floppy dug it up.",
+          "Mum pushed it over.",
+          "Kipper shouted at it."
+        ],
+        "answer": 1
+      }
+    ],
+    "Missing": [
+      {
+        "prompt": "What kind of animal did Nadim have?",
+        "options": [
+          "A hamster",
+          "A rabbit",
+          "A dog",
+          "A cat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What was the hamster's name?",
+        "options": [
+          "Floppy",
+          "Jaws",
+          "Biff",
+          "Chip"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why did Jaws get out of the cage?",
+        "options": [
+          "The cage was too small.",
+          "Biff opened the cage.",
+          "Nadim left the cage door open.",
+          "Jaws broke the cage."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where did Chip look for Jaws?",
+        "options": [
+          "Under the sink",
+          "Under the cupboard",
+          "In the clothes basket",
+          "In the fridge"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Where did Nadim's dad look for Jaws?",
+        "options": [
+          "Under the floorboards",
+          "In the fridge",
+          "Under the sink",
+          "In the garden"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where was Jaws found?",
+        "options": [
+          "In the fridge",
+          "In the clothes basket",
+          "Under the sink",
+          "Under the floorboards"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Real Floppy": [
+      {
+        "prompt": "Where did the children run to play?",
+        "options": [
+          "Onto the sand",
+          "Into the sea",
+          "Onto the grass",
+          "Into the house"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Wilma throw for Floppy to run after?",
+        "options": [
+          "A stick",
+          "A ball",
+          "A hat",
+          "A bone"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why did Dad tell the children to stop?",
+        "options": [
+          "It was time to go home",
+          "Floppy was too tired",
+          "Dogs can't go on the sand",
+          "The ball was lost"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who took Floppy for a walk?",
+        "options": [
+          "Dad",
+          "Biff",
+          "Chip",
+          "Mum"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the children make with the sand?",
+        "options": [
+          "A floppy made of sand",
+          "A big castle",
+          "A small boat",
+          "A pile of balls"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper say about the sand dog?",
+        "options": [
+          "It's too big",
+          "It's a good sand dog",
+          "It looks like a cat",
+          "It needs a ball"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Raft Race": [
+      {
+        "prompt": "Where were the children at the start of the story?",
+        "options": [
+          "At the river",
+          "At the park",
+          "At the beach",
+          "At the lake"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who made the raft?",
+        "options": [
+          "Biff and Chip",
+          "Mum and Dad",
+          "Wilma and Wolf",
+          "The children"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did the children do to help with the raft?",
+        "options": [
+          "They painted it",
+          "They sold it",
+          "They helped make it",
+          "They hid it"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happened when the Raft Race started?",
+        "options": [
+          "The raft sank at once",
+          "Dad fell in before starting",
+          "Mum fell in the water",
+          "Mum and Dad went fast"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened to the raft the first time?",
+        "options": [
+          "It broke in half",
+          "It turned over",
+          "It went the wrong way",
+          "It hit a rock"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who won the race in the end?",
+        "options": [
+          "Dad",
+          "Mum",
+          "Wilma",
+          "Wolf"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Spaceship": [
+      {
+        "prompt": "What did Floppy do at the start of the story?",
+        "options": [
+          "He went to sleep and began to dream",
+          "He flew a spaceship",
+          "He played with Kipper",
+          "He saw a big fireball"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who came out of the spaceship?",
+        "options": [
+          "A dog called Floppy",
+          "An alien called Zig",
+          "A boy called Kipper",
+          "A man called Zog"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Zig say was his dog's name?",
+        "options": [
+          "Floppy",
+          "Kipper",
+          "Zog",
+          "Zig"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the spaceship do after Zig said, \"Let's go into space\"?",
+        "options": [
+          "It landed in a field",
+          "It began to spin round",
+          "It hit a fireball",
+          "It took off and flew into space"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened when a fireball hit the spaceship?",
+        "options": [
+          "It began to spin round",
+          "It flew out of danger",
+          "It landed on the ground",
+          "It went to sleep"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Floppy fly the spaceship?",
+        "options": [
+          "He wanted to go home",
+          "He saw a big fireball coming and saved them",
+          "He wanted to bump heads with Zig",
+          "He wanted to be a space dog"
+        ],
+        "answer": 1
+      }
+    ],
+    "Dragon Danger": [
+      {
+        "prompt": "What was Floppy dreaming about?",
+        "options": [
+          "dragons",
+          "bridges",
+          "rocks",
+          "fires"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the mother dragon do when she saw Floppy?",
+        "options": [
+          "She hid behind a rock.",
+          "She roared at him.",
+          "She flew away.",
+          "She fell asleep."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What came out of the dragon's mouth?",
+        "options": [
+          "smoke",
+          "water",
+          "flames",
+          "rocks"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where did Floppy run to get away from the dragon?",
+        "options": [
+          "into a cave",
+          "up a tree",
+          "into a house",
+          "onto a bridge"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What happened to the bridge?",
+        "options": [
+          "It was on fire.",
+          "It fell down.",
+          "It turned to ice.",
+          "It broke in half."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Floppy do when the rock started to fall?",
+        "options": [
+          "He ran home.",
+          "He pulled the baby dragon out of danger.",
+          "He hid under the bridge.",
+          "He roared at the mother dragon."
+        ],
+        "answer": 1
+      }
+    ],
+    "King of the Castle": [
+      {
+        "prompt": "Who took the children to see a castle?",
+        "options": [
+          "Mum and Dad",
+          "Chip and Biff",
+          "Nadim and Kipper",
+          "A man and a woman"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the castle have?",
+        "options": [
+          "A big coach and a car park",
+          "A moat and lots of turrets",
+          "A queen and a king",
+          "A knight and a castle"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Chip say he was?",
+        "options": [
+          "A king",
+          "A queen",
+          "A knight",
+          "A coach"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Where was Dad when he shouted?",
+        "options": [
+          "In the car park",
+          "In the moat",
+          "On the coach",
+          "High up in a turret"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the people from the coach do?",
+        "options": [
+          "They all made a bow",
+          "They all shouted at Dad",
+          "They all went home",
+          "They all saw a knight"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the woman say about the castle?",
+        "options": [
+          "Such a big coach",
+          "Such a good castle",
+          "Such a high turret",
+          "Such a good king"
+        ],
+        "answer": 1
+      }
+    ],
+    "Bug Hunt": [
+      {
+        "prompt": "Where did Biff and Kipper go on a bug hunt?",
+        "options": [
+          "In the garden",
+          "In the kitchen",
+          "In the park",
+          "In the woods"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Kipper find in the soil?",
+        "options": [
+          "A small jar",
+          "A big bug",
+          "A good book",
+          "A piece of toast"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why did the jar have holes in the lid?",
+        "options": [
+          "For water",
+          "For light",
+          "For air",
+          "For food"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Mum want to have for breakfast?",
+        "options": [
+          "Eggs and milk",
+          "Bread and butter",
+          "Cake and tea",
+          "Toast and jam"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Biff and Kipper do after they caught the bug?",
+        "options": [
+          "They put the jar in the kitchen",
+          "They ran to the garden",
+          "They read the insect book",
+          "They made some toast"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happened when Mum took the lid off the jar?",
+        "options": [
+          "The jar broke",
+          "The bug shot out",
+          "The toast burned",
+          "The bug went to sleep"
+        ],
+        "answer": 1
+      }
+    ],
+    "Mister Haggis": [
+      {
+        "prompt": "What did the parrot look like?",
+        "options": [
+          "Green with a red head",
+          "Red with a green head",
+          "Blue with a yellow head",
+          "Yellow with a blue head"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Where did the parrot first sit on Dad?",
+        "options": [
+          "On his arm",
+          "On his head",
+          "On his hand",
+          "On his shoulder"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did the parrot keep saying?",
+        "options": [
+          "Sing us a song",
+          "Good English",
+          "Night night, Mr. Haggis",
+          "Will it ever stop"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Mum put up?",
+        "options": [
+          "A sign",
+          "A picture",
+          "A note",
+          "A poster"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who came at last?",
+        "options": [
+          "A man",
+          "A woman",
+          "A boy",
+          "A girl"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man say you need to do?",
+        "options": [
+          "Feed him",
+          "Cover him up",
+          "Sing to him",
+          "Take him home"
+        ],
+        "answer": 1
+      }
+    ],
+    "A Walk in the Sun": [
+      {
+        "prompt": "What did Lee think he heard near the farm?",
+        "options": [
+          "A hen",
+          "A rooster",
+          "A sheep",
+          "A bull"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man say the animal was?",
+        "options": [
+          "A hen",
+          "A rooster",
+          "A sheep",
+          "A cow"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What was the farmer doing to the sheep?",
+        "options": [
+          "Feeding it",
+          "Cutting its hair",
+          "Shearing its coat",
+          "Washing it"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the man say the building was?",
+        "options": [
+          "A farmhouse",
+          "A tree",
+          "A beach",
+          "A barn"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the man say the animal with long horns was?",
+        "options": [
+          "A bull",
+          "A cow",
+          "A sheep",
+          "A rooster"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did they all shout \"Run!\"?",
+        "options": [
+          "They heard a rooster",
+          "They saw a big bull with long horns",
+          "They wanted to climb a tree",
+          "They saw a sheep getting a haircut"
+        ],
+        "answer": 1
+      }
+    ],
+    "Green Sheets": [
+      {
+        "prompt": "Who put the sheets in the washing machine?",
+        "options": [
+          "Dad",
+          "Mum",
+          "Biff",
+          "Kipper"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Biff notice on her PE kit?",
+        "options": [
+          "Paint",
+          "Mud",
+          "Water",
+          "Soap"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Biff do with her PE kit?",
+        "options": [
+          "She put it in her bag.",
+          "She gave it to Chip.",
+          "She put it in the washing machine.",
+          "She washed it by hand."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What happened when Mum turned on the washing machine?",
+        "options": [
+          "The machine stopped working.",
+          "The sheets turned white.",
+          "Dad shouted again.",
+          "All the green ran out of Biff's shorts."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Mum say about the green sheets?",
+        "options": [
+          "She thought they looked good.",
+          "She said they were ruined.",
+          "She said they were dirty.",
+          "She said they were too small."
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Biff take her PE kit to school?",
+        "options": [
+          "She wanted to wash it again.",
+          "She thought her green kit looked good.",
+          "She needed to give it to Dad.",
+          "She wanted to hide it from Mum."
+        ],
+        "answer": 1
+      }
+    ],
+    "Road Burner": [
+      {
+        "prompt": "What did Nadim get for his birthday?",
+        "options": [
+          "A car called the Roadburner",
+          "A scooter",
+          "A wallet",
+          "A bicycle"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip say was hard to do with the Roadburner?",
+        "options": [
+          "Stop it",
+          "Turn it",
+          "Start it",
+          "Clean it"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What fell out of the man's pocket?",
+        "options": [
+          "A key",
+          "A phone",
+          "A wallet",
+          "A coin"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why did the children yell at the man on the scooter?",
+        "options": [
+          "To say hello",
+          "To ask for a ride",
+          "To warn him of danger",
+          "To stop him for his wallet"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Nadim put on the Roadburner?",
+        "options": [
+          "The wallet",
+          "A note",
+          "A flag",
+          "A bag"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man say to the children at the end?",
+        "options": [
+          "Goodbye",
+          "You did me a good turn",
+          "I lost my wallet",
+          "Please help me"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Den": [
+      {
+        "prompt": "Where were the children when they decided to build a den?",
+        "options": [
+          "By the stream",
+          "In the garden",
+          "At school",
+          "On the hill"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who had the idea to make a den?",
+        "options": [
+          "Chip",
+          "Wilf",
+          "Biff",
+          "Kipper"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Wilma find for the den?",
+        "options": [
+          "Some logs",
+          "Some branches",
+          "Some straw",
+          "Some stones"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Biff find for the den?",
+        "options": [
+          "Some straw",
+          "Some sticks",
+          "Some branches",
+          "Some logs"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Why did the children leave the den the first time?",
+        "options": [
+          "It began to rain",
+          "It got dark",
+          "Dad called them",
+          "They were hungry"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why couldn't the children go out to play all week?",
+        "options": [
+          "They were ill",
+          "It rained all week",
+          "They were at school",
+          "The den was broken"
+        ],
+        "answer": 1
+      }
+    ],
+    "Dad's Jacket": [
+      {
+        "prompt": "Why did the children put tables outside?",
+        "options": [
+          "To sell things for children in need",
+          "To play a game with Dad",
+          "To make a poster for school",
+          "To give their clothes away"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip make?",
+        "options": [
+          "A game",
+          "A poster",
+          "Some plants",
+          "Some books"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Who invented a game?",
+        "options": [
+          "Wilma",
+          "Biff",
+          "Anina",
+          "Kippa"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the man buy for five pounds?",
+        "options": [
+          "Anina's game",
+          "Biff's plants",
+          "Wilt's books",
+          "Dad's jacket"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Dad do after he saw the man with his jacket?",
+        "options": [
+          "He ran after the man",
+          "He called the police",
+          "He bought a new jacket",
+          "He gave the man ten pounds"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did the man do with the ten pounds?",
+        "options": [
+          "He bought Dad's jacket",
+          "He gave it to Wilma for children in need",
+          "He kept it for himself",
+          "He gave it back to Dad"
+        ],
+        "answer": 1
+      }
+    ],
+    "Stuck in the Mud": [
+      {
+        "prompt": "What did the children go for?",
+        "options": [
+          "A walk",
+          "A swim",
+          "A ride",
+          "A nap"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Biff say about the path?",
+        "options": [
+          "What a long path",
+          "What a muddy path",
+          "What a wide path",
+          "What a wet path"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What animal was stuck in the mud?",
+        "options": [
+          "A cow",
+          "A pig",
+          "A sheep",
+          "A dog"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Why couldn't the sheep get out?",
+        "options": [
+          "The sheep was too tired",
+          "The fence was too high",
+          "The lead was too short",
+          "The mud was too deep"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Dad lose in the mud?",
+        "options": [
+          "A boot",
+          "A hat",
+          "A lead",
+          "A coat"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did Wilma go back into the mud?",
+        "options": [
+          "To help the sheep again",
+          "To get Dad's boot",
+          "To find Floppy",
+          "To wash her hands"
+        ],
+        "answer": 1
+      }
+    ],
+    "An Important Case": [
+      {
+        "prompt": "Where did the ball land when Wilf kicked it?",
+        "options": [
+          "In a bush",
+          "In a car",
+          "In a house",
+          "In a tree"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who found the case?",
+        "options": [
+          "Wilf",
+          "Kipper",
+          "Biff",
+          "Wilma"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Dad do when he looked at the case?",
+        "options": [
+          "He opened it",
+          "He took it home",
+          "He couldn't open it",
+          "He gave it to Wilf"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who said the case was very important?",
+        "options": [
+          "Wilf",
+          "Chip",
+          "Biff",
+          "The police officer"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the man in the big car say about the case?",
+        "options": [
+          "It was stolen",
+          "It was lost",
+          "It was broken",
+          "It was heavy"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What was in the case?",
+        "options": [
+          "Money",
+          "Sandwiches",
+          "Books",
+          "A football"
+        ],
+        "answer": 1
+      }
+    ],
+    "Look Smart": [
+      {
+        "prompt": "What did Mum buy for Biff?",
+        "options": [
+          "A dress",
+          "A shirt",
+          "A top",
+          "A bag"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Dad carry in when he came in?",
+        "options": [
+          "A bag",
+          "A tray",
+          "A cup",
+          "A box"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What spilled on Kipper's new top?",
+        "options": [
+          "Mud",
+          "Lipstick",
+          "Chocolate",
+          "Water"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Biff sit on?",
+        "options": [
+          "A cup",
+          "A bag",
+          "A tray",
+          "Mum's lipstick"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Floppy have on his paws?",
+        "options": [
+          "Mud",
+          "Chocolate",
+          "Lipstick",
+          "Water"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What happened when a lorry went by?",
+        "options": [
+          "It stopped at the party",
+          "It splashed the children",
+          "It took the children home",
+          "It spilled chocolate"
+        ],
+        "answer": 1
+      }
+    ],
+    "Tug of War": [
+      {
+        "prompt": "Where did the children go with mum and dad?",
+        "options": [
+          "to the park",
+          "to the school",
+          "to the shop",
+          "to the beach"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip see by a tree?",
+        "options": [
+          "a ball",
+          "a rope",
+          "a kite",
+          "a stick"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Dad do with the rope first?",
+        "options": [
+          "He threw it over the stream.",
+          "He gave it to Mum.",
+          "He tied it to the tree.",
+          "He put it in the water."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Mum and Dad do after the children let go?",
+        "options": [
+          "They sat down.",
+          "They went home.",
+          "They jumped too soon.",
+          "They pulled and pulled."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "Who pulled mum and dad into the stream?",
+        "options": [
+          "Kipper",
+          "Wilma",
+          "Biff",
+          "Chip"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Why did the children fall over when they skipped?",
+        "options": [
+          "The rope was too short.",
+          "They jumped too soon.",
+          "The tree fell down.",
+          "Mum pushed them."
+        ],
+        "answer": 1
+      }
+    ],
+    "The Secret Room": [
+      {
+        "prompt": "What did Mum put on the wall?",
+        "options": [
+          "wallpaper",
+          "paint",
+          "a door",
+          "a picture"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "Who helped Dad paint a door?",
+        "options": [
+          "Chip",
+          "Biff",
+          "Mum",
+          "Kipper"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Biff want for her room?",
+        "options": [
+          "a new bed",
+          "a little dog",
+          "new wallpaper",
+          "a new door"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did Biff find when the wallpaper came off?",
+        "options": [
+          "a window",
+          "a little house",
+          "a dog",
+          "a door"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Kipper find inside the little house?",
+        "options": [
+          "a little dog",
+          "three little children",
+          "a little room",
+          "new wallpaper"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Biff dream about?",
+        "options": [
+          "the wallpaper shop",
+          "the little children",
+          "painting the door",
+          "her new bed"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Play": [
+      {
+        "prompt": "Who did Biff and Chip go to school with?",
+        "options": [
+          "Wilf and Wilma",
+          "Mrs May and Wilf",
+          "Dorothy and her dog",
+          "The Mums and Dads"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What story did the children hear at story time?",
+        "options": [
+          "The Lion and the Witch",
+          "The Wizard of Oz",
+          "The Tin Man and the Storm",
+          "Dorothy and the Scarecrow"
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "Why did the children play inside?",
+        "options": [
+          "It was play time.",
+          "Mrs May put on a play.",
+          "There was a storm.",
+          "The Mums and Dads came."
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "Who painted a house for the play?",
+        "options": [
+          "Wilf's mum",
+          "Mrs May",
+          "Chip",
+          "Wilf's dad"
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did the children give Mrs May?",
+        "options": [
+          "Some flowers",
+          "A little dog",
+          "A painted house",
+          "A good book"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Chip say was like the play?",
+        "options": [
+          "The story time",
+          "The storm",
+          "The little play",
+          "The flowers"
+        ],
+        "answer": 1
+      }
+    ],
+    "The Storm": [
+      {
+        "prompt": "Who came to the house to play?",
+        "options": [
+          "Wolf and Wilmer",
+          "Biff and Chip",
+          "Mrs. May and Mum",
+          "Floppy and Kippur"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What did Dad do to help the children?",
+        "options": [
+          "He painted the walls.",
+          "He mended the roof.",
+          "He mended the door.",
+          "He opened the box."
+        ],
+        "answer": 1
+      },
+      {
+        "prompt": "What did Chip paint?",
+        "options": [
+          "The door",
+          "The roof",
+          "The walls",
+          "The tree"
+        ],
+        "answer": 2
+      },
+      {
+        "prompt": "What did the children do in the tree house?",
+        "options": [
+          "They did their homework.",
+          "They went to sleep.",
+          "They ate dinner.",
+          "They had a party."
+        ],
+        "answer": 3
+      },
+      {
+        "prompt": "What did Floppy find?",
+        "options": [
+          "A box",
+          "A key",
+          "A door",
+          "A tree"
+        ],
+        "answer": 0
+      },
+      {
+        "prompt": "What was inside the box?",
+        "options": [
+          "A toy",
+          "A key",
+          "A book",
+          "A picture"
+        ],
+        "answer": 1
+      }
+    ],
     "The Balloon": null,
     "The Wedding": null,
     "The Camcorder": null,

@@ -5,3 +5,5 @@ db.sqlite3
 .runserver.pid
 .server.pid
 .env
+private-materials/
+.runtime/

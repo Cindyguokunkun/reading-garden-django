@@ -189,6 +189,8 @@ class Student(models.Model):
     login_id = models.CharField(max_length=24, unique=True, null=True, blank=True)
     bind_code = models.CharField(max_length=12, unique=True, null=True, blank=True)
     active = models.BooleanField(default=True, db_index=True)
+    pet_kind = models.CharField(max_length=24, blank=True)
+    pet_adopted_at = models.DateTimeField(null=True, blank=True)
     parent_1_name = models.CharField(max_length=100, blank=True)
     parent_2_name = models.CharField(max_length=100, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -29,6 +29,7 @@ urlpatterns = [
     path('student/', auth.student_home, name='student_home'),
     path('student/password/', auth.student_password, name='student_password'),
     path('student/goal/', auth.student_goal, name='student_goal'),
+    path('student/pet/', auth.student_pet, name='student_pet'),
     path('shelf/', auth.shelf, name='shelf'),
     path('shelf/change/', auth.shelf_change, name='shelf_change'),
     path('parent/login/', auth.parent_login, name='parent_login'),

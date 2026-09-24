@@ -20,6 +20,7 @@ from django.db.models import Count, Max, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.utils import timezone
 from django.views.decorators.http import require_POST
 from ..models import Book, Classroom, QuizAttempt, ReadingRecord, ShelfItem, Student, StudentGoal
 from ..personas import MANAGER, PARENT, STUDENT, TEACHER, clear_persona, get_persona, persona_required, set_student_persona
@@ -233,6 +234,22 @@ def student_goal(request):
     if words > 0:
         StudentGoal.objects.update_or_create(student=get_persona(request).student, defaults={'words': words})
         messages.success(request, _('Personal reading goal saved.'))
+    else:
+        StudentGoal.objects.filter(student=get_persona(request).student).delete()
+        messages.success(request, _('Personal reading goal removed.'))
+    return redirect('student_home')
+
+
+@persona_required(STUDENT)
+@require_POST
+def student_pet(request):
+    student = get_persona(request).student
+    pet_kind = request.POST.get('pet_kind') or ''
+    if not student.pet_kind and pet_kind in {'fox', 'deer', 'owl', 'rabbit', 'bear'}:
+        student.pet_kind = pet_kind
+        student.pet_adopted_at = timezone.now()
+        student.save(update_fields=['pet_kind', 'pet_adopted_at'])
+        messages.success(request, _('Your reading companion is ready to grow with you.'))
     return redirect('student_home')
 
 

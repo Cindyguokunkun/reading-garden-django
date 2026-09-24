@@ -1,18 +1,20 @@
 from datetime import date, timedelta
 from django.conf import settings
-from django.db.models import Count, Sum
+from django.db.models import Count, Max, Q, Sum
 from django.utils.translation import gettext_lazy as _
 from .models import ReadingRecord
 
 # 阅读等级称号：(累计词数阈值, 称号)，按阈值升序排列，达到即晋级。
 # 称号只按累计词数实时算出，不存数据库；阈值与名字在此一处集中调整。
 READING_LEVELS = [
-    (10000, _('Bronze Reader')),
-    (100000, _('Silver Reader')),
-    (500000, _('Gold Reader')),
-    (1000000, _('Platinum Reader')),
-    (5000000, _('Diamond Reader')),
-    (10000000, _('Legendary Reader')),
+    (0, _('Waiting egg')),
+    (10000, _('Stirring egg')),
+    (50000, _('Cracked egg')),
+    (100000, _('Hatched companion')),
+    (200000, _('Young companion')),
+    (500000, _('Growing companion')),
+    (1000000, _('Evolving companion')),
+    (2000000, _('Reading partner')),
 ]
 
 # 百万榜上榜门槛（累计词数）：达到此值即进入全校「百万星光榜」。
@@ -77,16 +79,40 @@ def reading_level(words):
             ``top`` 是否已达最高等级。
     """
     words = words or 0
-    name, floor, index = '', 0, -1
+    name, floor, index = READING_LEVELS[0][1], 0, 0
     for position, (threshold, title) in enumerate(READING_LEVELS):
         if words >= threshold:
             name, floor, index = title, threshold, position
     if index >= len(READING_LEVELS) - 1:
-        return {'name': name, 'index': index, 'next_name': '', 'next_threshold': 0,
-                'progress': 100, 'remaining': 0, 'top': True, 'words': words}
+        stars = max(0, (words - READING_LEVELS[-1][0]) // 1000000)
+        next_threshold = READING_LEVELS[-1][0] + (stars + 1) * 1000000
+        return {'name': name, 'index': index, 'stage': name, 'stars': stars,
+                'next_name': _('Honor star %(number)s') % {'number': stars + 1},
+                'next_threshold': next_threshold,
+                'progress': round((words - (next_threshold - 1000000)) * 100 / 1000000),
+                'remaining': next_threshold - words, 'top': False, 'words': words}
     next_threshold, next_name = READING_LEVELS[index + 1]
     span = next_threshold - floor
     progress = min(100, round((words - floor) * 100 / span)) if span else 0
-    return {'name': name, 'index': index, 'next_name': next_name,
+    return {'name': name, 'index': index, 'stage': name, 'stars': 0, 'next_name': next_name,
             'next_threshold': next_threshold, 'progress': progress,
             'remaining': max(next_threshold - words, 0), 'top': False, 'words': words}
+
+
+def student_growth_rows(students):
+    """Return one derived ledger row per enrolled student, including zero readers."""
+    rows = []
+    annotated = students.annotate(
+        total_words=Sum('records__words', filter=Q(records__passed=True)),
+        completed_books=Count('records__book', filter=Q(records__passed=True), distinct=True),
+        last_read=Max('records__read_date', filter=Q(records__passed=True)),
+    )
+    for student in annotated:
+        words = student.total_words or 0
+        rows.append({
+            'student': student, 'words': words,
+            'books': student.completed_books or 0,
+            'last_read': student.last_read,
+            'level': reading_level(words),
+        })
+    return rows

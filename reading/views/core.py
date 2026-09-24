@@ -22,7 +22,7 @@ from openpyxl import Workbook
 from ..accounts import DEFAULT_PASSWORD, full_english_name, unique_student_login
 from ..models import grade_choices, Book, ClassGoal, Classroom, Membership, ReadingRecord, Student, ROLE_TEACHER
 from ..personas import MANAGER, TEACHER, accessible_classrooms, current_classroom, get_persona, persona_required
-from ..stats import period, rank_rows, sort_rows
+from ..stats import period, rank_rows, sort_rows, student_growth_rows
 from .registration import _unique_code
 
 
@@ -73,7 +73,16 @@ def dashboard(request):
     total_words = records.aggregate(v=Sum('words'))['v'] or 0
     goal = getattr(classroom, 'goal', None) if classroom else None
     goal_percent = min(100, round(total_words * 100 / goal.words)) if goal and goal.words else 0
-    return render(request, 'reading/dashboard.html', {'classes': accessible_classrooms(request), 'classroom': classroom, 'students': students, 'records': records[:100], 'series': series, 'word_rankings': word_rankings, 'time_rankings': time_rankings, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'total_words': total_words, 'total_minutes': records.aggregate(v=Sum('minutes'))['v'] or 0, 'goal': goal, 'goal_percent': goal_percent, 'grade_choices': grade_choices()})
+    ledger = student_growth_rows(students.order_by('name'))
+    ledger_filter = request.GET.get('student_filter', 'all')
+    today = date.today()
+    if ledger_filter == 'not_started':
+        ledger = [row for row in ledger if row['words'] == 0]
+    elif ledger_filter == 'inactive':
+        ledger = [row for row in ledger if not row['last_read'] or (today - row['last_read']).days >= 14]
+    elif ledger_filter == 'near_level':
+        ledger = [row for row in ledger if row['level']['remaining'] <= max(5000, row['level']['next_threshold'] // 10)]
+    return render(request, 'reading/dashboard.html', {'classes': accessible_classrooms(request), 'classroom': classroom, 'students': students, 'ledger': ledger, 'ledger_filter': ledger_filter, 'records': records[:100], 'series': series, 'word_rankings': word_rankings, 'time_rankings': time_rankings, 'mode': mode, 'anchor': anchor, 'start': start, 'end': end, 'total_words': total_words, 'total_minutes': records.aggregate(v=Sum('minutes'))['v'] or 0, 'goal': goal, 'goal_percent': goal_percent, 'grade_choices': grade_choices()})
 
 
 @persona_required(TEACHER, MANAGER)
@@ -204,4 +213,10 @@ def export_excel(request):
     """
     classroom = current_classroom(request); wb = Workbook(); ws = wb.active; ws.title = _('Reading records'); ws.append([_('Student'), _('Date'), _('Series'), _('Title'), _('Words'), _('Minutes'), _('Quiz score')])
     for r in ReadingRecord.objects.filter(student__classroom=classroom, student__active=True).select_related('student', 'book'): ws.append([r.student.name, r.read_date, r.book.series, r.book.title, r.words, r.minutes, r.quiz_score])
+    ledger = wb.create_sheet(_('Class ledger'))
+    ledger.append([_('Student'), _('Words'), _('Books'), _('Last reading'), _('Reading level'), _('Pet stage'), _('Words to next level')])
+    students = classroom.students.filter(active=True).order_by('name') if classroom else Student.objects.none()
+    for row in student_growth_rows(students):
+        level = row['level']
+        ledger.append([row['student'].name, row['words'], row['books'], row['last_read'], str(level['name']), str(level['stage']), level['remaining']])
     out = BytesIO(); wb.save(out); response = HttpResponse(out.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); response['Content-Disposition'] = 'attachment; filename="reading-records.xlsx"'; return response

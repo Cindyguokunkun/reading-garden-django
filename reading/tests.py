@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 from .models import Book, Classroom, ReadingRecord, Student
 from .accounts import full_english_name, username_base
+from .stats import reading_level
 
 
 class AccountNamingTests(TestCase):
@@ -42,6 +43,20 @@ class ReadingGardenTests(TestCase):
         response=self.client.get(reverse('export_excel')+f'?class={self.room.pk}')
         self.assertEqual(response.status_code,200)
         self.assertIn('spreadsheetml',response['Content-Type'])
+
+    def test_class_ledger_includes_zero_readers(self):
+        response = self.client.get(reverse('dashboard'))
+        self.assertEqual(len(response.context['ledger']), 1)
+        self.assertEqual(response.context['ledger'][0]['words'], 0)
+        self.assertContains(response, 'Amy')
+
+    def test_growth_thresholds_follow_system_levels(self):
+        self.assertEqual(reading_level(0)['index'], 0)
+        self.assertEqual(reading_level(10000)['index'], 1)
+        self.assertEqual(reading_level(50000)['index'], 2)
+        self.assertEqual(reading_level(100000)['index'], 3)
+        self.assertEqual(reading_level(2000000)['index'], 7)
+        self.assertEqual(reading_level(3000000)['stars'], 1)
 
 from datetime import timedelta
 from io import BytesIO

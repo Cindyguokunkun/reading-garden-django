@@ -22,6 +22,12 @@ msgstr "Library"
 msgid "退出"
 msgstr "Log out"
 
+msgid "菜单"
+msgstr "Menu"
+
+msgid "关闭菜单"
+msgstr "Close menu"
+
 msgid "每一个故事，都是一步成长"
 msgstr "Every story is a step of growth"
 

@@ -33,11 +33,29 @@ class ReadingGardenTests(TestCase):
     def test_passing_quiz_adds_words_once(self):
         response=self.client.post(reverse('quiz_start'),{'class':self.room.pk,'student':self.student.pk,'book':self.book.pk})
         attempt_id=int(response.url.strip('/').split('/')[-1])
-        questions=self.client.session[f'quiz_{attempt_id}']
+        questions=QuizAttempt.objects.get(pk=attempt_id).questions
         answers={f'q{i}':str(q['answer']) for i,q in enumerate(questions)}
         response=self.client.post(reverse('quiz_take',args=[attempt_id]),answers)
         self.assertContains(response,'100%')
         self.assertEqual(ReadingRecord.objects.count(),1)
+
+    def test_new_quiz_persists_questions_before_submission(self):
+        response = self.client.post(reverse('quiz_start'), {
+            'class': self.room.pk, 'student': self.student.pk, 'book': self.book.pk,
+        })
+        attempt = QuizAttempt.objects.get(pk=int(response.url.strip('/').split('/')[-1]))
+        self.assertEqual(len(attempt.questions), 10)
+
+    def test_empty_legacy_quiz_recovers_questions_when_resumed(self):
+        attempt = QuizAttempt.objects.create(
+            student=self.student, book=self.book, score=0, passed=False,
+            submitted=False, answers=[], questions=[], started_at=timezone.now(),
+        )
+        response = self.client.get(reverse('quiz_take', args=[attempt.pk]))
+        self.assertEqual(response.status_code, 200)
+        attempt.refresh_from_db()
+        self.assertEqual(len(attempt.questions), 10)
+        self.assertContains(response, 'Question 1?')
 
     def test_excel_export(self):
         response=self.client.get(reverse('export_excel')+f'?class={self.room.pk}')
@@ -77,7 +95,7 @@ def take_quiz(client, classroom, student, book, correct):
     if response.status_code != 302 or response.url == reverse('quiz_start'):
         return response, None, None
     attempt_id = int(response.url.strip('/').split('/')[-1])
-    questions = client.session[f'quiz_{attempt_id}']
+    questions = QuizAttempt.objects.get(pk=attempt_id).questions
     answers = {f'q{i}': str(q['answer'] if correct else (q['answer'] + 1) % len(q['options'])) for i, q in enumerate(questions)}
     return client.post(reverse('quiz_take', args=[attempt_id]), answers), attempt_id, questions
 

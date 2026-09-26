@@ -7,7 +7,7 @@
 - :func:`quiz_review`: 回看已提交测验的题目与答案。
 
 每本书最多允许 :data:`MAX_SUBMITTED_ATTEMPTS` 次「已提交但未通过」的作答；
-一旦通过则不可再考。题目在会话中按测验实例缓存，重考时会打乱题序与选项。
+一旦通过则不可再考。题目快照随测验记录持久化保存，重考时会打乱题序与选项。
 访问权限通过 :func:`_can_access_attempt` 按身份类型逐一判定。
 """
 
@@ -109,13 +109,34 @@ def _build_questions(book, retake):
     return questions
 
 
+def _recover_questions(attempt):
+    """为题目快照缺失的未提交作答重建题目并写回记录。
+
+    早期版本仅把题目缓存于会话，会话丢失（重新登录、更换浏览器、
+    会话过期等）后「继续上次的测试」会打开 0 题的空答卷。此处按
+    创建时相同的规则重建题目快照并持久化，保证继续答题始终有题。
+
+    Args:
+        attempt (QuizAttempt): 未提交且 ``questions`` 为空的作答记录。
+
+    Returns:
+        list[dict]: 重建后的题目列表，格式同 :func:`_build_questions`。
+    """
+    _, failed = _attempt_stats(attempt.student, attempt.book)
+    questions = _build_questions(attempt.book, retake=failed > 0)
+    attempt.questions = questions
+    attempt.save(update_fields=['questions'])
+    return questions
+
+
 @persona_required(TEACHER, MANAGER, STUDENT)
 def quiz_start(request):
     """测验入口视图：GET 展示选择表单，POST 创建测验实例并跳转作答。
 
     学生身份直接以本人应试；教师/管理员需指定当前班级内的学生。
     POST 时校验该书是否已通过、是否已用尽作答次数，通过后创建
-    :class:`QuizAttempt`、在会话缓存题目与阅读元信息，再跳转作答页。
+    :class:`QuizAttempt`、把题目快照写入记录并在会话缓存阅读元信息，
+    再跳转作答页。
 
     Args:
         request (HttpRequest): 当前请求对象。POST 需含 ``book``，
@@ -145,8 +166,8 @@ def quiz_start(request):
         if failed >= MAX_SUBMITTED_ATTEMPTS:
             messages.error(request, _('All 3 quiz attempts for this book have been used.'))
             return redirect(back)
-        attempt = QuizAttempt.objects.create(student=student, book=book, score=0, passed=False, answers=[], started_at=timezone.now())
-        request.session[f'quiz_{attempt.pk}'] = _build_questions(book, retake=failed > 0)
+        attempt = QuizAttempt.objects.create(student=student, book=book, score=0, passed=False, answers=[],
+            questions=_build_questions(book, retake=failed > 0), started_at=timezone.now())
         request.session[f'quiz_meta_{attempt.pk}'] = {'date': request.POST.get('date') or date.today().isoformat(), 'minutes': request.POST.get('minutes') or None}
         return redirect('quiz_take', attempt_id=attempt.pk)
     chosen = request.GET.get('book') or ''
@@ -181,7 +202,7 @@ def _can_access_attempt(persona, attempt):
 def quiz_take(request, attempt_id):
     """测验作答视图：GET 展示题目，POST 判分并写入结果。
 
-    POST 时按会话中缓存的题目对学生答案判分，得分 ≥ 60 视为通过，
+    POST 时按记录中的题目快照对学生答案判分，得分 ≥ 60 视为通过，
     更新测验记录；若本次通过且该书尚无通过的阅读记录，则据会话元信息
     新建一条阅读记录。无访问权限者返回 403。
 
@@ -201,11 +222,12 @@ def quiz_take(request, attempt_id):
     attempt = get_object_or_404(QuizAttempt, pk=attempt_id)
     if not _can_access_attempt(persona, attempt):
         return HttpResponseForbidden()
-    questions = request.session.get(f'quiz_{attempt.pk}', [])
+    questions = attempt.questions
+    if not attempt.submitted and not questions:
+        questions = _recover_questions(attempt)
     # A completed attempt is immutable. Refreshing the result page or sending
     # another POST must never change its score, answers, or reading record.
     if attempt.submitted:
-        questions = attempt.questions or questions
         correct = sum(
             answer == question['answer']
             for answer, question in zip(attempt.answers, questions)

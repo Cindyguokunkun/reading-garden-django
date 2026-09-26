@@ -369,6 +369,30 @@ msgstr "Pass score: 60%"
 msgid "提交答卷"
 msgstr "Submit quiz"
 
+msgid "第 <span data-current>1</span>/%(total)s 题"
+msgstr "Question <span data-current>1</span> of %(total)s"
+
+msgid "答题进度"
+msgstr "Quiz progress"
+
+msgid "上一题"
+msgstr "Previous question"
+
+msgid "下一题"
+msgstr "Next question"
+
+msgid "还有题目没有回答，请先完成再提交。"
+msgstr "Some questions are still unanswered. Answer them all before submitting."
+
+msgid "我的成长"
+msgstr "My growth"
+
+msgid "继续上次的测试"
+msgstr "Continue your last quiz"
+
+msgid "继续答题"
+msgstr "Resume quiz"
+
 msgid "通过"
 msgstr "PASSED"
 

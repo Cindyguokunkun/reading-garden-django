@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 {% if student_english %}<meta name="google" content="notranslate">{% endif %}
 <title>{% block title %}{% trans "阅见 · 英文阅读成长" %}{% endblock %}</title>
-<link rel="stylesheet" href="{% static 'reading/style.css' %}">
+<link rel="stylesheet" href="{% static 'reading/style.css' %}?v=20260926-2">
+<link rel="stylesheet" href="{% static 'reading/student-product.css' %}?v=20260926-1">
 </head>
 <body>
 <header>
@@ -17,9 +18,9 @@
 {% if persona %}
 <nav class="topnav">
 {% if persona.is_staff %}<a href="{% url 'dashboard' %}">{% if persona.is_manager %}{% trans "管理首页" %}{% else %}{% trans "班级工作台" %}{% endif %}</a>{% else %}<a href="{% if persona.kind == 'student' %}{% url 'student_home' %}{% else %}{% url 'parent_home' %}{% endif %}">{% trans "首页" %}</a>{% endif %}
-<a href="{% url 'ranks' %}">{% trans "排行榜" %}</a>
+{% if persona.is_staff %}<a href="{% url 'ranks' %}">{% trans "课堂展示" %}</a>{% elif persona.kind == 'parent' %}<a href="{% url 'ranks' %}">{% trans "排行榜" %}</a>{% endif %}
 {% if persona.is_manager %}<a href="{% url 'manage_teachers' %}">{% trans "教师账号管理" %}</a><a href="{% url 'student_accounts' %}">{% trans "学生账号管理" %}</a><a href="{% url 'library' %}">{% trans "图书管理" %}</a><a href="{% url 'manage_import' %}">{% trans "数据管理" %}</a><a href="{% url 'account_approvals' %}">{% trans "权限与审批" %}</a>{% else %}<a href="{% url 'library' %}">{% trans "图书馆" %}</a>{% if persona.is_staff %}<a href="{% url 'student_accounts' %}">{% trans "学生账号管理" %}</a>{% endif %}{% endif %}
-{% if persona.student %}<a href="{% url 'shelf' %}">{% if persona.kind == 'parent' %}{% trans "孩子书架" %}{% else %}{% trans "我的书架" %}{% endif %}</a>{% endif %}
+{% if persona.student %}<a href="{% url 'shelf' %}">{% if persona.kind == 'parent' %}{% trans "孩子书架" %}{% else %}{% trans "我的书架" %}</a><a href="{% url 'student_home' %}#growth">{% trans "我的成长" %}{% endif %}</a>{% endif %}
 {% if persona.is_staff %}<a href="{% url 'staff_password' %}">{% trans "修改密码" %}</a>{% elif persona.kind == 'student' %}<a href="{% url 'student_password' %}">Change password</a>{% endif %}
 </nav>
 {% if persona.is_staff and organizations|length > 1 %}<form class="orgswitch" action="{% url 'organization_switch' %}" method="post">{% csrf_token %}{% for o in organizations %}<button type="submit" class="optbtn small{% if o.pk == persona.organization.pk %} on{% endif %}" name="organization" value="{{ o.pk }}">{{ o.name }}</button>{% endfor %}</form>{% elif persona.organization %}<small class="orgname">{{ persona.organization.name }}</small>{% endif %}

@@ -177,21 +177,15 @@ def _home_context(student):
     goal_percent = min(100, round(class_words * 100 / goal.words)) if goal and goal.words else 0
     personal_goal = getattr(student, 'personal_goal', None)
     personal_percent = min(100, round(total['words'] * 100 / personal_goal.words)) if personal_goal and personal_goal.words else 0
-    week_start, week_end = period('week')
-    week_rows = sort_rows(rank_rows(Classroom.objects.filter(pk=student.classroom_id), week_start, week_end), 'words')
-    for position, row in enumerate(week_rows, 1):
-        row['position'] = position
-        row['me'] = row['student_id'] == student.pk
-    week_visible = week_rows[:10]
-    mine = next((row for row in week_rows if row['me']), None)
-    if mine and mine not in week_visible:
-        week_visible.append(mine)
+    recent_attempt = (QuizAttempt.objects.filter(student=student, submitted=False)
+                      .select_related('book').order_by('-started_at').first())
+    recent_growth = sum(r.words for r in records.order_by('-read_date')[:5])
     return {'student': student, 'classroom': student.classroom, 'records': records.select_related('book')[:50],
             'totals': total, 'goal': goal, 'class_words': class_words, 'goal_percent': goal_percent,
             'personal_goal': personal_goal, 'personal_percent': personal_percent,
             'level': reading_level(total['words']),
             'personal_goal_choices': (10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000),
-            'week_rankings': week_visible, 'week_start': week_start, 'week_end': week_end}
+            'recent_attempt': recent_attempt, 'recent_growth': recent_growth}
 
 
 def _attempt_rows(student):
@@ -428,10 +422,28 @@ def shelf(request):
     completed = list(Book.objects.filter(readingrecord__student=student, readingrecord__passed=True).distinct()
                      .order_by('series', 'series_order', 'title')[:500])
     completed_ids = {book.pk for book in completed}
+    open_attempts = list(QuizAttempt.objects.filter(student=student, submitted=False)
+                         .exclude(book_id__in=completed_ids).select_related('book')
+                         .order_by('-started_at'))
+    in_progress = []
+    seen = set()
+    for attempt in open_attempts:
+        if attempt.book_id not in seen:
+            attempt.book.open_attempt_id = attempt.pk
+            in_progress.append(attempt.book)
+            seen.add(attempt.book_id)
+    retry = list(Book.objects.filter(quizattempt__student=student,
+                                      quizattempt__submitted=True,
+                                      quizattempt__passed=False)
+                 .exclude(pk__in=completed_ids).exclude(pk__in=seen).distinct()
+                 .order_by('series', 'series_order', 'title')[:500])
     items = list(student.shelf.select_related('book').exclude(book_id__in=completed_ids)[:200])
-    shelf_state(student, completed + [item.book for item in items])
+    shelf_state(student, completed + in_progress + retry + [item.book for item in items])
+    completed_words = sum(book.words or 0 for book in completed)
     return render(request, 'reading/shelf.html', {
-        'items': items, 'completed': completed, 'count': len(items) + len(completed), 'student': student,
+        'completed': completed, 'in_progress': in_progress, 'retry': retry, 'items': items,
+        'count': len(completed), 'total_count': len(completed) + len(items),
+        'completed_words': completed_words, 'student': student,
     })
 
 
